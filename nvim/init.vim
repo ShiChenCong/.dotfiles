@@ -107,7 +107,8 @@ else
 
   Plug 'windwp/nvim-autopairs'
 
-  Plug 'b3nj5m1n/kommentary'
+  " Plug 'b3nj5m1n/kommentary'
+  Plug 'numToStr/Comment.nvim'
 
   Plug 'nvim-lualine/lualine.nvim'
   " 处理代码高亮和回车自动indent
