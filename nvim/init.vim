@@ -212,6 +212,7 @@ else
 
   Plug 'phaazon/hop.nvim'
 
+  Plug 'windwp/nvim-ts-autotag'
   call plug#end()
 
 endif
