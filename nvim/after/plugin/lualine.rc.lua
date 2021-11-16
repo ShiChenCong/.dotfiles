@@ -23,20 +23,21 @@ lualine.setup {
       'encoding',
       'filetype'
     },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_y = {},
+    lualine_z = {}
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
+    lualine_a = {'mode'},
     lualine_c = {{
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
       path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
     }},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+    lualine_x = {
+      { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+      'encoding',
+      'filetype'
+    },
   },
   tabline = {},
   extensions = {'fugitive', 'fzf', 'nvim-tree', 'quickfix'}

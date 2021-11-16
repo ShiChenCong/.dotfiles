@@ -109,6 +109,7 @@ else
 
   " Plug 'b3nj5m1n/kommentary'
   Plug 'numToStr/Comment.nvim'
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
   Plug 'nvim-lualine/lualine.nvim'
   " 处理代码高亮和回车自动indent
