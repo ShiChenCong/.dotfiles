@@ -212,6 +212,7 @@ else
   Plug 'karb94/neoscroll.nvim'
 
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
+  nnoremap <leader>p :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
 

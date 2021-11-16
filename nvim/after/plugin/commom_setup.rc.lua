@@ -23,3 +23,8 @@ require('Comment').setup({
         end
     end,
 })
+
+
+require('bqf').setup({
+  auto_enable = false,
+})
