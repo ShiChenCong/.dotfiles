@@ -183,3 +183,6 @@ inoremap <buffer> <C-s> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
+nnoremap <A-f> /
+inoremap <A-f> <Esc>/
+
