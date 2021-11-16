@@ -76,6 +76,7 @@ else
   nnoremap <leader>fb :lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
   nnoremap <leader>fch :lua require('telescope.builtin').command_history()<CR>
   nnoremap <leader>fri :lua require('telescope.builtin').registers()<CR>
+  nnoremap <leader>fo  :Telescope oldfiles<CR>
   nnoremap <leader>fp :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   " jsx 回车 indent插件
   " Plug 'chemzqm/vim-jsx-improve'
