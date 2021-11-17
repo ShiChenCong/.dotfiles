@@ -43,22 +43,23 @@ else
   nnoremap mr :BufferLineMoveNext<CR>
   nnoremap ml :BufferLineMovePrev<CR>
 
-  " Plug 'ful1e5/onedark.nvim'
+   " Plug 'ful1e5/onedark.nvim'
 
-  " let g:onedark_colors = {
-  "       \ 'hint': 'orange',
-  "       \ 'error': '#ff0000'
-  "       \ }
+   " let g:onedark_colors = {
+   "       \ 'hint': 'orange',
+   "       \ 'error': '#ff0000'
+   "       \ }
   syntax enable
+  Plug 'gruvbox-community/gruvbox'
   " colorscheme onedark
-  " colorscheme gruvbox
-  colorscheme  solarized8
+  colorscheme gruvbox
+  " colorscheme  solarized8
 
   " 高亮行
   set cursorline                          " Enable highlighting of the current line
   hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
   " 搜索结果的高亮 需要在主题后设置
-  hi Search guibg=#495360 guifg=transparent
+  " hi Search guibg=#495360 guifg=transparent
 
   " hi! VertSplit guifg=black guibg=#002b36 ctermfg=black ctermbg=black
 
@@ -209,7 +210,7 @@ else
   Plug 'ThePrimeagen/harpoon'
 
 
-  Plug 'karb94/neoscroll.nvim'
+  " Plug 'karb94/neoscroll.nvim'
 
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
 
