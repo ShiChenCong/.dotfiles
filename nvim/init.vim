@@ -181,7 +181,7 @@ else
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'rinx/lspsaga.nvim'
+  " Plug 'rinx/lspsaga.nvim'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
   let g:vsnip_snippet_dir = expand('~/.config/nvim/snip')

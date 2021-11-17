@@ -17,11 +17,11 @@ saga.init_lsp_saga {
   },
 }
 EOF
-nnoremap <silent><leader>. <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-nnoremap <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>
-nnoremap <silent> <leader>l :Lspsaga show_line_diagnostics<CR>
+" nnoremap <silent><leader>. <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+" nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+" nnoremap <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>
+" nnoremap <silent> <leader>l :Lspsaga show_line_diagnostics<CR>
 " nnoremap <silent> [d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
 " nnoremap <silent> ]d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
-nnoremap <silent><leader>pr <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+" nnoremap <silent><leader>pr <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
 
