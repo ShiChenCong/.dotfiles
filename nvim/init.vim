@@ -56,8 +56,8 @@ else
   " colorscheme  solarized8
 
   " 高亮行
-  set cursorline                          " Enable highlighting of the current line
-  hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
+  " set cursorline                          " Enable highlighting of the current line
+  " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
   " 搜索结果的高亮 需要在主题后设置
   " hi Search guibg=#495360 guifg=transparent
 
