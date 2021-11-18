@@ -4,9 +4,9 @@ local onedark = require'lualine.themes.onedark'
 lualine.setup {
   options = {
     icons_enabled = true,
-    -- theme = 'solarized_dark',
+    theme = 'solarized_dark',
     -- theme = onedark,
-    theme = 'gruvbox',
+    -- theme = 'gruvbox',
     section_separators = {left = '', right = ''},
     component_separators = {left = '', right = ''},
     disabled_filetypes = {}

@@ -52,12 +52,15 @@ else
   syntax enable
   Plug 'gruvbox-community/gruvbox'
   " colorscheme onedark
-  colorscheme gruvbox
-  " colorscheme  solarized8
+  " colorscheme gruvbox
+  colorscheme  solarized8
 
   " 高亮行
-  " set cursorline                          " Enable highlighting of the current line
-  " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
+  set cursorline                          " Enable highlighting of the current line
+  hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
+  hi Visual guifg=#eeeeee guibg=Grey gui=none
+
+
   " 搜索结果的高亮 需要在主题后设置
   " hi Search guibg=#495360 guifg=transparent
 
@@ -213,7 +216,7 @@ else
   " Plug 'karb94/neoscroll.nvim'
 
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
-  nnoremap <leader>p :BqfToggle<CR>
+  nnoremap <leader>pp :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
 

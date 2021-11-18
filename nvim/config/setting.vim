@@ -49,5 +49,5 @@ au BufEnter * set fo-=c fo-=r fo-=o
 " autocmd BufWritePre <cmd>EslintFixAll<CR>
 
 " 提前打开signcolumn 
-set signcolumn=yes
+" set signcolumn=yes
 cmap w!! w !sudo tee %
