@@ -51,3 +51,4 @@ au BufEnter * set fo-=c fo-=r fo-=o
 " 提前打开signcolumn 
 " set signcolumn=yes
 cmap w!! w !sudo tee %
+set fillchars+=diff:╱
