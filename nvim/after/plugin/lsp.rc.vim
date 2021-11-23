@@ -76,7 +76,7 @@ vim.fn.sign_define("DiagnosticSignWarn",
 vim.fn.sign_define("DiagnosticSignInfo",
     {text = "", texthl = "GruvboxBlue"})
 vim.fn.sign_define("DiagnosticSignHint",
-    {text = "", texthl = "GruvboxAqua"})
+    {text = "", texthl = "GruvboxAqua"})
 
 -- eslint 的需要单独配置
 -- local eslint_attach = function(client)
