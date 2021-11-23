@@ -132,9 +132,6 @@ nnoremap } }zz
 " nnoremap <C-k> :cnext<CR>zz
 " nnoremap <C-j> :cprev<CR>zz
 
-nnoremap <A-n> :cnewer<CR>
-nnoremap <A-o> :colder<CR>
-
 nnoremap ; :
 vnoremap ; :
 

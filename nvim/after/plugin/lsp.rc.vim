@@ -69,6 +69,15 @@ for _, lsp in ipairs(servers) do
   }
 end 
 
+vim.fn.sign_define("DiagnosticSignError",
+    {text = "", texthl = "GruvboxRed"})
+vim.fn.sign_define("DiagnosticSignWarn",
+    {text = "", texthl = "GruvboxYellow"})
+vim.fn.sign_define("DiagnosticSignInfo",
+    {text = "", texthl = "GruvboxBlue"})
+vim.fn.sign_define("DiagnosticSignHint",
+    {text = "", texthl = "GruvboxAqua"})
+
 -- eslint 的需要单独配置
 -- local eslint_attach = function(client)
 --     client.resolved_capabilities.document_formatting = true
