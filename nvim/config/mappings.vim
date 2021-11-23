@@ -158,6 +158,10 @@ nnoremap <leader>gc :DiffviewClose<CR>
 nnoremap <leader>cc :0Gclog<CR>
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>gp :Git push<CR>
+" 使用右边的(其他分支)
+nmap <leader>gr :diffget //3<CR>
+" 使用左边的(本地)
+nmap <leader>gl :diffget //2<CR>
 
 
 nnoremap Y yg$
