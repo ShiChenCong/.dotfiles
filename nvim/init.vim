@@ -43,17 +43,17 @@ else
   nnoremap mr :BufferLineMoveNext<CR>
   nnoremap ml :BufferLineMovePrev<CR>
 
-   " Plug 'ful1e5/onedark.nvim'
+  Plug 'ful1e5/onedark.nvim'
 
-   " let g:onedark_colors = {
-   "       \ 'hint': 'orange',
-   "       \ 'error': '#ff0000'
-   "       \ }
+    let g:onedark_colors = {
+          \ 'hint': 'orange',
+          \ 'error': '#ff0000'
+          \ }
   syntax enable
   Plug 'gruvbox-community/gruvbox'
-  " colorscheme onedark
+  colorscheme onedark
   " colorscheme gruvbox
-  colorscheme  solarized8
+  " colorscheme  solarized8
 
   " 高亮行
   set cursorline                          " Enable highlighting of the current line
