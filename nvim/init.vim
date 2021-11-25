@@ -73,9 +73,11 @@ else
   Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 
   nnoremap ma :lua require('telescope').extensions.vim_bookmarks.all()<CR>
-  nnoremap <leader>fw :lua require'telescope.builtin'.live_grep()<CR>
+  " nnoremap <leader>fw :lua require'telescope.builtin'.live_grep()<CR>
+  nnoremap <leader>fw :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+  " nnoremap <leader>fmw :lua require'telescope.builtin'.grep_string()<CR>
+  nnoremap <leader>fmw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   nnoremap <leader>ff :lua require('telescope.builtin').find_files()<CR>
-  nnoremap <leader>fmw :lua require'telescope.builtin'.grep_string()<CR>
   nnoremap <leader>fg :lua require('telescope.builtin').git_status()<CR>
   " nnoremap <leader>fb :lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
   nnoremap <leader>fb :lua require('telescope.builtin').git_branches()<CR>
@@ -221,6 +223,9 @@ else
   Plug 'phaazon/hop.nvim'
 
   Plug 'windwp/nvim-ts-autotag'
+
+  Plug 'RRethy/nvim-treesitter-textsubjects'
+
   call plug#end()
 
 endif

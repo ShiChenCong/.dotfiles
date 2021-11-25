@@ -187,3 +187,4 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <A-f> /
 inoremap <A-f> <Esc>/
 
+nnoremap <leader>m *

@@ -49,8 +49,9 @@ require('telescope').setup{
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
       }
-    }
+   },
 }
+
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('vim_bookmarks')
 local function map(mode, lhs, rhs, opts)
