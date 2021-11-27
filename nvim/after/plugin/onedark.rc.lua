@@ -16,5 +16,8 @@ require("onedark").setup({
 })
 
 vim.defer_fn(function()
-    utils.syntax({ GitSignsCurrentLineBlame = { fg = "#4a505d"} })
+    utils.syntax({
+      GitSignsCurrentLineBlame = { fg = "#4a505d"},
+      Folded = { bg = "#1d323a" }
+    })
 end, 101)
