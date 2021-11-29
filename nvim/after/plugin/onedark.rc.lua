@@ -1,3 +1,4 @@
+local utils = require("onedark.util")
 require("onedark").setup({
   transparent = false,
   dark_float = false,
@@ -13,3 +14,10 @@ require("onedark").setup({
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
   colors = {hint = "orange", error = "#ff0000", bg="#282C34"}
 })
+
+vim.defer_fn(function()
+    utils.syntax({
+      GitSignsCurrentLineBlame = { fg = "#4a505d"},
+      Folded = { bg = "#1d323a" }
+    })
+end, 101)

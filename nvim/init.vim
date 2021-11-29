@@ -24,7 +24,6 @@ else
 
 
   " tab标签
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'akinsho/bufferline.nvim'
   " nnoremap <silent><A-w>  :lua require('bufferBar').closeBuffer()<CR>
   nnoremap <silent><A-w>  : bd<CR>
@@ -50,7 +49,7 @@ else
     "       \ 'error': '#ff0000'
     "       \ }
   syntax enable
-  Plug 'gruvbox-community/gruvbox'
+  " Plug 'gruvbox-community/gruvbox'
   colorscheme onedark
   " colorscheme gruvbox
   " colorscheme  solarized8
@@ -142,13 +141,6 @@ else
   let g:bookmark_highlight_lines = 1
   " 选中添加括号插件
   Plug 'tpope/vim-surround'
-
-  Plug 'APZelos/blamer.nvim'
-  let g:blamer_delay = 500
-  let g:blamer_enabled = 1
-  let g:blamer_show_in_visual_modes = 0
-  let g:blamer_show_in_insert_modes = 0
-  let g:blamer_date_format = '%y/%m/%d'
 
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
