@@ -1,7 +1,7 @@
 local utils = require("onedark.util")
 require("onedark").setup({
   transparent = false,
-  dark_float = false,
+  -- dark_float = false,
   hide_inactive_statusline = true,
   dark_sidebar = false,
   dev = true,
