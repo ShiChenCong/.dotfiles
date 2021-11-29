@@ -2,6 +2,33 @@ lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
 
+  local cmp_kinds = {
+    Text = '  ',
+    Method = '  ',
+    Function = '  ',
+    Constructor = '  ',
+    Field = '  ',
+    Variable = '  ',
+    Class = '  ',
+    Interface = '  ',
+    Module = '  ',
+    Property = '  ',
+    Unit = '  ',
+    Value = '  ',
+    Enum = '  ',
+    Keyword = '  ',
+    Snippet = '  ',
+    Color = '  ',
+    File = '  ',
+    Reference = '  ',
+    Folder = '  ',
+    EnumMember = '  ',
+    Constant = '  ',
+    Struct = '  ',
+    Event = '  ',
+    Operator = '  ',
+    TypeParameter = '  ',
+  }
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -9,6 +36,12 @@ lua <<EOF
         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    formatting = {
+      format = function(_, vim_item)
+        vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+        return vim_item
       end,
     },
     mapping = {
