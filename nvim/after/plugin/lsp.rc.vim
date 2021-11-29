@@ -65,18 +65,26 @@ for _, lsp in ipairs(servers) do
     capabilities=capabilities,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+  handlers = {
+       ["textDocument/publishDiagnostics"] = vim.lsp.with(
+         vim.lsp.diagnostic.on_publish_diagnostics, {
+           -- Disable virtual_text
+           virtual_text = false
+         }
+       ),
+     }
   }
 end 
 
 vim.fn.sign_define("DiagnosticSignError",
-    {text = "", texthl = "GruvboxRed"})
+    {text = "", texthl = "DiagnosticSignError"})
 vim.fn.sign_define("DiagnosticSignWarn",
-    {text = "", texthl = "GruvboxYellow"})
+    {text = "", texthl = "DiagnosticSignWarn"})
 vim.fn.sign_define("DiagnosticSignInfo",
-    {text = "", texthl = "GruvboxBlue"})
+    {text = "", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint",
-    {text = "", texthl = "GruvboxAqua"})
+    {text = "", texthl = "DiagnosticSignHint"})
 
 -- eslint 的需要单独配置
 -- local eslint_attach = function(client)

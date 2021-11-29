@@ -45,10 +45,10 @@ else
 
   Plug 'ful1e5/onedark.nvim'
 
-    let g:onedark_colors = {
-          \ 'hint': 'orange',
-          \ 'error': '#ff0000'
-          \ }
+    " let g:onedark_colors = {
+    "       \ 'hint': 'orange',
+    "       \ 'error': '#ff0000'
+    "       \ }
   syntax enable
   Plug 'gruvbox-community/gruvbox'
   colorscheme onedark
