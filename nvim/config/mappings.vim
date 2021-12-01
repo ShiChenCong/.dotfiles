@@ -188,4 +188,4 @@ inoremap <A-f> <Esc>/
 
 nnoremap <leader>m *
 
-nnoremap <leader>el :s/\%V /\r/g<CR> :EslintFixAll <CR> :noh <CR>
+nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
