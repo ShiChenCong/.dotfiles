@@ -22,7 +22,6 @@ else
 
   set termguicolors " this variable must be enabled for colors to be applied properly
 
-
   " tab标签
   Plug 'akinsho/bufferline.nvim'
   " nnoremap <silent><A-w>  :lua require('bufferBar').closeBuffer()<CR>
@@ -193,6 +192,7 @@ else
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+  autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
   " Plug 'rinx/lspsaga.nvim'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
