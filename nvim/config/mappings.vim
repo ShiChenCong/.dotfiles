@@ -164,7 +164,6 @@ nmap <leader>gr :diffget //3<CR>
 nmap <leader>gl :diffget //2<CR>
 
 
-nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z

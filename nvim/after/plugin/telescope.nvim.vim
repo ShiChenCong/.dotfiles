@@ -25,17 +25,6 @@ require('telescope').setup{
     },
     -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
     -- generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
-     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '-F',
-      '-w'
-      }
   },
 	pickers = {
      -- live_grep ={ theme= "dropdown"  },
