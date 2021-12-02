@@ -5,7 +5,7 @@ lua <<EOF
   local cmp_kinds = {
     Text = '  ',
     Method = '  ',
-    Function = '  ',
+    Function = ' ',
     Constructor = '  ',
     Field = '  ',
     Variable = '  ',
@@ -17,7 +17,7 @@ lua <<EOF
     Value = '  ',
     Enum = '  ',
     Keyword = '  ',
-    Snippet = '  ',
+    Snippet = '  ',
     Color = '  ',
     File = '  ',
     Reference = '  ',
