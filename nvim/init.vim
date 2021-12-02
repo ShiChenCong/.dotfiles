@@ -153,6 +153,7 @@ else
   highlight BookmarkLine ctermbg=194 ctermfg=NONE
   let g:bookmark_sign = '♥'
   let g:bookmark_highlight_lines = 1
+  map mx <Nop>
   " 选中添加括号插件
   Plug 'tpope/vim-surround'
 
