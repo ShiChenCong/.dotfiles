@@ -55,3 +55,7 @@ set nofoldenable
 
 cmap w!! w !sudo tee %
 set fillchars+=diff:╱
+
+" 换行 切带indent
+set breakindent
+set wrap
