@@ -43,9 +43,10 @@ require('telescope').setup{
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('vim_bookmarks')
+
 local function map(mode, lhs, rhs, opts)
-local options = {noremap = true}
-if opts then options = vim.tbl_extend('force', options, opts) end
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
