@@ -2,7 +2,7 @@ lua << EOF
 local actions = require("telescope.actions")
 require('telescope').setup{
 	defaults = {
-     prompt_prefix = "",
+     -- prompt_prefix = "",
      file_ignore_patterns = {"node_modules"},
      sorting_strategy = "ascending",
      layout_config = {

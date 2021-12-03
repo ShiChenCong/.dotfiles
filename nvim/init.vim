@@ -229,6 +229,7 @@ else
   nnoremap <leader>pp :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
+  nnoremap ff :HopChar1<CR>
 
   Plug 'windwp/nvim-ts-autotag'
 
