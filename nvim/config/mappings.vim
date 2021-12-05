@@ -193,6 +193,8 @@ nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
 
 " quickfixlist
 nnoremap <C-q> :call ToggleQFList(1)<CR>
+nnoremap cl :copen<CR>
+nnoremap co :cclose<CR>
 " location list
 nnoremap <leader>q :call ToggleQFList(0)<CR>
 
