@@ -210,6 +210,7 @@ else
   Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
         \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+  nmap <Leader>py :PrettierAsync<CR>
 
   "暂时不打开自动格式化 与eslint 冲突 use leader-p
   " let g:prettier#autoformat = 1
