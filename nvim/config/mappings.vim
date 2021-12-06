@@ -220,3 +220,7 @@ fun! ToggleQFList(global)
         end
     endif
 endfun
+
+
+inoremap <c-u> <c-g>u<c-u>
+imap <C-d> <esc>yygpi
