@@ -223,8 +223,9 @@ else
 
   Plug 'ThePrimeagen/harpoon'
 
+  " tab toggle entry sign, zf打开筛选entry，C-o确认, < 回退，zN排除选中的entry
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
-  nnoremap <leader>pp :BqfToggle<CR>
+  nnoremap <leader>p :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
   nnoremap ff :HopChar1<CR>

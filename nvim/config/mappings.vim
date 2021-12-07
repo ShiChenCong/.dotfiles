@@ -224,3 +224,5 @@ endfun
 
 inoremap <c-u> <c-g>u<c-u>
 imap <C-d> <esc>yygpi
+
+nnoremap mt %
