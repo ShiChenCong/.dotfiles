@@ -220,14 +220,10 @@ else
   " emmet
   Plug 'mattn/emmet-vim'
 
-
   Plug 'ThePrimeagen/harpoon'
 
-
-  " Plug 'karb94/neoscroll.nvim'
-
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
-  nnoremap <leader>p :BqfToggle<CR>
+  nnoremap <leader>pp :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
   nnoremap ff :HopChar1<CR>
@@ -236,6 +232,7 @@ else
 
   Plug 'RRethy/nvim-treesitter-textsubjects'
 
+  Plug 'tami5/lspsaga.nvim'
   call plug#end()
 
 endif
