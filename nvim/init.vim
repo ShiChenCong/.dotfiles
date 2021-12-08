@@ -235,6 +235,11 @@ else
   Plug 'RRethy/nvim-treesitter-textsubjects'
 
   Plug 'tami5/lspsaga.nvim'
+
+  " 自动切换输入法
+  Plug 'ybian/smartim'
+  let g:smartim_default = 'com.apple.keylayout.ABC'
+
   call plug#end()
 
 endif
