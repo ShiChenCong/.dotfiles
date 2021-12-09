@@ -10,7 +10,7 @@ lspsaga.setup { -- defaults ...
   warn_sign = "",
   hint_sign = "",
   infor_sign = "",
-  dianostic_header_icon = "   ",
+  diagnostic_header_icon = "   ",
   -- code action title icon
   code_action_icon = " ",
   code_action_prompt = {
@@ -61,7 +61,7 @@ lspsaga.setup { -- defaults ...
 --   },
 -- }
 EOF
-nnoremap <silent><leader>. <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+" nnoremap <silent><leader>. <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>
 nnoremap <silent> <leader>l :Lspsaga show_line_diagnostics<CR>
