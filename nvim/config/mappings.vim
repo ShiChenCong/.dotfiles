@@ -229,3 +229,7 @@ nnoremap mt %
 
 nnoremap qf :bd<CR>
 nnoremap gq :q<CR>
+
+
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
