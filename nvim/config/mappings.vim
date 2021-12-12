@@ -232,4 +232,6 @@ nnoremap gq :q<CR>
 
 
 nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tl :tabnext<CR>
+nnoremap <leader>th :tabprevious<CR>
 nnoremap <leader>tc :tabclose<CR>
