@@ -168,10 +168,10 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
 
 
 nnoremap <expor> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -222,7 +222,7 @@ fun! ToggleQFList(global)
 endfun
 
 
-inoremap <c-u> <c-g>u<c-u>
+inoremap <C-u> <C-g>u<C-u>
 imap <C-d> <esc>yygpi
 
 nnoremap mt %
