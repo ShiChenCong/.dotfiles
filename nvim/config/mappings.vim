@@ -3,7 +3,7 @@ let g:mapleader = "\<Space>"
 nnoremap <silent><Backspace> :noh<CR>
 
 " Alternate way to save
-inoremap <A-s> <Esc> :w<CR>
+inoremap <A-s> <C-o>:w<CR>
 nnoremap <A-s> <Esc> :w<CR>
 
 nnoremap <leader>w :w<CR>
