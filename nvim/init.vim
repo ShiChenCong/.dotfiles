@@ -26,6 +26,7 @@ else
   Plug 'akinsho/bufferline.nvim'
   " nnoremap <silent><A-w>  :lua require('bufferBar').closeBuffer()<CR>
   nnoremap <silent><A-w>  : bd<CR>
+  nnoremap ,d :b#\|bd#<CR>
   nnoremap <silent><A-1> <Cmd>BufferLineGoToBuffer 1<CR>
   nnoremap <silent><A-2> <Cmd>BufferLineGoToBuffer 2<CR>
   nnoremap <silent><A-3> <Cmd>BufferLineGoToBuffer 3<CR>

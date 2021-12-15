@@ -23,7 +23,7 @@ set smarttab                            " Makes tabbing smarter will realize you
 set expandtab                           " Converts tabs to spaces
 set autoindent " 自动缩进, 需要与 smartindent 配合使用才有效果
 set smartindent " 智能缩进, 在进行代码编写的时候会智能判断缩进距离, 与 autoindent 配合使用
-" set number                              " Line numbers
+set number                              " Line numbers
 set relativenumber
 set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
 set wildmode=full
