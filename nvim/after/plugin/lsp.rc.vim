@@ -52,7 +52,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'tsserver', 'html', 'cssls', 'eslint'}
+local servers = {'html', 'cssls', 'eslint'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -70,6 +70,39 @@ for _, lsp in ipairs(servers) do
  -- }
 }
 end 
+
+nvim_lsp['tsserver'].setup{
+   handlers = {
+      ["textDocument/definition"] = function(_, result, params)
+      if result == nil or vim.tbl_isempty(result) then
+         local _ = vim.lsp.log.info() and vim.lsp.log.info(params.method, 'No location found')
+         return nil
+      end
+
+
+      if vim.tbl_islist(result) then
+         vim.lsp.util.jump_to_location(result[1])
+         if #result > 1 then
+            local isReactDTs = false
+            for key, value in pairs(result) do
+               if string.match(value.uri, "react/index.d.ts") then
+                  isReactDTs = true
+			      break
+               end
+            end
+            if not isReactDTs then
+               vim.lsp.util.set_qflist(util.locations_to_items(result))
+               vim.api.nvim_command("copen")
+               vim.api.api.nvim_command("wincmd p")
+            end
+         end
+      else
+         vim.lsp.util.jump_to_location(result)
+      end
+
+   end
+}
+}
 
 vim.fn.sign_define("DiagnosticSignError",
     {text = "", texthl = "DiagnosticSignError"})
@@ -100,32 +133,4 @@ vim.fn.sign_define("DiagnosticSignHint",
 --     debounce_text_changes = 150,
 --   }
 -- }
-
-require('vim.lsp.protocol').CompletionItemKind = {
-  '  Text';          -- = 1
-  '  Function';      -- = 2;
-  '  Method';        -- = 3;
-  '  Constructor';   -- = 4;
-  '  Field';         -- = 5;
-  '  Variable';      -- = 6;
-  '  Class';         -- = 7;
-  '  Interface';     -- = 8;
-  '  Module';        -- = 9;
-  '  Property';      -- = 10;
-  '  Unit';          -- = 11;
-  '  Value';         -- = 12;
-  '  Enum';          -- = 13;
-  '  Keyword';       -- = 14;
-  '  Snippet';       -- = 15;
-  '  Color';         -- = 16;
-  '  File';          -- = 17;
-  '  Reference';     -- = 18;
-  '  Folder';        -- = 19;
-  '  EnumMember';    -- = 20;
-  '  Constant';      -- = 21;
-  '  Struct';        -- = 22;
-  '  Event';         -- = 23;
-  '  Operator';      -- = 24;
-  '  TypeParameter'; -- = 25;
-  }
 EOF
