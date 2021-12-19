@@ -139,8 +139,16 @@
     "prefix": "cv",
     "body": "console.log('${0}:', ${0})"
   },
+  "imoprt": {
+    "prefix": "im",
+    "body": "import ${2} from ${1}"
+  },
   ":construction: chore:": {
-    "prefixl":"cc",
-    "body": ":construction: chore:${0}"
+    "prefix":"cc",
+    "body": ":construction: chore:$0"
+  },
+  ":bug: fix:": {
+    "prefix":"bf",
+    "body": ":bug: fix:${0}"
   }
 }
