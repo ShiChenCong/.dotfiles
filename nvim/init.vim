@@ -52,7 +52,14 @@ else
     "       \ }
   syntax enable
   " Plug 'gruvbox-community/gruvbox'
-  colorscheme codedark
+  colorscheme gruvbox-material
+  augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+  augroup END
   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
   " blue
   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
