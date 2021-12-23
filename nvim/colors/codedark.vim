@@ -107,6 +107,11 @@ if !exists("g:codedark_conservative")
     let g:codedark_conservative=0
 endif
 
+" Italicized comments
+if !exists("g:codedark_italics")
+    let g:codedark_italics=0
+endif
+
 let s:cdGray = {'gui': '#808080', 'cterm': s:cterm04, 'cterm256': '08'}
 let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
 let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
@@ -125,6 +130,7 @@ let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
 if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
 let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
 if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
+let s:cdSilver = {'gui': '#C0C0C0', 'cterm': s:cterm05, 'cterm256': '7'}
 
 " Vim editor colors
 "    <sid>hi(GROUP, FOREGROUND, BACKGROUND, ATTRIBUTE, SPECIAL)
@@ -174,7 +180,7 @@ hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-call <sid>hi('Comment', s:cdGreen, {}, 'none', {})
+if g:codedark_italics | call <sid>hi('Comment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('Comment', s:cdGreen, {}, 'none', {}) | endif
 
 call <sid>hi('Constant', s:cdBlue, {}, 'none', {})
 call <sid>hi('String', s:cdOrange, {}, 'none', {})
@@ -209,7 +215,7 @@ call <sid>hi('Special', s:cdYellowOrange, {}, 'none', {})
 call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
 call <sid>hi('Tag', s:cdFront, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
-call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {})
+if g:codedark_italics | call <sid>hi('SpecialComment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {}) | endif
 call <sid>hi('Debug', s:cdFront, {}, 'none', {})
 
 call <sid>hi('Underlined', s:cdNone, {}, 'underline', {})
@@ -261,7 +267,7 @@ call <sid>hi('TSConditional', s:cdPink, {}, 'none', {})
 call <sid>hi('TSRepeat', s:cdPink, {}, 'none', {})
 call <sid>hi('TSLabel', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('TSKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('TSKeywordFunction', s:cdPink, {}, 'none', {})
+call <sid>hi('TSKeywordFunction', s:cdBlue, {}, 'none', {})
 call <sid>hi('TSKeywordOperator', s:cdBlue, {}, 'none', {})
 call <sid>hi('TSOperator', s:cdFront, {}, 'none', {})
 call <sid>hi('TSException', s:cdPink, {}, 'none', {})
@@ -536,6 +542,7 @@ call <sid>hi('luaFuncKeyword', s:cdPink, {}, 'none', {})
 call <sid>hi('luaLocal', s:cdPink, {}, 'none', {})
 call <sid>hi('luaBuiltIn', s:cdBlue, {}, 'none', {})
 
+
 " SH:
 call <sid>hi('shDeref', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('shVariable', s:cdLightBlue, {}, 'none', {})
@@ -549,5 +556,59 @@ call <sid>hi('sqlOperator', s:cdPink, {}, 'none', {})
 call <sid>hi('yamlKey', s:cdBlue, {}, 'none', {})
 call <sid>hi('yamlConstant', s:cdBlue, {}, 'none', {})
 
+" C++:
+call <sid>hi('CTagsClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('CTagsStructure', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('CTagsNamespace', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('CTagsGlobalVariable', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('CTagsDefinedName ', s:cdBlue, {}, 'none', {})
+highlight def link CTagsFunction Function
+highlight def link CTagsMember Identifier
+
+" C++ color_coded
+call <sid>hi('StructDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('UnionDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('ClassDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TypeRef', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TypedefDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TypeAliasDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('EnumDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TemplateTypeParameter', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TypeAliasTemplateDecl', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('ClassTemplate', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('ClassTemplatePartialSpecialization', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('FunctionTemplate', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TemplateRef', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('TemplateTemplateParameter', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('UsingDeclaration', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('MemberRef', s:cdLightBlue, {}, 'italic', {})
+call <sid>hi('MemberRefExpr', s:cdYellow, {}, 'italic', {})
+call <sid>hi('Namespace', s:cdSilver, {}, 'none', {})
+call <sid>hi('NamespaceRef', s:cdSilver, {}, 'none', {})
+call <sid>hi('NamespaceAlias', s:cdSilver, {}, 'none', {})
+
+" C++ lsp-cxx-highlight
+call <sid>hi('LspCxxHlSymClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('LspCxxHlSymStruct', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('LspCxxHlSymEnum', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('LspCxxHlSymTypeAlias', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('LspCxxHlSymTypeParameter', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('LspCxxHlSymConcept', s:cdBlueGreen, {}, 'italic', {})
+call <sid>hi('LspCxxHlSymNamespace', s:cdSilver, {}, 'none', {})
+
 " Coc Explorer:
+call <sid>hi('CocHighlightText', {}, s:cdSelection, 'none', {})
 call <sid>hi('CocExplorerIndentLine', s:cdCursorDark, {}, 'none', {})
+
+" nvim-cmp
+call <sid>hi('CmpItemAbbrDeprecated', s:cdGray, {}, 'strikethrough', {})
+call <sid>hi('CmpItemAbbrMatch', s:cdBlue, {}, 'none', {})
+call <sid>hi('CmpItemAbbrMatchFuzzy', s:cdBlue, {}, 'none', {})
+call <sid>hi('CmpItemKindVariable', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('CmpItemKindInterface', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('CmpItemKindText', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('CmpItemKindFunction', s:cdPink, {}, 'none', {})
+call <sid>hi('CmpItemKindMethod ', s:cdPink, {}, 'none', {})
+call <sid>hi('CmpItemKindKeyword', s:cdFront, {}, 'none', {})
+call <sid>hi('CmpItemKindProperty', s:cdFront, {}, 'none', {})
+call <sid>hi('CmpItemKindUnit', s:cdFront, {}, 'none', {})
