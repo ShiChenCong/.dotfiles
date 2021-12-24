@@ -124,7 +124,7 @@ else
   Plug 'numToStr/Comment.nvim'
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  " Plug 'nvim-lualine/lualine.nvim'
+  Plug 'nvim-lualine/lualine.nvim'
   " 处理代码高亮和回车自动indent
   Plug 'yuezk/vim-js'
   Plug 'HerringtonDarkholme/yats.vim'

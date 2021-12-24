@@ -32,3 +32,11 @@ require('bqf').setup({
   auto_enable = false,
 })
 require('onedark').setup()
+local utils = require("onedark.util")
+vim.defer_fn(function()
+     utils.syntax({
+       GitSignsCurrentLineBlame = { fg = "#4a505d"},
+       Folded = { bg = "#2d3139" }
+     })
+ end, 101)
+
