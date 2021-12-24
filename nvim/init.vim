@@ -42,8 +42,8 @@ else
   nnoremap mr :BufferLineMoveNext<CR>
   nnoremap ml :BufferLineMovePrev<CR>
 
-  " Plug 'ful1e5/onedark.nvim'
-  Plug 'tomasiser/vim-code-dark'
+  Plug 'ful1e5/onedark.nvim'
+  " Plug 'tomasiser/vim-code-dark'
   Plug 'onsails/lspkind-nvim'
 
     " let g:onedark_colors = {
@@ -52,7 +52,7 @@ else
     "       \ }
   syntax enable
   " Plug 'gruvbox-community/gruvbox'
-  colorscheme codedark
+  colorscheme onedark
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline

@@ -7,7 +7,7 @@ lualine.setup {
     -- theme = 'solarized_dark',
     -- theme = onedark,
     -- theme = 'gruvbox',
-    theme = 'codedark',
+    -- theme = 'codedark',
     section_separators = {left = '', right = ''},
     component_separators = {left = '', right = ''},
     disabled_filetypes = {}

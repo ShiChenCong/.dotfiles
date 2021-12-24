@@ -31,4 +31,4 @@ require('Comment').setup({
 require('bqf').setup({
   auto_enable = false,
 })
--- require('onedark').setup()
+require('onedark').setup()
