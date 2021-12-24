@@ -63,3 +63,4 @@ require('gitsigns').setup {
   },
 }
  
+vim.cmd("hi GitSignsCurrentLineBlame guifg=#4e5362")
