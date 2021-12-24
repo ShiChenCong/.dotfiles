@@ -8,6 +8,7 @@ lualine.setup {
     -- theme = onedark,
     -- theme = 'gruvbox',
     -- theme = 'codedark',
+    theme = 'onedark-nvim',
     section_separators = {left = '', right = ''},
     component_separators = {left = '', right = ''},
     disabled_filetypes = {}
