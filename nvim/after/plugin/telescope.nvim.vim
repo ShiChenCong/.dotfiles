@@ -55,5 +55,6 @@ function telescope_find_word(path)
   require("telescope.builtin").live_grep({search_dirs = {_path}})
 end
 map('n', '<leader>fd', ':lua telescope_find_word()<CR>')
+map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
 EOF
 
