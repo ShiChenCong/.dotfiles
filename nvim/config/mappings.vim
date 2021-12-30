@@ -3,6 +3,7 @@ let g:mapleader = "\<Space>"
 nnoremap <silent><Backspace> :noh<CR>
 
 " Alternate way to save
+" inoremap <A-s> <C-o>:w<CR>
 inoremap <A-s> <Esc> :w<CR>
 nnoremap <A-s> <Esc> :w<CR>
 
@@ -68,7 +69,7 @@ map sk <C-w>k
 map sl <C-w>l
 
 
-nnoremap <leader>cf :let @*=expand("%")<CR>
+nnoremap <leader>c :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
 " 搜索文件
 " nnoremap <A-f> :FZF<CR>
 " 搜索单词 如果要全匹配单词 使用 Ra
@@ -164,15 +165,14 @@ nmap <leader>gr :diffget //3<CR>
 nmap <leader>gl :diffget //2<CR>
 
 
-nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
 
 
 nnoremap <expor> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -189,4 +189,51 @@ inoremap <A-f> <Esc>/
 
 nnoremap <leader>m *
 
-nnoremap <leader>el :s/\%V /\r/g<CR> :EslintFixAll <CR> :noh <CR>
+nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
+
+
+" quickfixlist
+nnoremap <C-q> :call ToggleQFList(1)<CR>
+nnoremap cl :copen<CR>
+nnoremap co :cclose<CR>
+" location list
+nnoremap <leader>q :call ToggleQFList(0)<CR>
+
+let g:the_primeagen_qf_l = 0
+let g:the_primeagen_qf_g = 0
+
+fun! ToggleQFList(global)
+    if a:global
+        if g:the_primeagen_qf_g == 1
+            let g:the_primeagen_qf_g = 0
+            cclose
+        else
+            let g:the_primeagen_qf_g = 1
+            copen
+        end
+    else
+        if g:the_primeagen_qf_l == 1
+            let g:the_primeagen_qf_l = 0
+            lclose
+        else
+            let g:the_primeagen_qf_l = 1
+            lopen
+        end
+    endif
+endfun
+
+
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-o> <Esc>ddO
+imap <C-d> <esc>yygpi
+
+nnoremap mt %
+
+nnoremap qf :bd<CR>
+nnoremap gq :q<CR>
+
+
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tl :tabnext<CR>
+nnoremap <leader>th :tabprevious<CR>
+nnoremap <leader>tc :tabclose<CR>

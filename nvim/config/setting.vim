@@ -18,13 +18,13 @@ set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
 set softtabstop=2
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
-set foldmethod=indent                 " 开启手动折叠代码w"
+set foldmethod=manual                 " 开启手动折叠代码w"
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab                           " Converts tabs to spaces
 set autoindent " 自动缩进, 需要与 smartindent 配合使用才有效果
 set smartindent " 智能缩进, 在进行代码编写的时候会智能判断缩进距离, 与 autoindent 配合使用
 set number                              " Line numbers
-" set relativenumber
+set relativenumber
 set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
 set wildmode=full
 set showcmd " 右下角显示正在操作的命令
@@ -50,8 +50,12 @@ au BufEnter * set fo-=c fo-=r fo-=o
 
 " 提前打开signcolumn 
 " set signcolumn=yes
-set signcolumn=number
+" set signcolumn=number
 set nofoldenable
 
 cmap w!! w !sudo tee %
 set fillchars+=diff:╱
+
+" 换行 切带indent
+set breakindent
+set wrap

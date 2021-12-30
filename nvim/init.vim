@@ -22,11 +22,11 @@ else
 
   set termguicolors " this variable must be enabled for colors to be applied properly
 
-
   " tab标签
   Plug 'akinsho/bufferline.nvim'
   " nnoremap <silent><A-w>  :lua require('bufferBar').closeBuffer()<CR>
   nnoremap <silent><A-w>  : bd<CR>
+  nnoremap ,d :b#\|bd#<CR>
   nnoremap <silent><A-1> <Cmd>BufferLineGoToBuffer 1<CR>
   nnoremap <silent><A-2> <Cmd>BufferLineGoToBuffer 2<CR>
   nnoremap <silent><A-3> <Cmd>BufferLineGoToBuffer 3<CR>
@@ -43,21 +43,27 @@ else
   nnoremap ml :BufferLineMovePrev<CR>
 
   Plug 'ful1e5/onedark.nvim'
+  " Plug 'tomasiser/vim-code-dark'
+  Plug 'onsails/lspkind-nvim'
 
     " let g:onedark_colors = {
-    "       \ 'hint': 'orange',
+    "       \ 'hint': '#585d69',
     "       \ 'error': '#ff0000'
     "       \ }
   syntax enable
   " Plug 'gruvbox-community/gruvbox'
   colorscheme onedark
-  " colorscheme gruvbox
-  " colorscheme  solarized8
-
+  augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+  augroup END
   " 高亮行
   set cursorline                          " Enable highlighting of the current line
-  hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
-  hi Visual guifg=#eeeeee guibg=Grey gui=none
+  " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
+  " hi Visual guifg=#eeeeee guibg=Grey gui=none
 
 
   " 搜索结果的高亮 需要在主题后设置
@@ -83,7 +89,7 @@ else
   nnoremap <leader>fch :lua require('telescope.builtin').command_history()<CR>
   nnoremap <leader>fri :lua require('telescope.builtin').registers()<CR>
   nnoremap <leader>fo  :Telescope oldfiles<CR>
-  nnoremap <leader>fp :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+  " nnoremap <leader>fp :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   " jsx 回车 indent插件
   " Plug 'chemzqm/vim-jsx-improve'
    " Plug 'pangloss/vim-javascript'
@@ -139,6 +145,7 @@ else
   highlight BookmarkLine ctermbg=194 ctermfg=NONE
   let g:bookmark_sign = '♥'
   let g:bookmark_highlight_lines = 1
+  map mx <Nop>
   " 选中添加括号插件
   Plug 'tpope/vim-surround'
 
@@ -178,11 +185,13 @@ else
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+  autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
   " Plug 'rinx/lspsaga.nvim'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
   let g:vsnip_snippet_dir = expand('~/.config/nvim/snip')
-  imap <silent><expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'
+  imap <silent><expr> <A-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<A-l>'
+  imap <silent><expr> <A-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<A-h>'
   " imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
   " smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
   " imap <expr><Tab> vsnip#available(1)    ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
@@ -193,6 +202,8 @@ else
   Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
         \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+  nmap <Leader>py :PrettierAsync<CR>
+  nmap <Leader>pp :PrettierPartial<CR>
 
   "暂时不打开自动格式化 与eslint 冲突 use leader-p
   " let g:prettier#autoformat = 1
@@ -203,20 +214,24 @@ else
   " emmet
   Plug 'mattn/emmet-vim'
 
-
   Plug 'ThePrimeagen/harpoon'
 
-
-  " Plug 'karb94/neoscroll.nvim'
-
+  " tab toggle entry sign, zf打开筛选entry，C-o确认, < 回退，zN排除选中的entry
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
-  nnoremap <leader>pp :BqfToggle<CR>
+  nnoremap <leader>p :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
+  nnoremap ff :HopChar1<CR>
 
   Plug 'windwp/nvim-ts-autotag'
 
   Plug 'RRethy/nvim-treesitter-textsubjects'
+
+  Plug 'tami5/lspsaga.nvim'
+
+  " 自动切换输入法
+  Plug 'ybian/smartim'
+  let g:smartim_default = 'com.apple.keylayout.ABC'
 
   call plug#end()
 

@@ -12,9 +12,9 @@ proxies:
   - {name: 🇭🇰 R1-4|香港4-V2ray|NF|Azure, server: CMT.SSRSS.CLUB, port: 5531, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
   - {name: 🇭🇰 T1-1|香港1-SSR, server: CMT.SSRSS.CLUB, port: 55051, type: ssr, cipher: chacha20-ietf, password: ssrssml, protocol: auth_aes128_md5, obfs: plain, protocol-param: 24184:mNftD2, obfs-param: "", udp: true}
   - {name: 🇭🇰 D1-1|香港3-V2ray|直连|NF, server: CM.SSRSS.CLUB, port: 5521, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
-  - {name: 🇭🇰 R2-1|香港5-V2ray|NF|HGC原生, server: CM.SSRSS.CLUB, port: 5502, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
+  - {name: 🇭🇰 R2-1|香港5-V2ray|NF|HGC, server: CM.SSRSS.CLUB, port: 5502, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
   - {name: 🇭🇰 R2-2|香港6-V2ray|NF|Azure, server: CU.SSRSS.CLUB, port: 5512, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
-  - {name: 🇭🇰 R2-3|香港5-V2ray|NF|HGC原生, server: CU.SSRSS.CLUB, port: 5502, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
+  - {name: 🇭🇰 R2-3|香港5-V2ray|NF|HGC, server: CU.SSRSS.CLUB, port: 5502, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
   - {name: 🇭🇰 R2-4|香港6-V2ray|NF|Azure, server: CM.SSRSS.CLUB, port: 5522, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
   - {name: 🇭🇰 T2-2|香港2-SSR, server: CU.SSRSS.CLUB, port: 55052, type: ssr, cipher: chacha20-ietf, password: ssrssml, protocol: auth_aes128_md5, obfs: plain, protocol-param: 24184:mNftD2, obfs-param: "", udp: true}
   - {name: 🇭🇰 D2-1|香港7-V2ray|NF|NTT, server: CM.SSRSS.CLUB, port: 5532, type: vmess, uuid: 5ac37457-7ef1-4bcb-e051-5abadd264087, alterId: 2, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: 761384820-server.s0.aicdn.com}, udp: true}
@@ -67,9 +67,9 @@ proxy-groups:
       - 🇭🇰 R1-4|香港4-V2ray|NF|Azure
       - 🇭🇰 T1-1|香港1-SSR
       - 🇭🇰 D1-1|香港3-V2ray|直连|NF
-      - 🇭🇰 R2-1|香港5-V2ray|NF|HGC原生
+      - 🇭🇰 R2-1|香港5-V2ray|NF|HGC
       - 🇭🇰 R2-2|香港6-V2ray|NF|Azure
-      - 🇭🇰 R2-3|香港5-V2ray|NF|HGC原生
+      - 🇭🇰 R2-3|香港5-V2ray|NF|HGC
       - 🇭🇰 R2-4|香港6-V2ray|NF|Azure
       - 🇭🇰 T2-2|香港2-SSR
       - 🇭🇰 D2-1|香港7-V2ray|NF|NTT
@@ -133,9 +133,9 @@ proxy-groups:
       - 🇭🇰 R1-3|香港3-V2ray|NF|Azure
       - 🇭🇰 R1-4|香港4-V2ray|NF|Azure
       - 🇭🇰 D1-1|香港3-V2ray|直连|NF
-      - 🇭🇰 R2-1|香港5-V2ray|NF|HGC原生
+      - 🇭🇰 R2-1|香港5-V2ray|NF|HGC
       - 🇭🇰 R2-2|香港6-V2ray|NF|Azure
-      - 🇭🇰 R2-3|香港5-V2ray|NF|HGC原生
+      - 🇭🇰 R2-3|香港5-V2ray|NF|HGC
       - 🇭🇰 R2-4|香港6-V2ray|NF|Azure
       - 🇭🇰 D2-1|香港7-V2ray|NF|NTT
       - 🇭🇰 R3-1|香港8-V2ray|HGC|原生IP
