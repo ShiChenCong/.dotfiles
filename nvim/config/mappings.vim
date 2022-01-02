@@ -109,10 +109,11 @@ cnoremap <expr> %% getcmdtype( ) == 'Dir: ' ? expand('%:h').'/' : '%%' "%% 自�
 nmap ss :split<Return>
 nmap sv :vsplit<Return>
 
-noremap p gp
-noremap P gP
-noremap gp p
-noremap gP P
+" noremap p gp
+" noremap P gP
+" noremap gp p
+" noremap gP P
+nnoremap p p`]
 
 
 " 先点击* normal模式下进行替换

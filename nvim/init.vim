@@ -232,7 +232,7 @@ else
   " 自动切换输入法
   Plug 'ybian/smartim'
   let g:smartim_default = 'com.apple.keylayout.ABC'
-
+  Plug 'svban/YankAssassin.vim'
   call plug#end()
 
 endif
