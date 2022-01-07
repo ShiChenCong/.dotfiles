@@ -20,8 +20,6 @@ else
   " Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
 
-  set termguicolors " this variable must be enabled for colors to be applied properly
-
   " tab标签
   Plug 'akinsho/bufferline.nvim'
   " nnoremap <silent><A-w>  :lua require('bufferBar').closeBuffer()<CR>
@@ -221,7 +219,7 @@ else
   nnoremap <leader>p :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
-  nnoremap ff :HopChar1<CR>
+  nnoremap ff :HopChar2<CR>
 
   Plug 'windwp/nvim-ts-autotag'
 
