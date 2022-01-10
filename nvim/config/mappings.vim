@@ -69,7 +69,7 @@ map sk <C-w>k
 map sl <C-w>l
 
 
-nnoremap <leader>c :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
+nnoremap ,f :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
 " 搜索文件
 " nnoremap <A-f> :FZF<CR>
 " 搜索单词 如果要全匹配单词 使用 Ra
@@ -255,3 +255,6 @@ function! NextClosedFold(dir)
         call winrestview(view)
     endif
 endfunction
+
+
+nnoremap ,r :LspRestart<CR>
