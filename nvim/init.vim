@@ -50,7 +50,7 @@ else
     "       \ }
   syntax enable
   " Plug 'gruvbox-community/gruvbox'
-  colorscheme onedark
+  " colorscheme onedark
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
