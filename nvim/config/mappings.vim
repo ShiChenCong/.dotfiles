@@ -56,7 +56,7 @@ vnoremap > >gv
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :BufferLineCycleNext<CR>
 " SHIFT-TAB will go back
-nnoremap <S-TAB> :BufferLineCyclePrev<CR>
+nnoremap <leader><TAB> :BufferLineCyclePrev<CR>
 " 切换window
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
@@ -161,6 +161,7 @@ nnoremap <leader>gc :DiffviewClose<CR>
 nnoremap <leader>cc :0Gclog<CR>
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gm :Git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph<CR>
 " 使用右边的(其他分支)
 nmap <leader>gr :diffget //3<CR>
 " 使用左边的(本地)
