@@ -130,9 +130,7 @@ else
 
   " 修改jsx标签
   Plug 'samuelsimoes/vim-jsx-utils'
-  nnoremap <leader>ct :call JSXChangeTagPrompt()<CR>
-  nnoremap <leader>ce :call JSXEachAttributeInLine()<CR>
-  " nnoremap vat :call JSXSelectTag()<CR>
+  nnoremap ,e :call JSXEachAttributeInLine()<CR>
 
   " git 
   Plug 'tpope/vim-fugitive'
