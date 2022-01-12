@@ -61,11 +61,9 @@ lspsaga.setup { -- defaults ...
 --   },
 -- }
 EOF
-" nnoremap <silent><leader>. :Lspsaga code_action<CR>
-nnoremap <silent> K :Lspsaga hover_doc<CR>
-nnoremap <leader>rn :Lspsaga rename<CR>
-nnoremap <silent> <leader>l :Lspsaga show_line_diagnostics<CR>
-nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
-nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
-" nnoremap <silent><leader>pr <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+" nnoremap <silent> K :Lspsaga hover_doc<CR>
+" nnoremap <leader>rn :Lspsaga rename<CR>
+" nnoremap <silent> <leader>l :Lspsaga show_line_diagnostics<CR>
+" nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
+" nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
 
