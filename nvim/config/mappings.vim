@@ -117,16 +117,17 @@ nnoremap p p`]
 
 
 " 先点击* normal模式下进行替换
-nnoremap <Leader>r :%s///g<Left><Left>
-nnoremap <Leader>rc :%s///gc<Left><Left><Left>
-
+" nnoremap <Leader>r :%s///g<Left><Left>
+" nnoremap <Leader>rc :%s///gc<Left><Left><Left>
+nnoremap <Leader>r  :%s/<C-r><C-w>//g<Left><Left><Left>
+nnoremap <Leader>rc  :%s/<C-r><C-w>//gc<Left><Left><Left>
 " 先点击* 自动搜索光标所在的单词替换后 点击n切换到下一个单词 进行替换操作
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 "先点击* 选中需要替换的代码快后在 visual模式下进行替换
-xnoremap <Leader>r :s///g<Left><Left>
-xnoremap <Leader>rc :s///gc<Left><Left><Left>
+xnoremap <Leader>r :s/<C-r><C-w>//g<Left><Left>
+xnoremap <Leader>rc :s/<C-r><C-w>//gc<Left><Left><Left>
 
 nnoremap { {zz
 nnoremap } }zz
