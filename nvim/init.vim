@@ -143,6 +143,7 @@ else
   let g:bookmark_sign = '♥'
   let g:bookmark_highlight_lines = 1
   map mx <Nop>
+  map mc <Nop>
   " 选中添加括号插件
   Plug 'tpope/vim-surround'
 
@@ -210,6 +211,7 @@ else
 
   " emmet
   Plug 'mattn/emmet-vim'
+  let g:user_emmet_leader_key='<C-f>'
 
   Plug 'ThePrimeagen/harpoon'
 
