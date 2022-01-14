@@ -1,6 +1,7 @@
 plugged
-clash
+./clash
 iterm2
 karabiner
 yarn
-
+configstore
+.DS_Store

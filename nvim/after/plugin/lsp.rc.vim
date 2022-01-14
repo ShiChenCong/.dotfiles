@@ -113,6 +113,16 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   maxwidth = 60,
   -- width = 60
 })
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    -- This sets the spacing and the prefix, obviously.
+    virtual_text = {
+      spacing = 3,
+      prefix = ''
+    }
+  }
+)
 vim.fn.sign_define("DiagnosticSignError",
     {text = "", texthl = "DiagnosticSignError"})
 vim.fn.sign_define("DiagnosticSignWarn",

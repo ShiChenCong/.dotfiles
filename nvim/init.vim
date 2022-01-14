@@ -211,7 +211,6 @@ else
 
   " emmet
   Plug 'mattn/emmet-vim'
-  let g:user_emmet_leader_key='<C-f>'
 
   Plug 'ThePrimeagen/harpoon'
 
@@ -222,7 +221,7 @@ else
   Plug 'phaazon/hop.nvim'
   nnoremap ff :HopChar2<CR>
 
-  Plug 'windwp/nvim-ts-autotag'
+  " Plug 'windwp/nvim-ts-autotag'
 
   Plug 'RRethy/nvim-treesitter-textsubjects'
 
