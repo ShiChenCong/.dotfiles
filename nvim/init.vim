@@ -34,11 +34,11 @@ else
   nnoremap <silent><A-7> <Cmd>BufferLineGoToBuffer 7<CR>
   nnoremap <silent><A-8> <Cmd>BufferLineGoToBuffer 8<CR>
   nnoremap <silent><A-9> <Cmd>BufferLineGoToBuffer 9<CR>
-  nnoremap <leader>co :BufferLineCloseRight <CR>:BufferLineCloseLeft<CR>
-  nnoremap <leader>cr :BufferLineCloseRight<CR>
-  nnoremap <leader>cl :BufferLineCloseLeft<CR>
-  nnoremap mr :BufferLineMoveNext<CR>
-  nnoremap ml :BufferLineMovePrev<CR>
+  nnoremap <leader>co <Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>
+  nnoremap <leader>cr <Cmd>BufferLineCloseRight<CR>
+  nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
+  nnoremap mr <Cmd>BufferLineMoveNext<CR>
+  nnoremap ml <Cmd>BufferLineMovePrev<CR>
 
   Plug 'ful1e5/onedark.nvim'
   " Plug 'tomasiser/vim-code-dark'
@@ -228,8 +228,8 @@ else
   " Plug 'tami5/lspsaga.nvim'
 
   " 自动切换输入法
-  Plug 'ybian/smartim'
-  let g:smartim_default = 'com.apple.keylayout.ABC'
+  " Plug 'ybian/smartim'
+  " let g:smartim_default = 'com.apple.keylayout.ABC'
   Plug 'svban/YankAssassin.vim'
   call plug#end()
 

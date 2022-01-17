@@ -54,9 +54,9 @@ vnoremap > >gv
 " inoremap <expr> <C-j> ("\<C-n>")
 " inoremap <expr> <C-k> ("\<C-p>")
 " TAB in general mode will move to text buffer
-nnoremap <TAB> :BufferLineCycleNext<CR>
+nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
 " SHIFT-TAB will go back
-nnoremap <leader><TAB> :BufferLineCyclePrev<CR>
+nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
 " 切换window
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
