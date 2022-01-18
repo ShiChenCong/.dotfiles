@@ -59,3 +59,4 @@ set fillchars+=diff:╱
 " 换行 切带indent
 set breakindent
 set wrap
+set wildcharm=<Tab>
