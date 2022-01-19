@@ -9,7 +9,7 @@ nnoremap <A-s> <Esc> :w<CR>
 
 nnoremap <leader>w :w<CR>
 
-nnoremap <leader>e :EslintFixAll<CR>
+nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-a> <Esc> :wq<CR>
 " Alternate way to quit
