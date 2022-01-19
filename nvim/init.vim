@@ -231,6 +231,8 @@ else
   " Plug 'ybian/smartim'
   " let g:smartim_default = 'com.apple.keylayout.ABC'
   Plug 'svban/YankAssassin.vim'
+
+  Plug 'mfussenegger/nvim-dap'
   call plug#end()
 
 endif
