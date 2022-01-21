@@ -89,37 +89,10 @@ else
   nnoremap <leader>fri :lua require('telescope.builtin').registers()<CR>
   nnoremap <leader>fo  :Telescope oldfiles<CR>
   " nnoremap <leader>fp :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-  " jsx 回车 indent插件
-  " Plug 'chemzqm/vim-jsx-improve'
-   " Plug 'pangloss/vim-javascript'
-
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  " 完整匹配单词 且可以指定目录搜索
-  command! -bang -nargs=+ -complete=dir Ra call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
-  function! s:build_quickfix_list(lines)
-    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-    copen
-    cc
-  endfunction
-
-  let g:fzf_action = {
-        \ 'ctrl-q': function('s:build_quickfix_list'),
-        \ 'ctrl-t': 'tab split',
-        \ 'ctrl-x': 'split',
-        \ 'ctrl-v': 'vsplit' }
-  " Plug 'mileszs/ack.vim'
-
-  " Plug 'jiangmiao/auto-pairs'
-  " let g:AutoPairsShortcutToggle = ''
-  " let g:AutoPairsShortcutFastWrap = ''
-  " let g:AutoPairsShortcutBackInsert = ''
-  " let g:AutoPairsShortcutJump = ''
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   Plug 'windwp/nvim-autopairs'
 
-  " Plug 'b3nj5m1n/kommentary'
   Plug 'numToStr/Comment.nvim'
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -127,7 +100,6 @@ else
   " 处理代码高亮和回车自动indent
   Plug 'yuezk/vim-js'
   Plug 'HerringtonDarkholme/yats.vim'
-  " Plug 'maxmellon/vim-jsx-pretty'
 
   " 修改jsx标签
   Plug 'samuelsimoes/vim-jsx-utils'
@@ -151,11 +123,7 @@ else
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
-  " Plug 'rlue/vim-barbaric'
   Plug 'tpope/vim-unimpaired'
-  " Plug 'airblade/vim-gitgutter'
-  " nmap ]h <Plug>(GitGutterNextHunk)
-  " nmap [h <Plug>(GitGutterPrevHunk)
 
   Plug 'lewis6991/gitsigns.nvim'
 
@@ -233,6 +201,7 @@ else
   Plug 'svban/YankAssassin.vim'
 
   Plug 'mfussenegger/nvim-dap'
+  au FileType dap-repl lua require('dap.ext.autocompl').attach()
   call plug#end()
 
 endif
