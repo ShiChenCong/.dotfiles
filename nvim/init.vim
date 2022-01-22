@@ -187,7 +187,7 @@ else
   nnoremap <leader>p :BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
-  nnoremap ff :HopChar2<CR>
+  nnoremap ff :HopChar1<CR>
 
   Plug 'windwp/nvim-ts-autotag'
 
