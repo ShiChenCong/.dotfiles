@@ -260,3 +260,8 @@ endfunction
 
 
 nnoremap ,r :LspRestart<CR>
+
+lua <<EOF
+  vim.api.nvim_set_keymap('n', 'ff', "<cmd>lua require'hop'.hint_char1()<cr>", {})
+EOF
+
