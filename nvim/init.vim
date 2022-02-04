@@ -186,7 +186,7 @@ else
 
   " tab toggle entry sign, zf打开筛选entry，C-o确认, < 回退，zN排除选中的entry
   Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
-  nnoremap <leader>p :BqfToggle<CR>
+  nnoremap <leader>p <cmd>BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
 
