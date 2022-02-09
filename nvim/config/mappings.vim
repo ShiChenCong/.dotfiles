@@ -240,6 +240,7 @@ nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tl :tabnext<CR>
 nnoremap <leader>th :tabprevious<CR>
 nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>to :tabonly<CR>
 
 nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
 nnoremap <silent> zk :call NextClosedFold('k')<cr> zz

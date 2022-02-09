@@ -60,3 +60,7 @@ set fillchars+=diff:╱
 set breakindent
 set wrap
 set wildcharm=<Tab>
+
+" 移动时,发现剩余行数小于4行,就直接滚动屏幕
+set scrolloff=4
+set scrollback=4
