@@ -127,7 +127,7 @@ else
 
   Plug 'lewis6991/gitsigns.nvim'
 
-  Plug 'sindrets/diffview.nvim'
+  Plug 'sindrets/diffview.nvim', {'on': ['DiffviewFileHistory','DiffviewOpen']}
   Plug 'mhinz/vim-startify'
   let g:startify_session_dir = '~/.vim/sessions'
   let g:startify_change_to_dir = 0
