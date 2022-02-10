@@ -27,10 +27,6 @@ require('Comment').setup({
     end,
 })
 
-
-require('bqf').setup({
-  auto_enable = false,
-})
 require('onedark').setup()
 local utils = require("onedark.util")
 vim.defer_fn(function()
@@ -39,3 +35,9 @@ vim.defer_fn(function()
      })
  end, 101)
 
+
+local status, bqf = pcall(require, "bqf")
+if (not status) then return end
+require('bqf').setup({
+  auto_enable = false,
+})

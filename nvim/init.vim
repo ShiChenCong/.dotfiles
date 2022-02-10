@@ -102,7 +102,7 @@ else
   Plug 'HerringtonDarkholme/yats.vim'
 
   " 修改jsx标签
-  Plug 'samuelsimoes/vim-jsx-utils'
+  Plug 'samuelsimoes/vim-jsx-utils',{'on': ['JSXEachAttributeInLine']}
   nnoremap ,e :call JSXEachAttributeInLine()<CR>
 
   " git 
@@ -168,6 +168,7 @@ else
   " smap <expr><S-Tab> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', {
+        \ 'on': ['PrettierAsync', 'PrettierPartial'],
         \ 'do': 'yarn install',
         \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
   nmap <Leader>py :PrettierAsync<CR>
@@ -185,7 +186,7 @@ else
   Plug 'ThePrimeagen/harpoon'
 
   " tab toggle entry sign, zf打开筛选entry，C-o确认, < 回退，zN排除选中的entry
-  Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf'}
+  Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf', 'on': 'BqfToggle'}
   nnoremap <leader>p <cmd>BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
