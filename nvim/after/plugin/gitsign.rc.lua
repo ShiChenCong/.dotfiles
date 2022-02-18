@@ -19,6 +19,7 @@ require('gitsigns').setup {
     ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
     ['n <leader>hS'] = '<cmd>Gitsigns stage_buffer<CR>',
     ['n <leader>hU'] = '<cmd>Gitsigns reset_buffer_index<CR>',
+    ['n <leader>bl'] = '<cmd>Gitsigns toggle_current_line_blame<CR>',
 
     -- Text objects
     ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
@@ -29,7 +30,7 @@ require('gitsigns').setup {
     follow_files = true
   },
   attach_to_untracked = true,
-  current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
