@@ -76,19 +76,15 @@ else
   Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 
   nnoremap ma <cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>
-  " nnoremap <leader>fw <cmd>lua require'telescope.builtin'.live_grep()<CR>
   nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-  " nnoremap <leader>fmw <cmd>lua require'telescope.builtin'.grep_string()<CR>
   nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
   nnoremap ,g <cmd>lua require('telescope.builtin').git_commits()<CR>
-  " nnoremap <leader>fb <cmd>lua require('telescope.builtin').file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').git_branches()<CR>
   nnoremap <leader>fch <cmd>lua require('telescope.builtin').command_history()<CR>
   nnoremap <leader>fri <cmd>lua require('telescope.builtin').registers()<CR>
   nnoremap <leader>fo  <cmd>Telescope oldfiles<CR>
-  " nnoremap <leader>fp :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   Plug 'windwp/nvim-autopairs'

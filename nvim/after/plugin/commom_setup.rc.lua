@@ -27,7 +27,9 @@ require('Comment').setup({
     end,
 })
 
-require('onedark').setup()
+require('onedark').setup({
+  dark_float = true
+})
 local utils = require("onedark.util")
 vim.defer_fn(function()
      utils.syntax({
