@@ -129,6 +129,6 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint"})
 
-vim.diagnostic.config({
-  virtual_text = false,
-})
+--vim.diagnostic.config({
+--  virtual_text = false,
+--})
