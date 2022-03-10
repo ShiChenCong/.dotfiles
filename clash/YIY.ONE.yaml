@@ -103,10 +103,7 @@ proxy-groups:
       - V1-4|香港集群-V2ray|专线D
       - V3-1|香港集群-SSR|专线B
       - IPV6-1线路|美国-V2ray|直连
-<<<<<<< HEAD
       - 不代理
-=======
->>>>>>> 1e27c861fb67f33501f1d621e0debcc81acb4976
   - name: ✈️墙外网站
     type: select
     proxies:
