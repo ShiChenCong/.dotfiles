@@ -73,40 +73,38 @@ for _, lsp in ipairs(servers) do
  -- }
 }
 end 
+local function filter(arr, fn)
+  if type(arr) ~= "table" then
+    return arr
+  end
 
-nvim_lsp['tsserver'].setup{
-   handlers = {
-      ["textDocument/definition"] = function(_, result, params)
-      if result == nil or vim.tbl_isempty(result) then
-         local _ = vim.lsp.log.info() and vim.lsp.log.info(params.method, 'No location found')
-         return nil
+  local filtered = {}
+  for k, v in pairs(arr) do
+    if fn(v, k, arr) then
+      table.insert(filtered, v)
+    end
+  end
+
+  return filtered
+end
+
+local function filterReactDTS(value)
+  return string.match(value.uri, 'react/index.d.ts') == nil
+end
+
+
+nvim_lsp['tsserver'].setup {
+  -- other options
+  handlers = {
+    ['textDocument/definition'] = function(err, result, method, ...)
+      if vim.tbl_islist(result) and #result > 1 then
+        local filtered_result = filter(result, filterReactDTS)
+        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
       end
 
-
-      if vim.tbl_islist(result) then
-         vim.lsp.util.jump_to_location(result[1])
-         if #result > 1 then
-            local isReactDTs = false
-            for key, value in pairs(result) do
-               if string.match(value.uri, "react/index.d.ts") then
-                  isReactDTs = true
-			      break
-               end
-            end
-            if not isReactDTs then
-              if util then
-                 vim.lsp.util.set_qflist(util.locations_to_items(result))
-                 vim.api.nvim_command("copen")
-                 vim.api.api.nvim_command("wincmd p")
-             end
-            end
-         end
-      else
-         vim.lsp.util.jump_to_location(result)
-      end
-
-   end
-}
+      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+    end
+  }
 }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
