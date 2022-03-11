@@ -98,7 +98,8 @@ else
   Plug 'HerringtonDarkholme/yats.vim'
 
   " 修改jsx标签
-  Plug 'samuelsimoes/vim-jsx-utils',{'on': ['JSXEachAttributeInLine']}
+  " Plug 'samuelsimoes/vim-jsx-utils',{'on': ['JSXEachAttributeInLine']}
+  Plug 'samuelsimoes/vim-jsx-utils'
   nnoremap ,e :call JSXEachAttributeInLine()<CR>
 
   " git 
@@ -177,12 +178,13 @@ else
   Plug 'norcalli/nvim-colorizer.lua'
 
   " emmet
-  Plug 'mattn/emmet-vim'
+  " Plug 'mattn/emmet-vim'
 
   Plug 'ThePrimeagen/harpoon'
 
   " tab toggle entry sign, zf打开筛选entry，C-o确认, < 回退，zN排除选中的entry
-  Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf', 'on': 'BqfToggle'}
+  " Plug 'kevinhwang91/nvim-bqf',{'ft': ':qf', 'on': 'BqfToggle'}
+  Plug 'kevinhwang91/nvim-bqf'
   nnoremap <leader>p <cmd>BqfToggle<CR>
 
   Plug 'phaazon/hop.nvim'
@@ -196,6 +198,7 @@ else
   " 自动切换输入法
   " Plug 'ybian/smartim'
   " let g:smartim_default = 'com.apple.keylayout.ABC'
+
   Plug 'svban/YankAssassin.vim'
 
   Plug 'mfussenegger/nvim-dap'
