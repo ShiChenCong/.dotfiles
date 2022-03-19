@@ -59,7 +59,9 @@ else
     au WinLeave * setlocal nocursorline
   augroup END
   " 高亮行
-  set cursorline                          " Enable highlighting of the current line
+  " set cursorline                          " Enable highlighting of the current line
+  highlight Normal guibg=none
+  hi CursorLine term=none cterm=none guibg=none
   " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
   " hi Visual guifg=#eeeeee guibg=Grey gui=none
 
