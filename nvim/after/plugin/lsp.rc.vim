@@ -46,8 +46,6 @@ local on_attach = function(client, bufnr)
 end
 
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -63,14 +61,6 @@ for _, lsp in ipairs(servers) do
     handlers = {
       ['window/showMessageRequest'] = function(_, result, params) return result end
     }
- -- handlers = {
- --      ["textDocument/publishDiagnostics"] = vim.lsp.with(
- --        vim.lsp.diagnostic.on_publish_diagnostics, {
- --          -- Disable virtual_text
- --          virtual_text = false
- --        }
- --      ),
- -- }
 }
 end 
 local function filter(arr, fn)
@@ -109,15 +99,15 @@ nvim_lsp['tsserver'].setup {
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    -- This sets the spacing and the prefix, obviously.
-    virtual_text = {
-      spacing = 3,
-      prefix = ''
-    }
-  }
-)
+--vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics, {
+--    underline = true,
+--    -- This sets the spacing and the prefix, obviously.
+--    virtual_text = {
+--      spacing = 3,
+--      prefix = ''
+--    }
+--  }
+--)
 vim.fn.sign_define("DiagnosticSignError",
     {text = "", texthl = "DiagnosticSignError"})
 vim.fn.sign_define("DiagnosticSignWarn",
@@ -127,6 +117,22 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint"})
 
---vim.diagnostic.config({
---  virtual_text = false,
---})
+local config = {
+  virtual_text = false,
+  signs = {
+    active = signs,
+  },
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+
+vim.diagnostic.config(config)
