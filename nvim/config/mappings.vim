@@ -242,6 +242,7 @@ nnoremap <leader>th :tabprevious<CR>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>to :tabonly<CR>
 
+" next folded code
 nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
 nnoremap <silent> zk :call NextClosedFold('k')<cr> zz
 
@@ -266,3 +267,4 @@ lua <<EOF
   vim.api.nvim_set_keymap('n', 'ff', "<cmd>lua require'hop'.hint_char1()<cr>", {})
 EOF
 
+nnoremap ,v V$%
