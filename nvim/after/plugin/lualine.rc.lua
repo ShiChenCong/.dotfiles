@@ -4,11 +4,11 @@ local onedark = require'lualine.themes.onedark'
 lualine.setup {
   options = {
     icons_enabled = true,
-    -- theme = 'solarized_dark',
     -- theme = onedark,
+    theme = 'solarized_dark',
     -- theme = 'gruvbox',
     -- theme = 'codedark',
-    theme = 'onedark-nvim',
+    -- theme = 'onedark-nvim',
     globalstatus = true,
     section_separators = {left = '', right = ''},
     component_separators = {left = '', right = ''},

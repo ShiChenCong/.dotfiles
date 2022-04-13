@@ -50,7 +50,8 @@ else
     "       \ }
   syntax enable
   " Plug 'gruvbox-community/gruvbox'
-  " colorscheme onedark
+  colorscheme solarized8_flat
+  hi DiagnosticUnderlineWarn gui=undercurl
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -60,7 +61,7 @@ else
   augroup END
   " 高亮行
   " set cursorline                          " Enable highlighting of the current line
-  highlight Normal guibg=none
+  " highlight Normal guibg=none
   hi CursorLine term=none cterm=none guibg=none
   " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
   " hi Visual guifg=#eeeeee guibg=Grey gui=none

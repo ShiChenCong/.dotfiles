@@ -25,15 +25,6 @@ comment.setup {
     }
   end,
 }
-require('onedark').setup({
-  dark_float = true
-})
-local utils = require("onedark.util")
-vim.defer_fn(function()
-     utils.syntax({
-       Folded = { bg = "#2d3139" }
-     })
- end, 101)
 
 
 local status, bqf = pcall(require, "bqf")
