@@ -52,6 +52,9 @@ else
   " Plug 'gruvbox-community/gruvbox'
   colorscheme solarized8_flat
   hi DiagnosticUnderlineWarn gui=undercurl
+  hi DiagnosticUnderlineError gui=undercurl
+  hi DiagnosticUnderlineInfo gui=undercurl
+  hi DiagnosticUnderlineHint gui=undercurl
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
