@@ -143,6 +143,14 @@
     "prefix": "im",
     "body": "import ${2} from ${1}"
   },
+  "cp": {
+    "prefix": "cp",
+    "body": "const { ${0} } = props"
+  },
+  "cn": {
+    "prefix" : "cn",
+    "body": "const { ${2} } = ${1}"
+  },
   ":construction: chore:": {
     "prefix":"cc",
     "body": ":construction: chore:$0"

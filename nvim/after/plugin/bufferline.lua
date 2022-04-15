@@ -62,6 +62,7 @@ require("bufferline").setup{
      show_close_icon=true,
      show_tab_indicators=true,
      persist_buffer_sort = true,
+     separator_style = "slant"
   }
 }
 
