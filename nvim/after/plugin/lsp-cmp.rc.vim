@@ -1,7 +1,9 @@
 lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
-
+  local function replace_keys(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  end
 --  local cmp_kinds = {
 --    Text = '  ',
 --    Method = '  ',
@@ -81,21 +83,25 @@ lua <<EOF
         c = cmp.mapping.close(),
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Tab>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end,
-      ['<S-Tab>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end,
+      ['<Tab>'] = cmp.mapping(function(fallback)
+         if vim.call('vsnip#available', 1) ~= 0 then
+           vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), '')
+         elseif cmp.visible() then
+           cmp.select_next_item()
+         else
+           fallback()
+         end
+       end, { 'i', 's' }),
 
+       ['<S-Tab>'] = cmp.mapping(function(fallback)
+         if vim.call('vsnip#available', -1) ~= 0 then
+           vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), '')
+         elseif cmp.visible() then
+           cmp.select_prev_item()
+         else
+           fallback()
+         end
+       end, { 'i', 's' }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },

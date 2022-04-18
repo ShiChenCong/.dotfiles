@@ -55,6 +55,8 @@ else
   hi DiagnosticUnderlineError gui=undercurl
   hi DiagnosticUnderlineInfo gui=undercurl
   hi DiagnosticUnderlineHint gui=undercurl
+  " hi! Normal ctermbg=NONE guibg=NONE " 设置背景透明 
+
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -161,8 +163,8 @@ else
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
   let g:vsnip_snippet_dir = expand('~/.config/nvim/snip')
-  imap <silent><expr> <A-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<A-l>'
-  imap <silent><expr> <A-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<A-h>'
+  " imap <silent><expr> <A-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<A-l>'
+  " imap <silent><expr> <A-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<A-h>'
   " imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
   " smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
   " imap <expr><Tab> vsnip#available(1)    ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
