@@ -42,7 +42,7 @@ else
 
   Plug 'ful1e5/onedark.nvim'
   " Plug 'tomasiser/vim-code-dark'
-  Plug 'onsails/lspkind-nvim'
+  " Plug 'onsails/lspkind-nvim'
 
     " let g:onedark_colors = {
     "       \ 'hint': '#585d69',

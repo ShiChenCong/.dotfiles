@@ -2,19 +2,18 @@
   "useMemo": {
     "prefix": "um",
     "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
+      "const ${1:memoizedValue} = useMemo(() => {",
+      "\t ${2}",
+      "}, [${3}])"
     ],
     "description": "React useMemo() hook"
   },
   "useCallback": {
-    "prefix": "ucb",
+    "prefix": "ub",
     "body": [
-      "const ${1:memoizedCallback} = useCallback(",
-      "\t() => {",
-      "\t\t${2:doSomething}(${3:a}, ${4:b})",
-      "\t},",
-      "\t[${5:a}, ${6:b}],",
-      ")$0"
+      "const ${1} = useCallback(() => {",
+      "\t${2}",
+      "}, [${3}])"
     ],
     "description": "React useCallback() hook"
   },
@@ -39,7 +38,7 @@
     "description": "use query"
   },
   "useBoolean": {
-    "prefix": "ub",
+    "prefix": "ubl",
     "body": "const {state:${1}, toggle:toggle${1}} = useBoolean(${2})$0",
     "description": "use query"
   },
