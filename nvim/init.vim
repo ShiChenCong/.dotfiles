@@ -88,7 +88,7 @@ else
   nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
   nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
-  nnoremap ,g <cmd>lua require('telescope.builtin').git_commits()<CR>
+  nnoremap <leader>g <cmd>lua require('telescope.builtin').git_commits()<CR>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').git_branches()<CR>
   nnoremap <leader>fch <cmd>lua require('telescope.builtin').command_history()<CR>
   nnoremap <leader>fri <cmd>lua require('telescope.builtin').registers()<CR>
