@@ -10,11 +10,7 @@
   },
   "useCallback": {
     "prefix": "ub",
-    "body": [
-      "const ${1} = useCallback(() => {",
-      "\t${2}",
-      "}, [${3}])"
-    ],
+    "body": ["const ${1} = useCallback(() => {", "\t${2}", "}, [${3}])"],
     "description": "React useCallback() hook"
   },
   "useEffect": {
@@ -60,15 +56,34 @@
     "body": "const { ${0} } = props"
   },
   "cn": {
-    "prefix" : "cn",
+    "prefix": "cn",
     "body": "const { ${2} } = ${1}"
   },
   ":construction: chore:": {
-    "prefix":"cc",
+    "prefix": "cc",
     "body": ":construction: chore:$0"
   },
   ":bug: fix:": {
-    "prefix":"bf",
+    "prefix": "bf",
     "body": ":bug: fix:${0}"
+  },
+  "function Component": {
+    "prefix": "ff",
+    "body": [
+      "import React from 'react'",
+      "",
+      "interface IProps {",
+      "",
+      "}",
+      "",
+      "const ${1}: React.FC<IProps> = () => {",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1}",
+      ""
+    ]
   }
 }
