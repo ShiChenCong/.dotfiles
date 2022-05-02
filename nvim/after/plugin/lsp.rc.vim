@@ -63,6 +63,9 @@ for _, lsp in ipairs(servers) do
     }
 }
 end 
+
+require'lspconfig'.tailwindcss.setup{}
+
 local function filter(arr, fn)
   if type(arr) ~= "table" then
     return arr

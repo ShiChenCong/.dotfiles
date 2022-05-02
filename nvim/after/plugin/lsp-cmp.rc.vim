@@ -84,9 +84,7 @@ lua <<EOF
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       ['<Tab>'] = cmp.mapping(function(fallback)
-         if vim.call('vsnip#available', 1) ~= 0 then
-           vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), '')
-         elseif cmp.visible() then
+         if cmp.visible() then
            cmp.select_next_item()
          else
            fallback()
@@ -94,9 +92,7 @@ lua <<EOF
        end, { 'i', 's' }),
 
        ['<S-Tab>'] = cmp.mapping(function(fallback)
-         if vim.call('vsnip#available', -1) ~= 0 then
-           vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), '')
-         elseif cmp.visible() then
+         if cmp.visible() then
            cmp.select_prev_item()
          else
            fallback()

@@ -37,12 +37,29 @@ require('telescope').setup{
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
+      },
+    ["ui-select"] = {
+      require("telescope.themes").get_cursor {
+        -- even more opts
       }
+      -- specific_opts = {
+      --   [kind] = {
+      --     make_indexed = function(items) -> indexed_items, width,
+      --     make_displayer = function(widths) -> displayer
+      --     make_display = function(displayer) -> function(e)
+      --     make_ordinal = function(e) -> string
+      --   },
+      --   -- for example to disable the custom builtin "codeactions" display
+      --      do the following
+      --   codeactions = false,
+      -- }
+    }
    },
 }
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('vim_bookmarks')
+require("telescope").load_extension("ui-select")
 
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -56,6 +73,7 @@ function telescope_find_word(path)
   require("telescope.builtin").live_grep({search_dirs = {_path},file_ignore_patterns={}})
 end
 map('n', '<leader>fd', ':lua telescope_find_word()<CR>')
-map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
+-- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
+map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
 EOF
 
