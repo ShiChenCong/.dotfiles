@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd! FileType typescriptreact, typescript <buffer>]]
    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> EslintFixAll]] 
     vim.api.nvim_command [[augroup END]]
