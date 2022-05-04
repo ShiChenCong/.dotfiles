@@ -1,4 +1,3 @@
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
@@ -31,15 +30,13 @@ local on_attach = function(client, bufnr)
   client.server_capabilities.document_formatting = true
 
   if client.server_capabilities.document_formatting then
-     vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[ autocmd BufWritePre <buffer> EslintFixAll ]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> EslintFixAll]] 
     vim.api.nvim_command [[augroup END]]
   end
-
 end
-
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
