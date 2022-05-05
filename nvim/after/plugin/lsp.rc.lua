@@ -20,22 +20,20 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   -- buf_set_keymap('n', '<leader>.', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>', opts)
-  buf_set_keymap('n', 'grd', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>', opts)
+  -- buf_set_keymap('n', 'grd', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>', opts)
   buf_set_keymap('n', '<space>l', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ float =  { border = "rounded" }})<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({ float =  { border = "rounded" }})<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>o', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<space>o', '<cmd>lua vim.lsp.buf.format{ async=true }<CR>', opts)
 
   client.server_capabilities.document_formatting = true
 
-  if client.server_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! FileType typescriptreact,typescript<buffer>]]
+  vim.api.nvim_command [[augroup Format]]
+  vim.api.nvim_command [[autocmd! FileType typescriptreact,typescript<buffer>]]
    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> EslintFixAll]] 
-    vim.api.nvim_command [[augroup END]]
-  end
+  vim.api.nvim_command [[autocmd! BufWritePre <buffer> EslintFixAll]] 
+  vim.api.nvim_command [[augroup END]]
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -47,9 +45,9 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities=capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
+    -- flags = {
+    --   debounce_text_changes = 150,
+    -- },
     handlers = {
       ['window/showMessageRequest'] = function(_, result, params) return result end
     }

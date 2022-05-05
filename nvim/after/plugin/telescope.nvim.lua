@@ -1,4 +1,3 @@
-lua << EOF
 local actions = require("telescope.actions")
 require('telescope').setup{
 	defaults = {
@@ -75,5 +74,4 @@ end
 map('n', '<leader>fd', ':lua telescope_find_word()<CR>')
 -- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
 map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
-EOF
 
