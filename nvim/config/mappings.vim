@@ -269,3 +269,6 @@ lua <<EOF
 EOF
 
 nnoremap ,v V$%
+
+
+tnoremap <Esc> <C-\><C-n>
