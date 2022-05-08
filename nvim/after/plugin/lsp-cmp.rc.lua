@@ -92,10 +92,7 @@ cmp.setup {
                 fallback()
             end
         end, {"i", "s"}),
-        ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false
-        }
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {{
         name = "nvim_lsp"

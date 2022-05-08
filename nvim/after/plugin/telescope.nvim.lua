@@ -66,12 +66,21 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function telescope_find_word(path)
+function telescope_find_word_in_specifeid_file(path)
   local _path = vim.fn.eval('@*')
   -- local _path = path or vim.fn.input("Dir: ", "", "dir")
   require("telescope.builtin").live_grep({search_dirs = {_path},file_ignore_patterns={}})
 end
-map('n', '<leader>fd', ':lua telescope_find_word()<CR>')
+
+function telescope_find_word()
+  local word = vim.fn.input("Search >")
+  local len = #word
+  if len ~= 0 then
+      require('telescope.builtin').grep_string({ search = word })
+  end
+end
+map('n', '<leader>fd', ':lua telescope_find_word_in_specifeid_file()<CR>')
 -- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
 map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
+map('n', '<leader>fw', ':lua telescope_find_word()<CR>')
 

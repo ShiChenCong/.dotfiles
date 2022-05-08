@@ -71,7 +71,7 @@ Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 
 nnoremap ma <cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>
-nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+" nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
