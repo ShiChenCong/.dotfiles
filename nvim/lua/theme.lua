@@ -42,9 +42,9 @@ _M.init = function()
                 comments = "italic",
                 strings = "NONE",
                 keywords = "NONE",
-                functions = "italic",
-                variables = "bold",
-                diagnostics = "underline",
+                functions = "NONE",
+                variables = "NONE",
+                diagnostics = "undercurl",
             },
             disable = {
                 background = false,
@@ -62,7 +62,7 @@ _M.init = function()
                 GitSignsDelete = { fg = _M.colors.red },
                 NvimTreeFolderIcon = { fg = _M.colors.grey9 },
                 NvimTreeIndentMarker = { fg = _M.colors.grey12 },
-
+                --
                 NormalFloat = { bg = _M.colors.grey14 },
                 FloatBorder = { bg = _M.colors.grey14, fg = _M.colors.grey14 },
 
