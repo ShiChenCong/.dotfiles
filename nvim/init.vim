@@ -29,16 +29,16 @@ nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
 nnoremap mr <Cmd>BufferLineMoveNext<CR>
 nnoremap ml <Cmd>BufferLineMovePrev<CR>
 
-Plug 'ful1e5/onedark.nvim'
+" Plug 'ful1e5/onedark.nvim'
 " Plug 'tomasiser/vim-code-dark'
-" Plug 'onsails/lspkind-nvim'
+Plug 'rmehri01/onenord.nvim'
 
   " let g:onedark_colors = {
   "       \ 'hint': '#585d69',
   "       \ 'error': '#ff0000'
   "       \ }
 " Plug 'gruvbox-community/gruvbox'
-colorscheme solarized8_flat
+" colorscheme nord
 hi DiagnosticUnderlineWarn gui=undercurl
 hi DiagnosticUnderlineError gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
