@@ -64,7 +64,7 @@ _M.init = function()
                 NvimTreeIndentMarker = { fg = _M.colors.grey12 },
                 --
                 NormalFloat = { bg = _M.colors.grey14 },
-                FloatBorder = { bg = _M.colors.grey14, fg = _M.colors.grey14 },
+                FloatBorder = { bg = _M.colors.grey14, fg = _M.colors.grey9 },
 
                 -- TelescopePromptPrefix = { bg = _M.colors.grey14 },
                 -- TelescopePromptNormal = { bg = _M.colors.grey14 },
