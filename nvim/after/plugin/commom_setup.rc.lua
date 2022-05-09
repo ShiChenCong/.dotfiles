@@ -33,4 +33,4 @@ require('bqf').setup({
   auto_enable = false,
 })
 
-require('theme').init()
+-- require('theme').init()

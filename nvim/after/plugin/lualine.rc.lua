@@ -5,7 +5,8 @@ lualine.setup {
   options = {
     icons_enabled = true,
     -- theme = onedark,
-    theme = 'onenord',
+    -- theme = 'onenord',
+    theme = 'solarized_dark',
     -- theme = 'gruvbox',
     -- theme = 'codedark',
     -- theme = 'onedark-nvim',

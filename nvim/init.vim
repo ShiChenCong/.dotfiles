@@ -38,7 +38,7 @@ Plug 'rmehri01/onenord.nvim'
   "       \ 'error': '#ff0000'
   "       \ }
 " Plug 'gruvbox-community/gruvbox'
-" colorscheme nord
+colorscheme solarized8_flat
 hi DiagnosticUnderlineWarn gui=undercurl
 hi DiagnosticUnderlineError gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
