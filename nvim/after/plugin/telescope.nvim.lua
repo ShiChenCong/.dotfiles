@@ -74,7 +74,7 @@ function telescope_find_word_in_specifeid_file(path)
 end
 
 function telescope_find_word()
-  local word = vim.fn.input("Search >")
+  local word = vim.fn.input("Search > ")
   local len = #word
   if len ~= 0 then
       require('telescope.builtin').grep_string({ search = word })
