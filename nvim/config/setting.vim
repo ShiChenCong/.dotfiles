@@ -65,3 +65,6 @@ set wildcharm=<Tab>
 set scrolloff=4
 set scrollback=4
 let g:netrw_banner=0
+
+"配合cmp
+set completeopt=menu,menuone,noselect
