@@ -18,7 +18,9 @@ set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
 set softtabstop=2
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
-set foldmethod=manual                 " 开启手动折叠代码w"
+set foldmethod=expr                   " 开启手动折叠代码w"
+set foldexpr="nvim_treesitter#foldexpr()"
+set nofoldenable
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab                           " Converts tabs to spaces
 set autoindent " 自动缩进, 需要与 smartindent 配合使用才有效果
