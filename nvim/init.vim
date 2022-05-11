@@ -189,3 +189,9 @@ Plug 'mfussenegger/nvim-dap'
 au FileType dap-repl lua require('dap.ext.autocompl').attach()
 
 call plug#end()
+
+lua << EOF
+   require('conf')
+   require('lsp')
+   require('autocmd')
+EOF

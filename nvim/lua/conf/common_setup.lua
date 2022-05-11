@@ -32,5 +32,3 @@ if (not status) then return end
 require('bqf').setup({
   auto_enable = false,
 })
-
--- require('theme').init()
