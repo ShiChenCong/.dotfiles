@@ -48,7 +48,6 @@ set foldlevelstart=99
 set undolevels=99999
 " 新一行 不带上行的注释
 au BufEnter * set fo-=c fo-=r fo-=o
-" autocmd BufWritePre <cmd>EslintFixAll<CR>
 
 " 提前打开signcolumn 
 set signcolumn=yes
