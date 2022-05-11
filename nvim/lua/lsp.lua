@@ -22,8 +22,8 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<leader>.', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>', opts)
   buf_set_keymap('n', '<space>l', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ float =  { border = "rounded" }})<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({ float =  { border = "rounded" }})<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<leader>o', '<cmd>lua vim.lsp.buf.format{ async=true }<CR>', opts)
 
@@ -48,72 +48,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-local function filter(arr, fn)
-  if type(arr) ~= "table" then
-    return arr
-  end
-
-  local filtered = {}
-  for k, v in pairs(arr) do
-    if fn(v, k, arr) then
-      table.insert(filtered, v)
-    end
-  end
-
-  return filtered
-end
-
-local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
-end
-
-nvim_lsp['tsserver'].setup {
-  handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      if vim.tbl_islist(result) and #result > 1 then
-        local filtered_result = filter(result, filterReactDTS)
-        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
-      end
-
-      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-    end
-  }
-}
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require 'lspconfig'.sumneko_lua.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--   border = "rounded",
+-- })
 --vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics, {
 --    underline = true,
 --    -- This sets the spacing and the prefix, obviously.
@@ -143,7 +80,7 @@ local config = {
   float = {
     focusable = true,
     style = "minimal",
-    border = "rounded",
+    -- border = "rounded",
     source = "always",
     header = "",
     prefix = "",
@@ -151,3 +88,6 @@ local config = {
 }
 
 vim.diagnostic.config(config)
+
+require 'lsp-conf'
+require 'lsp-conf.lua'.init(on_attach, capabilities)
