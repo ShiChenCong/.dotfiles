@@ -1,6 +1,12 @@
 vim.cmd [[
   augroup format
-    autocmd BufWritePre *.ts,*.tsx EslintFixAll
+    autocmd FileType typescript,typescriptreact
+     \ autocmd BufWritePre <buffer> EslintFixAll
+  augroup end
+  
+  augroup cssFormat
+    autocmd FileType less,css
+     \ autocmd BufWritePre <buffer> Prettier
   augroup end
 
   augroup luaFormat
