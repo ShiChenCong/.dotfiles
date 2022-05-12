@@ -29,16 +29,16 @@ nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
 nnoremap mr <Cmd>BufferLineMoveNext<CR>
 nnoremap ml <Cmd>BufferLineMovePrev<CR>
 
-" Plug 'ful1e5/onedark.nvim'
+Plug 'ful1e5/onedark.nvim'
 " Plug 'tomasiser/vim-code-dark'
-Plug 'rmehri01/onenord.nvim'
+" Plug 'rmehri01/onenord.nvim'
 
   " let g:onedark_colors = {
   "       \ 'hint': '#585d69',
   "       \ 'error': '#ff0000'
   "       \ }
 " Plug 'gruvbox-community/gruvbox'
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 hi DiagnosticUnderlineWarn gui=undercurl
 hi DiagnosticUnderlineError gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
@@ -191,7 +191,9 @@ au FileType dap-repl lua require('dap.ext.autocompl').attach()
 call plug#end()
 
 lua << EOF
-   require('conf')
    require('lsp')
    require('autocmd')
+   require('theme')
+   require('conf')
+   require('statusline')
 EOF
