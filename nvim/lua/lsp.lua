@@ -48,9 +48,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
---   border = "rounded",
--- })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
 --vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics, {
 --    underline = true,
 --    -- This sets the spacing and the prefix, obviously.
@@ -71,7 +71,11 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  virtual_text = false,
+  virtual_text = {
+    spacing = 3,
+    prefix = ''
+  },
+
   signs = {
     active = signs,
   },
@@ -81,7 +85,7 @@ local config = {
   float = {
     focusable = true,
     style = "minimal",
-    -- border = "rounded",
+    border = "rounded",
     source = "always",
     header = "",
     prefix = "",
