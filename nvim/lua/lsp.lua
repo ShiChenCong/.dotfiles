@@ -60,14 +60,15 @@ end
 --    }
 --  }
 --)
-vim.fn.sign_define("DiagnosticSignError",
-  { text = "", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn",
-  { text = "", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo",
-  { text = "", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint",
-  { text = "", texthl = "DiagnosticSignHint" })
+local signs = {
+  { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
+  { name = "DiagnosticSignWarn", text = '', texthl = 'DiagnosticSignWarn' },
+  { name = "DiagnosticSignInfo", text = '', texthl = 'DiagnosticSignInfo' },
+  { name = "DiagnosticSignHint", text = '', texthl = 'DiagnosticSignHint' },
+}
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
+end
 
 local config = {
   virtual_text = false,
@@ -89,5 +90,5 @@ local config = {
 
 vim.diagnostic.config(config)
 
-require 'lsp-conf'
+require 'lsp-conf.tsserver'
 require 'lsp-conf.lua'.init(on_attach, capabilities)
