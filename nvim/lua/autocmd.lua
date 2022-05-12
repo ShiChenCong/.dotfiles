@@ -1,3 +1,4 @@
+-- 设置自动保存时的格式化、EslintFix等
 vim.cmd [[
   augroup format
     autocmd FileType typescript,typescriptreact
@@ -14,6 +15,7 @@ vim.cmd [[
   augroup end
 ]]
 
+-- 设置分割线颜色
 vim.cmd [[
   highlight NormalFloat guibg=#02b36
   highlight FloatBorder guibg=#02b36
