@@ -29,7 +29,7 @@ nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
 nnoremap mr <Cmd>BufferLineMoveNext<CR>
 nnoremap ml <Cmd>BufferLineMovePrev<CR>
 
-" Plug 'ful1e5/onedark.nvim'
+Plug 'ful1e5/onedark.nvim'
 " Plug 'tomasiser/vim-code-dark'
 " Plug 'rmehri01/onenord.nvim'
 

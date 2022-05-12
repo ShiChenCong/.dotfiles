@@ -13,3 +13,9 @@ vim.cmd [[
     autocmd BufWritePre *.lua lua vim.lsp.buf.format()
   augroup end
 ]]
+
+vim.cmd [[
+  highlight NormalFloat guibg=#02b36
+  highlight FloatBorder guibg=#02b36
+  highlight VertSplit guibg=NONE cterm=NONE
+]]
