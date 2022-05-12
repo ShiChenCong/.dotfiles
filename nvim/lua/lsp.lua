@@ -28,20 +28,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>o', '<cmd>lua vim.lsp.buf.format{ async=true }<CR>', opts)
 
   client.server_capabilities.document_formatting = true
-
-  -- if client.server_capabilities.documentHighlightProvider then
-  vim.cmd [[
-    hi! LspReferenceRead cterm=bold ctermbg=red guibg=#b5b5a3
-    hi! LspReferenceText cterm=bold ctermbg=red guibg=#b5b5a3
-    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#b5b5a3
-    augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-  ]]
-  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

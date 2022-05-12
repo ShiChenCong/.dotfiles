@@ -15,9 +15,38 @@ vim.cmd [[
   augroup end
 ]]
 
--- 设置分割线颜色
 vim.cmd [[
+  "设置分割线颜色
   highlight NormalFloat guibg=#02b36
   highlight FloatBorder guibg=#02b36
   highlight VertSplit guibg=NONE guifg=#3b3f49 cterm=NONE
+
+  " 设置匹配单词高亮
+  hi! LspReferenceRead cterm=bold ctermbg=red guibg=#1c4c5e
+  hi! LspReferenceText cterm=bold ctermbg=red guibg=#1c4c5e
+  hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#1c4c5e
 ]]
+
+vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  group = "lsp_document_highlight",
+  pattern = { "*.js", "*.ts", "*.tsx" },
+  callback = function()
+    vim.cmd('lua vim.lsp.buf.document_highlight()')
+  end
+})
+vim.api.nvim_create_autocmd({ "CursorHoldI" }, {
+  group = "lsp_document_highlight",
+  pattern = { "*.js", "*.ts", "*.tsx" },
+  callback = function()
+    vim.cmd('lua vim.lsp.buf.document_highlight()')
+  end
+})
+
+vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+  group = "lsp_document_highlight",
+  pattern = { "*.js", "*.ts", "*.tsx" },
+  callback = function()
+    vim.cmd('lua vim.lsp.buf.clear_references()')
+  end
+})
