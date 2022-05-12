@@ -17,5 +17,5 @@ vim.cmd [[
 vim.cmd [[
   highlight NormalFloat guibg=#02b36
   highlight FloatBorder guibg=#02b36
-  highlight VertSplit guibg=NONE cterm=NONE
+  highlight VertSplit guibg=NONE guifg=#3b3f49 cterm=NONE
 ]]
