@@ -195,36 +195,18 @@ nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
 
 
 " quickfixlist
-nnoremap <C-q> :call ToggleQFList(1)<CR>
 nnoremap cl :copen<CR>
 nnoremap co :cclose<CR>
 " location list
-nnoremap <leader>q :call ToggleQFList(0)<CR>
+nnoremap <leader>q :call ToggleQuickFix()<CR>
 
-let g:the_primeagen_qf_l = 0
-let g:the_primeagen_qf_g = 0
-
-fun! ToggleQFList(global)
-  if a:global
-      if g:the_primeagen_qf_g == 1
-          let g:the_primeagen_qf_g = 0
-          cclose
-      else
-          let g:the_primeagen_qf_g = 1
-          copen
-      end
-  else
-      if g:the_primeagen_qf_l == 1
-          let g:the_primeagen_qf_l = 0
-          lclose
-      else
-          let g:the_primeagen_qf_l = 1
-          lopen
-      end
-  endif
-endfun
-
-
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-o> <Esc>ddO
 imap <C-d> <esc>yypi
