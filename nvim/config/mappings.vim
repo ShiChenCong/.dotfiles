@@ -267,3 +267,14 @@ nnoremap ,v V$%
 
 
 tnoremap <Esc> <C-\><C-n>
+
+
+let @i = 'ceimportf=cf(from f)x'
+nnoremap <leader>cri :global/require/normal @i<CR>
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
