@@ -191,8 +191,6 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <A-f> /
 inoremap <A-f> <Esc>/
 
-nnoremap <leader>m *
-
 nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
 
 
@@ -207,23 +205,23 @@ let g:the_primeagen_qf_l = 0
 let g:the_primeagen_qf_g = 0
 
 fun! ToggleQFList(global)
-    if a:global
-        if g:the_primeagen_qf_g == 1
-            let g:the_primeagen_qf_g = 0
-            cclose
-        else
-            let g:the_primeagen_qf_g = 1
-            copen
-        end
-    else
-        if g:the_primeagen_qf_l == 1
-            let g:the_primeagen_qf_l = 0
-            lclose
-        else
-            let g:the_primeagen_qf_l = 1
-            lopen
-        end
-    endif
+  if a:global
+      if g:the_primeagen_qf_g == 1
+          let g:the_primeagen_qf_g = 0
+          cclose
+      else
+          let g:the_primeagen_qf_g = 1
+          copen
+      end
+  else
+      if g:the_primeagen_qf_l == 1
+          let g:the_primeagen_qf_l = 0
+          lclose
+      else
+          let g:the_primeagen_qf_l = 1
+          lopen
+      end
+  endif
 endfun
 
 
@@ -248,17 +246,17 @@ nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
 nnoremap <silent> zk :call NextClosedFold('k')<cr> zz
 
 function! NextClosedFold(dir)
-    let cmd = 'norm!z' . a:dir
-    let view = winsaveview()
-    let [l0, l, open] = [0, view.lnum, 1]
-    while l != l0 && open
-        exe cmd
-        let [l0, l] = [l, line('.')]
-        let open = foldclosed(l) < 0
-    endwhile
-    if open
-        call winrestview(view)
-    endif
+  let cmd = 'norm!z' . a:dir
+  let view = winsaveview()
+  let [l0, l, open] = [0, view.lnum, 1]
+  while l != l0 && open
+      exe cmd
+      let [l0, l] = [l, line('.')]
+      let open = foldclosed(l) < 0
+  endwhile
+  if open
+      call winrestview(view)
+  endif
 endfunction
 
 nnoremap ,r :LspRestart<CR>
@@ -275,6 +273,11 @@ nnoremap <leader>cri :global/require/normal @i<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+echo "@".getcmdline()
+execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+
+nnoremap * *``
+nnoremap <leader>m *``
+
