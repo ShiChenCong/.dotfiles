@@ -6,4 +6,4 @@ yarn
 configstore
 .DS_Store
 
-./fish/fish_variables
+fish/fish_variables
