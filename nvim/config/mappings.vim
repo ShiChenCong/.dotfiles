@@ -264,5 +264,3 @@ endfunction
 nnoremap * *``
 nnoremap <leader>m *``
 
-
-inoremap  "+p`]a
