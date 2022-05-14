@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
 
 " tab标签
 Plug 'akinsho/bufferline.nvim'

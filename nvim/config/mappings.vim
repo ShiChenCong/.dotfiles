@@ -198,7 +198,7 @@ nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
 nnoremap cl :copen<CR>
 nnoremap co :cclose<CR>
 " location list
-nnoremap <leader>q :call ToggleQuickFix()<CR>
+" nnoremap <leader>q :call ToggleQuickFix()<CR>
 
 function! ToggleQuickFix()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -264,3 +264,5 @@ endfunction
 nnoremap * *``
 nnoremap <leader>m *``
 
+
+inoremap  "+p`]a
