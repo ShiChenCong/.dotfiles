@@ -33,4 +33,4 @@
 
 vim.cmd [[hi User1 ctermfg=007 ctermbg=239 guibg=#073642 guifg=#93a1a1 ]]
 -- vim.opt.statusline = [[ %1*  %< %{get(b:, "branch_name", "")}  %f %m %r %w  %= Ln %l, Col %c %#CursorColumn# %{get(b:, "errors", "")}  %{&fileencoding?&fileencoding:&filetype}  ]]
-vim.opt.statusline = [[ %1*  %< %{get(b:, "branch_name", "")}  %f %m %r %w  %= Ln %l, Col %c %3p%% %{&fileencoding?&fileencoding:&filetype}  ]]
+vim.opt.statusline = [[ %1*  %< %{FugitiveHead()}  %f %m %r %w  %= Ln %l, Col %c %3p%% %{&fileencoding?&fileencoding:&filetype}  ]]
