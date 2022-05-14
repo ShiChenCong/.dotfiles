@@ -196,5 +196,5 @@ lua << EOF
    require('autocmd')
    --require('theme')
    require('conf')
-   --require('statusline')
+   require('statusline')
 EOF
