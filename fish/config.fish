@@ -11,6 +11,9 @@ alias j 'z'
 alias ls "exa --icons -l"
 alias lsa "ll -a"
 
+alias gs 'git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph'
+alias ssr "http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890"
+
 
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH 
