@@ -96,4 +96,5 @@ local config = {
 vim.diagnostic.config(config)
 
 require 'lsp-conf.tsserver'
-require 'lsp-conf.lua'.init(on_attach, capabilities)
+-- require 'lsp-conf.lua'.init(on_attach, capabilities)
+require 'lsp-conf.lua'

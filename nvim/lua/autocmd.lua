@@ -15,10 +15,11 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd [[
-  "设置分割线颜色
+vim.cmd[[
+  "设置cmp float 弹框样式
   highlight NormalFloat guibg=#02b36
   highlight FloatBorder guibg=#02b36
+  "设置分割线颜色
   highlight VertSplit guibg=NONE guifg=#3b3f49 cterm=NONE
 
   " 设置匹配单词高亮
