@@ -264,3 +264,6 @@ endfunction
 nnoremap * *``
 nnoremap <leader>m *``
 
+
+" inoremap <C-t><ESC>:setl paste<CR>gi<C-R>+<ESC>:setl nopaste<CR>gi
+inoremap <A-v> <ESC>:set paste<CR>gi<C-R>+<ESC>:set nopaste<CR>gi
