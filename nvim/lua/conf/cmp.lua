@@ -75,7 +75,7 @@ cmp.setup({
   formatting = {
     format = function(_, vim_item)
       vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-      vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
       return vim_item
     end
   },

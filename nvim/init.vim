@@ -189,7 +189,7 @@ Plug 'svban/YankAssassin.vim'
 Plug 'mfussenegger/nvim-dap'
 au FileType dap-repl lua require('dap.ext.autocompl').attach()
 
-Plug 'folke/lua-dev.nvim'
+" Plug 'folke/lua-dev.nvim'
 
 call plug#end()
 

@@ -1,7 +1,7 @@
 -- 设置自动保存时的格式化、EslintFix等
 vim.cmd [[
   augroup format
-    autocmd FileType typescript,typescriptreact
+    autocmd FileType typescript,typescriptreact,javascript
      \ autocmd BufWritePre <buffer> EslintFixAll
   augroup end
   

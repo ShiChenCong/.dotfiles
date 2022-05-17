@@ -18,8 +18,6 @@ nnoremap <A-q> :q<CR>
 nnoremap ,q :bd<CR>
 imap jj <Esc> 
 
-" nnoremap <F9> :set hlsearch!<CR>
-
 nnoremap <leader><M-j>    :resize +2<CR>
 nnoremap <leader><M-k>    :resize -2<CR>
 nnoremap <leader><M-h>    :vertical resize +2<CR>
@@ -27,34 +25,10 @@ nnoremap <leader><M-l>    :vertical resize -2<CR>
 
 " <TAB>: completion. tab选中提示
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" nnoremap <A-n> :cn<CR>
-" nnoremap <A-p> :cp<CR>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
-" function! CenteredFindNext(forward)
-"     " save the current value for later restore
-"     let s:so_curr=&scrolloff
-"     set scrolloff=999
-"     try
-"         if a:forward
-"         else
-"             silent normal! N
-"         endif
-"     finally
-"         " restore no matter what
-"         let &scrolloff=s:so_curr
-"     endtry
-" endfunction
-
-" nnoremap <silent>n :call CenteredFindNext(1)<CR>
-" nnoremap <silent>N :call CenteredFindNext(0)<CR>
-
-" Better nav for omnicomplete
-" inoremap <expr> <C-j> ("\<C-n>")
-" inoremap <expr> <C-k> ("\<C-p>")
-" TAB in general mode will move to text buffer
 nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
 " SHIFT-TAB will go back
 nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
