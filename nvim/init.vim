@@ -196,7 +196,8 @@ call plug#end()
 lua << EOF
    require('lsp')
    require('autocmd')
-   --require('theme')
+   require('theme')
    require('conf')
+   require('cmp-mandrain')
    --require('statusline')
 EOF

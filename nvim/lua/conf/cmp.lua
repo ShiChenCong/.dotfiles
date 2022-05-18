@@ -74,8 +74,8 @@ cmp.setup({
   },
   formatting = {
     format = function(_, vim_item)
-      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-      vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
+      -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
       return vim_item
     end
   },
@@ -103,13 +103,12 @@ cmp.setup({
       end
     end, { 'i', 's' })
   },
-  sources = cmp.config.sources({ {
-    name = 'nvim_lsp'
-  }, {
-    name = 'vsnip'
-  } }, { {
-    name = 'buffer'
-  } })
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
+    { name = 'month' }
+  })
 })
 
 cmp.setup.cmdline('/', {
@@ -127,6 +126,9 @@ cmp.setup.cmdline(':', {
     name = 'cmdline'
   } })
 })
+
+-- local mandrain = require('cmp-mandrain')
+-- cmp.register_source('month', mandrain)
 
 vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080")
 vim.cmd("highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6")
