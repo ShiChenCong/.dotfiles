@@ -39,7 +39,7 @@ Plug 'ful1e5/onedark.nvim'
   "       \ 'error': '#ff0000'
   "       \ }
 " Plug 'gruvbox-community/gruvbox'
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 hi DiagnosticUnderlineWarn gui=undercurl
 hi DiagnosticUnderlineError gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
@@ -198,6 +198,5 @@ lua << EOF
    require('autocmd')
    require('theme')
    require('conf')
-   require('cmp-mandrain')
    --require('statusline')
 EOF

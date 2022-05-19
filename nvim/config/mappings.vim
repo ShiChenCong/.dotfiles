@@ -33,10 +33,10 @@ nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
 " SHIFT-TAB will go back
 nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
 " 切换window
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+" nnoremap <leader>h <C-w>h
+" nnoremap <leader>j <C-w>j
+" nnoremap <leader>k <C-w>k
+" nnoremap <leader>l <C-w>l
 
 map sh <C-w>h
 map sj <C-w>j

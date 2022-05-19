@@ -64,7 +64,7 @@ local cmp_kinds = {
 
 cmp.setup({
   window = {
-    completion = cmp.config.window.bordered(),
+    -- completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   snippet = {
@@ -106,8 +106,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    { name = 'buffer' },
-    { name = 'month' }
+    { name = 'buffer' }
   })
 })
 
@@ -126,9 +125,6 @@ cmp.setup.cmdline(':', {
     name = 'cmdline'
   } })
 })
-
--- local mandrain = require('cmp-mandrain')
--- cmp.register_source('month', mandrain)
 
 vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080")
 vim.cmd("highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6")

@@ -72,11 +72,11 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  virtual_text = {
-    spacing = 3,
-    prefix = ''
-  },
-
+  -- virtual_text = {
+  --   spacing = 3,
+  --   prefix = ''
+  -- },
+  virtual_text = false,
   signs = {
     active = signs,
   },
