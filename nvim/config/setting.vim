@@ -69,4 +69,7 @@ let g:netrw_banner=0
 
 "配合cmp
 set completeopt=menu,menuone,noselect
+
 set laststatus=3
+
+set noswapfile
