@@ -50,8 +50,8 @@ set undolevels=99999
 au BufEnter * set fo-=c fo-=r fo-=o
 
 " 提前打开signcolumn 
-set signcolumn=yes
-set signcolumn=number
+" set signcolumn=yes
+" set signcolumn=number
 set nofoldenable
 
 cmap w!! w !sudo tee %
