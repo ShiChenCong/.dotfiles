@@ -21,7 +21,7 @@ require('telescope').setup {
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<c-t>"] = trouble.open_selected_with_trouble,
+        ["<c-q>"] = trouble.open_selected_with_trouble,
       }
     },
     -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
