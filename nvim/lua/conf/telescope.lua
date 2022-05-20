@@ -68,11 +68,9 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function telescope_find_word_in_specifeid_file(path)
-  vim.api.nvim_command("call defx#call_action('yank_path')")
-  local _path = vim.fn.eval('@*')
-  -- local _path = path or vim.fn.input("Dir: ", "", "dir")
-  require("telescope.builtin").live_grep({ search_dirs = { _path }, file_ignore_patterns = {} })
+function telescope_find_word_in_specifeid_file()
+  local path = vim.fn['defx#get_candidate']().action__path
+  require("telescope.builtin").live_grep({ search_dirs = { path }, file_ignore_patterns = {} })
 end
 
 function telescope_find_word()
