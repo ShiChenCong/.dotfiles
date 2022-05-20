@@ -8,7 +8,7 @@ alias ta "tmux attach"
 alias lg 'lazygit'
 alias cl 'clear'
 alias j 'z'
-alias ls " exa --icons -l --no-user "
+alias ll " exa --icons -l --no-user "
 
 alias gs 'git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph'
 alias ssr "http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890"
