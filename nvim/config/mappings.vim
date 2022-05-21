@@ -2,11 +2,8 @@ let g:mapleader = "\<Space>"
 
 nnoremap <silent><Backspace> :noh<CR>
 
-" Alternate way to save
-" inoremap <A-s> <C-o>:w<CR>
 inoremap <A-s> <Esc> :w<CR>
 nnoremap <A-s> <Esc> :w<CR>
-
 nnoremap <leader>w :w<CR>
 
 nnoremap <leader>e <cmd>EslintFixAll<CR>
@@ -24,32 +21,20 @@ nnoremap <leader><M-h>    :vertical resize +2<CR>
 nnoremap <leader><M-l>    :vertical resize -2<CR>
 
 " <TAB>: completion. tab选中提示
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
 nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
-" SHIFT-TAB will go back
 nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
-" 切换window
-" nnoremap <leader>h <C-w>h
-" nnoremap <leader>j <C-w>j
-" nnoremap <leader>k <C-w>k
-" nnoremap <leader>l <C-w>l
 
 map sh <C-w>h
 map sj <C-w>j
 map sk <C-w>k
 map sl <C-w>l
 
-
 nnoremap ,f :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
-" 搜索文件
-" nnoremap <A-f> :FZF<CR>
-" 搜索单词 如果要全匹配单词 使用 Ra
-" nnoremap <A-d> :Rg <CR>
-nnoremap <A-h> :History <CR>
 
 " 前进光标记录
 nnoremap <A-o> <C-i>
@@ -70,26 +55,10 @@ vnoremap H ^
 nnoremap L $
 vnoremap L $
 
-cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-cnoremap <expr> %% getcmdtype( ) == 'Dir: ' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-
-" inoremap <C-l>    <Right>
-" cnoremap <C-l>    <Right>
-" inoremap <C-i>    <Left>
-" cnoremap <C-i>    <Left>
-
-" inoremap <C-j>    <Down>
-" inoremap <C-k>    <Up>
-
 nmap ss :split<Return>
 nmap sv :vsplit<Return>
 
-" noremap p gp
-" noremap P gP
-" noremap gp p
-" noremap gP P
 nnoremap p p`]
-
 
 " 先点击* normal模式下进行替换
 " nnoremap <Leader>r :%s///g<Left><Left>
@@ -107,15 +76,10 @@ xnoremap <Leader>rc :s/<C-r><C-w>//gc<Left><Left><Left>
 nnoremap { {zz
 nnoremap } }zz
 
-" nnoremap <C-k> :cnext<CR>zz
-" nnoremap <C-j> :cprev<CR>zz
-
 nnoremap ; :
 vnoremap ; :
 
-" register 第一个是"" 第一个是"0
-" nnoremap p "0p
-" nmap ,P "0
+" ciw不复制原有单词
 nnoremap c "0c
 
 nnoremap <leader>' :execute "normal \<Plug>Ysurroundiw\""<cr>
@@ -152,21 +116,14 @@ inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
-
 nnoremap <expor> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expor> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 
-inoremap <buffer> <C-s> <esc>yiwi<lt><esc>ea></><esc>hpF>a
-" inoremap <buffer> <C-s> <esc>yiwi<lt><esc>ea></><esc>hpF>i
-
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-nnoremap <A-f> /
-inoremap <A-f> <Esc>/
-
+" jsx 每个属性一行
 nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
-
 
 " quickfixlist
 nnoremap cl :copen<CR>
@@ -220,20 +177,17 @@ nnoremap ,r :LspRestart<CR>
 
 nnoremap ,v V$%
 
-
 tnoremap <Esc> <C-\><C-n>
 
-
+" 替换const x = require('y')为import
 let @i = 'ceimportf=cf(from f)x'
 nnoremap <leader>cri :global/require/normal @i<CR>
-
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
 echo "@".getcmdline()
 execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
 
 nnoremap * *``
 nnoremap <leader>m *``
