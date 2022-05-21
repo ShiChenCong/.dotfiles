@@ -1,8 +1,5 @@
 nnoremap <silent><Backspace> :noh<CR>
 
-" inoremap <A-s> <Esc> :w<CR>
-" nnoremap <A-s> <Esc> :w<CR>
-nnoremap <leader>w :w<CR>
 
 nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
