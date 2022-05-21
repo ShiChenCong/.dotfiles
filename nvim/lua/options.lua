@@ -41,6 +41,8 @@ local options = {
   foldexpr = "nvim_treesitter#foldexpr()",
   -- 默认打开文件不折叠
   foldenable = false,
+  -- enable mouseclicks
+  mouse = 'a'
 }
 
 for k, v in pairs(options) do
