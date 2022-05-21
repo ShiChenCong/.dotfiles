@@ -47,5 +47,5 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-
+vim.g.mapleader = " "
 -- vim.cmd [[set completeopt=menu,menuone,noselect]]

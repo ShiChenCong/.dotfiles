@@ -1,8 +1,7 @@
-let g:mapleader = "\<Space>"
 nnoremap <silent><Backspace> :noh<CR>
 
-inoremap <A-s> <Esc> :w<CR>
-nnoremap <A-s> <Esc> :w<CR>
+" inoremap <A-s> <Esc> :w<CR>
+" nnoremap <A-s> <Esc> :w<CR>
 nnoremap <leader>w :w<CR>
 
 nnoremap <leader>e <cmd>EslintFixAll<CR>

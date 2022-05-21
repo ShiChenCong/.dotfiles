@@ -1,3 +1,6 @@
+lua << EOF
+   require('options')
+EOF
 source $HOME/.config/nvim/config/mappings.vim
 " source $HOME/.config/nvim/config/setting.vim
 
@@ -195,5 +198,4 @@ lua << EOF
    require('conf')
    --require('statusline')
    --require('global')
-   require('options')
 EOF
