@@ -1,5 +1,3 @@
-
-alias n "nvim"
 alias vi "nvim"
 alias v "nvim"
 
@@ -15,6 +13,7 @@ alias ssr "http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890"
 
 
 set -gx PATH /opt/homebrew/bin $PATH
-set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH 
+# set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH 
+set -gx PATH /usr/local/bin/node:$PATH
 
 set -U fish_greeting ""

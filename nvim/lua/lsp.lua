@@ -27,8 +27,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<leader>o', '<cmd>lua vim.lsp.buf.format{ async=true }<CR>', opts)
-
-  client.server_capabilities.document_formatting = true
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
