@@ -1,9 +1,8 @@
 
 set nocompatible  " 关闭 vi 兼容模式, 必选
 syntax enable                           " Enables syntax highlighing
-set guifont=Hack\ Nerd\ Font:h14
+" set guifont=Hack\ Nerd\ Font:h14
 set hidden                              " Required to keep multiple buffers open multiple buffers
-set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
@@ -46,16 +45,14 @@ au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm al
 set fdm=indent
 set foldlevelstart=99
 set undolevels=99999
-" 新一行 不带上行的注释
-au BufEnter * set fo-=c fo-=r fo-=o
 
 " 提前打开signcolumn 
 " set signcolumn=yes
 " set signcolumn=number
 set nofoldenable
 
-cmap w!! w !sudo tee %
-set fillchars+=diff:╱
+" cmap w!! w !sudo tee %
+" set fillchars+=diff:╱
 
 " 换行 切带indent
 set breakindent
@@ -63,9 +60,9 @@ set wrap
 set wildcharm=<Tab>
 
 " 移动时,发现剩余行数小于4行,就直接滚动屏幕
-set scrolloff=4
-set scrollback=4
-let g:netrw_banner=0
+" set scrolloff=4
+" set scrollback=4
+" let g:netrw_banner=0
 
 "配合cmp
 set completeopt=menu,menuone,noselect

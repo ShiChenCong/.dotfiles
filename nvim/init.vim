@@ -1,6 +1,8 @@
 source $HOME/.config/nvim/config/mappings.vim
-source $HOME/.config/nvim/config/setting.vim
+" source $HOME/.config/nvim/config/setting.vim
 
+set splitbelow                          " Horizontal splits will automatically be below
+set splitright                          " Vertical splits will automatically be to the right
 if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
@@ -34,10 +36,6 @@ Plug 'ful1e5/onedark.nvim'
 " Plug 'tomasiser/vim-code-dark'
 " Plug 'rmehri01/onenord.nvim'
 
-  " let g:onedark_colors = {
-  "       \ 'hint': '#585d69',
-  "       \ 'error': '#ff0000'
-  "       \ }
 " Plug 'gruvbox-community/gruvbox'
 " colorscheme solarized8_flat
 hi DiagnosticUnderlineWarn gui=undercurl
@@ -60,9 +58,6 @@ hi CursorLine term=none cterm=none guibg=none
 " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=green guibg=#135564
 " hi Visual guifg=#eeeeee guibg=Grey gui=none
 
-" 搜索结果的高亮 需要在主题后设置
-" hi Search guibg=#495360 guifg=transparent
-" hi! VertSplit guifg=black guibg=#002b36 ctermfg=black ctermbg=black
 
 " 搜索文件
 Plug 'nvim-lua/plenary.nvim'
@@ -200,4 +195,5 @@ lua << EOF
    require('conf')
    --require('statusline')
    require('global')
+   require('options')
 EOF

@@ -15,7 +15,7 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd[[
+vim.cmd [[
   "设置cmp float 弹框样式
   highlight NormalFloat guibg=#02b36
   highlight FloatBorder guibg=#02b36
@@ -26,6 +26,9 @@ vim.cmd[[
   hi! LspReferenceRead cterm=bold ctermbg=red guibg=#1c4c5e
   hi! LspReferenceText cterm=bold ctermbg=red guibg=#1c4c5e
   hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#1c4c5e
+
+  " 新一行 不带上行的注释
+  au BufEnter * set fo-=c fo-=r fo-=o
 ]]
 
 vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
