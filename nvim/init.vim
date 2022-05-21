@@ -198,4 +198,6 @@ lua << EOF
    require('conf')
    --require('statusline')
    --require('global')
+   --require('winbar')
+   --vim.opt.winbar = "%{%v:lua.require'winbar'.eval()%}"
 EOF
