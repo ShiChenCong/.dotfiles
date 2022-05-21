@@ -9,11 +9,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-a> <Esc> :wq<CR>
-" Alternate way to quit
-" nnoremap <A-q> <C-w>j :q<CR> :Gedit <CR>
 nnoremap <A-q> :q<CR>
 nnoremap ,q :bd<CR>
-imap jj <Esc> 
 
 nnoremap <leader><M-j>    :resize +2<CR>
 nnoremap <leader><M-k>    :resize -2<CR>
