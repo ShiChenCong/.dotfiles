@@ -40,11 +40,12 @@ local options = {
   foldmethod = "expr",
   foldexpr = "nvim_treesitter#foldexpr()",
   -- 默认打开文件不折叠
-  foldenable = false
+  foldenable = false,
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
 
 -- vim.cmd [[set completeopt=menu,menuone,noselect]]

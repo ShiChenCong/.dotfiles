@@ -28,7 +28,10 @@ vim.cmd [[
   hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#1c4c5e
 
   " 新一行 不带上行的注释
-  au BufEnter * set fo-=c fo-=r fo-=o
+  autocmd BufEnter * set fo-=c fo-=r fo-=o
+
+  "defx 映射;
+  autocmd FileType defx nnoremap <buffer> ; :
 ]]
 
 vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })

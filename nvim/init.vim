@@ -194,6 +194,6 @@ lua << EOF
    require('theme')
    require('conf')
    --require('statusline')
-   require('global')
+   --require('global')
    require('options')
 EOF

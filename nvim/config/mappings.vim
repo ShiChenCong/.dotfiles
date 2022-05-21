@@ -1,5 +1,4 @@
 let g:mapleader = "\<Space>"
-
 nnoremap <silent><Backspace> :noh<CR>
 
 inoremap <A-s> <Esc> :w<CR>
