@@ -196,6 +196,7 @@ lua << EOF
    require('autocmd')
    require('theme')
    require('conf')
+   require('mappings')
    --require('statusline')
    --require('global')
    --require('winbar')

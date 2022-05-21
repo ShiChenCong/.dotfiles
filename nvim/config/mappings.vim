@@ -5,7 +5,7 @@ nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-q> :q<CR>
-nnoremap ,q :bd<CR>
+nnoremap ,q :bd!<CR>
 
 nnoremap <leader><M-j>    :resize +2<CR>
 nnoremap <leader><M-k>    :resize -2<CR>
@@ -141,11 +141,11 @@ nnoremap qf :bd<CR>
 nnoremap gq :q<CR>
 
 
-nnoremap <leader>tn :tabnew<CR>
-nnoremap <leader>tl :tabnext<CR>
-nnoremap <leader>th :tabprevious<CR>
-nnoremap <leader>tc :tabclose<CR>
-nnoremap <leader>to :tabonly<CR>
+" nnoremap <leader>tn :tabnew<CR>
+" nnoremap <leader>tl :tabnext<CR>
+" nnoremap <leader>th :tabprevious<CR>
+" nnoremap <leader>tc :tabclose<CR>
+" nnoremap <leader>to :tabonly<CR>
 
 " next folded code
 nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
