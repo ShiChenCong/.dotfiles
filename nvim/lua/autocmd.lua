@@ -32,6 +32,20 @@ vim.cmd [[
 
   "defx 映射;
   autocmd FileType defx nnoremap <buffer> ; :
+
+  augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+  augroup END
+
+  hi DiagnosticUnderlineWarn gui=undercurl
+  hi DiagnosticUnderlineError gui=undercurl
+  hi DiagnosticUnderlineInfo gui=undercurl
+  hi DiagnosticUnderlineHint gui=undercurl
+
 ]]
 
 vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })

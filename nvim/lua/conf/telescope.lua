@@ -59,7 +59,7 @@ require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('vim_bookmarks')
+-- require('telescope').load_extension('vim_bookmarks')
 require("telescope").load_extension("ui-select")
 
 local function map(mode, lhs, rhs, opts)
