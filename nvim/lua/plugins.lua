@@ -66,7 +66,7 @@ return packer.startup({
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use "mhinz/vim-startify"
+    -- use "mhinz/vim-startify"
     use 'samuelsimoes/vim-jsx-utils'
 
     use "neovim/nvim-lspconfig"
