@@ -19,11 +19,6 @@ vim.cmd [[
     autocmd BufEnter * set fo-=c fo-=r fo-=o
   augroup end
 
-  "defx 映射;
-  augroup defxMap
-    autocmd FileType defx nnoremap <buffer> ; :
-  augroup end
-
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -54,6 +49,7 @@ vim.cmd [[
   hi! LspReferenceText cterm=bold ctermbg=red guibg=#1c4c5e
   hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#1c4c5e
 
+  "LSP 提示改为下划线
   hi DiagnosticUnderlineWarn gui=undercurl
   hi DiagnosticUnderlineError gui=undercurl
   hi DiagnosticUnderlineInfo gui=undercurl
