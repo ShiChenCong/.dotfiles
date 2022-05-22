@@ -1,13 +1,7 @@
-nnoremap <silent><Backspace> :noh<CR>
 
 nnoremap <silent><A-w>  :bd<CR>
 " nnoremap ,d :b#\|bd#<CR>
 
-nnoremap <leader>co <Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>
-nnoremap <leader>cr <Cmd>BufferLineCloseRight<CR>
-nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
-nnoremap mr <Cmd>BufferLineMoveNext<CR>
-nnoremap ml <Cmd>BufferLineMovePrev<CR>
 nnoremap ,e :call JSXEachAttributeInLine()<CR>
 nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>

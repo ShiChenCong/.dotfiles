@@ -11,4 +11,10 @@ map('n', '<C-l>', '<C-\\><C-N><C-l>')
 map('n', '<C-j>', '<C-\\><C-N><C-j>')
 map('n', '<C-k>', '<C-\\><C-N><C-k>')
 
-map('n', ',d', "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>")
+map('n', ',d', function() require('bufdelete').bufdelete(0, true) end)
+
+map('n', '<leader>co', '<Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>')
+map('n', '<leader>cr', '<Cmd>BufferLineCloseRight<CR>')
+map('n', '<leader>cl', '<Cmd>BufferLineCloseLeft<CR>')
+map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
+map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
