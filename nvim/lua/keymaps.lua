@@ -10,3 +10,5 @@ map('n', '<C-h>', '<C-\\><C-N><C-h>')
 map('n', '<C-l>', '<C-\\><C-N><C-l>')
 map('n', '<C-j>', '<C-\\><C-N><C-j>')
 map('n', '<C-k>', '<C-\\><C-N><C-k>')
+
+map('n', ',d', "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>")

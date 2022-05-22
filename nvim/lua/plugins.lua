@@ -101,5 +101,6 @@ return packer.startup({
         vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
       end
     }
-  end
+    use 'famiu/bufdelete.nvim'
+  end,
 })

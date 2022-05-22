@@ -1,7 +1,7 @@
 nnoremap <silent><Backspace> :noh<CR>
 
 nnoremap <silent><A-w>  :bd<CR>
-nnoremap ,d :b#\|bd#<CR>
+" nnoremap ,d :b#\|bd#<CR>
 
 nnoremap <leader>co <Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>
 nnoremap <leader>cr <Cmd>BufferLineCloseRight<CR>
