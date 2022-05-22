@@ -3,23 +3,12 @@ nnoremap <silent><Backspace> :noh<CR>
 nnoremap <silent><A-w>  :bd<CR>
 nnoremap ,d :b#\|bd#<CR>
 
-nnoremap <silent><A-1> <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><A-2> <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><A-3> <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><A-4> <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><A-5> <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><A-6> <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><A-7> <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><A-8> <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><A-9> <Cmd>BufferLineGoToBuffer 9<CR>
 nnoremap <leader>co <Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>
 nnoremap <leader>cr <Cmd>BufferLineCloseRight<CR>
 nnoremap <leader>cl <Cmd>BufferLineCloseLeft<CR>
 nnoremap mr <Cmd>BufferLineMoveNext<CR>
 nnoremap ml <Cmd>BufferLineMovePrev<CR>
-nnoremap ma <cmd>lua require('telescope').extensions.vim_bookmarks.all()<CR>
 nnoremap ,e :call JSXEachAttributeInLine()<CR>
-" nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
