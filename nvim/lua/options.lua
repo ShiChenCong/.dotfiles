@@ -50,5 +50,5 @@ for k, v in pairs(options) do
 end
 
 vim.g.mapleader = " "
-vim.cmd [[syntax enable]]
+-- vim.cmd [[syntax enable]]
 -- vim.cmd [[set completeopt=menu,menuone,noselect]]
