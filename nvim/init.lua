@@ -4,7 +4,7 @@ vim.cmd [[source $HOME/.config/nvim/config/mappings.vim]]
 require('options')
 require('lsp')
 require('autocmd')
-require('theme')
+--require('theme')
 require('conf')
 require('keymaps')
 require('plugins')

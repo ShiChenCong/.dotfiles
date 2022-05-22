@@ -128,7 +128,7 @@ nnoremap <expor> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expor> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.lua<CR>
 
 " jsx 每个属性一行
 nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
