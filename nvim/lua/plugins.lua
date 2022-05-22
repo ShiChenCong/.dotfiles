@@ -13,12 +13,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -90,16 +90,6 @@ return packer.startup({
     use "RRethy/nvim-treesitter-textsubjects"
     use "svban/YankAssassin.vim"
     use "mfussenegger/nvim-dap"
-  end,
-  config = {
-    max_jobs = 16,
-    git = {
-      default_url_format = 'https://hub.fastgit.org/%s'
-    },
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
-  }
+    use "tpope/vim-unimpaired"
+  end
 })

@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.cmd [[source $HOME/.config/nvim/config/mappings.vim]]
+
 require('options')
 require('lsp')
 require('autocmd')
