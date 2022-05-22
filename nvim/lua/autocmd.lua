@@ -46,6 +46,16 @@ vim.cmd [[
   hi DiagnosticUnderlineInfo gui=undercurl
   hi DiagnosticUnderlineHint gui=undercurl
 
+
+
+  augroup termOpenInsert
+    autocmd TermOpen * startinsert
+  augroup END
+
+  " no numbers in term mode
+  augroup termNoNumber
+    au TermOpen * setlocal nonumber norelativenumber nospell
+  augroup END
 ]]
 
 vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
