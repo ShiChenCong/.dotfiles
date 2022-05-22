@@ -200,11 +200,6 @@ endfunction
 nnoremap * *``
 nnoremap <leader>m *``
 
-" let g:session_autosave = 'no'
-" let g:session_autoload = 'no'
-" let g:session_autosave_to="default"
-" nnoremap <leader>ss :SaveSession<cr>
-
 let g:vsnip_snippet_dir = expand('~/.config/nvim/snip')
 imap <silent><expr> <A-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<A-l>'
 imap <silent><expr> <A-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<A-h>'
