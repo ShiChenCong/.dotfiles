@@ -6,6 +6,7 @@ map('n', "<A-s>", ":w<CR>")
 
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
 
+-- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
 map('n', '<C-l>', '<C-\\><C-N><C-l>')
 map('n', '<C-j>', '<C-\\><C-N><C-j>')
@@ -21,4 +22,4 @@ map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
 
 -- vim-fugitive
-map('n', '<leader>gp', ':Git! push')
+map('n', '<leader>gp', ':Git! push<CR>')
