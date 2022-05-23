@@ -15,8 +15,11 @@ local options = {
   laststatus = 3,
   -- 换行自动indent
   smartindent = true,
-  -- tab是几个空格
+  -- expandtab的作用是把tab字符转化空格
   expandtab = true,
+  -- tabstop的作用是一个tab显示多少个空格,修改显示的宽度。
+  tabstop = 2,
+  -- 自动缩进时,缩进长度为2
   shiftwidth = 2,
   -- 右下角不显示正在操作的命令
   showcmd = false,
