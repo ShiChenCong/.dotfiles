@@ -98,10 +98,10 @@ nnoremap <leader>gd :DiffviewOpen<CR>
 " 关闭diff
 nnoremap <leader>gc :DiffviewClose<CR>
 " 当前文件的历史git commit
-nnoremap <leader>cc :0Gclog<CR>
+" nnoremap <leader>cc :0Gclog<CR>
 nnoremap ,g :Git<CR>
 " nnoremap <leader>gp :Git push<CR>
-nnoremap <leader>gm :Git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph<CR>
+" nnoremap <leader>gm :Git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph<CR>
 " 使用右边的(其他分支)
 nmap <leader>gr :diffget //3<CR>
 " 使用左边的(本地)

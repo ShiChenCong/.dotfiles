@@ -6,7 +6,7 @@ vim.cmd [[
   augroup end
   
   augroup cssFormat
-    autocmd FileType less,css
+    autocmd FileType less,css,html
      \ autocmd BufWritePre <buffer> Prettier
   augroup end
 
