@@ -13,8 +13,12 @@ map('n', '<C-k>', '<C-\\><C-N><C-k>')
 
 map('n', ',d', function() require('bufdelete').bufdelete(0, true) end)
 
+-- BufferLine
 map('n', '<leader>co', '<Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>')
 map('n', '<leader>cr', '<Cmd>BufferLineCloseRight<CR>')
 map('n', '<leader>cl', '<Cmd>BufferLineCloseLeft<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
+
+-- vim-fugitive
+map('n', '<leader>gp', ':Git! push')
