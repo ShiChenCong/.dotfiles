@@ -49,5 +49,5 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- vim.cmd [[syntax enable]]
+vim.cmd [[syntax enable]]
 -- vim.cmd [[set completeopt=menu,menuone,noselect]]
