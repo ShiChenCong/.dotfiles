@@ -22,4 +22,4 @@ map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
 
 -- vim-fugitive
-map('n', '<leader>gp', ':Git! push<CR>')
+map('n', '<leader>gp', ':Git push<CR>')
