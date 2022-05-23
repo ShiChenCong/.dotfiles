@@ -12,7 +12,10 @@ map('n', '<C-l>', '<C-\\><C-N><C-l>')
 map('n', '<C-j>', '<C-\\><C-N><C-j>')
 map('n', '<C-k>', '<C-\\><C-N><C-k>')
 
+-- 关闭当前buffer
 map('n', ',d', function() require('bufdelete').bufdelete(0, true) end)
+-- 关闭当前window
+map('n', ',q', ":q<CR>")
 
 -- BufferLine
 map('n', '<leader>co', '<Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<CR>')
@@ -22,4 +25,4 @@ map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
 
 -- vim-fugitive
-map('n', '<leader>gp', ':Git push<CR>')
+map('n', '<leader>gp', ':Git! push<CR>')

@@ -15,7 +15,6 @@ nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-q> :q<CR>
-nnoremap ,q :bd!<CR>
 
 nnoremap <leader><M-j>    :resize +2<CR>
 nnoremap <leader><M-k>    :resize -2<CR>
