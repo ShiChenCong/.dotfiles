@@ -2,7 +2,7 @@ local ok, cmp = pcall(require, 'cmp')
 if not ok then
   return
 end
-
+vim.cmd [[set completeopt=menu,menuone,noselect]]
 -- local function replace_keys(str)
 --   return vim.api.nvim_replace_termcodes(str, true, true, true)
 -- end
@@ -79,7 +79,7 @@ cmp.setup({
       return vim_item
     end
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
@@ -102,7 +102,7 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' })
-  },
+  }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
