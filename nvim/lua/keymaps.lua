@@ -12,8 +12,20 @@ map('n', '<C-l>', '<C-\\><C-N><C-l>')
 map('n', '<C-j>', '<C-\\><C-N><C-j>')
 map('n', '<C-k>', '<C-\\><C-N><C-k>')
 
--- 关闭当前buffer
-map('n', ',d', function() require('bufdelete').bufdelete(0, true) end)
+-- 关闭当前
+map('n', ',d', function()
+  local len = #vim.api.nvim_list_wins()
+  local bufferLen = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
+  if (len > 1) then
+    if (bufferLen == "1") then
+      vim.cmd("q")
+    else
+      vim.cmd("b#|bd#")
+    end
+  else
+    vim.cmd("bd!")
+  end
+end)
 -- 关闭当前window
 map('n', ',q', ":q<CR>")
 
