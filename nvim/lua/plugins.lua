@@ -102,5 +102,6 @@ return packer.startup({
       end
     }
     use 'famiu/bufdelete.nvim'
+    use 'lewis6991/impatient.nvim'
   end,
 })
