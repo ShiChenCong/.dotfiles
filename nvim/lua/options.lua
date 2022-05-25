@@ -44,6 +44,7 @@ local options = {
   foldexpr = "nvim_treesitter#foldexpr()",
   -- 默认打开文件不折叠
   foldenable = false,
+  foldlevel = 99,
   -- enable mouseclicks
   mouse = 'a'
 }
