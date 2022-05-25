@@ -10,7 +10,7 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').git_commits()<CR>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').git_branches()<CR>
 nnoremap <leader>fch <cmd>lua require('telescope.builtin').command_history()<CR>
 nnoremap <leader>fri <cmd>lua require('telescope.builtin').registers()<CR>
-nnoremap <leader>fo  <cmd>Telescope oldfiles<CR>
+nnoremap <leader>fo  <cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<CR>
 nnoremap <leader>e <cmd>EslintFixAll<CR>
 inoremap <A-a> <Esc> :wq<CR>
 nnoremap <A-a> <Esc> :wq<CR>
