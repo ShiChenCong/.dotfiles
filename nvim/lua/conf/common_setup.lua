@@ -1,7 +1,7 @@
 require('Comment').setup({
-    pre_hook = function(ctx)
-      return require('ts_context_commentstring.internal').calculate_commentstring()
-    end,
+  pre_hook = function(ctx)
+    return require('ts_context_commentstring.internal').calculate_commentstring()
+  end,
 })
 local status_ok, comment = pcall(require, "Comment")
 if not status_ok then

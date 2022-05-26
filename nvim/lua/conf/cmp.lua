@@ -2,6 +2,7 @@ local ok, cmp = pcall(require, 'cmp')
 if not ok then
   return
 end
+print(234)
 vim.cmd [[set completeopt=menu,menuone,noselect]]
 -- local function replace_keys(str)
 --   return vim.api.nvim_replace_termcodes(str, true, true, true)

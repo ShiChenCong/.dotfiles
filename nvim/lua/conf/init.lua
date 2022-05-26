@@ -14,6 +14,10 @@ M.setup = function()
   -- plugins do not need to load, NOTE: no .lua suffix required
   local unload_plugins = {
     "init", -- we don't need to load init again
+    "dap",
+    "harpoon",
+    "hop",
+    'diffview'
   }
 
   local helper_set = {}

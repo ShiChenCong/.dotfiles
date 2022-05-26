@@ -40,7 +40,7 @@ return packer.startup({
 
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", }
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
     use 'ful1e5/onedark.nvim'
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
@@ -58,39 +58,46 @@ return packer.startup({
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-
-    use "tpope/vim-fugitive"
-    use "tpope/vim-surround"
+    use { "tpope/vim-fugitive", event = 'BufRead' }
+    use { "tpope/vim-surround", event = 'BufRead' }
     use "lewis6991/gitsigns.nvim"
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-    -- use "mhinz/vim-startify"
-    use 'samuelsimoes/vim-jsx-utils'
+    use { 'sindrets/diffview.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      event = 'BufRead',
+      config = function()
+        return ('conf.diffview')
+      end
+    }
+    use { 'samuelsimoes/vim-jsx-utils', event = 'InsertEnter' }
 
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
+    use {
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+      { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
+    }
+
     use {
       'prettier/vim-prettier',
       run = 'yarn install',
       ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
     }
     use "norcalli/nvim-colorizer.lua"
-    use "ThePrimeagen/harpoon"
-    use "kevinhwang91/nvim-bqf"
-    use "phaazon/hop.nvim"
-    use "windwp/nvim-ts-autotag"
-    use "RRethy/nvim-treesitter-textsubjects"
-    use "svban/YankAssassin.vim"
-    use "mfussenegger/nvim-dap"
-    use "tpope/vim-unimpaired"
+    use { "ThePrimeagen/harpoon", event = 'BufRead', config = function() require('conf.harpoon') end }
+    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter' }
+    use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
+    use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
+    use { "RRethy/nvim-treesitter-textsubjects", event = 'CursorHold' }
+    use { "svban/YankAssassin.vim", event = 'CursorHold' }
+    use { "mfussenegger/nvim-dap", event = 'InsertEnter' }
+    use { "tpope/vim-unimpaired", event = 'BufRead' }
     use {
       'rmagatti/auto-session',
       config = function()
@@ -101,7 +108,7 @@ return packer.startup({
         vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
       end
     }
-    use 'famiu/bufdelete.nvim'
+    -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
   end,
 })
