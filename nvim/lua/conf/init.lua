@@ -17,7 +17,8 @@ M.setup = function()
     "dap",
     "harpoon",
     "hop",
-    'diffview'
+    'diffview',
+    'comment'
   }
 
   local helper_set = {}

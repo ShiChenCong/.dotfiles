@@ -25,10 +25,3 @@ comment.setup {
     }
   end,
 }
-
-
-local status, bqf = pcall(require, "bqf")
-if (not status) then return end
-require('bqf').setup({
-  auto_enable = false,
-})

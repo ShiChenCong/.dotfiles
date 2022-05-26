@@ -52,7 +52,12 @@ return packer.startup({
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     use "windwp/nvim-autopairs"
-    use "numToStr/Comment.nvim"
+    use { "numToStr/Comment.nvim",
+      event = 'BufRead',
+      config = function()
+        require('conf.comment')
+      end
+    }
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -89,25 +94,30 @@ return packer.startup({
       run = 'yarn install',
       ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
     }
+
     use "norcalli/nvim-colorizer.lua"
     use { "ThePrimeagen/harpoon", event = 'BufRead', config = function() require('conf.harpoon') end }
-    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter' }
+    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
+      config = function()
+        require('bqf').setup({ auto_enable = false, })
+      end
+    }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
     use { "RRethy/nvim-treesitter-textsubjects", event = 'CursorHold' }
     use { "svban/YankAssassin.vim", event = 'CursorHold' }
     use { "mfussenegger/nvim-dap", event = 'InsertEnter' }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
-    use {
-      'rmagatti/auto-session',
-      config = function()
-        require('auto-session').setup {
-          log_level = 'info',
-          auto_session_suppress_dirs = { '~/', '~/Projects' }
-        }
-        vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-      end
-    }
+    -- use {
+    --   'rmagatti/auto-session',
+    --   config = function()
+    --     require('auto-session').setup {
+    --       log_level = 'info',
+    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
+    --     }
+    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+    --   end
+    -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
   end,
