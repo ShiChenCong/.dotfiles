@@ -108,16 +108,16 @@ return packer.startup({
     use { "svban/YankAssassin.vim", event = 'CursorHold' }
     use { "mfussenegger/nvim-dap", event = 'InsertEnter' }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
-    -- use {
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('auto-session').setup {
-    --       log_level = 'info',
-    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
-    --     }
-    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-    --   end
-    -- }
+    use {
+      'rmagatti/auto-session',
+      config = function()
+        require('auto-session').setup {
+          log_level = 'info',
+          auto_session_suppress_dirs = { '~/', '~/Projects' }
+        }
+        vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+      end
+    }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
   end,
