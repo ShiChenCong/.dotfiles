@@ -46,4 +46,4 @@ map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
 map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
 
 -- vim-fugitive
-map('n', '<leader>gp', ':Git! push<CR>')
+map('n', '<leader>gp', ':Git! push<CR> :q<CR>')
