@@ -43,9 +43,9 @@ function M.get_winbar()
   local value = '  %#WinBarPath#'
       .. file_path
       .. '%*'
-      .. '%#WinBarModified#'
-      .. modified
-      .. '%*'
+  -- .. '%#WinBarModified#'
+  -- .. modified
+  -- .. '%*'
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
   if not status_ok then
