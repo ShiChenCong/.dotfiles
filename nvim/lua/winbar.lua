@@ -9,7 +9,7 @@ function M.eval()
 
   file_path = file_path:gsub('/', ' ➤ ')
 
-  return '%#WinBarPath#'
+  return '  %#WinBarPath#'
       .. file_path
       .. '%*'
       .. '%#WinBarModified#'
