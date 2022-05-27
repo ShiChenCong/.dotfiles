@@ -1,8 +1,8 @@
 local options = {
   -- 侧边滚动
-  sidescrolloff = 5,
+  sidescrolloff = 3,
   -- 上下滚动
-  scrolloff = 5,
+  scrolloff = 3,
   -- 换行
   wrap = true,
   -- 命令行高度

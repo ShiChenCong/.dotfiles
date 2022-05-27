@@ -4,3 +4,6 @@ package peco
 package z
 theme cbjohnson
 theme default
+theme eclm
+theme integral
+theme sushi

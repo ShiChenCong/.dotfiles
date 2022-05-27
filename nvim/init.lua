@@ -11,6 +11,4 @@ require('keymaps')
 require('plugins')
 require('autocmd')
 --require('statusline')
---require('global')
---require('winbar')
---vim.opt.winbar = "%{%v:lua.require'winbar'.eval()%}"
+vim.opt.winbar = "%{%v:lua.require'winbar'.eval()%}"
