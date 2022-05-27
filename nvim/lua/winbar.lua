@@ -13,7 +13,11 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
-  "fugitive"
+
+  "fugitive",
+  "git",
+  "gitcommit",
+  "TelescopePrompt"
 }
 
 local excludes = function()
