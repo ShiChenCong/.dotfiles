@@ -17,7 +17,8 @@ M.winbar_filetype_exclude = {
   "fugitive",
   "git",
   "gitcommit",
-  "TelescopePrompt"
+  "TelescopePrompt",
+  "", -- nvim初始界面
 }
 
 local excludes = function()
@@ -35,7 +36,8 @@ function M.get_winbar()
   if excludes() then
     return
   end
-  local file_path = vim.api.nvim_eval_statusline('%f', {}).str
+  -- local file_path = vim.api.nvim_eval_statusline('%f', {}).str
+  local file_path = vim.api.nvim_eval('fnamemodify(expand("%"), ":~:.")')
   local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and ' ⊚' or ''
 
   file_path = file_path:gsub('/', ' ➤ ')
