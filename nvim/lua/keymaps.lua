@@ -1,10 +1,13 @@
 local map = require('util.map')
-map('n', "<BS>", ':noh<CR>')
 
+map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
 map('n', "<A-s>", ":w<CR>")
-
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
+-- 前进光标记录newer
+map('n', "gi", "<C-i>")
+-- 后退光标记录older
+map('n', "go", "<C-o>")
 
 -- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
