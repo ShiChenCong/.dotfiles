@@ -47,3 +47,10 @@ map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
 
 -- vim-fugitive
 map('n', '<leader>gp', ':Git! push<CR> :q<CR>')
+map('n', ',g', ':Git<CR>')
+
+--diffview
+map('n', '<leader>gdh', '<cmd>DiffviewFileHistory ./<CR>')
+map('n', '<leader>gfh', '<cmd>DiffviewFileHistory<CR>')
+map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
+map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")

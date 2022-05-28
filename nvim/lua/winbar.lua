@@ -19,10 +19,12 @@ M.winbar_filetype_exclude = {
   "gitcommit",
   "TelescopePrompt",
   "", -- nvim初始界面
+  "DiffviewFileHistory",
 }
 
 local excludes = function()
-  if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
+  local modifiable = vim.api.nvim_eval("&ma")
+  if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) or modifiable == 0 then
     vim.opt_local.winbar = nil
     return true
   end
