@@ -202,4 +202,9 @@ nmap <Leader>pp :PrettierPartial<CR>
 nnoremap <leader>p <cmd>BqfToggle<CR>
 
 au FileType dap-repl lua require('dap.ext.autocompl').attach()
+" autocmd BufReadPost *
+"      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"      \   exe "normal! g`\"" |
+"      \ endif
 
+" autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
