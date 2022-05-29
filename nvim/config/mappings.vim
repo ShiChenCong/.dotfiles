@@ -208,3 +208,7 @@ au FileType dap-repl lua require('dap.ext.autocompl').attach()
 "      \ endif
 
 " autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+nmap   <C-LeftMouse>         <Plug>(VM-Mouse-Cursor)
+nmap   <C-RightMouse>        <Plug>(VM-Mouse-Word)  
+nmap   <M-C-RightMouse>      <Plug>(VM-Mouse-Column)
