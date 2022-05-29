@@ -1,13 +1,12 @@
 local ok, cmp = pcall(require, 'cmp')
+local luasnip = require("luasnip")
 if not ok then
   return
 end
-print(234)
-vim.cmd [[set completeopt=menu,menuone,noselect]]
--- local function replace_keys(str)
---   return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
-
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 --  local cmp_kinds = {
 --    Text = '  ',
 --    Method = '  ',
@@ -75,7 +74,7 @@ cmp.setup({
   },
   formatting = {
     format = function(_, vim_item)
-      -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
       -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
       return vim_item
     end
@@ -88,26 +87,36 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({
       select = true
     }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
-    end, { 'i', 's' }),
+    end, { "i", "s" }),
 
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end, { 'i', 's' })
-  }),
+    end, { "i", "s" }) }),
   sources = cmp.config.sources({
-    { name = 'luasnip' },
     { name = 'nvim_lsp' },
-    { name = 'buffer' }
+    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
   })
 })
 
