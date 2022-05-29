@@ -80,14 +80,13 @@ return packer.startup({
 
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"
-    use {
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
-      { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
-    }
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-buffer'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use "rafamadriz/friendly-snippets"
 
     use {
       'prettier/vim-prettier',

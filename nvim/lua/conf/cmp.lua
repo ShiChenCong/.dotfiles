@@ -70,7 +70,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      require('luasnip').lsp_expand(args.body)
     end
   },
   formatting = {
@@ -105,8 +105,8 @@ cmp.setup({
     end, { 'i', 's' })
   }),
   sources = cmp.config.sources({
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
     { name = 'buffer' }
   })
 })
