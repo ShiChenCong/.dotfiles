@@ -19,8 +19,8 @@ local options = {
   expandtab = true,
   -- tabstop的作用是一个tab显示多少个空格,修改显示的宽度。
   tabstop = 2,
-  -- softtabstop = 2,
-  -- smarttab = true,
+  softtabstop = 2,
+  smarttab = true,
   -- 自动缩进时,缩进长度为2
   shiftwidth = 2,
   -- 右下角不显示正在操作的命令
