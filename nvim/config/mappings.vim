@@ -78,7 +78,7 @@ nnoremap { {zz
 nnoremap } }zz
 
 nnoremap ; :
-vnoremap ; :
+" vnoremap ; :
 
 " ciw不复制原有单词
 nnoremap c "0c

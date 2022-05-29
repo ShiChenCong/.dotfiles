@@ -120,5 +120,6 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
+    use "mg979/vim-visual-multi"
   end,
 })
