@@ -1,46 +1,46 @@
 
-nnoremap <silent><A-w>  :bd<CR>
+" nnoremap <silent><A-w>  :bd<CR>
 " nnoremap ,d :b#\|bd#<CR>
 
-nnoremap ,e :call JSXEachAttributeInLine()<CR>
-nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
-nnoremap <leader>g <cmd>lua require('telescope.builtin').git_commits()<CR>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').git_branches()<CR>
-nnoremap <leader>fch <cmd>lua require('telescope.builtin').command_history()<CR>
-nnoremap <leader>fri <cmd>lua require('telescope.builtin').registers()<CR>
-nnoremap <leader>fo  <cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<CR>
-nnoremap <leader>e <cmd>EslintFixAll<CR>
-inoremap <A-a> <Esc> :wq<CR>
-nnoremap <A-a> <Esc> :wq<CR>
-nnoremap <A-q> :q<CR>
+" nnoremap ,e :call JSXEachAttributeInLine()<CR>
+" nnoremap <leader>fmw <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+" nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_status()<CR>
+" nnoremap <leader>g <cmd>lua require('telescope.builtin').git_commits()<CR>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').git_branches()<CR>
+" nnoremap <leader>fch <cmd>lua require('telescope.builtin').command_history()<CR>
+" nnoremap <leader>fri <cmd>lua require('telescope.builtin').registers()<CR>
+" nnoremap <leader>fo  <cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<CR>
+" nnoremap <leader>e <cmd>EslintFixAll<CR>
+" inoremap <A-a> <Esc> :wq<CR>
+" nnoremap <A-a> <Esc> :wq<CR>
+" nnoremap <A-q> :q<CR>
 
-nnoremap <leader><M-j>    :resize +2<CR>
-nnoremap <leader><M-k>    :resize -2<CR>
-nnoremap <leader><M-h>    :vertical resize +2<CR>
-nnoremap <leader><M-l>    :vertical resize -2<CR>
+" nnoremap <leader><M-j>    :resize +2<CR>
+" nnoremap <leader><M-k>    :resize -2<CR>
+" nnoremap <leader><M-h>    :vertical resize +2<CR>
+" nnoremap <leader><M-l>    :vertical resize -2<CR>
 
 " <TAB>: completion. tab选中提示
 " inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better tabbing
-vnoremap < <gv
-vnoremap > >gv
+" vnoremap < <gv
+" vnoremap > >gv
 
-nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
-nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
+" nnoremap <TAB> <Cmd>BufferLineCycleNext<CR>
+" nnoremap <leader><TAB> <Cmd>BufferLineCyclePrev<CR>
 
-map sh <C-w>h
-map sj <C-w>j
-map sk <C-w>k
-map sl <C-w>l
+" map sh <C-w>h
+" map sj <C-w>j
+" map sk <C-w>k
+" map sl <C-w>l
 
-nnoremap ,f :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
+" nnoremap ,f :let @+ = fnamemodify(expand("%"), ":~:.")<CR>
 
 " 前进光标记录
-nnoremap <A-o> <C-i>
+" nnoremap <A-o> <C-i>
 " 后退光标记录 
-nnoremap <A-i> <C-o>
+" nnoremap <A-i> <C-o>
  
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv

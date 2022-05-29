@@ -4,6 +4,22 @@ map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
 map('n', "<A-s>", ":w<CR>")
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
+
+map('n', '<leader><M-j>', ':resize +3<CR>')
+map('n', '<leader><M-k>', ":resize -2<CR>")
+map('n', '<leader><M-h>', ":vertical resize +2<CR>")
+map('n', '<leader><M-l>', ":vertical resize -2<CR>")
+
+map('v', "<", "<gv")
+map('v', ">", ">gv")
+
+map('n', ',f', ",f :let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
+
+map('n', "sh", '<C-w>h')
+map('n', "sj", '<C-w>j')
+map('n', "sk", '<C-w>k')
+map('n', "sl", '<C-w>l')
+
 -- 前进光标记录newer
 map('n', "gi", "<C-i>")
 -- 后退光标记录older
@@ -47,6 +63,8 @@ map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
 map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
 map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
 map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
+map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
+map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 
 -- vim-fugitive
 map('n', '<leader>gp', ':Git! push<CR> :q<CR>')
@@ -57,3 +75,16 @@ map('n', '<leader>gdh', '<cmd>DiffviewFileHistory ./<CR>')
 map('n', '<leader>gfh', '<cmd>DiffviewFileHistory<CR>')
 map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
+
+--telescope
+map('n', '<leader>fmw', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>")
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').git_status()<CR>")
+map('n', '<leader>g', "<cmd>lua require('telescope.builtin').git_commits()<CR>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
+map('n', '<leader>fri', "<cmd>lua require('telescope.builtin').registers()<CR>")
+map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<CR>")
+
+--jsx-utils
+map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
