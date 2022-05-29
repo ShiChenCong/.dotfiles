@@ -10,3 +10,5 @@ require('onedark').setup({
     }
   end
 })
+
+vim.cmd [[hi Folded guibg=#2c313a]]
