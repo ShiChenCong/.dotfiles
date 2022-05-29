@@ -24,7 +24,7 @@ M.winbar_filetype_exclude = {
 
 local excludes = function()
   local modifiable = vim.api.nvim_eval("&ma")
-  if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) or modifiable == 0 then
+  if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) or modifiable == 0 or diffviewOpen then
     vim.opt_local.winbar = nil
     return true
   end

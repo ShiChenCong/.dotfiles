@@ -4,7 +4,7 @@ local options = {
   -- 上下滚动
   scrolloff = 2,
   -- 换行
-  wrap = true,
+  wrap = false,
   -- 命令行高度
   cmdheight = 1,
   -- 侧边数字栏
@@ -48,7 +48,8 @@ local options = {
   foldenable = false,
   foldlevel = 99,
   -- enable mouseclicks
-  mouse = 'a'
+  mouse = 'a',
+  completeopt = { "menu", "menuone", "noselect" }
 }
 
 for k, v in pairs(options) do
@@ -56,4 +57,4 @@ for k, v in pairs(options) do
 end
 
 vim.cmd [[syntax enable]]
--- vim.cmd [[set completeopt=menu,menuone,noselect]]
+vim.cmd [[ set fillchars+=diff:╱]]

@@ -71,10 +71,10 @@ return packer.startup({
     use "Shougo/defx.nvim"
     use { 'sindrets/diffview.nvim',
       requires = 'nvim-lua/plenary.nvim',
-      event = 'BufRead',
-      config = function()
-        return ('conf.diffview')
-      end
+      -- event = 'BufRead',
+      -- config = function()
+      --   return ('conf.diffview')
+      -- end
     }
     use { 'samuelsimoes/vim-jsx-utils', event = 'InsertEnter' }
 

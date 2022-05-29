@@ -41,7 +41,7 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set fillchars=vert:\|
 set termguicolors
 set showmatch
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 set fdm=indent
 set foldlevelstart=99
 set undolevels=99999
@@ -51,8 +51,8 @@ set undolevels=99999
 " set signcolumn=number
 set nofoldenable
 
-" cmap w!! w !sudo tee %
-" set fillchars+=diff:╱
+ " cmap w!! w !sudo tee %
+ set fillchars+=diff:╱
 
 " 换行 切带indent
 set breakindent

@@ -33,7 +33,7 @@ require 'diffview'.setup {
     },
     win_config = { -- See |diffview-config-win_config|
       position = "bottom",
-      height = 16,
+      height = 10,
     },
   },
   commit_log_panel = {
@@ -43,7 +43,14 @@ require 'diffview'.setup {
     DiffviewOpen = {},
     DiffviewFileHistory = {},
   },
-  hooks = {}, -- See |diffview-config-hooks|
+  hooks = {
+    view_opened = function()
+      _G.diffviewOpen = true
+    end,
+    view_closed = function()
+      _G.diffviewOpen = false
+    end
+  }, -- See |diffview-config-hooks|
   key_bindings = {
     disable_defaults = false, -- Disable the default key bindings
     -- The `view` bindings are active in the diff buffers, only when the current
