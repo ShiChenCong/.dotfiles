@@ -14,6 +14,9 @@ require 'nvim-tree'.setup {
       list = list_binds,
     },
   },
+  filters = {
+    dotfiles = true,
+  }
 }
 
 vim.api.nvim_create_autocmd("BufEnter", {
