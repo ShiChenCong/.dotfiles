@@ -123,5 +123,6 @@ return packer.startup({
     use {
       'kyazdani42/nvim-tree.lua', tag = 'nightly'
     }
+    use({ "catppuccin/nvim", as = "catppuccin" })
   end,
 })
