@@ -67,7 +67,7 @@ map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 
 -- vim-fugitive
-map('n', '<leader>gp', ':Git! push<CR> :q<CR>')
+map('n', '<leader>gp', ':Git push<CR>')
 map('n', ',g', ':Git<CR>')
 
 --diffview
