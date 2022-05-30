@@ -13,7 +13,7 @@ map('n', '<leader><M-l>', ":vertical resize -2<CR>")
 map('v', "<", "<gv")
 map('v', ">", ">gv")
 
-map('n', ',f', ",f :let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
+map('n', '<A-f>', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('n', "sh", '<C-w>h')
 map('n', "sj", '<C-w>j')
@@ -88,3 +88,7 @@ map('n', '<leader>fo', "<cmd>lua require('telescope.builtin').oldfiles({only_cwd
 
 --jsx-utils
 map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
+
+--nvim-tree
+map('n', ',f', '<cmd>NvimTreeToggle<CR>')
+map('n', ',c', '<cmd>NvimTreeFindFile<CR>')
