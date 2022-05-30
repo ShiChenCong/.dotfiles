@@ -3,7 +3,7 @@ local list_binds = {
   { key = "sf", cb = '<C-w>h' },
   { key = "sv", cb = '' },
   { key = "ss", cb = '' },
-  { key = "fd", action = "find word", action_cb = function(node)
+  { key = "<leader>fd", action = "find word", action_cb = function(node)
     require('conf.telescope').telescope_find_word_in_specifeid_file(node.absolute_path)
   end },
 }
