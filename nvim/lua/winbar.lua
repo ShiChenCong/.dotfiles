@@ -32,7 +32,7 @@ local excludes = function()
 end
 
 local onedark_bg = '#282c34';
-local catppuccin_bg = '#24273A'
+local catppuccin_bg = require 'catppuccin.api.colors'.get_colors().base
 vim.api.nvim_set_hl(0, 'WinBarPath', { bg = catppuccin_bg, fg = '#adbac7' })
 vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#282c34', fg = '#ff3838' })
 
