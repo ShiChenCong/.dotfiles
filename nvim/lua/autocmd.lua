@@ -7,7 +7,7 @@ vim.cmd [[
   
   augroup cssFormat
     autocmd FileType less,css,html
-     \ autocmd BufWritePre <buffer> Prettier
+     \ autocmd BufWritePost <buffer> FormatWrite
   augroup end
 
   augroup luaFormat
