@@ -63,7 +63,7 @@ return packer.startup({
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    use { "tpope/vim-fugitive", event = 'BufRead' }
+    use "tpope/vim-fugitive"
     use { "tpope/vim-surround", event = 'BufRead' }
     use "lewis6991/gitsigns.nvim"
     use "kristijanhusak/defx-git"
@@ -95,7 +95,7 @@ return packer.startup({
     }
 
     use "norcalli/nvim-colorizer.lua"
-    use { "ThePrimeagen/harpoon", event = 'BufRead', config = function() require('conf.harpoon') end }
+    use { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end }
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function()
         require('bqf').setup({ auto_enable = false, })
