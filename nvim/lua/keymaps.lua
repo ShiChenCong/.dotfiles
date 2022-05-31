@@ -53,7 +53,7 @@ map('n', '<leader>co', '<Cmd>BufferLineCloseRight <CR> <Cmd>BufferLineCloseLeft<
 map('n', '<leader>cr', '<Cmd>BufferLineCloseRight<CR>')
 map('n', '<leader>cl', '<Cmd>BufferLineCloseLeft<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
-map('n', 'ml', 'Cmd>BufferLineMovePrev<CR>')
+map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
 map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
 map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
 map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
