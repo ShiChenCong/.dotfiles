@@ -88,11 +88,11 @@ return packer.startup({
     use 'saadparwaiz1/cmp_luasnip'
     use "rafamadriz/friendly-snippets"
 
-    use {
-      'prettier/vim-prettier',
-      run = 'yarn install',
-      ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html', 'typescriptreact' }
-    }
+    -- use {
+    --   'prettier/vim-prettier',
+    --   run = 'yarn install',
+    --   ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html', 'typescriptreact' }
+    -- }
 
     use "norcalli/nvim-colorizer.lua"
     use { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end }
@@ -121,7 +121,7 @@ return packer.startup({
     use 'lewis6991/impatient.nvim'
     use "mg979/vim-visual-multi"
     use {
-      'kyazdani42/nvim-tree.lua', tag = 'nightly'
+      'kyazdani42/nvim-tree.lua'
     }
     use { 'mhartington/formatter.nvim' }
   end,
