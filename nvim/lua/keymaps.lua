@@ -20,6 +20,9 @@ map('n', "sj", '<C-w>j')
 map('n', "sk", '<C-w>k')
 map('n', "sl", '<C-w>l')
 
+map('v', 'L', "$<Left>")
+map('n', 'L', "$")
+
 -- 前进光标记录newer
 map('n', "gi", "<C-i>")
 -- 后退光标记录older

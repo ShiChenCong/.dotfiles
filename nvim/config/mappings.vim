@@ -52,9 +52,6 @@ nnoremap <M-k> :m .-2<CR>==
 " 去开头
 nnoremap H ^
 vnoremap H ^
-" 去行尾 
-nnoremap L $
-vnoremap L $
 
 nmap ss :split<Return>
 nmap sv :vsplit<Return>
