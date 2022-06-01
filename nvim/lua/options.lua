@@ -49,7 +49,11 @@ local options = {
   foldlevel = 99,
   -- enable mouseclicks
   mouse = 'a',
-  completeopt = { "menu", "menuone", "noselect" }
+  completeopt = { "menu", "menuone", "noselect" },
+  -- CursorHold触发的时间
+  updatetime = 300,
+  -- 侧边数字列的宽度
+  numberwidth = 2,
 }
 
 for k, v in pairs(options) do
