@@ -7,6 +7,7 @@ require('onedark').setup({
   overrides = function(c)
     return {
       LspDiagnosticsVirtualTextHint = { style = Styles.Undercurl },
+      MatchParen = { fg = c.red0, style = Styles.Bold }
     }
   end
 })
