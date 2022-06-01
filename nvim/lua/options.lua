@@ -51,7 +51,7 @@ local options = {
   mouse = 'a',
   completeopt = { "menu", "menuone", "noselect" },
   -- CursorHold触发的时间
-  updatetime = 300,
+  updatetime = 2000,
   -- 侧边数字列的宽度
   numberwidth = 2,
 }
