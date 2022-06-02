@@ -7,7 +7,15 @@ local list_binds = {
     require('conf.telescope').telescope_find_word_in_specifeid_file(node.absolute_path)
   end },
 }
-
+local git_icons = {
+  unstaged = "",
+  staged = "",
+  unmerged = "",
+  renamed = "➜",
+  untracked = "",
+  deleted = "",
+  ignored = "◌"
+}
 require 'nvim-tree'.setup {
   view = {
     mappings = {
@@ -16,6 +24,13 @@ require 'nvim-tree'.setup {
   },
   filters = {
     dotfiles = true,
+  },
+  renderer = {
+    icons = {
+      glyphs = {
+        git = git_icons
+      }
+    }
   }
 }
 
