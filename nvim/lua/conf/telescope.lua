@@ -1,7 +1,9 @@
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
+local map = require('util/map')
 require('telescope').setup {
   defaults = {
+    path_display = { shorten = { len = 2, exclude = { 3, 4, 5, 6, 7, 8, 9, 10 } } },
     -- prompt_prefix = "",
     file_ignore_patterns = { "node_modules" },
     sorting_strategy = "ascending",
@@ -28,8 +30,8 @@ require('telescope').setup {
     -- generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
   },
   pickers = {
-    -- live_grep ={ theme= "dropdown"  },
-    -- find_files={ theme= "dropdown"  }
+    live_grep = { theme = "dropdown" },
+    find_files = { theme = "dropdown", previewer = false }
   },
   extensions = {
     fzf = {
@@ -61,12 +63,6 @@ require('telescope').setup {
 require('telescope').load_extension('fzf')
 -- require('telescope').load_extension('vim_bookmarks')
 require("telescope").load_extension("ui-select")
-
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 
 local M = {}
 M.telescope_find_word_in_specifeid_file = function(path)
