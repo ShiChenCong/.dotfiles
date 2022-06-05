@@ -80,6 +80,7 @@ return packer.startup({
 
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"
+    use "onsails/lspkind.nvim"
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
