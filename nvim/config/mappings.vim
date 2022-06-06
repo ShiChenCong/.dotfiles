@@ -190,12 +190,6 @@ endfunction
 nnoremap * *``
 nnoremap <leader>m *``
 
-let g:vsnip_snippet_dir = expand('~/.config/nvim/snip')
-imap <silent><expr> <A-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<A-l>'
-imap <silent><expr> <A-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<A-h>'
-
-nmap <Leader>py :PrettierAsync<CR>
-nmap <Leader>pp :PrettierPartial<CR>
 nnoremap <leader>p <cmd>BqfToggle<CR>
 
 au FileType dap-repl lua require('dap.ext.autocompl').attach()
