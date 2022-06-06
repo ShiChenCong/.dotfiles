@@ -1,5 +1,6 @@
 local ok, cmp = pcall(require, 'cmp')
 local luasnip = require("luasnip")
+local lspkind = require('lspkind')
 if not ok then
   return
 end
@@ -7,61 +8,6 @@ local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
---  local cmp_kinds = {
---    Text = '  ',
---    Method = '  ',
---    Function = ' ',
---    Constructor = '  ',
---    Field = '  ',
---    Variable = '  ',
---    Class = '  ',
---    Interface = '  ',
---    Module = '  ',
---    Property = '  ',
---    Unit = '  ',
---    Value = '  ',
---    Enum = '  ',
---    Keyword = '  ',
---    Snippet = '  ',
---    Color = '  ',
---    File = '  ',
---    Reference = '  ',
---    Folder = '  ',
---    EnumMember = '  ',
---    Constant = '  ',
---    Struct = '  ',
---    Event = '  ',
---    Operator = '  ',
---    TypeParameter = '  ',
---  }
-local cmp_kinds = {
-  Text = " ",
-  Method = " ",
-  Function = " ",
-  Constructor = " ",
-  Field = '  ',
-  Variable = " ",
-  Class = "ﴯ ",
-  Interface = " ",
-  Module = " ",
-  Property = "ﰠ ",
-  Unit = " ",
-  Value = " ",
-  Enum = " ",
-  Keyword = " ",
-  Snippet = " ",
-  Color = " ",
-  File = " ",
-  Reference = " ",
-  Folder = " ",
-  EnumMember = '  ',
-  Constant = " ",
-  Struct = "פּ  ",
-  Event = " ",
-  Operator = " ",
-  TypeParameter = " "
-}
-
 cmp.setup({
   window = {
     -- completion = cmp.config.window.bordered(),
@@ -73,11 +19,18 @@ cmp.setup({
     end
   },
   formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-      -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
-      return vim_item
-    end
+    -- format = function(_, vim_item)
+    --   vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+    --   -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
+    --   return vim_item
+    -- end
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      before = function(entry, vim_item)
+        return vim_item
+      end
+    })
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
