@@ -124,5 +124,8 @@ return packer.startup({
       'kyazdani42/nvim-tree.lua'
     }
     use { 'mhartington/formatter.nvim' }
+    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', config = function()
+      require('pqf').setup()
+    end }
   end,
 })
