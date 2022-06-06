@@ -1,5 +1,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local compile_path = install_path .. "/plugin/packer_compiled.lua"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -138,4 +139,7 @@ return packer.startup({
       })
     end }
   end,
+  config = {
+    compile_path = compile_path
+  }
 })
