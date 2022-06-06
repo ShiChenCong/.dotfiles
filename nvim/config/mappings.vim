@@ -42,21 +42,21 @@
 " 后退光标记录 
 " nnoremap <A-i> <C-o>
  
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv
-inoremap <M-j> <esc>:m .+1<CR>==
-inoremap <M-k> <esc>:m .-2<CR>==
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
+" vnoremap <M-j> :m '>+1<CR>gv=gv
+" vnoremap <M-k> :m '<-2<CR>gv=gv
+" inoremap <M-j> <esc>:m .+1<CR>==
+" inoremap <M-k> <esc>:m .-2<CR>==
+" nnoremap <M-j> :m .+1<CR>==
+" nnoremap <M-k> :m .-2<CR>==
 
 " 去开头
-nnoremap H ^
-vnoremap H ^
+" nnoremap H ^
+" vnoremap H ^
 
-nmap ss :split<Return>
-nmap sv :vsplit<Return>
+" nmap ss :split<Return>
+" nmap sv :vsplit<Return>
 
-nnoremap p p`]
+" nnoremap p p`]
 
 " 先点击* normal模式下进行替换
 " nnoremap <Leader>r :%s///g<Left><Left>
@@ -71,14 +71,14 @@ xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 xnoremap <Leader>r :s/<C-r><C-w>//g<Left><Left>
 xnoremap <Leader>rc :s/<C-r><C-w>//gc<Left><Left><Left>
 
-nnoremap { {zz
-nnoremap } }zz
+" nnoremap { {zz
+" nnoremap } }zz
 
-nnoremap ; :
+" nnoremap ; :
 " vnoremap ; :
 
 " ciw不复制原有单词
-nnoremap c "0c
+" nnoremap c "0c
 
 nnoremap <leader>' :execute "normal \<Plug>Ysurroundiw\""<cr>
 nnoremap <leader>[ :execute "normal \<Plug>Ysurroundiw]"<cr>

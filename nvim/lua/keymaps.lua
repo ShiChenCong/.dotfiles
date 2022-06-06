@@ -23,10 +23,30 @@ map('n', "sl", '<C-w>l')
 map('v', 'L', "$<Left>")
 map('n', 'L', "$")
 
+map('n', "H", "^")
+map('v', "H", "^")
+
 -- 前进光标记录newer
-map('n', "gi", "<C-i>")
+map('n', "si", "<C-i>")
 -- 后退光标记录older
-map('n', "go", "<C-o>")
+map('n', "so", "<C-o>")
+
+map('n', "ss", ":split<CR>")
+map('n', "sv", ":vsplit<CR>")
+
+map('n', 'p', 'p`]')
+
+map('n', '{', '{zz')
+map('n', '}', '}zz')
+
+map('n', ';', ":")
+-- 移动行
+map('v', '<M-j>', ":m '>+1<CR>gv=gv")
+map('v', '<M-k>', ":m '<-2<CR>gv=gv")
+map('i', '<M-j>', '<esc>:m .+1<CR>==')
+map('i', '<M-k>', '<esc>:m .-2<CR>==')
+map('n', '<M-j>', ':m .+1<CR>==')
+map('n', '<M-k>', ':m .-2<CR>==')
 
 -- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
