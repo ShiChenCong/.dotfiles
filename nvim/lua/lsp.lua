@@ -95,3 +95,12 @@ vim.diagnostic.config(config)
 
 require 'lsp-conf.tsserver'
 require 'lsp-conf.lua'.init(on_attach, capabilities)
+
+local win = require('lspconfig.ui.windows')
+local _default_opts = win.default_opts
+
+win.default_opts = function(options)
+  local opts = _default_opts(options)
+  opts.border = 'single'
+  return opts
+end

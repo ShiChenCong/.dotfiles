@@ -42,10 +42,10 @@ local options = {
   -- 提前开启signcolumn 避免输入时侧边栏移动
   signcolumn = "yes",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
-  -- foldmethod = "indent",
+  foldmethod = "indent",
   -- foldexpr = "nvim_treesitter#foldexpr()",
-  foldmethod = 'expr',
-  foldexpr = 'nvim_treesitter#foldexpr()',
+  -- foldmethod = 'expr',
+  -- foldexpr = 'nvim_treesitter#foldexpr()',
   foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').]] ..
       [[' ... '.trim(getline(v:foldend)).]] ..
       [[' ('.(v:foldend-v:foldstart).' lines folded...)']],

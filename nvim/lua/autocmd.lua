@@ -49,6 +49,7 @@ vim.cmd [[
 vim.cmd [[
   "设置cmp float 弹框样式
   highlight FloatBorder guibg=#02b36
+  highlight NormalFloat guibg=#02b36
   "设置分割线颜色
   highlight VertSplit guibg=NONE guifg=#3b3f49 cterm=NONE
 
