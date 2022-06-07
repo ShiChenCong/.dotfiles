@@ -3,7 +3,7 @@ local trouble = require("trouble.providers.telescope")
 local map = require('util/map')
 require('telescope').setup {
   defaults = {
-    path_display = { shorten = { len = 2, exclude = { 3, 4, 5, 6, 7, 8, 9, 10 } } },
+    path_display = { shorten = { len = 2 } },
     -- prompt_prefix = "",
     file_ignore_patterns = { "node_modules" },
     sorting_strategy = "ascending",
