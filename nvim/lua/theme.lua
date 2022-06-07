@@ -15,7 +15,7 @@ require('onedark').setup({
 
 vim.cmd [[
   hi Folded guibg=#2c313a
-  hi NvimTreeVertSplit guibg=#282c34 guifg=#282c34
+  hi NvimTreeWinSeparator guifg=#282c34 guibg=#282c34
 ]]
 
 -- local catppuccin = require("catppuccin")
