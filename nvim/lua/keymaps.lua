@@ -39,7 +39,7 @@ map('n', 'p', 'p`]')
 map('n', '{', '{zz')
 map('n', '}', '}zz')
 
-map('n', ';', ":")
+map('n', ';', ":", { silent = false })
 
 map('n', 'c', '"0c')
 -- 移动行
