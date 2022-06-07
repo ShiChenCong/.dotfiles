@@ -24,7 +24,6 @@ vim.cmd [[
     au VimEnter * setlocal cursorline
     au WinEnter * setlocal cursorline
     au BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
   augroup END
 
   augroup termOpenInsert
@@ -91,4 +90,13 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "Inse
   callback = function()
     require("winbar").get_winbar()
   end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+  callback = function()
+    local filetype = vim.bo.filetype;
+    if (filetype ~= 'Trouble') then
+      vim.cmd [[setlocal nocursorline]]
+    end
+  end
 })
