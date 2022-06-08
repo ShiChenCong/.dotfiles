@@ -112,7 +112,7 @@ return packer.startup({
     }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
-    use { "svban/YankAssassin.vim", event = 'CursorHold' }
+    use { "svban/YankAssassin.vim", event = 'BufRead' }
     use { "mfussenegger/nvim-dap", event = 'InsertEnter' }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
     -- use {
