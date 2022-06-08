@@ -1,9 +1,10 @@
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
+local action_layout = require("telescope.actions.layout")
 local map = require('util/map')
 require('telescope').setup {
   defaults = {
-    path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
+    -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
     -- prompt_prefix = "",
     file_ignore_patterns = { "node_modules" },
     sorting_strategy = "ascending",
@@ -24,14 +25,15 @@ require('telescope').setup {
       i = {
         ["<esc>"] = actions.close,
         ["<c-q>"] = trouble.open_selected_with_trouble,
+        ['<c-p>'] = action_layout.toggle_preview
       }
     },
     -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
     -- generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
   },
   pickers = {
-    live_grep = { theme = "dropdown", shorten = { len = 2 } },
-    find_files = { theme = "dropdown", previewer = false }
+    -- live_grep = { theme = "dropdown", shorten = { len = 2 } },
+    -- find_files = { theme = "dropdown" }
   },
   extensions = {
     fzf = {
