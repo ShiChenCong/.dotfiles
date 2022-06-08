@@ -137,7 +137,7 @@ function! ToggleQuickFix()
     endif
 endfunction
 
-inoremap <C-u> <C-g>u<C-u>
+" inoremap <C-u> <C-g>u<C-u>
 inoremap <C-o> <Esc>ddO
 imap <C-d> <esc>yypi
 
