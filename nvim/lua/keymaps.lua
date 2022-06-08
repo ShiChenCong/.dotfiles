@@ -119,3 +119,6 @@ map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')
 vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
+
+--toggleterm
+map('n', ',t', ":ToggleTermToggleAll<CR>")

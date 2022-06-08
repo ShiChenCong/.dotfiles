@@ -135,6 +135,7 @@ return packer.startup({
     use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', config = function()
       require('pqf').setup()
     end }
+
     use { 'akinsho/git-conflict.nvim', config = function()
       require('git-conflict').setup({
         default_mappings = true, -- disable buffer local mapping created by this plugin
@@ -145,6 +146,8 @@ return packer.startup({
         }
       })
     end }
+
+    use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
   end,
   config = {
     compile_path = compile_path
