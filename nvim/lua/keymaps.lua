@@ -67,8 +67,9 @@ map('n', ',d', function()
       vim.cmd("b#|bd#")
     end
   else
-    vim.cmd('b#')
-    vim.cmd("bd#")
+    vim.cmd('bd!')
+    -- vim.cmd('b#')
+    -- vim.cmd("bd#")
   end
 end)
 -- 关闭当前window
