@@ -41,7 +41,10 @@ map('n', '}', '}zz')
 
 map('n', ';', ":", { silent = false })
 
-map('n', 'c', '"0c')
+--ciw不会yank改变的单词
+map('n', 'c', '"_c')
+-- 覆盖选中的部门 不会yank
+map('v', 'gp', '"_dP')
 -- 移动行
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
@@ -49,6 +52,9 @@ map('i', '<M-j>', '<esc>:m .+1<CR>==')
 map('i', '<M-k>', '<esc>:m .-2<CR>==')
 map('n', '<M-j>', ':m .+1<CR>==')
 map('n', '<M-k>', ':m .-2<CR>==')
+
+map('n', 'dw', 'vb"_d')
+map('n', '<C-a>', 'gg<S-v>G')
 
 -- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
