@@ -58,11 +58,10 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 --      prefix = ''
 --    }
 --  }
---)
 local signs = {
-  { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
+  { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
   { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
-  { name = "DiagnosticSignInfo", text = ' ', texthl = 'DiagnosticSignInfo' },
+  { name = "DiagnosticSignInfo", text = ' ', texthl = 'DiagnosticSignInfo' },
   { name = "DiagnosticSignHint", text = ' ', texthl = 'DiagnosticSignHint' },
 }
 for _, sign in ipairs(signs) do
