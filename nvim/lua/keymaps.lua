@@ -44,7 +44,7 @@ map('n', ';', ":", { silent = false })
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
 -- 覆盖选中的部门 不会yank
-map('v', 'gp', '"_dP')
+map('v', 'p', '"_dP')
 -- 移动行
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")

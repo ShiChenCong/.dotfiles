@@ -148,6 +148,7 @@ return packer.startup({
     end }
 
     use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
+    use { 'AndrewRadev/splitjoin.vim' }
   end,
   config = {
     compile_path = compile_path
