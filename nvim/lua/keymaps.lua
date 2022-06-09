@@ -1,5 +1,6 @@
 local map = require('util.map')
 
+map('i', ';w<CR>', '<Esc>')
 map('n', 'j', "<Plug>(accelerated_jk_gj)")
 map('n', 'k', "<Plug>(accelerated_jk_gk)")
 
