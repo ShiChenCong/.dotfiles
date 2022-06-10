@@ -1,6 +1,7 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 local onedark = require 'lualine.themes.onedark'
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -19,9 +20,10 @@ lualine.setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
-    lualine_c = {},
+    lualine_c = {
+      { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
+    },
     lualine_x = {
-      { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
       'encoding',
       'filetype'
     },
@@ -36,5 +38,5 @@ lualine.setup {
     } },
   },
   tabline = {},
-  extensions = { 'fugitive', 'fzf', 'nvim-tree', 'quickfix' }
+  extensions = { 'fugitive', 'fzf', 'nvim-tree', 'quickfix', 'toggleterm' }
 }
