@@ -12,3 +12,4 @@ require('plugins')
 require('autocmd')
 --require('statusline')
 -- vim.opt.winbar = "%{%v:lua.require'winbar'.eval()%}"
+-- In init.lua or filetype.nvim's config file

@@ -62,12 +62,7 @@ return packer.startup({
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
       require('conf.autopairs')
     end }
-    use { "numToStr/Comment.nvim",
-      event = 'BufRead',
-      config = function()
-        require('conf.comment')
-      end
-    }
+    use { "numToStr/Comment.nvim", event = 'BufRead', config = function() require('conf.comment') end }
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -108,7 +103,9 @@ return packer.startup({
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
     use { "svban/YankAssassin.vim", event = 'BufRead' }
-    use { "mfussenegger/nvim-dap", event = 'InsertEnter' }
+    -- use { "mfussenegger/nvim-dap", event = 'InsertEnter', config = function()
+    --   require('conf.dap')
+    -- end }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
     -- use {
     --   'rmagatti/auto-session',
@@ -122,7 +119,7 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
-    use "mg979/vim-visual-multi"
+    use { "mg979/vim-visual-multi", event = 'BufRead' }
     use { 'kyazdani42/nvim-tree.lua' }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function()
       require('conf.formatter')
@@ -148,6 +145,7 @@ return packer.startup({
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
     use 'dstein64/nvim-scrollview'
+    use "nathom/filetype.nvim"
   end,
   config = {
     compile_path = compile_path
