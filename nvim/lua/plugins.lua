@@ -84,7 +84,6 @@ return packer.startup({
       --   return ('conf.diffview')
       -- end
     }
-    use { 'samuelsimoes/vim-jsx-utils', event = 'InsertEnter' }
 
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"
@@ -96,12 +95,6 @@ return packer.startup({
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use "rafamadriz/friendly-snippets"
-
-    -- use {
-    --   'prettier/vim-prettier',
-    --   run = 'yarn install',
-    --   ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html', 'typescriptreact' }
-    -- }
 
     use "norcalli/nvim-colorizer.lua"
     use { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end }
