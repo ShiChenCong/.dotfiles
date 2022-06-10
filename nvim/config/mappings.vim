@@ -80,10 +80,10 @@ xnoremap <Leader>rc :s/<C-r><C-w>//gc<Left><Left><Left>
 " ciw不复制原有单词
 " nnoremap c "0c
 
-nnoremap <leader>' :execute "normal \<Plug>Ysurroundiw\""<cr>
-nnoremap <leader>[ :execute "normal \<Plug>Ysurroundiw]"<cr>
-nnoremap <leader>{ :execute "normal \<Plug>Ysurroundiw{"<cr>
-nnoremap <leader>( :execute "normal \<Plug>Ysurroundiw("<cr>
+" nnoremap <leader>' :execute "normal \<Plug>Ysurroundiw\""<cr>
+" nnoremap <leader>[ :execute "normal \<Plug>Ysurroundiw]"<cr>
+" nnoremap <leader>{ :execute "normal \<Plug>Ysurroundiw{"<cr>
+" nnoremap <leader>( :execute "normal \<Plug>Ysurroundiw("<cr>
 
 " git相关的map
 " 获取整个文件夹的git历史
@@ -100,14 +100,14 @@ nnoremap <leader>( :execute "normal \<Plug>Ysurroundiw("<cr>
 " nnoremap <leader>gp :Git push<CR>
 " nnoremap <leader>gm :Git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph<CR>
 " 使用右边的(其他分支)
-nmap <leader>gr :diffget //3<CR>
+" nmap <leader>gr :diffget //3<CR>
 " 使用左边的(本地)
-nmap <leader>gl :diffget //2<CR>
+" nmap <leader>gl :diffget //2<CR>
 
 
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ`z
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
+" nnoremap J mzJ`z
 
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
@@ -118,14 +118,14 @@ nnoremap <expor> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expor> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 
-nnoremap <Leader><CR> :so ~/.config/nvim/init.lua<CR>
+" nnoremap <Leader><CR> :so ~/.config/nvim/init.lua<CR>
 
 " jsx 每个属性一行
 nnoremap <leader>el :s/ /\r/g<CR> :EslintFixAll <CR> :noh <CR>
 
 " quickfixlist
-nnoremap cl :copen<CR>
-nnoremap co :cclose<CR>
+" nnoremap cl :copen<CR>
+" nnoremap co :cclose<CR>
 " location list
 " nnoremap <leader>q :call ToggleQuickFix()<CR>
 
@@ -138,13 +138,13 @@ function! ToggleQuickFix()
 endfunction
 
 " inoremap <C-u> <C-g>u<C-u>
-inoremap <C-o> <Esc>ddO
-imap <C-d> <esc>yypi
+" inoremap <C-o> <Esc>ddO
+" imap <C-d> <esc>yypi
 
-nnoremap mt %
+" nnoremap mt %
 
-nnoremap qf :bd<CR>
-nnoremap gq :q<CR>
+" nnoremap qf :bd<CR>
+" nnoremap gq :q<CR>
 
 
 " nnoremap <leader>tn :tabnew<CR>
@@ -154,28 +154,28 @@ nnoremap gq :q<CR>
 " nnoremap <leader>to :tabonly<CR>
 
 " next folded code
-nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
-nnoremap <silent> zk :call NextClosedFold('k')<cr> zz
+" nnoremap <silent> zj :call NextClosedFold('j')<cr> zz
+" nnoremap <silent> zk :call NextClosedFold('k')<cr> zz
+"
+" function! NextClosedFold(dir)
+"   let cmd = 'norm!z' . a:dir
+"   let view = winsaveview()
+"   let [l0, l, open] = [0, view.lnum, 1]
+"   while l != l0 && open
+"       exe cmd
+"       let [l0, l] = [l, line('.')]
+"       let open = foldclosed(l) < 0
+"   endwhile
+"   if open
+"       call winrestview(view)
+"   endif
+" endfunction
 
-function! NextClosedFold(dir)
-  let cmd = 'norm!z' . a:dir
-  let view = winsaveview()
-  let [l0, l, open] = [0, view.lnum, 1]
-  while l != l0 && open
-      exe cmd
-      let [l0, l] = [l, line('.')]
-      let open = foldclosed(l) < 0
-  endwhile
-  if open
-      call winrestview(view)
-  endif
-endfunction
+" nnoremap ,r :LspRestart<CR>
 
-nnoremap ,r :LspRestart<CR>
+" nnoremap ,v V$%
 
-nnoremap ,v V$%
-
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
 
 " 替换const x = require('y')为import
 let @i = 'ceimportf=cf(from f)x'
@@ -183,16 +183,15 @@ nnoremap <leader>cri :global/require/normal @i<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
-echo "@".getcmdline()
-execute ":'<,'>normal @".nr2char(getchar())
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-nnoremap * *``
-nnoremap <leader>m *``
+" nnoremap * *``
+" nnoremap <leader>m *``
 
-nnoremap <leader>p <cmd>BqfToggle<CR>
+" nnoremap <leader>p <cmd>BqfToggle<CR>
 
-au FileType dap-repl lua require('dap.ext.autocompl').attach()
 " autocmd BufReadPost *
 "      \ if line("'\"") > 0 && line("'\"") <= line("$") |
 "      \   exe "normal! g`\"" |
@@ -200,6 +199,6 @@ au FileType dap-repl lua require('dap.ext.autocompl').attach()
 
 " autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-nmap   <C-LeftMouse>         <Plug>(VM-Mouse-Cursor)
-nmap   <C-RightMouse>        <Plug>(VM-Mouse-Word)  
-nmap   <M-C-RightMouse>      <Plug>(VM-Mouse-Column)
+" nmap   <C-LeftMouse>         <Plug>(VM-Mouse-Cursor)
+" nmap   <C-RightMouse>        <Plug>(VM-Mouse-Word)  
+" nmap   <M-C-RightMouse>      <Plug>(VM-Mouse-Column)

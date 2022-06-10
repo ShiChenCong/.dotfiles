@@ -65,7 +65,7 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- vim.cmd [[syntax enable]]
+vim.cmd [[syntax enable]]
 vim.cmd [[ set fillchars+=diff:╱]]
 -- 关闭vim-mutli-cursor plugin的warning
 vim.g['VM_show_warnings'] = 0

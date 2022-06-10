@@ -38,3 +38,5 @@ map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
 -- map('n', '<leader>dA', ':lua require"debugHelper".attachToRemote()<CR>')
 map('n', '<leader>dh', ':lua require"dap.ui.widgets".hover()<CR>')
 map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>')
+
+vim.cmd [[au FileType dap-repl lua require('dap.ext.autocompl').attach()]]

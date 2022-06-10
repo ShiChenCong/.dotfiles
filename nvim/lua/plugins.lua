@@ -59,7 +59,9 @@ return packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-    use "windwp/nvim-autopairs"
+    use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
+      require('conf.autopairs')
+    end }
     use { "numToStr/Comment.nvim",
       event = 'BufRead',
       config = function()
@@ -79,10 +81,10 @@ return packer.startup({
     use "Shougo/defx.nvim"
     use { 'sindrets/diffview.nvim',
       requires = 'nvim-lua/plenary.nvim',
-      -- event = 'BufRead',
-      -- config = function()
-      --   return ('conf.diffview')
-      -- end
+      event = 'BufRead',
+      config = function()
+        return ('conf.diffview')
+      end
     }
 
     use "neovim/nvim-lspconfig"
@@ -96,7 +98,7 @@ return packer.startup({
     use 'saadparwaiz1/cmp_luasnip'
     use "rafamadriz/friendly-snippets"
 
-    use "norcalli/nvim-colorizer.lua"
+    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end }
     use { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end }
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function()
@@ -121,15 +123,15 @@ return packer.startup({
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
     use "mg979/vim-visual-multi"
-    use {
-      'kyazdani42/nvim-tree.lua'
-    }
-    use { 'mhartington/formatter.nvim' }
-    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', config = function()
+    use { 'kyazdani42/nvim-tree.lua' }
+    use { 'mhartington/formatter.nvim', event = 'BufRead', config = function()
+      require('conf.formatter')
+    end }
+    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function()
       require('pqf').setup()
     end }
 
-    use { 'akinsho/git-conflict.nvim', config = function()
+    use { 'akinsho/git-conflict.nvim', event = 'BufRead', config = function()
       require('git-conflict').setup({
         default_mappings = true, -- disable buffer local mapping created by this plugin
         disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
@@ -140,7 +142,9 @@ return packer.startup({
       })
     end }
 
-    use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
+    use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
+      require('conf.toggleterm')
+    end }
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
     use 'dstein64/nvim-scrollview'

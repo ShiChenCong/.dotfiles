@@ -17,8 +17,12 @@ M.setup = function()
     "dap",
     "harpoon",
     "hop",
-    -- 'diffview',
-    'comment'
+    'diffview',
+    'comment',
+    'csscolor',
+    'autopairs',
+    'formatter',
+    'toggleterm'
   }
 
   local helper_set = {}

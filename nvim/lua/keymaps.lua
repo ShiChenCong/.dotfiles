@@ -1,8 +1,23 @@
 local map = require('util.map')
 
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
+map('n', 'J', 'mzJ`z')
+
+map('n', 'gq', ":q<CR>")
+map('n', 'mt', '%')
+map('n', ',r', ":LspRestart<CR>")
 -- map('i', ';w<CR>', '<Esc>')
 map('n', 'j', "<Plug>(accelerated_jk_gj)")
 map('n', 'k', "<Plug>(accelerated_jk_gk)")
+
+map('t', '<Esc>', '<C-\\><C-n>')
+
+map('n', '*', '*``')
+map('n', '<leader>m', '*``')
+
+map('i', '<C-o>', '<Esc>ddO')
+map('i', '<C-d>', '<Esc>yypi')
 
 map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
@@ -106,6 +121,8 @@ map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 -- vim-fugitive
 map('n', '<leader>gp', ':Git push<CR>')
 map('n', ',g', ':Git<CR>')
+map('n', '<leader>gr', ":diffget //3<CR>")
+map('n', '<leader>gl', ":diffget //2<CR>")
 
 --diffview
 map('n', '<leader>gdh', '<cmd>DiffviewFileHistory ./<CR>')
@@ -133,3 +150,17 @@ vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = t
 
 --toggleterm
 map('n', ',t', ":ToggleTermToggleAll<CR>")
+
+--surround
+map('n', "<leader>'", '<Plug>Ysurroundiw\""')
+map('n', '<leader>[', '<Plug>Ysurroundiw]"')
+map('n', '<leader>{', '<Plug>Ysurroundiw{"')
+map('n', '<leader>(', '<Plug>Ysurroundiw("')
+
+--bqf
+map('n', '<leader>p', "<cmd>BqfToggle<CR>")
+
+--mutli cursor
+map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
+map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
+map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
