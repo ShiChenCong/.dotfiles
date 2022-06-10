@@ -1,6 +1,6 @@
 local map = require('util.map')
 
-map('i', ';w<CR>', '<Esc>')
+-- map('i', ';w<CR>', '<Esc>')
 map('n', 'j', "<Plug>(accelerated_jk_gj)")
 map('n', 'k', "<Plug>(accelerated_jk_gk)")
 
@@ -109,7 +109,7 @@ map('n', ',g', ':Git<CR>')
 
 --diffview
 map('n', '<leader>gdh', '<cmd>DiffviewFileHistory ./<CR>')
-map('n', '<leader>gfh', '<cmd>DiffviewFileHistory<CR>')
+map('n', '<leader>gfh', '<cmd>DiffviewFileHistory %<CR>')
 map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 

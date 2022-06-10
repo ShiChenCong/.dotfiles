@@ -37,8 +37,8 @@ local options = {
   -- 关闭swapfile
   swapfile = false,
   -- 默认忽略大小写，当搜索的内容包含大写字母则改为大小写敏感
-  ignorecase = true,
-  smartcase = true,
+  -- ignorecase = true,
+  -- smartcase = true,
   -- 提前开启signcolumn 避免输入时侧边栏移动
   signcolumn = "yes",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
