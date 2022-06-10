@@ -22,7 +22,8 @@ M.setup = function()
     'csscolor',
     'autopairs',
     'formatter',
-    'toggleterm'
+    'toggleterm',
+    'trouble'
   }
 
   local helper_set = {}

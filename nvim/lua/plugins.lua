@@ -48,7 +48,9 @@ return packer.startup({
 
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
+      require('conf.trouble')
+    end }
 
     use 'ful1e5/onedark.nvim'
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
