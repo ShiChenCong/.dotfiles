@@ -53,8 +53,6 @@ map('n', "so", "<C-o>")
 map('n', "ss", ":split<CR>")
 map('n', "sv", ":vsplit<CR>")
 
-map('n', 'p', 'p`]')
-
 map('n', '{', '{zz')
 map('n', '}', '}zz')
 
@@ -62,8 +60,16 @@ map('n', ';', ":", { silent = false })
 
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
+map('x', 'c', '"_c')
+map('n', 'C', '"_c')
+
+map('n', 'p', 'p=`]')
 -- 覆盖选中的部门 不会yank
 map('v', 'p', '"_dP')
+
+-- 对选中的区块执行.
+map('n', '.', ':norm .<CR>')
+
 -- 移动行
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
@@ -164,3 +170,9 @@ map('n', '<leader>p', "<cmd>BqfToggle<CR>")
 map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
 map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
 map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
+
+-- 跳转也能加到jumplist
+vim.cmd [[
+  nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+  nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+]]
