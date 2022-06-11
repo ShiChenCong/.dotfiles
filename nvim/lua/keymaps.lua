@@ -94,6 +94,11 @@ map('n', ',d', function()
   if (len > 1) then
     if (bufferLen == "1") then
       vim.cmd("q")
+      -- 配合nvim-tree的preview
+    elseif (vim.bo.bufhidden == 'delete') then
+      vim.cmd('NvimTreeClose')
+      vim.cmd("bd!")
+      vim.cmd('NvimTreeOpen')
     else
       vim.cmd("b#|bd#")
     end
@@ -152,6 +157,8 @@ map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
 
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')
+-- 配合preview
+map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
 vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
 
 --toggleterm
