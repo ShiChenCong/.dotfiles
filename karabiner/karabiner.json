@@ -360,7 +360,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "left_option"
+                            "key_code": "caps_lock"
                         }
                     ]
                 }
