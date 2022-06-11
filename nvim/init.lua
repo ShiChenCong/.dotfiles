@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-
 require('impatient')
 require('options')
 require('lsp')
