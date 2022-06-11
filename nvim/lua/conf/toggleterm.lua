@@ -12,5 +12,5 @@ toggleterm.setup({
     end
   end,
   open_mapping = [[<c-\>]],
-  direction = 'horizontal'
+  direction = 'float'
 })
