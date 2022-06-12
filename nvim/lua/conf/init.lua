@@ -26,6 +26,16 @@ M.setup = function()
     'trouble'
   }
 
+  if vim.g.vscode then
+    unload_plugins = vim.tbl_extend('force', unload_plugins {
+      'autopairs',
+      'bufferline',
+      'cmp',
+      'comment', 'csscolor', 'diffview', 'filetype', 'formatter', 'gitsign', 'harpoon', 'lspkink', 'lualine', 'luasnip', 'nvim-tree',
+      'scrollview', 'telescope', 'toggleterm', 'treesitter', 'trouble'
+    })
+  end
+
   local helper_set = {}
   for _, v in pairs(unload_plugins) do
     helper_set[v] = true

@@ -58,10 +58,11 @@ return packer.startup({
   function(use)
     use 'wbthomason/packer.nvim'
 
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    
+    use{ 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
     use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
-      require('conf.trouble')
+      if not vim.g.vscode then require('conf.trouble') end
     end }
 
     use 'ful1e5/onedark.nvim'
@@ -74,9 +75,9 @@ return packer.startup({
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
-      require('conf.autopairs')
+      if not vim.g.vscode then require('conf.autopairs') end
     end }
-    use { "numToStr/Comment.nvim", event = 'BufRead', config = function() require('conf.comment') end }
+    use { "numToStr/Comment.nvim", event = 'BufRead', config = function() if not vim.g.vscode then require('conf.comment') end end }
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -92,7 +93,9 @@ return packer.startup({
       requires = 'nvim-lua/plenary.nvim',
       event = 'BufRead',
       config = function()
-        return ('conf.diffview')
+        if not vim.g.vscode then
+          return ('conf.diffview')
+        end
       end
     }
 
@@ -107,11 +110,17 @@ return packer.startup({
     use 'saadparwaiz1/cmp_luasnip'
     use "rafamadriz/friendly-snippets"
 
-    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end }
-    use { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end }
+    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() 
+      if not vim.g.vscode  then
+        require('conf.csscolor')
+      end
+     end }
+    use "ThePrimeagen/harpoon"
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function()
-        require('bqf').setup({ auto_enable = false, })
+        if not vim.g.vscode then
+          require('bqf').setup({ auto_enable = false, })
+        end
       end
     }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
@@ -136,25 +145,33 @@ return packer.startup({
     use { "mg979/vim-visual-multi", event = 'BufRead' }
     use { 'kyazdani42/nvim-tree.lua' }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function()
-      require('conf.formatter')
+      if not vim.g.vscode then
+        require('conf.formatter')
+      end
     end }
     use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function()
-      require('pqf').setup()
+      if not vim.g.vscode then
+        require('pqf').setup()
+      end
     end }
 
     use { 'akinsho/git-conflict.nvim', event = 'BufRead', config = function()
-      require('git-conflict').setup({
-        default_mappings = true, -- disable buffer local mapping created by this plugin
-        disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-        highlights = { -- They must have background color, otherwise the default color will be used
-          incoming = 'DiffText',
-          current = 'DiffAdd',
-        }
-      })
+      if not vim.g.vscode then
+        require('git-conflict').setup({
+          default_mappings = true, -- disable buffer local mapping created by this plugin
+          disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+          highlights = { -- They must have background color, otherwise the default color will be used
+            incoming = 'DiffText',
+            current = 'DiffAdd',
+          }
+        })
+      end
     end }
 
     use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
-      require('conf.toggleterm')
+      if not vim.g.vscode then
+        require('conf.toggleterm')
+      end
     end }
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
