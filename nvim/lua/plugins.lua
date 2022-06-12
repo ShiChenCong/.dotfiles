@@ -1,6 +1,18 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 local compile_path = install_path .. "/plugin/packer_compiled.lua"
+-- 配合vscode-neovim插件
+_G.scc = function()
+  local file = io.open(compile_path, 'r')
+  if file ~= nil then
+    local content = file:read("*all")
+    local newContent = 'if vim.g.vscode then return end\n' .. content
+    file:close()
+    file = io.open(compile_path, 'w')
+    file:write(newContent)
+    file:close()
+  end
+end
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",

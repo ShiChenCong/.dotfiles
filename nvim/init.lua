@@ -1,9 +1,13 @@
 vim.g.mapleader = " "
-require('impatient')
-require('options')
-require('lsp')
-require('theme')
-require('conf')
-require('keymaps')
-require('plugins')
-require('autocmd')
+if not vim.g['vscode'] then
+  require('impatient')
+  require('options')
+  require('lsp')
+  require('theme')
+  require('conf')
+  require('keymaps')
+  require('plugins')
+  require('autocmd')
+else
+  require('vscode.keymaps')
+end
