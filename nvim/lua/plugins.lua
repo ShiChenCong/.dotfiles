@@ -58,37 +58,15 @@ return packer.startup({
   function(use)
     use 'wbthomason/packer.nvim'
 
-    
-    use{ 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
-      if not vim.g.vscode then require('conf.trouble') end
-    end }
-
-    use 'ful1e5/onedark.nvim'
-    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'nvim-telescope/telescope-ui-select.nvim'
-    -- use 'tom-anders/telescope-vim-bookmarks.nvim'
-
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
-
+    --------------------------------------------------lazyload--------------------------------------------------------------------
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
       if not vim.g.vscode then require('conf.autopairs') end
     end }
     use { "numToStr/Comment.nvim", event = 'BufRead', config = function() if not vim.g.vscode then require('conf.comment') end end }
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-
-    use "tpope/vim-fugitive"
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
+      if not vim.g.vscode then require('conf.trouble') end
+    end }
     use { "tpope/vim-surround", event = 'BufRead' }
-    use "lewis6991/gitsigns.nvim"
-    use "kristijanhusak/defx-git"
-    use "kristijanhusak/defx-icons"
-    use "Shougo/defx.nvim"
     use { 'sindrets/diffview.nvim',
       requires = 'nvim-lua/plenary.nvim',
       event = 'BufRead',
@@ -98,24 +76,11 @@ return packer.startup({
         end
       end
     }
-
-    use "neovim/nvim-lspconfig"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "onsails/lspkind.nvim"
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-buffer'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
-    use "rafamadriz/friendly-snippets"
-
     use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() 
       if not vim.g.vscode  then
         require('conf.csscolor')
       end
      end }
-    use "ThePrimeagen/harpoon"
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function()
         if not vim.g.vscode then
@@ -130,20 +95,6 @@ return packer.startup({
     --   require('conf.dap')
     -- end }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
-    -- use {
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('auto-session').setup {
-    --       log_level = 'info',
-    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
-    --     }
-    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-    --   end
-    -- }
-    -- use 'famiu/bufdelete.nvim'
-    use 'lewis6991/impatient.nvim'
-    use { "mg979/vim-visual-multi", event = 'BufRead' }
-    use { 'kyazdani42/nvim-tree.lua' }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function()
       if not vim.g.vscode then
         require('conf.formatter')
@@ -173,6 +124,51 @@ return packer.startup({
         require('conf.toggleterm')
       end
     end }
+    use { "mg979/vim-visual-multi", event = 'BufRead' }
+
+
+    --------------------------------------------------非lazyload--------------------------------------------------------------------
+    use{ 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use 'ful1e5/onedark.nvim'
+    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope-ui-select.nvim'
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons'} }
+
+    use "tpope/vim-fugitive"
+    use "lewis6991/gitsigns.nvim"
+    use "kristijanhusak/defx-git"
+    use "kristijanhusak/defx-icons"
+    use "Shougo/defx.nvim"
+
+    use "neovim/nvim-lspconfig"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "onsails/lspkind.nvim"
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-buffer'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use "rafamadriz/friendly-snippets"
+
+    use "ThePrimeagen/harpoon"
+    -- use {
+    --   'rmagatti/auto-session',
+    --   config = function()
+    --     require('auto-session').setup {
+    --       log_level = 'info',
+    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
+    --     }
+    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+    --   end
+    -- }
+    -- use 'famiu/bufdelete.nvim'
+    use 'lewis6991/impatient.nvim'
+    use { 'kyazdani42/nvim-tree.lua' }
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
     use 'dstein64/nvim-scrollview'
