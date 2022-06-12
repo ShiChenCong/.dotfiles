@@ -4,9 +4,10 @@ map('v', 'L', "$")
 map('n', 'H', '^')
 map('v', 'H', "^")
 map('n', ";", ":")
-map('n', '{', "{zz")
-map('n', '}', "}zz")
+-- map('n', '{', "{zz")
+-- map('n', '}', "}zz")
 map('n', "<BS>", ':noh<CR>')
+map('n', ";", ":")
 
 -- 前进光标记录newer
 map('n', "si", "<C-i>")
@@ -18,6 +19,7 @@ map('x', 'c', '"_c')
 -- map('n', 'C', '"_c')
 -- 覆盖选中的部门 不会yank
 map('v', 'p', '"_dP')
+map('n','p',"p`]")
 
 map('n', '<tab>', "<Cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>")
 map('n', '<S-tab>', "<Cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>")
@@ -63,3 +65,6 @@ vim.cmd [[
 
 -- options设置
 vim.opt['clipboard'] = 'unnamedplus'
+vim.cmd[[
+  autocmd BufNewFile,BufRead,BufWritePost Buf * set formatoptions-=ro
+]]
