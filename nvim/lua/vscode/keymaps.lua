@@ -5,6 +5,7 @@ map('n', ";", ":")
 map('n', '{', '{zz')
 map('n', '}', '}zz')
 map('n', "<BS>", ':noh<CR>')
+
 -- 前进光标记录newer
 map('n', "si", "<C-i>")
 -- 后退光标记录older
@@ -33,9 +34,9 @@ map('n', 'za', "<cmd>call VSCodeNotify('editor.toggleFold')<CR>")
 --debug
 map('n', '<leader>d', "<cmd>call VSCodeNotify('editor.debug.action.toggleBreakpoint')<CR>")
 -- 注释
-map('x', 'gc',  '<Plug>VSCodeCommentary')
-map('n', 'gc',  '<Plug>VSCodeCommentary')
-map('o', 'gc',  '<Plug>VSCodeCommentary')
+map('x', 'gc', '<Plug>VSCodeCommentary')
+map('n', 'gc', '<Plug>VSCodeCommentary')
+map('o', 'gc', '<Plug>VSCodeCommentary')
 map('n', 'gcc', '<Plug>VSCodeCommentaryLine')
 
 --文件树相关
@@ -47,10 +48,14 @@ map('n', "<leader>'", '<Plug>Ysurroundiw\""')
 map('n', '<leader>[', '<Plug>Ysurroundiw]"')
 map('n', '<leader>{', '<Plug>Ysurroundiw{"')
 map('n', '<leader>(', '<Plug>Ysurroundiw("')
-vim.opt['clipboard'] = 'unnamedplus'
+--git相关
+map('n', '<leader>gfh', "<cmd>call VSCodeNotify('gitlens.diffWithPrevious')<cr>")
 
 -- 跳转也能加到jumplist
 vim.cmd [[
   nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
   nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 ]]
+
+-- options设置
+vim.opt['clipboard'] = 'unnamedplus'
