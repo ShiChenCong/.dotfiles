@@ -1,9 +1,11 @@
 local map = require "util.map"
 map('n', 'L', '$')
 map('v', 'L', "$")
+map('n', 'H', '^')
+map('v', 'H', "^")
 map('n', ";", ":")
-map('n', '{', '{zz')
-map('n', '}', '}zz')
+map('n', '{', "{zz")
+map('n', '}', "}zz")
 map('n', "<BS>", ':noh<CR>')
 
 -- 前进光标记录newer
@@ -13,7 +15,7 @@ map('n', "so", "<C-o>")
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
 map('x', 'c', '"_c')
-map('n', 'C', '"_c')
+-- map('n', 'C', '"_c')
 -- 覆盖选中的部门 不会yank
 map('v', 'p', '"_dP')
 
@@ -24,7 +26,7 @@ map('n', 'ss', "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
 map('n', '<leader>o', "<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>")
 map('n', '<leader>co', "<Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>")
 map('n', 'gr', "<Cmd>call VSCodeNotify('references-view.findReference')<CR>")
-map('n', '[d', "<Cmd>call VSCodeNotify('editor.action.marker.pre')<CR>")
+map('n', '[d', "<Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>")
 map('n', ']d', "<Cmd>call VSCodeNotify('editor.action.marker.next')<CR>")
 map('n', '<leader>rn', "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 map('n', 'u', "<Cmd>call VSCodeNotify('undo')<CR>")
@@ -50,6 +52,8 @@ map('n', '<leader>{', '<Plug>Ysurroundiw{"')
 map('n', '<leader>(', '<Plug>Ysurroundiw("')
 --git相关
 map('n', '<leader>gfh', "<cmd>call VSCodeNotify('gitlens.diffWithPrevious')<cr>")
+map('n', ']c', "<cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
+map('n', '[c', "<cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
 
 -- 跳转也能加到jumplist
 vim.cmd [[

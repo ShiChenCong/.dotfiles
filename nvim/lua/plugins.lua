@@ -76,11 +76,11 @@ return packer.startup({
         end
       end
     }
-    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() 
-      if not vim.g.vscode  then
+    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function()
+      if not vim.g.vscode then
         require('conf.csscolor')
       end
-     end }
+    end }
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function()
         if not vim.g.vscode then
@@ -128,7 +128,7 @@ return packer.startup({
 
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
-    use{ 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     use 'ful1e5/onedark.nvim'
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -136,7 +136,7 @@ return packer.startup({
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons'} }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 
     use "tpope/vim-fugitive"
     use "lewis6991/gitsigns.nvim"
