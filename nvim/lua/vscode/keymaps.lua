@@ -44,7 +44,7 @@ map('o', 'gc', '<Plug>VSCodeCommentary')
 map('n', 'gcc', '<Plug>VSCodeCommentaryLine')
 
 --文件树相关
-map('n', '<leader>fc', "<cmd>call VSCodeNotify('workbench.files.action.collapseExplorerFolders')")
+map('n', '<leader>fc', "<cmd>call VSCodeNotify('workbench.files.action.collapseExplorerFolders')<CR>")
 map('n', 'fi', "<Cmd>call VSCodeNotify('revealInExplorer')<CR>")
 
 --surround
