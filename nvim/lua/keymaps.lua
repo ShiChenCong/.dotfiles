@@ -158,7 +158,7 @@ map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')
 -- 配合preview
-map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
+-- map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
 vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
 
 --toggleterm
