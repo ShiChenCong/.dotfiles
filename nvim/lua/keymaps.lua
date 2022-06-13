@@ -179,7 +179,7 @@ map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
 map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 
 -- 跳转也能加到jumplist
-vim.cmd [[
-  nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-  nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-]]
+-- vim.cmd [[
+--   nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+--   nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+-- ]]
