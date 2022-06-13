@@ -117,20 +117,20 @@ return packer.startup({
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     ---主题
     use 'ful1e5/onedark.nvim'
-    use({
-      "catppuccin/nvim",
-      as = "catppuccin"
-    })
+    use({ "catppuccin/nvim", as = "catppuccin" })
+
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'nvim-telescope/telescope-ui-select.nvim'
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
+
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+    use "lewis6991/gitsigns.nvim"
 
     use "tpope/vim-fugitive"
-    use "lewis6991/gitsigns.nvim"
+
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
