@@ -15,7 +15,6 @@ M.setup = function()
   local unload_plugins = {
     "init", -- we don't need to load init again
     "dap",
-    "harpoon",
     "hop",
     'diffview',
     'comment',

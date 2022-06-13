@@ -129,7 +129,12 @@ return packer.startup({
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    ---主题
     use 'ful1e5/onedark.nvim'
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin"
+    })
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'nvim-telescope/telescope-ui-select.nvim'
