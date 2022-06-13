@@ -177,7 +177,6 @@ return packer.startup({
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
     use 'dstein64/nvim-scrollview'
-    use "nathom/filetype.nvim"
   end,
   config = {
     compile_path = compile_path
