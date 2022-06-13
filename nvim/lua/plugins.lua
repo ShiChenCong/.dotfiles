@@ -26,20 +26,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
@@ -176,7 +162,6 @@ return packer.startup({
     use { 'kyazdani42/nvim-tree.lua' }
     use { 'AndrewRadev/splitjoin.vim' }
     use "rhysd/accelerated-jk"
-    use 'dstein64/nvim-scrollview'
   end,
   config = {
     compile_path = compile_path
