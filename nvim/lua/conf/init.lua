@@ -26,7 +26,8 @@ M.setup = function()
     'telescope',
     'gitsign',
     'nvim-tree',
-    'treesitter'
+    'treesitter',
+    'nvim-tree'
   }
 
   if vim.g.vscode then

@@ -129,10 +129,12 @@ return packer.startup({
     use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
     use { "rhysd/accelerated-jk", event = 'BufRead' }
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle' }
+    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function()
+      require('conf.nvim-tree')
+    end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
-      require('conf.treesitter')
+      if not vim.g.vscode then require('conf.treesitter') end
     end }
     use { "numToStr/Comment.nvim", after = "nvim-treesitter", config = function()
       if not vim.g.vscode then require('conf.comment') end
@@ -143,8 +145,8 @@ return packer.startup({
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     ---主题
     -- use 'ful1e5/onedark.nvim'
-
     use({ "catppuccin/nvim", as = "catppuccin" })
+
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 
     use "kristijanhusak/defx-git"
@@ -161,7 +163,7 @@ return packer.startup({
     use 'hrsh7th/cmp-buffer'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
-    use "rafamadriz/friendly-snippets"
+    -- use "rafamadriz/friendly-snippets"
 
     use "ThePrimeagen/harpoon"
     -- use {
