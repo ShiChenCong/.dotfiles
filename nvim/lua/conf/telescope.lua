@@ -62,9 +62,9 @@ require('telescope').setup {
   },
 }
 
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
 -- require('telescope').load_extension('vim_bookmarks')
-require("telescope").load_extension("ui-select")
+-- require("telescope").load_extension("ui-select")
 
 local M = {}
 M.telescope_find_word_in_specifeid_file = function(path)

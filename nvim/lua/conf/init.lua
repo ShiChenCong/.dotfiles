@@ -22,7 +22,8 @@ M.setup = function()
     'autopairs',
     'formatter',
     'toggleterm',
-    'trouble'
+    'trouble',
+    'telescope'
   }
 
   if vim.g.vscode then

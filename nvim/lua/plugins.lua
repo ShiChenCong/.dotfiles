@@ -119,9 +119,17 @@ return packer.startup({
     use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'nvim-telescope/telescope-ui-select.nvim'
+    use { 'nvim-telescope/telescope.nvim', requires = {
+      { 'nvim-lua/plenary.nvim' },
+    }, cmd = { "Telescope" }, config = function()
+      require('conf.telescope')
+    end }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
+      require('telescope').load_extension('fzf')
+    end }
+    use { 'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim', config = function()
+      require("telescope").load_extension("ui-select")
+    end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -164,6 +172,9 @@ return packer.startup({
     use "rhysd/accelerated-jk"
   end,
   config = {
-    compile_path = compile_path
+    compile_path = compile_path,
+    git = {
+      default_url_format = 'https://gitclone.com/%s'
+    },
   }
 })
