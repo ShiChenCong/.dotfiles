@@ -43,10 +43,14 @@
     "body": "import React from 'react'\n\nexport const ${TM_FILENAME_BASE}: React.FC<{}> = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}",
     "description": "Creates a React functional component without PropTypes"
   },
-  "console.log a variable": {
-    "prefix": "cv",
-    "body": "console.log('${0}:', ${0})"
-  },
+  "Log to the console": {
+		"prefix": "log",
+		"body": [
+			"console.log($1);",
+			"$0"
+		],
+		"description": "Log to the console"
+	},
   "imoprt": {
     "prefix": "im",
     "body": "import ${2} from ${1}"

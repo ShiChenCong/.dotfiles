@@ -161,7 +161,11 @@ return packer.startup({
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-buffer'
-    use 'L3MON4D3/LuaSnip'
+    use { 'L3MON4D3/LuaSnip', config = function()
+      if not vim.g.vscode then
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
+      end
+    end }
     use 'saadparwaiz1/cmp_luasnip'
     -- use "rafamadriz/friendly-snippets"
 

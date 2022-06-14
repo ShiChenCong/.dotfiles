@@ -86,13 +86,17 @@ vim.api.nvim_create_autocmd({ "CursorMoved" }, {
   end
 })
 
+vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
+  group = 'setWinbar',
   callback = function()
     require("winbar").get_winbar()
   end,
 })
 
+vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
+  group = 'leaveSetCursorLine',
   callback = function()
     local filetype = vim.bo.filetype;
     if (filetype ~= 'Trouble') then
