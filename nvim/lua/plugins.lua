@@ -48,7 +48,6 @@ return packer.startup({
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
       if not vim.g.vscode then require('conf.autopairs') end
     end }
-    use { "numToStr/Comment.nvim", event = 'BufRead', config = function() if not vim.g.vscode then require('conf.comment') end end }
     use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
       if not vim.g.vscode then require('conf.trouble') end
     end }
@@ -124,6 +123,17 @@ return packer.startup({
       require('conf.gitsign')
     end }
     use { "tpope/vim-fugitive", cmd = 'Git' }
+    use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
+    use { "rhysd/accelerated-jk", event = 'BufRead' }
+    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle' }
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
+      require('conf.treesitter')
+    end }
+    use { "numToStr/Comment.nvim", after = "nvim-treesitter", config = function()
+      if not vim.g.vscode then require('conf.comment') end
+    end }
+    use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'Comment.nvim' }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
@@ -132,8 +142,6 @@ return packer.startup({
     use({ "catppuccin/nvim", as = "catppuccin" })
 
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 
@@ -166,9 +174,6 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
-    use { 'kyazdani42/nvim-tree.lua' }
-    use { 'AndrewRadev/splitjoin.vim' }
-    use "rhysd/accelerated-jk"
   end,
   config = {
     compile_path = compile_path,
