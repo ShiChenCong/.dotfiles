@@ -1,33 +1,24 @@
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
+map('n', '<space>l', vim.diagnostic.open_float)
+map('n', '[d', vim.diagnostic.goto_prev)
+map('n', ']d', vim.diagnostic.goto_next)
+map('n', '<space>q', vim.diagnostic.setloclist)
+
 local on_attach = function(client, bufnr)
 
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  local opts = { noremap = true, silent = true, buffer = 0 }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- map('n', '<space>rn', '<cmd>lua require("ui.renamer").open()<CR>')
-  -- buf_set_keymap('n', '<leader>.', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>', opts)
-  map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', opts)
-  map('n', '<space>l', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-  map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  map('n', '<leader>o', '<cmd>lua vim.lsp.buf.format{ async=true }<CR>', opts)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  map('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  map('n', 'gd', vim.lsp.buf.definition, bufopts)
+  map('n', 'K', vim.lsp.buf.hover, bufopts)
+  map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
+  -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
+  map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
+  map('n', '<space>o', vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -39,26 +30,12 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    -- flags = {
-    --   debounce_text_changes = 150,
-    -- },
     handlers = {
       ['window/showMessageRequest'] = function(_, result, params) return result end
     }
   }
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
---vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics, {
---    underline = true,
---    -- This sets the spacing and the prefix, obviously.
---    virtual_text = {
---      spacing = 3,
---      prefix = ''
---    }
---  }
 local signs = {
   { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
   { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
@@ -70,10 +47,10 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  -- virtual_text = {
-  --   spacing = 3,
-  --   prefix = ''
-  -- },
+  virtual_text = {
+    spacing = 3,
+    prefix = ''
+  },
   virtual_text = false,
   signs = {
     active = signs,
