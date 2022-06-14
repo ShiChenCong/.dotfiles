@@ -110,8 +110,9 @@ return packer.startup({
       end
     end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
+
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
-      require('conf.telescope')
+      if not vim.g.vscode then require('conf.telescope') end
     end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
       require('telescope').load_extension('fzf')
@@ -119,12 +120,15 @@ return packer.startup({
     use { 'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim', config = function()
       require("telescope").load_extension("ui-select")
     end }
+
     use { "lewis6991/gitsigns.nvim", event = 'BufRead', config = function()
-      require('conf.gitsign')
+      if not vim.g.vscode then require('conf.gitsign') end
     end }
     use { "tpope/vim-fugitive", cmd = 'Git' }
+
     use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
     use { "rhysd/accelerated-jk", event = 'BufRead' }
+
     use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle' }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
@@ -138,21 +142,19 @@ return packer.startup({
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     ---主题
-    use 'ful1e5/onedark.nvim'
+    -- use 'ful1e5/onedark.nvim'
+
     use({ "catppuccin/nvim", as = "catppuccin" })
-
-
-
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
-
 
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
 
     use "neovim/nvim-lspconfig"
-    use "hrsh7th/cmp-nvim-lsp"
+
     use "onsails/lspkind.nvim"
+    use "hrsh7th/cmp-nvim-lsp"
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'

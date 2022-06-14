@@ -1,5 +1,5 @@
-local types = require('onedark.types')
-local Styles = types.od.HighlightStyle
+--local types = require('onedark.types')
+--local Styles = types.od.HighlightStyle
 
 -- require('onedark').setup({
 --   -- transparent = true,
