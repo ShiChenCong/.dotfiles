@@ -121,7 +121,7 @@ return packer.startup({
       require("telescope").load_extension("ui-select")
     end }
 
-    use { "lewis6991/gitsigns.nvim", event = 'BufRead', config = function()
+    use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function()
       if not vim.g.vscode then require('conf.gitsign') end
     end }
     use { "tpope/vim-fugitive", cmd = 'Git' }
