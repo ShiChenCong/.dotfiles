@@ -23,7 +23,8 @@ M.setup = function()
     'formatter',
     'toggleterm',
     'trouble',
-    'telescope'
+    'telescope',
+    'gitsign'
   }
 
   if vim.g.vscode then

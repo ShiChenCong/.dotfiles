@@ -111,17 +111,7 @@ return packer.startup({
       end
     end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
-
-
-    --------------------------------------------------非lazyload--------------------------------------------------------------------
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-    ---主题
-    use 'ful1e5/onedark.nvim'
-    use({ "catppuccin/nvim", as = "catppuccin" })
-
-    use { 'nvim-telescope/telescope.nvim', requires = {
-      { 'nvim-lua/plenary.nvim' },
-    }, cmd = { "Telescope" }, config = function()
+    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
       require('conf.telescope')
     end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
@@ -130,14 +120,23 @@ return packer.startup({
     use { 'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim', config = function()
       require("telescope").load_extension("ui-select")
     end }
+    use { "lewis6991/gitsigns.nvim", event = 'BufRead', config = function()
+      require('conf.gitsign')
+    end }
+    use { "tpope/vim-fugitive", cmd = 'Git' }
+
+    --------------------------------------------------非lazyload--------------------------------------------------------------------
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    ---主题
+    use 'ful1e5/onedark.nvim'
+    use({ "catppuccin/nvim", as = "catppuccin" })
+
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
-    use "lewis6991/gitsigns.nvim"
 
-    use "tpope/vim-fugitive"
 
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
