@@ -16,9 +16,14 @@ catppuccin.insert = {
 }
 
 catppuccin.command = {
-  a = { bg = cp.peach, fg = cp.base, gui = "bold" },
-  b = { bg = cp.surface1, fg = cp.peach },
+  a = { bg = cp.yellow, fg = cp.base, gui = "bold" },
+  b = { bg = cp.surface1, fg = cp.yellow },
 }
+-- catppuccin.command = {
+--   a = { bg = cp.blue, fg = cp.mantle, gui = "bold" },
+--   b = { bg = cp.surface1, fg = cp.blue },
+--   c = { bg = cp.mantle, fg = cp.text }
+-- }
 
 catppuccin.visual = {
   a = { bg = cp.mauve, fg = cp.base, gui = "bold" },
