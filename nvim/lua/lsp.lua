@@ -31,7 +31,7 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     capabilities = capabilities,
     handlers = {
-      ['window/showMessageRequest'] = function(_, result, params) return result end
+      ['window/showMessageRequest'] = function(_, result, params) return result end,
     }
   }
 end
@@ -69,11 +69,17 @@ vim.diagnostic.config(config)
 require 'lsp-conf.tsserver'
 require 'lsp-conf.lua'.init(on_attach, capabilities)
 
-local win = require('lspconfig.ui.windows')
-local _default_opts = win.default_opts
-
-win.default_opts = function(options)
-  local opts = _default_opts(options)
-  opts.border = 'single'
-  return opts
-end
+-- local win = require('lspconfig.ui.windows')
+-- local _default_opts = win.default_opts
+--
+-- win.default_opts = function(options)
+--   local opts = _default_opts(options)
+--   opts.border = 'single'
+--   return opts
+-- end
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+  -- Use a sharp border with `FloatBorder` highlights
+  border = "rounded"
+}
+)
