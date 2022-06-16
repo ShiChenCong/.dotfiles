@@ -182,12 +182,11 @@ return packer.startup({
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
     use 'vimpostor/vim-tpipeline'
-    use { "rhysd/accelerated-jk" }
   end,
   config = {
     compile_path = compile_path,
     git = {
-      default_url_format = 'https://gitclone.com/%s'
+      default_url_format = 'https://hub.fastgit.org/%s'
     },
   }
 })

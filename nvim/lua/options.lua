@@ -67,8 +67,10 @@ end
 
 -- 关闭vim-mutli-cursor plugin的warning
 vim.g['VM_show_warnings'] = 0
+-- tpipeline闪烁
+vim.g['tpipeline_focuslost'] = 0
 
-vim.g['netrw_banner'] = 0
+-- vim.g['netrw_banner'] = 0
 vim.cmd [[
   syntax enable
   set fillchars+=diff:╱

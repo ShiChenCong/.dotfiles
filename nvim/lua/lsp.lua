@@ -77,6 +77,7 @@ require 'lsp-conf.lua'.init(on_attach, capabilities)
 --   opts.border = 'single'
 --   return opts
 -- end
+-- 全局统一修改
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
   -- Use a sharp border with `FloatBorder` highlights
