@@ -11,6 +11,7 @@ map('n', ',r', ":LspRestart<CR>")
 map('n', 'j', "<Plug>(accelerated_jk_gj)")
 map('n', 'k', "<Plug>(accelerated_jk_gk)")
 
+map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', '*', '*``')

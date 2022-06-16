@@ -127,7 +127,6 @@ return packer.startup({
     use { "tpope/vim-fugitive", cmd = 'Git' }
 
     use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
-    use { "rhysd/accelerated-jk", event = 'BufRead' }
 
     use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function()
       require('conf.nvim-tree')
@@ -182,8 +181,8 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
-
     use 'vimpostor/vim-tpipeline'
+    use { "rhysd/accelerated-jk" }
   end,
   config = {
     compile_path = compile_path,
