@@ -138,7 +138,6 @@ return packer.startup({
     use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
       if not vim.g.vscode then require('conf.comment') end
     end }
-    use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'Comment.nvim' }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
