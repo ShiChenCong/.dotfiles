@@ -135,7 +135,7 @@ return packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
       if not vim.g.vscode then require('conf.treesitter') end
     end }
-    use { "numToStr/Comment.nvim", after = "nvim-treesitter", config = function()
+    use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
       if not vim.g.vscode then require('conf.comment') end
     end }
     use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'Comment.nvim' }
@@ -185,8 +185,8 @@ return packer.startup({
   end,
   config = {
     compile_path = compile_path,
-    git = {
-      default_url_format = 'https://hub.fastgit.org/%s'
-    },
+    -- git = {
+    --   default_url_format = 'https://hub.fastgit.org/%s'
+    -- },
   }
 })
