@@ -34,7 +34,8 @@ require('telescope').setup {
   pickers = {
     -- live_grep = { theme = "dropdown", shorten = { len = 2 } },
     -- find_files = { theme = "dropdown" }
-    find_files = { previewer = false }
+    find_files = { previewer = false },
+    oldfiles = { previewer = false }
   },
   extensions = {
     fzf = {

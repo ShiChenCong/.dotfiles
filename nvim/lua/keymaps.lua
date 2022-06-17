@@ -17,6 +17,9 @@ map('t', '<Esc>', '<C-\\><C-n>')
 map('n', '*', '*``')
 map('n', '<leader>m', '*``')
 
+map('n', '<C-;>', 'u')
+map('i', '<C-;>', '<Esc>ui')
+
 map('i', '<C-o>', '<Esc>ddO')
 map('i', '<C-d>', '<Esc>yypi')
 
