@@ -8,6 +8,10 @@ map('n', ";", ":")
 -- map('n', '}', "}zz")
 map('n', "<BS>", ':noh<CR>')
 map('n', ";", ":")
+map('i', '<C-d>', '<Esc>yypi')
+map('i', '<C-o>', '<Esc>ddO')
+
+map('n', '[[', "<Cmd>call search('[([{<]')<CR>")
 
 -- 前进光标记录newer
 map('n', "si", "<C-i>")
@@ -34,6 +38,9 @@ map('n', '<leader>rn', "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 map('n', 'u', "<Cmd>call VSCodeNotify('undo')<CR>")
 map('n', '<C-r>', "<Cmd>call VSCodeNotify('redo')<CR>")
 map('n', 'za', "<cmd>call VSCodeNotify('editor.toggleFold')<CR>")
+
+--获取相对路径
+map('n', '<A-f>', "<cmd>call VSCodeNotify('copyRelativeFilePath')")
 
 --debug
 map('n', '<leader>d', "<cmd>call VSCodeNotify('editor.debug.action.toggleBreakpoint')<CR>")

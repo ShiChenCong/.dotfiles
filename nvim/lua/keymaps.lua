@@ -27,6 +27,7 @@ map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
 map('n', "<A-s>", ":w<CR>")
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
+map('n', '[[', "<Cmd>call search('[([{<]')<CR>")
 
 map('n', '<leader><M-j>', ':resize +3<CR>')
 map('n', '<leader><M-k>', ":resize -2<CR>")
