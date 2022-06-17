@@ -45,9 +45,8 @@ return packer.startup({
     use 'wbthomason/packer.nvim'
 
     --------------------------------------------------lazyload--------------------------------------------------------------------
-    use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function()
-      if not vim.g.vscode then require('conf.autopairs') end
-    end }
+    use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function() require('conf.autopairs') end, cond = function() return not vim.g.vscode end }
+
     use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
       if not vim.g.vscode then require('conf.trouble') end
     end }
@@ -105,9 +104,7 @@ return packer.startup({
     end }
 
     use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
-      if not vim.g.vscode then
-        require('conf.toggleterm')
-      end
+      if not vim.g.vscode then require('conf.toggleterm') end
     end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
 
@@ -129,7 +126,7 @@ return packer.startup({
     use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
 
     use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function()
-      require('conf.nvim-tree')
+      if not vim.g.vscode then require('conf.nvim-tree') end
     end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
