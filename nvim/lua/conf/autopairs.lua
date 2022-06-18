@@ -1,6 +1,35 @@
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local handlers = require('nvim-autopairs.completion.handlers')
 local cmp = require('cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+local keymap = require("cmp.utils.keymap")
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
+  filetypes = {
+    ["*"] = {
+      ["("] = {
+        kind = {
+          cmp.lsp.CompletionItemKind.Function,
+          cmp.lsp.CompletionItemKind.Method,
+        },
+        handler = handlers["*"]
+      }
+    },
+    typescriptreact = {
+      ["("] = {
+        kind = {
+          cmp.lsp.CompletionItemKind.Function,
+          cmp.lsp.CompletionItemKind.Method
+        },
+        handler = function(char, item, bufnr)
+          -- 大写字母则是React组件 不要自动添加括号
+          if string.match(item.insertText, '^%u') == nil then
+            vim.api.nvim_feedkeys(keymap.t("()<Left>"), "n", true)
+          end
+        end
+      }
+    },
+  }
+}))
 
 local npairs = require("nvim-autopairs")
 npairs.setup({
