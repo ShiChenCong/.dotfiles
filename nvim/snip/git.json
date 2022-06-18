@@ -1,0 +1,6 @@
+{
+  ":construction: chore:": {
+    "prefix": "cc",
+    "body": ":construction: chore:$0"
+  }
+}

@@ -63,10 +63,6 @@
     "prefix": "cn",
     "body": "const { ${2} } = ${1}"
   },
-  ":construction: chore:": {
-    "prefix": "cc",
-    "body": ":construction: chore:$0"
-  },
   ":bug: fix:": {
     "prefix": "bf",
     "body": ":bug: fix:${0}"

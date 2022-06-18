@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
   map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
-  map('n', '<space>o', vim.lsp.buf.formatting, bufopts)
+  map('n', '<space>o', "<cmd>vim.lsp.buf.format { async = true }<CR>", bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -11,6 +11,12 @@
           "typescriptreact"
         ],
         "path": "./typescript.json"
+      },
+      {
+        "language": [
+          "gitcommit"
+        ],
+        "path": "./git.json"
       }
     ]
   }
