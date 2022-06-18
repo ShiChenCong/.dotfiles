@@ -20,6 +20,12 @@ local function filterReactDTS(value)
 end
 
 nvim_lsp['tsserver'].setup {
+  cmd = { "typescript-language-server", "--stdio" },
+  init_options = {
+    preferences = {
+      providePrefixAndSuffixTextForRename = false
+    }
+  },
   handlers = {
     ['textDocument/definition'] = function(err, result, method, ...)
       if vim.tbl_islist(result) and #result > 1 then
