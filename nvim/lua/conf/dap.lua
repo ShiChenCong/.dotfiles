@@ -1,24 +1,16 @@
 local dap = require('dap')
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require('util.map')
 
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
   args = { os.getenv('HOME') .. '/draft/vscode-node-debug2/out/src/nodeDebug.js' },
 }
+
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'LspDiagnosticsError', linehl = '', numhl = '' })
 vim.highlight.create('DapStoppedColor', { ctermbg = 0, guibg = '#4b4b20' }, false)
-vim.fn.sign_define('DapStopped', {
-  text = '',
-  texthl = 'DapStoppedColor',
-  linehl = 'DapStoppedColor',
-  numhl = 'DapStoppedColor'
-})
+vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStoppedColor', linehl = 'DapStoppedColor', numhl = 'DapStoppedColor' })
 -- 添加断点
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- map('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
