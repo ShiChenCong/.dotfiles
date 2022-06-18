@@ -22,7 +22,8 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
         },
         handler = function(char, item, bufnr)
           -- 大写字母则是React组件 不要自动添加括号
-          if string.match(item.insertText, '^%u') == nil then
+          if not item.label then return end
+          if string.match(item.label, '^%u') == nil then
             vim.api.nvim_feedkeys(keymap.t("()<Left>"), "n", true)
           end
         end
