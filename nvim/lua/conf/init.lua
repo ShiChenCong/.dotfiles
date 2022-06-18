@@ -27,7 +27,7 @@ M.setup = function()
     'gitsign',
     'nvim-tree',
     'treesitter',
-    'nvim-tree'
+    'nvim-tree', 'bufferline'
   }
 
   if vim.g.vscode then

@@ -42,12 +42,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end
 })
-
---[[
-  -- nvim-tree.lua/lua/nvim-tree/actions/open-file.lua 需要改为false
-  -- https://github.com/kyazdani42/nvim-tree.lua/pull/1149
- if mode == "preview" then
-    local buf_loaded = is_already_loaded(filename)
-    return on_preview(false)
-  end
---]]

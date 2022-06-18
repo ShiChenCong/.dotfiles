@@ -137,7 +137,11 @@ return packer.startup({
     end }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    -- use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use {
+      'romgrk/barbar.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' }
+    }
     ---主题
     -- use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })

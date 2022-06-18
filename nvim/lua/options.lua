@@ -15,6 +15,8 @@ local options = {
   laststatus = 3,
   -- 换行自动indent
   smartindent = true,
+  -- 取消复用上行的indent
+  autoindent = false,
   -- expandtab的作用是把tab字符转化空格
   expandtab = true,
   -- tabstop的作用是一个tab显示多少个空格,修改显示的宽度。
