@@ -189,8 +189,8 @@ return packer.startup({
   end,
   config = {
     compile_path = compile_path,
-    -- git = {
-    --   default_url_format = 'https://hub.fastgit.org/%s'
-    -- },
+    git = {
+      default_url_format = 'https://hub.fastgit.org/%s'
+    },
   }
 })

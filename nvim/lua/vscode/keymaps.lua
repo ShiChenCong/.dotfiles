@@ -81,3 +81,8 @@ vim.cmd [[
 
 -- options设置
 vim.opt['clipboard'] = 'unnamedplus'
+
+--bookmarks
+map('n', 'mk', "<cmd>call VSCodeNotify('bookmarks.toggleLabeled')<CR>")
+map('n', 'ma', "<cmd>call VSCodeNotify('bookmarks.listFromAllFiles')<CR>")
+map('n', 'md', "<cmd>call VSCodeNotify('bookmarks.clear')<CR>")
