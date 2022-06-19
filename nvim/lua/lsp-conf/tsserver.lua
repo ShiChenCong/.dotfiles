@@ -19,21 +19,29 @@ local function filterReactDTS(value)
   return string.match(value.uri, 'react/index.d.ts') == nil
 end
 
-nvim_lsp['tsserver'].setup {
-  cmd = { "typescript-language-server", "--stdio" },
-  init_options = {
-    preferences = {
-      providePrefixAndSuffixTextForRename = false
-    }
-  },
-  handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      if vim.tbl_islist(result) and #result > 1 then
-        local filtered_result = filter(result, filterReactDTS)
-        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
-      end
+local M = {}
+M.init = function(on_attach, capabilities)
+  nvim_lsp['tsserver'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "typescript-language-server", "--stdio" },
+    init_options = {
+      preferences = {
+        providePrefixAndSuffixTextForRename = false
+      }
+    },
+    handlers = {
+      ['textDocument/definition'] = function(err, result, method, ...)
+        if vim.tbl_islist(result) and #result > 1 then
+          local filtered_result = filter(result, filterReactDTS)
+          return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
+        end
 
-      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-    end
+        vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+      end
+    }
   }
-}
+
+end
+
+return M

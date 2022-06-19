@@ -7,9 +7,7 @@ map('n', ']d', vim.diagnostic.goto_next)
 map('n', '<space>q', vim.diagnostic.setloclist)
 
 local on_attach = function(client, bufnr)
-
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -20,6 +18,16 @@ local on_attach = function(client, bufnr)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', '<space>o', "<cmd>vim.lsp.buf.format { async = true }<CR>", bufopts)
+  print(client.server_capabilities.documentHighlightProvider)
+  if client.server_capabilities.documentHighlightProvider then
+    vim.cmd [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]]
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -71,7 +79,7 @@ local config = {
 
 vim.diagnostic.config(config)
 
-require 'lsp-conf.tsserver'
+require 'lsp-conf.tsserver'.init(on_attach, capabilities)
 require 'lsp-conf.lua'.init(on_attach, capabilities)
 
 -- local win = require('lspconfig.ui.windows')
