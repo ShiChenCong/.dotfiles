@@ -82,14 +82,14 @@ vim.diagnostic.config(config)
 require 'lsp-conf.tsserver'.init(on_attach, capabilities)
 require 'lsp-conf.lua'.init(on_attach, capabilities)
 
--- local win = require('lspconfig.ui.windows')
--- local _default_opts = win.default_opts
---
--- win.default_opts = function(options)
---   local opts = _default_opts(options)
---   opts.border = 'single'
---   return opts
--- end
+local win = require('lspconfig.ui.windows')
+local _default_opts = win.default_opts
+
+win.default_opts = function(options)
+  local opts = _default_opts(options)
+  opts.border = 'single'
+  return opts
+end
 -- 全局统一修改
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
