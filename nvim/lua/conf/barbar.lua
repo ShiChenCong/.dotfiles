@@ -77,5 +77,5 @@ nvim_tree_events.on_tree_close(function()
 end)
 
 local catppuccin_bg = require 'catppuccin.api.colors'.get_colors().base
--- vim.api.nvim_set_hl(0, 'BufferVisible', { bg = catppuccin_bg })
--- vim.api.nvim_set_hl(0, 'BufferVisibleSign', { bg = catppuccin_bg })
+vim.api.nvim_set_hl(0, 'BufferVisible', { bg = catppuccin_bg })
+vim.api.nvim_set_hl(0, 'BufferVisibleSign', { bg = catppuccin_bg })

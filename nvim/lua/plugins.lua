@@ -136,6 +136,10 @@ return packer.startup({
       if not vim.g.vscode then require('conf.comment') end
     end }
 
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
+      if not vim.g.vscode then require('conf.ufo') end
+    end }
+
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     use {
