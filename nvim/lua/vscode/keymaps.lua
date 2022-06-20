@@ -72,6 +72,8 @@ map('n', '<leader>(', '<Plug>Ysurroundiw("')
 map('n', '<leader>gfh', "<cmd>call VSCodeNotify('gitlens.diffWithPrevious')<cr>")
 map('n', ']c', "<cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
 map('n', '[c', "<cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
+map('n', '<leader>gp', "<cmd>call VSCodeNotify('git.push')<CR>")
+map('n', '<leader>gc', "<cmd>call VSCodeNotify('git.commit')<CR>")
 
 -- 跳转也能加到jumplist
 vim.cmd [[
