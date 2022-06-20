@@ -1,3 +1,4 @@
+local map = require "util.map"
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = (' ... %d '):format(endLnum - lnum)
@@ -31,6 +32,8 @@ require('ufo').setup({
   fold_virt_text_handler = handler
 })
 
+map('n', '[z', require('ufo.action').goPreviousClosedFold)
+map('n', ']z', require('ufo.action').goNextClosedFold)
 -- buffer scope handler
 -- will override global handler if it is existed
 -- local bufnr = vim.api.nvim_get_current_buf()

@@ -62,14 +62,14 @@ vim.cmd [[
   hi DiagnosticUnderlineHint gui=undercurl
 ]]
 
-vim.api.nvim_create_augroup("setWinbar", { clear = false })
-vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
-  group = 'setWinbar',
-  callback = function()
-    require("winbar").get_winbar()
-  end,
-})
-
+-- vim.api.nvim_create_augroup("setWinbar", { clear = false })
+-- vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
+--   group = 'setWinbar',
+--   callback = function()
+--     require("winbar").get_winbar()
+--   end,
+-- })
+--
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
   group = 'leaveSetCursorLine',

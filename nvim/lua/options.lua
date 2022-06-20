@@ -6,7 +6,7 @@ local options = {
   -- 换行
   wrap = true,
   -- 命令行高度
-  cmdheight = 0,
+  cmdheight = 1,
   -- 侧边数字栏
   number = true,
   -- 复用系统剪切板
