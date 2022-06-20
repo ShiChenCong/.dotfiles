@@ -58,9 +58,10 @@ local options = {
   mouse = 'a',
   completeopt = { "menu", "menuone", "noselect" },
   -- CursorHold触发的时间
-  updatetime = 50,
+  updatetime = 500,
   -- 侧边数字列的宽度
   numberwidth = 2,
+  timeoutlen = 500
 }
 
 for k, v in pairs(options) do
