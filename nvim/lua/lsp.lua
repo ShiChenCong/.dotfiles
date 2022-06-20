@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', '<space>o', "<cmd>vim.lsp.buf.format { async = true }<CR>", bufopts)
-  print(client.server_capabilities.documentHighlightProvider)
+
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
       augroup lsp_document_highlight
