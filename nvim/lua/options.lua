@@ -48,9 +48,9 @@ local options = {
   foldexpr = "nvim_treesitter#foldexpr()",
   foldmethod = 'expr',
   -- foldexpr = 'nvim_treesitter#foldexpr()',
-  foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').]] ..
-      [[' ... '.trim(getline(v:foldend)).]] ..
-      [[' ('.(v:foldend-v:foldstart).' lines folded...)']],
+  -- foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').]] ..
+  --     [[' ... '.trim(getline(v:foldend)).]] ..
+  --     [[' ('.(v:foldend-v:foldstart).' lines folded...)']],
   -- 默认打开文件不折叠
   foldenable = false,
   foldlevel = 99,
