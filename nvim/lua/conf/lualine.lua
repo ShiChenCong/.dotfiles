@@ -1,5 +1,28 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
+local function getTmux()
+  local handle = io.popen('tmux list-windows')
+  local output = handle:read("*a")
+  handle:close()
+  local lists = vim.split(output, '\n')
+  local current_window_name = ''
+  local all_windows = ''
+  for i, v in pairs(lists) do
+    if #v == 0 then
+      table.remove(lists, i)
+    else
+      if v:find('active') then
+        current_window_name = v:match('%d:%s%w+')
+        all_windows = all_windows .. ' [' .. current_window_name .. ']'
+      else
+        all_windows = all_windows .. ' ' .. v:match('%d:%s%w+')
+      end
+
+    end
+  end
+  return all_windows
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -14,6 +37,7 @@ lualine.setup {
     lualine_b = { 'branch' },
     lualine_c = {
       -- { 'filename', path = 1 }
+      getTmux
     },
     lualine_x = {
       { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
