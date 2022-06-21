@@ -37,13 +37,12 @@ lualine.setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = {
-      -- { 'filename', path = 1 }
       '%=',
       getTmux
     },
     lualine_x = {
+      -- 'encoding',
       { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
-      'encoding',
       'filetype'
     },
     lualine_y = { 'progress' },
