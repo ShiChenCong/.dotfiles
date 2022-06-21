@@ -29,14 +29,16 @@ lualine.setup {
     theme = "catppuccin",
     globalstatus = true,
     section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    disabled_filetypes = {}
+    component_separators = { left = '', right = '' },
+    disabled_filetypes = {},
+    always_divide_middle = true
   },
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = {
       -- { 'filename', path = 1 }
+      '%=',
       getTmux
     },
     lualine_x = {
