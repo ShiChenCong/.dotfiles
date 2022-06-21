@@ -136,8 +136,8 @@ map('n', '<leader>gr', ":diffget //3<CR>")
 map('n', '<leader>gl', ":diffget //2<CR>")
 
 --diffview
-map('n', '<leader>gdh', '<cmd>DiffviewFileHistory ./<CR>')
-map('n', '<leader>gfh', '<cmd>DiffviewFileHistory %<CR>')
+map('n', '<leader>gh', '<cmd>DiffviewFileHistory ./<CR>')
+map('n', '<leader>gf', '<cmd>DiffviewFileHistory %<CR>')
 map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 

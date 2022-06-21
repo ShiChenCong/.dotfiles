@@ -83,7 +83,7 @@ function telescope_find_word()
 end
 
 map('n', '<leader>fd', ":lua require('conf.telescope').telescope_find_word_in_specifeid_file()<CR>")
-map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
+-- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
 -- map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
 map('n', '<leader>fw', ':lua telescope_find_word()<CR>')
 

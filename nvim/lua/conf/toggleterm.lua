@@ -12,5 +12,8 @@ toggleterm.setup({
     end
   end,
   open_mapping = [[<c-\>]],
-  direction = 'float'
+  direction = 'float',
+  float_opts = {
+    border = 'rounded'
+  }
 })
