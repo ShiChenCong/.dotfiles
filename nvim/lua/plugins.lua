@@ -185,7 +185,7 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use 'lewis6991/impatient.nvim'
-    -- use 'vimpostor/vim-tpipeline'
+    use 'vimpostor/vim-tpipeline'
   end,
   config = {
     compile_path = compile_path,

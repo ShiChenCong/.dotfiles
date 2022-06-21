@@ -1,6 +1,8 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
+local notInTmux = vim.fn.expand("$TERM_PROGRAM") ~= "tmux"
 local function getTmux()
+  if notInTmux then return '' end
   local handle = io.popen('tmux list-windows')
   local output = handle:read("*a")
   handle:close()
@@ -37,8 +39,8 @@ lualine.setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = {
-      '%=',
-      getTmux
+      -- '%=',
+      -- getTmux
     },
     lualine_x = {
       -- 'encoding',
