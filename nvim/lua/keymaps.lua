@@ -14,8 +14,8 @@ map('n', ',r', ":LspRestart<CR>")
 map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
-map('n', '*', '*``')
-map('n', '<leader>m', '*``')
+-- map('n', '*', '*``')
+map('n', 'mw', '*``')
 
 map('n', '<C-;>', 'u')
 map('i', '<C-;>', '<Esc>ui')
@@ -44,7 +44,7 @@ map('n', "sj", '<C-w>j')
 map('n', "sk", '<C-w>k')
 map('n', "sl", '<C-w>l')
 
-map('v', 'L', "$<Left>")
+map('v', 'L', "$")
 map('n', 'L', "$")
 
 map('n', "H", "^")
