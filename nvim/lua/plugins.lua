@@ -165,7 +165,7 @@ return packer.startup({
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
 
-    use "onsails/lspkind.nvim"
+    use { "onsails/lspkind.nvim", module = { 'lspkind' } }
 
     use {
       { 'hrsh7th/nvim-cmp',
