@@ -1,6 +1,6 @@
 local ok, cmp = pcall(require, 'cmp')
 local luasnip = require("luasnip")
--- local lspkind = require('lspkind')
+local lspkind = require('lspkind')
 if not ok then
   return
 end
@@ -24,13 +24,13 @@ cmp.setup({
     --   -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
     --   return vim_item
     -- end
-    -- format = lspkind.cmp_format({
-    --   mode = 'symbol_text',
-    --   maxwidth = 50,
-    --   before = function(entry, vim_item)
-    --     return vim_item
-    --   end
-    -- })
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      before = function(entry, vim_item)
+        return vim_item
+      end
+    })
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),

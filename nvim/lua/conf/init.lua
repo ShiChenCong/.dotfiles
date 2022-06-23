@@ -29,7 +29,7 @@ M.setup = function()
     'treesitter',
     'nvim-tree', 'barbar', 'ufo', 'harpoon',
     'bufferline',
-    'lualine'
+    'lualine', 'cmp'
   }
 
   if vim.g.vscode then

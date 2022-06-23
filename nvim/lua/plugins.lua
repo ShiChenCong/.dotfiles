@@ -167,17 +167,35 @@ return packer.startup({
 
     use "onsails/lspkind.nvim"
 
-    use "hrsh7th/cmp-nvim-lsp"
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-buffer'
-    use { 'L3MON4D3/LuaSnip', config = function()
-      if not vim.g.vscode then
-        require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
-      end
-    end }
-    use 'saadparwaiz1/cmp_luasnip'
+    use {
+      { 'hrsh7th/nvim-cmp',
+        config = function()
+          require('conf.cmp')
+        end,
+        event = 'InsertEnter *'
+      },
+      { 'L3MON4D3/LuaSnip', config = function()
+        if not vim.g.vscode then
+          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
+        end
+      end, module = { 'luasnip', 'LuaSnip' } },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp', module_pattern = { 'cmp_nvim_lsp' } },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+    }
+    -- use "hrsh7th/cmp-nvim-lsp"
+    -- use 'hrsh7th/nvim-cmp'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-cmdline'
+    -- use 'hrsh7th/cmp-buffer'
+    -- use { 'L3MON4D3/LuaSnip', config = function()
+    --   if not vim.g.vscode then
+    --     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
+    --   end
+    -- end }
+    -- use 'saadparwaiz1/cmp_luasnip'
     -- use "rafamadriz/friendly-snippets"
 
     -- use {
