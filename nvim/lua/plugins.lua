@@ -108,7 +108,7 @@ return packer.startup({
     end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
 
-    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
+    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
       if not vim.g.vscode then require('conf.telescope') end
     end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
@@ -141,8 +141,14 @@ return packer.startup({
     end }
 
     use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function() require('lsp') end }
+
+    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
+      require('conf.harpoon')
+    end }
     --------------------------------------------------非lazyload--------------------------------------------------------------------
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', event = { 'BufRead' }, config = function()
+      require('conf.bufferline')
+    end }
     -- use {
     --   'romgrk/barbar.nvim',
     --   requires = { 'kyazdani42/nvim-web-devicons' }
@@ -151,7 +157,9 @@ return packer.startup({
     -- use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, event = { 'BufRead' }, config = function()
+      require('conf.lualine')
+    end }
 
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
@@ -171,9 +179,6 @@ return packer.startup({
     use 'saadparwaiz1/cmp_luasnip'
     -- use "rafamadriz/friendly-snippets"
 
-    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
-      require('conf.harpoon')
-    end }
     -- use {
     --   'rmagatti/auto-session',
     --   config = function()
