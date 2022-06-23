@@ -140,6 +140,7 @@ return packer.startup({
       if not vim.g.vscode then require('conf.ufo') end
     end }
 
+    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function() require('lsp') end }
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     -- use {
@@ -155,8 +156,6 @@ return packer.startup({
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
-
-    use "neovim/nvim-lspconfig"
 
     use "onsails/lspkind.nvim"
     use "hrsh7th/cmp-nvim-lsp"

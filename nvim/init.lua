@@ -5,7 +5,7 @@ vim.g.did_load_filetypes = 0
 if not vim.g['vscode'] then
   require('impatient')
   require('options')
-  require('lsp')
+  -- require('lsp')
   require('theme')
   require('conf')
   require('keymaps')
