@@ -145,10 +145,14 @@ return packer.startup({
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
       require('conf.harpoon')
     end }
-    --------------------------------------------------非lazyload--------------------------------------------------------------------
+
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, event = { 'BufRead' }, config = function()
+      require('conf.lualine')
+    end }
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', event = { 'BufRead' }, config = function()
       require('conf.bufferline')
     end }
+    --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use {
     --   'romgrk/barbar.nvim',
     --   requires = { 'kyazdani42/nvim-web-devicons' }
@@ -157,15 +161,12 @@ return packer.startup({
     -- use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, event = { 'BufRead' }, config = function()
-      require('conf.lualine')
-    end }
-
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"
     use "Shougo/defx.nvim"
 
     use "onsails/lspkind.nvim"
+
     use "hrsh7th/cmp-nvim-lsp"
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-path'
