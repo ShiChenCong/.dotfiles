@@ -12,12 +12,12 @@ local on_attach = function(client, bufnr)
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
-  map('n', '<space>rn', ':lua vim.lsp.buf.rename()<CR>', bufopts)
+  map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   -- map('n', '<space>rn', require('ui.renamer').open)
   map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
-  map('n', '<space>o', "<cmd>vim.lsp.buf.format { async = true }<CR>", bufopts)
+  map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
