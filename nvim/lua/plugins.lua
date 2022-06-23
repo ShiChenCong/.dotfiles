@@ -171,7 +171,9 @@ return packer.startup({
     use 'saadparwaiz1/cmp_luasnip'
     -- use "rafamadriz/friendly-snippets"
 
-    use "ThePrimeagen/harpoon"
+    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
+      require('conf.harpoon')
+    end }
     -- use {
     --   'rmagatti/auto-session',
     --   config = function()

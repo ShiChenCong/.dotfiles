@@ -27,7 +27,7 @@ M.setup = function()
     'gitsign',
     'nvim-tree',
     'treesitter',
-    'nvim-tree', 'barbar', 'ufo'
+    'nvim-tree', 'barbar', 'ufo','harpoon'
   }
 
   if vim.g.vscode then
