@@ -151,7 +151,7 @@ map('n', '<leader>fmw', "<cmd>lua require('telescope.builtin').grep_string { sea
 -- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
 map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
 map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
-map('n', '<leader>g', "<cmd>Telescope git_commits()<CR>")
+map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
 map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
 map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
 map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
