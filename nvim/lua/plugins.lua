@@ -47,31 +47,11 @@ return packer.startup({
     --------------------------------------------------lazyload--------------------------------------------------------------------
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function() require('conf.autopairs') end, cond = function() return not vim.g.vscode end }
 
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function()
-      if not vim.g.vscode then require('conf.trouble') end
-    end }
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function() require('conf.trouble') end, cond = function() return not vim.g.vscode end }
     use { "tpope/vim-surround", event = 'BufRead' }
-    use { 'sindrets/diffview.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      event = 'BufRead',
-      config = function()
-        if not vim.g.vscode then
-          return ('conf.diffview')
-        end
-      end
-    }
-    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function()
-      if not vim.g.vscode then
-        require('conf.csscolor')
-      end
-    end }
-    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
-      config = function()
-        if not vim.g.vscode then
-          require('bqf').setup({ auto_enable = false, })
-        end
-      end
-    }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead', config = function() return ('conf.diffview') end, cond = function() return not vim.g.vscode end }
+    use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end, cond = function() return not vim.g.vscode end }
+    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter', config = function() require('bqf').setup({ auto_enable = false, }) end, cond = function() return not vim.g.vscode end }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter', cond = function() return not vim.g.vscode end }
     use { "svban/YankAssassin.vim", event = 'BufRead' }
@@ -79,29 +59,18 @@ return packer.startup({
     --   require('conf.dap')
     -- end }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
-    use { 'mhartington/formatter.nvim', event = 'BufRead', config = function()
-      if not vim.g.vscode then
-        require('conf.formatter')
-      end
-    end }
-    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function()
-      if not vim.g.vscode then
-        require('pqf').setup()
-      end
-    end }
-
+    use { 'mhartington/formatter.nvim', event = 'BufRead', config = function() require('conf.formatter') end, cond = function() return not vim.g.vscode end }
+    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function() require('pqf').setup() end, cond = function() return not vim.g.vscode end }
     use { 'akinsho/git-conflict.nvim', event = 'BufRead', config = function()
-      if not vim.g.vscode then
-        require('git-conflict').setup({
-          default_mappings = true, -- disable buffer local mapping created by this plugin
-          disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-          highlights = { -- They must have background color, otherwise the default color will be used
-            incoming = 'DiffText',
-            current = 'DiffAdd',
-          }
-        })
-      end
-    end }
+      require('git-conflict').setup({
+        default_mappings = true, -- disable buffer local mapping created by this plugin
+        disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+        highlights = { -- They must have background color, otherwise the default color will be used
+          incoming = 'DiffText',
+          current = 'DiffAdd',
+        }
+      })
+    end, cond = function() return not vim.g.vscode end }
 
     use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
       if not vim.g.vscode then require('conf.toggleterm') end
@@ -217,7 +186,8 @@ return packer.startup({
   config = {
     compile_path = compile_path,
     git = {
-      default_url_format = 'https://hub.fastgit.org/%s'
+      default_url_format = 'https://hub.fastgit.org/%s',
+      clone_timeout = 20
     },
   }
 })
