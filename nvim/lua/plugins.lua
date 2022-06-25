@@ -73,7 +73,7 @@ return packer.startup({
       end
     }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
-    use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
+    use { "windwp/nvim-ts-autotag", event = 'InsertEnter', cond = function() return not vim.g.vscode end }
     use { "svban/YankAssassin.vim", event = 'BufRead' }
     -- use { "mfussenegger/nvim-dap", event = 'InsertEnter', config = function()
     --   require('conf.dap')
@@ -106,7 +106,7 @@ return packer.startup({
     use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
       if not vim.g.vscode then require('conf.toggleterm') end
     end }
-    use { "mg979/vim-visual-multi", event = 'BufRead' }
+    use { "mg979/vim-visual-multi", event = 'BufRead', cond = function() return not vim.g.vscode end }
 
     use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
       if not vim.g.vscode then require('conf.telescope') end
