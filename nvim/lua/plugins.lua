@@ -140,18 +140,14 @@ return packer.startup({
       if not vim.g.vscode then require('conf.ufo') end
     end }
 
-    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function() require('lsp') end }
+    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function()
+      if not vim.g.vscode then require('lsp') end
+    end }
 
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
-      require('conf.harpoon')
+      if not vim.g.vscode then require('conf.harpoon') end
     end }
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, event = { 'BufRead' }, config = function()
-      require('conf.lualine')
-    end }
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', event = { 'BufRead' }, config = function()
-      require('conf.bufferline')
-    end }
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use {
     --   'romgrk/barbar.nvim',
@@ -170,7 +166,7 @@ return packer.startup({
     use {
       { 'hrsh7th/nvim-cmp',
         config = function()
-          require('conf.cmp')
+          if not vim.g.vscode then require('conf.cmp') end
         end,
         event = 'InsertEnter *'
       },
@@ -209,6 +205,12 @@ return packer.startup({
     --   end
     -- }
     -- use 'famiu/bufdelete.nvim'
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
+      if not vim.g.vscode then require('conf.lualine') end
+    end }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = function()
+      if not vim.g.vscode then require('conf.bufferline') end
+    end }
     use 'lewis6991/impatient.nvim'
     -- use 'vimpostor/vim-tpipeline'
   end,
