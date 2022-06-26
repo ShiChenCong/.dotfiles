@@ -55,9 +55,10 @@ return packer.startup({
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter', cond = function() return not vim.g.vscode end }
     use { "svban/YankAssassin.vim", event = 'BufRead' }
-    -- use { "mfussenegger/nvim-dap", event = 'InsertEnter', config = function()
-    --   require('conf.dap')
-    -- end }
+    use { "mfussenegger/nvim-dap", keys = { '<leader>da' }, config = function()
+      require('conf.dap')
+    end, cond = function() return not vim.g.vscode end }
+
     use { "tpope/vim-unimpaired", event = 'BufRead' }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function() require('conf.formatter') end, cond = function() return not vim.g.vscode end }
     use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function() require('pqf').setup() end, cond = function() return not vim.g.vscode end }
@@ -91,8 +92,6 @@ return packer.startup({
       if not vim.g.vscode then require('conf.gitsign') end
     end }
     use { "tpope/vim-fugitive", cmd = 'Git' }
-
-    -- use { 'AndrewRadev/splitjoin.vim', event = 'InsertEnter' }
 
     use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function()
       if not vim.g.vscode then require('conf.nvim-tree') end
@@ -150,18 +149,6 @@ return packer.startup({
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
     }
-    -- use "hrsh7th/cmp-nvim-lsp"
-    -- use 'hrsh7th/nvim-cmp'
-    -- use 'hrsh7th/cmp-path'
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use { 'L3MON4D3/LuaSnip', config = function()
-    --   if not vim.g.vscode then
-    --     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
-    --   end
-    -- end }
-    -- use 'saadparwaiz1/cmp_luasnip'
-    -- use "rafamadriz/friendly-snippets"
 
     -- use {
     --   'rmagatti/auto-session',
