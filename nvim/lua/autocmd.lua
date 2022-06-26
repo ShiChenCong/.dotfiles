@@ -14,11 +14,6 @@ vim.cmd [[
     autocmd BufWritePre *.lua lua vim.lsp.buf.format()
   augroup end
 
-  " 新一行 不带上行的注释
-  augroup newlineWithoutComment
-    autocmd BufEnter * set fo-=c fo-=r fo-=o
-  augroup end
-
   augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -79,4 +74,9 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
       vim.cmd [[setlocal nocursorline]]
     end
   end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  command = "set fo-=c fo-=r fo-=o",
 })

@@ -11,6 +11,12 @@ map('n', ',r', ":LspRestart<CR>")
 -- map('n', 'j', "<Plug>(accelerated_jk_gj)")
 -- map('n', 'k', "<Plug>(accelerated_jk_gk)")
 
+map('n', ';t', ':tabnew<CR>')
+map('n', 'tn', ':tabnext<CR>')
+map('n', 'tp', ':tabprevious<CR>')
+map('n', 'tc', ':tabclose<CR>')
+map('n', 'to', ':tabonly<CR>')
+
 map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
