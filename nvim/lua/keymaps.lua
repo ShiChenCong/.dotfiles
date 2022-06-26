@@ -11,7 +11,7 @@ map('n', ',r', ":LspRestart<CR>")
 -- map('n', 'j', "<Plug>(accelerated_jk_gj)")
 -- map('n', 'k', "<Plug>(accelerated_jk_gk)")
 
-map('n', ';t', ':tabnew<CR>')
+map('n', ',t', ':tabnew<CR>')
 map('n', 'tn', ':tabnext<CR>')
 map('n', 'tp', ':tabprevious<CR>')
 map('n', 'tc', ':tabclose<CR>')
@@ -173,7 +173,7 @@ map('n', ',f', '<cmd>NvimTreeToggle<CR>')
 vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
 
 --toggleterm
-map('n', ',t', ":ToggleTermToggleAll<CR>")
+-- map('n', ',t', ":ToggleTermToggleAll<CR>")
 
 --surround
 map('n', "<leader>'", '<Plug>Ysurroundiw\""')
