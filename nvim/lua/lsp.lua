@@ -56,7 +56,7 @@ local signs = {
   { name = "DiagnosticSignHint", text = ' ', texthl = 'DiagnosticSignHint' },
 }
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { text = sign.text })
+  vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
 end
 
 local config = {
