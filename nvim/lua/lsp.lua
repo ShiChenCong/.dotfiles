@@ -1,9 +1,9 @@
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
-map('n', '<space>l', vim.diagnostic.open_float)
-map('n', '[d', vim.diagnostic.goto_prev)
-map('n', ']d', vim.diagnostic.goto_next)
+map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
+map('n', '[d', ":lua vim.diagnostic.goto_prev({float = {max_width = 100}})<CR>")
+map('n', ']d', ":lua vim.diagnostic.goto_next({float = {max_width = 100}})<CR>")
 map('n', '<space>q', vim.diagnostic.setloclist)
 
 local on_attach = function(client, bufnr)
