@@ -161,10 +161,11 @@ return packer.startup({
       if not vim.g.vscode then require('conf.bufferline') end
     end }
     use 'lewis6991/impatient.nvim'
+
     use { "tiagovla/scope.nvim", config = function()
       require("scope").setup()
-    end }
-    -- use 'vimpostor/vim-tpipeline'
+    end, cond = function() return not vim.g.vscode end }
+    use { 'vimpostor/vim-tpipeline', cond = function() return not vim.g.vscode end }
   end,
   config = {
     compile_path = compile_path,
