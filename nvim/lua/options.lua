@@ -6,7 +6,7 @@ local options = {
   -- 换行
   wrap = false,
   -- 命令行高度
-  cmdheight = 1,
+  cmdheight = 0,
   -- 侧边数字栏
   number = true,
   -- 复用系统剪切板
@@ -76,7 +76,6 @@ vim.g['tpipeline_focuslost'] = 0
 -- vim.g['netrw_banner'] = 0
 vim.cmd [[
   set formatoptions-=cro
-  syntax enable
   set fillchars+=diff:╱
   let ghregex='\(^\|\s\s\)\zs\.\S\+'
   let g:netrw_list_hide=ghregex
