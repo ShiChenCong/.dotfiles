@@ -198,3 +198,14 @@ map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 --   nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 --   nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 -- ]]
+
+vim.cmd [[
+let @i = 'ceimportf=cf(from f)x'
+nnoremap <leader>cri :global/require/normal @i<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+echo "@".getcmdline()
+execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+]]
