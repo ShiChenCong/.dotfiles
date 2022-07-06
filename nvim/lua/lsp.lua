@@ -43,9 +43,12 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    handlers = {
-      ['window/showMessageRequest'] = function(_, result, params) return result end,
-    }
+    root_dir = function()
+      return vim.fn.getcwd()
+    end,
+    -- handlers = {
+    --   ['window/showMessageRequest'] = function(_, result, params) return result end,
+    -- }
   }
 end
 
