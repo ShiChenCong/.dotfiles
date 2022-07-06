@@ -66,14 +66,12 @@ return packer.startup({
       require('git-conflict').setup({ default_mappings = true, disable_diagnostics = false, highlights = { incoming = 'DiffText', current = 'DiffAdd', } })
     end, cond = function() return not vim.g.vscode end }
 
-    use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function()
-      if not vim.g.vscode then require('conf.toggleterm') end
-    end }
+    use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end, cond = function() return not vim.g.vscode end }
     use { "mg979/vim-visual-multi", event = 'BufRead', cond = function() return not vim.g.vscode end }
 
     use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
-      if not vim.g.vscode then require('conf.telescope') end
-    end }
+      require('conf.telescope')
+    end, cond = function() return not vim.g.vscode end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
       require('telescope').load_extension('fzf')
     end }
@@ -81,33 +79,29 @@ return packer.startup({
       require("telescope").load_extension("ui-select")
     end }
 
-    use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function()
-      if not vim.g.vscode then require('conf.gitsign') end
-    end }
-    use { "tpope/vim-fugitive", cmd = 'Git' }
+    use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function() require('conf.gitsign') end, cond = function() return not vim.g.vscode end }
+    use { "tpope/vim-fugitive", cmd = 'Git', cond = function() return not vim.g.vscode end }
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function()
-      if not vim.g.vscode then require('conf.nvim-tree') end
-    end }
+    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function() require('conf.nvim-tree') end, cond = function() return not vim.g.vscode end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
-      if not vim.g.vscode then require('conf.treesitter') end
-    end }
+      require('conf.treesitter')
+    end, cond = function() return not vim.g.vscode end }
     use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
-      if not vim.g.vscode then require('conf.comment') end
-    end }
+      require('conf.comment')
+    end, cond = function() return not vim.g.vscode end }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
-      if not vim.g.vscode then require('conf.ufo') end
-    end }
+      require('conf.ufo')
+    end, cond = function() return not vim.g.vscode end }
 
     use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function()
-      if not vim.g.vscode then require('lsp') end
-    end }
+      require('lsp')
+    end, cond = function() return not vim.g.vscode end }
 
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
-      if not vim.g.vscode then require('conf.harpoon') end
-    end }
+      require('conf.harpoon')
+    end, cond = function() return not vim.g.vscode end }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use {
@@ -155,11 +149,11 @@ return packer.startup({
     -- }
     -- use 'famiu/bufdelete.nvim'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
-      if not vim.g.vscode then require('conf.lualine') end
-    end }
+      require('conf.lualine')
+    end, cond = function() return not vim.g.vscode end }
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = function()
-      if not vim.g.vscode then require('conf.bufferline') end
-    end }
+      require('conf.bufferline')
+    end, cond = function() return not vim.g.vscode end }
     use 'lewis6991/impatient.nvim'
 
     use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }

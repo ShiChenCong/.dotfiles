@@ -61,7 +61,8 @@ local options = {
   updatetime = 500,
   -- 侧边数字列的宽度
   numberwidth = 2,
-  timeoutlen = 500
+  timeoutlen = 500,
+  fillchars = { diff = '╱', vertright = ' ' }
 }
 
 for k, v in pairs(options) do
@@ -76,7 +77,6 @@ vim.g['tpipeline_focuslost'] = 0
 -- vim.g['netrw_banner'] = 0
 vim.cmd [[
   set formatoptions-=cro
-  set fillchars+=diff:╱
   let ghregex='\(^\|\s\s\)\zs\.\S\+'
   let g:netrw_list_hide=ghregex
 ]]
