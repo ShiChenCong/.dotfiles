@@ -62,6 +62,7 @@ local options = {
   -- 侧边数字列的宽度
   numberwidth = 2,
   timeoutlen = 500,
+  -- 修改fillchar
   fillchars = { diff = '╱', vertright = ' ' }
 }
 

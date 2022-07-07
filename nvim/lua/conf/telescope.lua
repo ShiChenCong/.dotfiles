@@ -74,17 +74,22 @@ M.telescope_find_word_in_specifeid_file = function(path)
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
-function telescope_find_word()
+local telescope_find_word = function()
   local word = vim.fn.input("Search > ")
   local len = #word
   if len ~= 0 then
-    require('telescope.builtin').grep_string({ search = word })
+    if word:find('-w') then
+      local handled_word = string.gmatch(word, "%S+")
+      require('telescope.builtin').grep_string({ search = handled_word(), word_match = '-w' })
+    else
+      require('telescope.builtin').grep_string({ search = word })
+    end
   end
 end
 
 map('n', '<leader>fd', ":lua require('conf.telescope').telescope_find_word_in_specifeid_file()<CR>")
 -- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
 -- map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
-map('n', '<leader>fw', ':lua telescope_find_word()<CR>')
+map('n', '<leader>fw', telescope_find_word)
 
 return M
