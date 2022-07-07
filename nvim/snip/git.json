@@ -1,6 +1,14 @@
 {
-  ":construction: chore:": {
+  "进行中": {
     "prefix": "cc",
     "body": ":construction: chore:$0"
+  },
+  "样式修改": {
+    "prefix": "ls",
+    "body": ":lipstick: style:$0"
+  },
+  "修复bug": {
+    "prefix":"fb",
+    "body":":bug: fix:$0"
   }
 }

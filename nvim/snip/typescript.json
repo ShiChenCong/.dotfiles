@@ -15,27 +15,27 @@
   },
   "useEffect": {
     "prefix": "ue",
-    "body": ["useEffect(() => {", "\t$1", "}, [${3}])$0"],
+    "body": ["useEffect(() => {", "\t$1", "}, [${3}])"],
     "description": "React useEffect() hook"
   },
   "useState": {
     "prefix": "us",
-    "body": "const [${1}, ${2}] = useState(${3})$0",
+    "body": "const [${1}, ${2}] = useState(${3})",
     "description": "use state hook"
   },
   "useRequest": {
     "prefix": "ur",
-    "body": "const [${1}, ${2}] = useRequest(${3})$0",
+    "body": "const [${1}, ${2}] = useRequest(${3})",
     "description": "use query"
   },
   "useQuery": {
     "prefix": "uq",
-    "body": "const [${1}, ${2}] = useQuery(${3})$0",
+    "body": "const [${1}, ${2}] = useQuery(${3})",
     "description": "use query"
   },
   "useBoolean": {
     "prefix": "ubl",
-    "body": "const {state:${1}, toggle:toggle${1}} = useBoolean(${2})$0",
+    "body": "const {state:${1}, toggle:toggle${1}} = useBoolean(${2})",
     "description": "use query"
   },
   "reactFunctionComponent": {
