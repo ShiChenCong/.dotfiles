@@ -43,33 +43,14 @@ require('telescope').setup {
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      -- the default case_mode is "smart_case"
     },
     ["ui-select"] = {
-      require("telescope.themes").get_cursor {
-        -- even more opts
-      }
-      -- specific_opts = {
-      --   [kind] = {
-      --     make_indexed = function(items) -> indexed_items, width,
-      --     make_displayer = function(widths) -> displayer
-      --     make_display = function(displayer) -> function(e)
-      --     make_ordinal = function(e) -> string
-      --   },
-      --   -- for example to disable the custom builtin "codeactions" display
-      --      do the following
-      --   codeactions = false,
-      -- }
+      require("telescope.themes").get_cursor {}
     }
   },
 }
 
--- require('telescope').load_extension('fzf')
--- require('telescope').load_extension('vim_bookmarks')
--- require("telescope").load_extension("ui-select")
-
-local M = {}
-M.telescope_find_word_in_specifeid_file = function(path)
+local telescope_find_word_in_specifeid_file = function(path)
   local handledPath = path or vim.fn['defx#get_candidate']().action__path
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
@@ -87,9 +68,5 @@ local telescope_find_word = function()
   end
 end
 
-map('n', '<leader>fd', ":lua require('conf.telescope').telescope_find_word_in_specifeid_file()<CR>")
--- map('n', '<leader>.', ':Telescope lsp_code_actions theme=cursor<CR>')
--- map('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
+map('n', '<leader>fd', telescope_find_word_in_specifeid_file)
 map('n', '<leader>fw', telescope_find_word)
-
-return M
