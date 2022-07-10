@@ -103,6 +103,8 @@ return packer.startup({
       require('conf.harpoon')
     end, cond = function() return not vim.g.vscode end }
 
+    use { "luukvbaal/stabilize.nvim", config = function() require("stabilize").setup() end, cond = function() return not vim.g.vscode end }
+
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use {
     --   'romgrk/barbar.nvim',
