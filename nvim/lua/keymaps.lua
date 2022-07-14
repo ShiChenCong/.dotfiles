@@ -60,9 +60,9 @@ map('n', "H", "^")
 map('v', "H", "^")
 
 -- 前进光标记录newer
-map('n', "si", "<C-i>")
+map('n', "si", "<C-i>zz")
 -- 后退光标记录older
-map('n', "so", "<C-o>")
+map('n', "so", "<C-o>zz")
 
 map('n', "ss", ":split<CR>")
 map('n', "sv", ":vsplit<CR>")

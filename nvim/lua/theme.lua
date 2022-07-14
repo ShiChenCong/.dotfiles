@@ -19,13 +19,6 @@
 -- ]]
 
 local catppuccin = require("catppuccin")
-local colors = require 'catppuccin.api.colors'.get_colors() -- fetch colors with API
-catppuccin.remap({
-  DiagnosticError = { fg = colors.red, bg = "NONE" },
-  DiagnosticWarn = { fg = colors.yellow, bg = "NONE" },
-  DiagnosticInfo = { fg = colors.info, bg = "NONE" },
-  DiagnosticHint = { fg = colors.hint, bg = "NONE" },
-})
 catppuccin.setup({
   integrations = {
     bufferline = false,

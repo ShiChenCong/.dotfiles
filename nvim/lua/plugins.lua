@@ -48,7 +48,15 @@ return packer.startup({
     use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function() require('conf.autopairs') end, cond = function() return not vim.g.vscode end }
 
     -- work in vscode
-    use { "tpope/vim-surround", event = 'BufRead' }
+    -- use { "tpope/vim-surround", event = 'BufRead' }
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup({
+          -- Configuration here, or leave empty to use defaults
+        })
+      end
+    })
     use { "svban/YankAssassin.vim", event = 'BufRead' }
     use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
