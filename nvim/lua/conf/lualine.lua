@@ -41,6 +41,7 @@ lualine.setup {
     lualine_c = {
       -- '%=',
       -- getTmux
+      { 'filename', path = 1 }
     },
     lualine_x = {
       -- 'encoding',
