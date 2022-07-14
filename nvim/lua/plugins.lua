@@ -69,7 +69,7 @@ return packer.startup({
     use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end, cond = function() return not vim.g.vscode end }
     use { "mg979/vim-visual-multi", event = 'BufRead', cond = function() return not vim.g.vscode end }
 
-    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, config = function()
+    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, keys = { '<leader>fw' }, config = function()
       require('conf.telescope')
     end, cond = function() return not vim.g.vscode end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()

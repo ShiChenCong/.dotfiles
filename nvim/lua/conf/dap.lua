@@ -28,7 +28,7 @@ dap.configurations.javascript = {
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'LspDiagnosticsError', linehl = '', numhl = '' })
 vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStoppedColor', linehl = 'DapStoppedColor', numhl = 'DapStoppedColor' })
-vim.highlight.create('DapStoppedColor', { ctermbg = 0, guibg = '#4b4b20' }, false)
+vim.api.nvim_set_hl('DapStoppedColor', { ctermbg = 0, guibg = '#4b4b20' }, false)
 -- 添加断点
 map('n', 'db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- map('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")

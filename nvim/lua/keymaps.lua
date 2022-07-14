@@ -6,6 +6,7 @@ map('n', 'J', 'mzJ`z')
 
 map('n', 'gq', ":q<CR>")
 map('n', 'mt', '%')
+map('v', 'mt', '%')
 map('n', ',r', ":LspRestart<CR>")
 -- map('i', ';w<CR>', '<Esc>')
 -- map('n', 'j', "<Plug>(accelerated_jk_gj)")
@@ -27,7 +28,6 @@ map('n', 'mw', '*')
 -- map('n', 'mw', ':keepjumps normal! mi*`i<CR>')
 
 map('n', '<C-;>', 'u')
-map('i', '<C-;>', '<Esc>ui')
 
 map('i', '<C-o>', '<Esc>ddO')
 map('i', '<C-d>', '<Esc>yypi')
