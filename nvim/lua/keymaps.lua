@@ -180,10 +180,10 @@ vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = t
 -- map('n', ',t', ":ToggleTermToggleAll<CR>")
 
 --surround
-map('n', "<leader>'", '<Plug>Ysurroundiw\""')
-map('n', '<leader>[', '<Plug>Ysurroundiw]"')
-map('n', '<leader>{', '<Plug>Ysurroundiw{"')
-map('n', '<leader>(', '<Plug>Ysurroundiw("')
+map('n', "<leader>'", "ysiw'")
+map('n', '<leader>[', 'ysiw[')
+map('n', '<leader>{', 'ysiw{')
+map('n', '<leader>(', 'ysiw(')
 
 --bqf
 map('n', '<leader>p', "<cmd>BqfToggle<CR>")

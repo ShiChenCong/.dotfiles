@@ -74,7 +74,7 @@ return packer.startup({
       require('git-conflict').setup({ default_mappings = true, disable_diagnostics = false, highlights = { incoming = 'DiffText', current = 'DiffAdd', } })
     end, cond = function() return not vim.g.vscode end }
 
-    use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end, cond = function() return not vim.g.vscode end }
+    -- use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end, cond = function() return not vim.g.vscode end }
     use { "mg979/vim-visual-multi", event = 'BufRead', cond = function() return not vim.g.vscode end }
 
     use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, keys = { '<leader>fw' }, config = function()
