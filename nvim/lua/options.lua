@@ -75,7 +75,7 @@ vim.g['VM_show_warnings'] = 0
 -- tpipeline闪烁
 vim.g['tpipeline_focuslost'] = 0
 
--- vim.g['netrw_banner'] = 0
+vim.g['netrw_banner'] = 0
 vim.cmd [[
   set formatoptions-=cro
   let ghregex='\(^\|\s\s\)\zs\.\S\+'

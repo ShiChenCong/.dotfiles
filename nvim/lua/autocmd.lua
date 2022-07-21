@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   group = 'leaveSetCursorLine',
   callback = function()
     local filetype = vim.bo.filetype;
-    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory") then
+    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
       vim.cmd [[setlocal nocursorline]]
     end
   end
