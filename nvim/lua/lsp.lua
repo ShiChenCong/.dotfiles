@@ -17,7 +17,8 @@ local on_attach = function(client, bufnr)
   map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
-  map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
+  -- map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
+  map('n', '<space>o', ":lua vim.lsp.buf.formatting_sync()<CR>", bufopts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
@@ -46,9 +47,10 @@ for _, lsp in ipairs(servers) do
     root_dir = function()
       return vim.fn.getcwd()
     end,
-    -- handlers = {
-    --   ['window/showMessageRequest'] = function(_, result, params) return result end,
-    -- }
+    -- 修复eslint 报错https://neovim.discourse.group/t/supressing-eslint-ls-errors/1687
+    handlers = {
+      ['window/showMessageRequest'] = function(_, result, params) return result end
+    }
   }
 end
 

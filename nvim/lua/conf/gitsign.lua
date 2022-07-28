@@ -1,5 +1,5 @@
 require('gitsigns').setup {
-  current_line_blame = false,
+  current_line_blame = true,
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -36,7 +36,7 @@ require('gitsigns').setup {
 
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-  end
+  end,
 }
 
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#4e5362")

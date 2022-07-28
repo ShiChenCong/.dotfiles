@@ -120,7 +120,7 @@ return packer.startup({
     -- }
     ---主题
     -- use 'ful1e5/onedark.nvim'
-    use({ "catppuccin/nvim", as = "catppuccin",branch = "dev" })
+    use({ "catppuccin/nvim", as = "catppuccin", branch = "dev" })
 
     use "kristijanhusak/defx-git"
     use "kristijanhusak/defx-icons"

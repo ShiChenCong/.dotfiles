@@ -74,6 +74,7 @@ map('n', ']c', "<cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
 map('n', '[c', "<cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
 map('n', '<leader>gp', "<cmd>call VSCodeNotify('git.push')<CR>")
 map('n', '<leader>gc', "<cmd>call VSCodeNotify('git.commit')<CR>")
+map('n', '<leader>hr', "<cmd>call VSCodeNotify('git.revertSelectedRanges')<CR>")
 
 -- 跳转也能加到jumplist
 vim.cmd [[
