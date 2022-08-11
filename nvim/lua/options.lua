@@ -9,6 +9,7 @@ local options = {
   cmdheight = 1,
   -- 侧边数字栏
   number = true,
+  relativenumber = true,
   -- 复用系统剪切板
   clipboard = "unnamedplus",
   -- 只显示一个status line
