@@ -1,10 +1,5 @@
 -- 设置自动保存时的格式化、EslintFix等
 vim.cmd [[
-  augroup format
-    autocmd FileType typescript,typescriptreact,javascript
-     \ autocmd BufWritePre <buffer> EslintFixAll
-  augroup end
-  
   augroup cssFormat
     autocmd FileType less,css,html
      \ autocmd BufWritePost <buffer> FormatWrite
@@ -57,13 +52,13 @@ vim.cmd [[
   hi DiagnosticUnderlineHint gui=undercurl
 ]]
 
-vim.api.nvim_create_augroup("setWinbar", { clear = false })
+--[[ vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = 'setWinbar',
   callback = function()
     require("winbar").get_winbar()
   end,
-})
+}) ]]
 
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
@@ -79,4 +74,14 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   command = "set fo-=c fo-=r fo-=o",
+})
+
+vim.api.nvim_create_augroup('AutoFormatAndFixEslint', { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = 'AutoFormatAndFixEslint',
+  pattern = { "*.tsx", "*.ts", "*.js" },
+  callback = function()
+    vim.cmd [[EslintFixAll]]
+    vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
+  end
 })

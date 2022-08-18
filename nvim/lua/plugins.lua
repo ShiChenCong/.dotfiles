@@ -111,7 +111,19 @@ return packer.startup({
       require('conf.harpoon')
     end, cond = function() return not vim.g.vscode end }
 
-    use { "luukvbaal/stabilize.nvim", config = function() require("stabilize").setup() end, cond = function() return not vim.g.vscode end }
+    use { "luukvbaal/stabilize.nvim",
+      config = function() require("stabilize").setup() end,
+      cond = function() return not vim.g.vscode end
+    }
+
+    use { 'mrshmllow/document-color.nvim', config = function()
+      require("document-color").setup {
+        mode = "background", -- "background" | "foreground" | "single"
+      }
+    end,
+    cond = function() return not vim.g.vscode end,
+    event = { 'BufReadPre' }
+    }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     -- use {
