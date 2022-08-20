@@ -179,8 +179,18 @@ return packer.startup({
       require('conf.bufferline')
     end, cond = function() return not vim.g.vscode end }
     use 'lewis6991/impatient.nvim'
+    use {
+      'AckslD/nvim-trevJ.lua',
+      config = 'require("trevj").setup()', -- optional call for configurating non-default filetypes etc
+      module = 'trevj',
+      setup = function()
+        vim.keymap.set('n', '<leader>j', function()
+          require('trevj').format_at_cursor()
+        end)
+      end,
+    }
 
-    use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
+    -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
     -- use { 'vimpostor/vim-tpipeline', cond = function() return not vim.g.vscode end }
   end,
   config = {
