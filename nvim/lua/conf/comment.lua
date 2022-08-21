@@ -9,4 +9,10 @@ require('Comment').setup({
     line = 'cl',
     block = 'cb',
   },
+  opleader = {
+    ---Line-comment keymap
+    line = 'cl',
+    ---Block-comment keymap
+    block = 'cb',
+  },
 })
