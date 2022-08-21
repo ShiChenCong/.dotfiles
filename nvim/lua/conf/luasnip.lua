@@ -39,7 +39,7 @@ local function fn(
 end
 
 ls.add_snippets(nil, {
-  all = {
+  typescriptreact = {
     s("us", {
       t 'const [', i(1),
       t ',',
