@@ -149,9 +149,7 @@ return packer.startup({
       },
       { 'L3MON4D3/LuaSnip', config = function()
         if not vim.g.vscode then
-          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
-          local ls = require('luasnip')
-          ls.config.set_config({ history = false })
+          require('conf.luasnip')
         end
       end, module = { 'luasnip', 'LuaSnip' } },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
