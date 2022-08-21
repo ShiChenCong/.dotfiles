@@ -18,11 +18,6 @@
     "body": ["useEffect(() => {", "\t$1", "}, [${3}])"],
     "description": "React useEffect() hook"
   },
-  "useState": {
-    "prefix": "us",
-    "body": "const [${1}, ${2}] = useState(${3})",
-    "description": "use state hook"
-  },
   "useRequest": {
     "prefix": "ur",
     "body": "const [${1}, ${2}] = useRequest(${3})",

@@ -5,42 +5,51 @@ ls.config.set_config({
   region_check_events = "InsertEnter",
   delete_check_events = "TextChanged,InsertLeave",
 })
-local snip = ls.snippet
-local node = ls.snippet_node
-local text = ls.text_node
-local insert = ls.insert_node
-local func = ls.function_node
-local choice = ls.choice_node
-local dynamicn = ls.dynamic_node
+
+local ls = require("luasnip")
+local s = ls.snippet
+local sn = ls.snippet_node
+local isn = ls.indent_snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+local r = ls.restore_node
+local events = require("luasnip.util.events")
+local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local extras = require("luasnip.extras")
+local m = extras.m
 local l = extras.l
+local rep = extras.rep
+local postfix = require("luasnip.extras.postfix").postfix
 
-local date = function() return { os.date('%Y-%m-%d') } end
+
+function firstToUpper(str)
+  return (str:gsub("^%l", string.upper))
+end
+
+local function fn(
+      args, -- text from i(2) in this example i.e. { { "456" } }
+      parent, -- parent snippet or parent node
+      user_args -- user_args from opts.user_args
+)
+  return user_args .. firstToUpper(args[1][1])
+end
 
 ls.add_snippets(nil, {
   all = {
-    snip({
-      trig = "date",
-      namr = "Date",
-      dscr = "Date in the form of YYYY-MM-DD",
-    }, {
-      func(date, {}),
-    }),
-    snip({
-      trig = 'scc',
-      namr = "Date",
-      dscr = "Date in the form of YYYY-MM-DD",
-    }, fmt([[const [{}, {}] = useState({})]], { insert(1), func(function(variable)
-      print(vim.inspect(variable))
-      return "set" .. 'sd'
-    end), insert(3) })),
-    snip("transform", {
-      insert(1, "initial text"),
-      text([[const [] = useState({})]]),
-      -- lambda nodes accept an l._1,2,3,4,5, which in turn accept any string transformations.
-      -- This list will be applied in order to the first node given in the second argument.
-      l(l._1:match("[^i]*$"):gsub("i", "o"):gsub(" ", "_"):upper(), 1),
+    s("us", {
+      t 'const [', i(1),
+      t ',',
+      f(fn, -- callback (args, parent, user_args) -> string
+        { 1 }, -- node indice(s) whose text is passed to fn, i.e. i(2)
+        { user_args = { "set" } }-- opts
+      ),
+      t '] = useState(',
+      i(2),
+      t ')'
     })
   },
 })
