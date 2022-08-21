@@ -90,7 +90,7 @@ return packer.startup({
     use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function() require('conf.gitsign') end, cond = function() return not vim.g.vscode end }
     use { "tpope/vim-fugitive", cmd = 'Git', cond = function() return not vim.g.vscode end }
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function() require('conf.nvim-tree') end, cond = function() return not vim.g.vscode end }
+    use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }, config = function() require('conf.nvim-tree') end, cond = function() return not vim.g.vscode end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
       require('conf.treesitter')
