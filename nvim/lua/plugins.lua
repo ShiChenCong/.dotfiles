@@ -97,7 +97,9 @@ return packer.startup({
     end, cond = function() return not vim.g.vscode end }
     use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
       require('conf.comment')
-    end, cond = function() return not vim.g.vscode end }
+    end, cond = function() return not vim.g.vscode end,
+    event = { 'BufReadPre' }
+    }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
       require('conf.ufo')
@@ -113,7 +115,8 @@ return packer.startup({
 
     use { "luukvbaal/stabilize.nvim",
       config = function() require("stabilize").setup() end,
-      cond = function() return not vim.g.vscode end
+      cond = function() return not vim.g.vscode end,
+      event = { 'BufReadPre' }
     }
 
     use { 'mrshmllow/document-color.nvim', config = function()
