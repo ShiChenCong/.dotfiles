@@ -4,6 +4,9 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 
+map('n', 'q', '<Nop>')
+map('n', 'Q', 'q')
+
 map('n', 'g;', 'g;zz')
 
 map('n', 'gq', ":q<CR>")
