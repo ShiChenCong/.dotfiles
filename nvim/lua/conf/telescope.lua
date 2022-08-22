@@ -25,7 +25,7 @@ require('telescope').setup {
       i = {
         ["<esc>"] = actions.close,
         ["<c-q>"] = trouble.open_selected_with_trouble,
-        ['<c-;>'] = action_layout.toggle_preview
+        ['<c-p>'] = action_layout.toggle_preview
       }
     },
     -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
