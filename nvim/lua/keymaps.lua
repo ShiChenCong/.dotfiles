@@ -57,7 +57,7 @@ map('n', "sl", '<C-w>l')
 map('v', 'L', "$")
 map('n', 'L', "$")
 
-map('n', "H", "0w")
+map('n', "H", "^")
 map('v', "H", "^")
 
 -- 前进光标记录newer

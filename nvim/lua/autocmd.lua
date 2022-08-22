@@ -52,13 +52,13 @@ vim.cmd [[
   hi DiagnosticUnderlineHint gui=undercurl
 ]]
 
---[[ vim.api.nvim_create_augroup("setWinbar", { clear = false })
+vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = 'setWinbar',
   callback = function()
     require("winbar").get_winbar()
   end,
-}) ]]
+})
 
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
@@ -82,6 +82,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.tsx", "*.ts", "*.js" },
   callback = function()
     vim.cmd [[EslintFixAll]]
-    vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
+    -- vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
   end
 })
