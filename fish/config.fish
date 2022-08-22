@@ -21,3 +21,5 @@ set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
 
 set -U fish_greeting ""
+
+set -gx TERM wezterm

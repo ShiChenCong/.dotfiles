@@ -90,7 +90,7 @@ return packer.startup({
     use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function() require('conf.gitsign') end, cond = function() return not vim.g.vscode end }
     use { "tpope/vim-fugitive", cmd = 'Git', cond = function() return not vim.g.vscode end }
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = function() require('conf.nvim-tree') end, cond = function() return not vim.g.vscode end }
+    use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }, config = function() require('conf.nvim-tree') end, cond = function() return not vim.g.vscode end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
       require('conf.treesitter')
@@ -149,9 +149,7 @@ return packer.startup({
       },
       { 'L3MON4D3/LuaSnip', config = function()
         if not vim.g.vscode then
-          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
-          local ls = require('luasnip')
-          ls.config.set_config({ history = false })
+          require('conf.luasnip')
         end
       end, module = { 'luasnip', 'LuaSnip' } },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
@@ -179,8 +177,18 @@ return packer.startup({
       require('conf.bufferline')
     end, cond = function() return not vim.g.vscode end }
     use 'lewis6991/impatient.nvim'
+    use {
+      'AckslD/nvim-trevJ.lua',
+      config = 'require("trevj").setup()', -- optional call for configurating non-default filetypes etc
+      module = 'trevj',
+      setup = function()
+        vim.keymap.set('n', '<leader>j', function()
+          require('trevj').format_at_cursor()
+        end)
+      end,
+    }
 
-    use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
+    -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
     -- use { 'vimpostor/vim-tpipeline', cond = function() return not vim.g.vscode end }
   end,
   config = {

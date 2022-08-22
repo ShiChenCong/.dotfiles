@@ -31,8 +31,12 @@ vim.cmd [[
   augroup end
 
   augroup gotoLastPosition
-    autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  augroup end
+      autocmd BufReadPost *
+         \ if line("'\"") > 0 && line("'\"") <= line("$") |
+         \   exe "normal! g`\"" |
+         \   exe "normal zz" |
+         \ endif
+ augroup end
 ]]
 
 vim.cmd [[
