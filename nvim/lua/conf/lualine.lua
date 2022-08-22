@@ -40,7 +40,7 @@ lualine.setup {
     lualine_b = { 'branch' },
     lualine_c = {
       -- '%=',
-      getTmux
+      -- getTmux
       -- { 'filename', path = 1 }
     },
     lualine_x = {
