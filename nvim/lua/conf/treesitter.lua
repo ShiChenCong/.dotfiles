@@ -26,6 +26,7 @@ require 'nvim-treesitter.configs'.setup {
     'typescript',
     'tsx',
     'javascript',
-    'html'
+    'html',
+    'lua'
   }
 }
