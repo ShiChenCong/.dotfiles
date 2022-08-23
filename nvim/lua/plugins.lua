@@ -190,6 +190,7 @@ return packer.startup({
         end)
       end,
     }
+    use { 'rainbowhxch/accelerated-jk.nvim' }
 
     -- use "rhysd/accelerated-jk"
     -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
