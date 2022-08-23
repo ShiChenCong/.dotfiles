@@ -162,17 +162,16 @@ return packer.startup({
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
     }
 
-    -- use {
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('auto-session').setup {
-    --       log_level = 'info',
-    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
-    --     }
-    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-    --   end
-    -- }
-    -- use 'famiu/bufdelete.nvim'
+    use {
+      'rmagatti/auto-session',
+      config = function()
+        require('auto-session').setup {
+          log_level = 'info',
+          auto_session_suppress_dirs = { '~/', '~/Projects' }
+        }
+        -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+      end
+    }
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
       require('conf.lualine')
     end, cond = function() return not vim.g.vscode end }
