@@ -191,7 +191,7 @@ return packer.startup({
       end,
     }
 
-    use "rhysd/accelerated-jk"
+    -- use "rhysd/accelerated-jk"
     -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
     -- use { 'vimpostor/vim-tpipeline', cond = function() return not vim.g.vscode end }
   end,

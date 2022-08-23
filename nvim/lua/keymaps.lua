@@ -6,6 +6,41 @@ map('n', 'J', 'mzJ`z')
 
 map('n', 'q', '<Nop>')
 map('n', 'Q', 'q')
+-- map('n', 'u', 'mzu`zzz')
+map('n', 'u', function()
+  local cursorPosition = vim.api.nvim_win_get_cursor(0)
+  local row = cursorPosition[1]
+  local col = cursorPosition[2]
+
+  local info = vim.fn.getwininfo();
+  local topline = info[1].topline
+
+  vim.cmd [[u]]
+
+  -- 如果执行undo之后的topline不等于执行之前的topline
+  if vim.api.nvim_win_get_cursor(0)[1] ~= row then
+    vim.api.nvim_win_set_cursor(0, { topline, 0 })
+    vim.cmd.normal('zt')
+    vim.api.nvim_win_set_cursor(0, { row, col })
+  end
+end)
+map('n', '<C-r>', function()
+  local cursorPosition = vim.api.nvim_win_get_cursor(0)
+  local row = cursorPosition[1]
+  local col = cursorPosition[2]
+
+  local info = vim.fn.getwininfo();
+  local topline = info[1].topline
+
+  vim.cmd('redo')
+
+  if vim.api.nvim_win_get_cursor(0)[1] ~= row then
+    vim.api.nvim_win_set_cursor(0, { topline, 0 })
+    vim.cmd.normal('zt')
+    vim.api.nvim_win_set_cursor(0, { row, col })
+  end
+end)
+
 
 map('n', 'g;', 'g;zz')
 
@@ -14,8 +49,8 @@ map('n', 'mt', '%')
 map('v', 'mt', '%')
 map('n', ',r', ":LspRestart<CR>")
 -- map('i', ';w<CR>', '<Esc>')
-map('n', 'j', "<Plug>(accelerated_jk_gj)")
-map('n', 'k', "<Plug>(accelerated_jk_gk)")
+-- map('n', 'j', "<Plug>(accelerated_jk_gj)")
+-- map('n', 'k', "<Plug>(accelerated_jk_gk)")
 map('n', 'yw', 'yiw')
 map('n', 'dw', 'diw')
 map('n', 'cw', 'ciw')
@@ -145,7 +180,7 @@ map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
 map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
-map('n', '<leader>;', "<cmd>BufferLineTogglePin<CR>")
+-- map('n', '<leader>;', "<cmd>BufferLineTogglePin<CR>")
 map('n', 'c;', "<cmd>BufferLineGroupClose ungrouped<CR>")
 -- map('n', '<leader>;', "<Cmd>BufferPin<CR>", { nowait = true })
 
@@ -186,10 +221,10 @@ vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = t
 -- map('n', ',t', ":ToggleTermToggleAll<CR>")
 
 --surround
-map('n', "<leader>'", "ysiw'")
-map('n', '<leader>[', 'ysiw[')
-map('n', '<leader>{', 'ysiw{')
-map('n', '<leader>(', 'ysiw(')
+map('n', "<leader>'", "ysiw'", { remap = true })
+map('n', '<leader>[', 'ysiw[', { remap = true })
+map('n', '<leader>{', 'ysiw{', { remap = true })
+map('n', '<leader>(', 'ysiw(', { remap = true })
 
 --bqf
 map('n', '<leader>p', "<cmd>BqfToggle<CR>")
