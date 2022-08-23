@@ -190,6 +190,9 @@ return packer.startup({
       end,
     }
     use { 'rainbowhxch/accelerated-jk.nvim' }
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+      require('conf.toggleterm')
+    end, event = 'BufRead' }
 
     -- use "rhysd/accelerated-jk"
     -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
