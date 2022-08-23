@@ -1,4 +1,5 @@
 local map = require('util.map')
+local keep_position = require('util.keep_position')
 
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
@@ -8,37 +9,15 @@ map('n', 'q', '<Nop>')
 map('n', 'Q', 'q')
 -- map('n', 'u', 'mzu`zzz')
 map('n', 'u', function()
-  local cursorPosition = vim.api.nvim_win_get_cursor(0)
-  local row = cursorPosition[1]
-  local col = cursorPosition[2]
-
-  local info = vim.fn.getwininfo();
-  local topline = info[1].topline
-
-  vim.cmd [[u]]
-
-  -- 如果执行undo之后的topline不等于执行之前的topline
-  if vim.api.nvim_win_get_cursor(0)[1] ~= row then
-    vim.api.nvim_win_set_cursor(0, { topline, 0 })
-    vim.cmd.normal('zt')
-    vim.api.nvim_win_set_cursor(0, { row, col })
-  end
+  keep_position.stay_position(function()
+    vim.cmd [[u]]
+  end)
 end)
+
 map('n', '<C-r>', function()
-  local cursorPosition = vim.api.nvim_win_get_cursor(0)
-  local row = cursorPosition[1]
-  local col = cursorPosition[2]
-
-  local info = vim.fn.getwininfo();
-  local topline = info[1].topline
-
-  vim.cmd('redo')
-
-  if vim.api.nvim_win_get_cursor(0)[1] ~= row then
-    vim.api.nvim_win_set_cursor(0, { topline, 0 })
-    vim.cmd.normal('zt')
-    vim.api.nvim_win_set_cursor(0, { row, col })
-  end
+  keep_position.stay_position(function()
+    vim.cmd('redo')
+  end)
 end)
 
 
