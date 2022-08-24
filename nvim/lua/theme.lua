@@ -9,6 +9,17 @@ require("catppuccin").setup {
   }
 }
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "PackerCompileDone",
+  callback = function()
+    print('122')
+    vim.cmd "CatppuccinCompile"
+    vim.defer_fn(function()
+      vim.cmd "colorscheme catppuccin"
+    end, 0) -- Defered for live reloading
+  end
+})
+
 vim.cmd [[colorscheme catppuccin]]
 vim.cmd [[
   hi DiffAdd ctermbg=4 guibg=#283b4D guifg=NONE
