@@ -3,6 +3,10 @@ require("catppuccin").setup {
   custom_highlights = {
     MatchParen = { fg = "#FE640B", bg = "#000000" },
   },
+  compile = {
+    enabled = true,
+    path = vim.fn.stdpath "cache" .. "/catppuccin"
+  }
 }
 
 vim.cmd [[colorscheme catppuccin]]
