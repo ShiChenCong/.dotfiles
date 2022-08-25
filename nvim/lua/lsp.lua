@@ -43,7 +43,7 @@ capabilities.textDocument.foldingRange = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'html', 'cssls', 'eslint', 'tailwindcss', 'jsonls' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -53,27 +53,6 @@ for _, lsp in ipairs(servers) do
     end,
   }
 end
-
-nvim_lsp.eslint.setup {
-  on_attach = function()
-    vim.api.nvim_create_augroup('AutoFormatAndFixEslint', { clear = true })
-    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-      group = 'AutoFormatAndFixEslint',
-      pattern = { "*.tsx", "*.ts", "*.js" },
-      callback = function()
-        vim.cmd [[EslintFixAll]]
-      end
-    })
-  end,
-  capabilities = capabilities,
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
-  -- 修复eslint 报错https://neovim.discourse.group/t/supressing-eslint-ls-errors/1687
-  handlers = {
-    ['window/showMessageRequest'] = function(_, result, params) return result end
-  }
-}
 
 local signs = {
   { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
@@ -107,6 +86,7 @@ vim.diagnostic.config(config)
 
 require 'lsp-conf.tsserver'.init(on_attach, capabilities)
 require 'lsp-conf.lua'.init(on_attach, capabilities)
+require 'lsp-conf.eslint'.init(capabilities)
 
 local win = require('lspconfig.ui.windows')
 local _default_opts = win.default_opts
