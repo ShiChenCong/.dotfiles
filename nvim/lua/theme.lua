@@ -3,7 +3,22 @@ require("catppuccin").setup {
   custom_highlights = {
     MatchParen = { fg = "#FE640B", bg = "#000000" },
   },
+  compile = {
+    enabled = true,
+    path = vim.fn.stdpath "cache" .. "/catppuccin"
+  }
 }
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "PackerCompileDone",
+  callback = function()
+    print('122')
+    vim.cmd "CatppuccinCompile"
+    vim.defer_fn(function()
+      vim.cmd "colorscheme catppuccin"
+    end, 0) -- Defered for live reloading
+  end
+})
 
 vim.cmd [[colorscheme catppuccin]]
 vim.cmd [[
