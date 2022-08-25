@@ -12,7 +12,6 @@ require("catppuccin").setup {
 vim.api.nvim_create_autocmd("User", {
   pattern = "PackerCompileDone",
   callback = function()
-    print('122')
     vim.cmd "CatppuccinCompile"
     vim.defer_fn(function()
       vim.cmd "colorscheme catppuccin"
