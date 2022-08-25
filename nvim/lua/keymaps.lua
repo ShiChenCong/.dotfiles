@@ -27,9 +27,7 @@ map('n', 'gq', ":q<CR>")
 map('n', 'mt', '%')
 map('v', 'mt', '%')
 map('n', ',r', ":LspRestart<CR>")
-map('i', ';w<CR>', '<Esc>')
-map('n', 'j', "<Plug>(accelerated_jk_gj)")
-map('n', 'k', "<Plug>(accelerated_jk_gk)")
+
 map('n', 'yw', 'yiw')
 map('n', 'dw', 'diw')
 map('n', 'cw', 'ciw')
@@ -44,7 +42,6 @@ map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', 'mw', '*')
--- map('n', 'mw', ':keepjumps normal! mi*`i<CR>')
 
 map('n', '<C-;>', 'u')
 
@@ -53,7 +50,7 @@ map('i', '<C-d>', '<Esc>yypi')
 
 map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
-map('i', ";w", "<Esc>")
+map('i', ";w", "<Esc>:w<cr>")
 map('n', "<A-s>", ":w<CR>")
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
 map('n', '[[', "<Cmd>call search('[([{<]')<CR>")
@@ -188,7 +185,7 @@ map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', '<leader>fo', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 
 --jsx-utils
-map('n', ',e', 'call JSXEachAttributeInLine()<CR>')
+map('n', ',e', ':EslintFixAll<CR>')
 
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')
