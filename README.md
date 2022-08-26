@@ -6,3 +6,5 @@
   + `brew install fd`
   #### prettierd
   + `npm install -g @fsouza/prettierd`
+  #### eslint_d
+  + `npm install -g eslint_d` more fash than EslintFixAll
