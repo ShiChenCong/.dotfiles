@@ -9,7 +9,10 @@ M.init = function(capabilities)
         group = 'AutoFormatAndFixEslint',
         pattern = { "*.tsx", "*.ts", "*.js" },
         callback = function()
-          vim.cmd [[EslintFixAll]]
+          vim.cmd [[normal mf]]
+          vim.cmd.normal('mF')
+          vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+          vim.cmd.normal('`F')
         end
       })
     end,
