@@ -184,7 +184,7 @@ return packer.startup({
       require('conf.toggleterm')
     end, event = 'BufRead' }
 
-    -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
+    use { "tiagovla/scope.nvim", config = function() require("scope").setup() end, cond = function() return not vim.g.vscode end }
     -- use { 'vimpostor/vim-tpipeline', cond = function() return not vim.g.vscode end }
   end,
   config = {

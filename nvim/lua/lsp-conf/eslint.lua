@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local keep_position = require('util.keep_position')
 
 local M = {}
 M.init = function(capabilities)
@@ -9,10 +10,10 @@ M.init = function(capabilities)
         group = 'AutoFormatAndFixEslint',
         pattern = { "*.tsx", "*.ts", "*.js" },
         callback = function()
-          vim.cmd [[normal mf]]
-          vim.cmd.normal('mF')
-          vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
-          vim.cmd.normal('`F')
+          vim.cmd [[EslintFixAll]]
+          -- keep_position.stay_position(function ()
+          --   vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+          -- end)
         end
       })
     end,
