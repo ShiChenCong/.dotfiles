@@ -14,7 +14,7 @@ M.stay_position = function(fn)
   local lastline = vim.fn.line('$')
 
   -- 如果执行undo之后的topline不等于执行之前的topline
-  if lastline > row and vim.api.nvim_win_get_cursor(0)[1] ~= row then
+  if lastline >= row and vim.api.nvim_win_get_cursor(0)[1] ~= row then
     vim.api.nvim_win_set_cursor(0, { topline, 0 })
     vim.cmd.normal('zt')
     vim.api.nvim_win_set_cursor(0, { row, col })
