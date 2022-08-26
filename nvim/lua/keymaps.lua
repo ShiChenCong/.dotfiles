@@ -187,11 +187,11 @@ map('n', '<leader>fo', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 --jsx-utils
 -- map('n', ',e', ':mF:%!eslint_d --stdin --fix-to-stdout<CR>`F')
 -- vim.cmd [[nnoremap ,e mF:%!eslint_d --stdin --fix-to-stdout<CR>`F]]
-map('n', ',e', function()
-  keep_position.stay_position(function()
-    vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
-  end)
-end)
+-- map('n', ',e', function()
+--   keep_position.stay_position(function()
+--     vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+--   end)
+-- end)
 
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')

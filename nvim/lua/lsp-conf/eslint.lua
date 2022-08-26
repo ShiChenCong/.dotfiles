@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local keep_position = require('util.keep_position')
 
@@ -10,10 +11,15 @@ M.init = function(capabilities)
         group = 'AutoFormatAndFixEslint',
         pattern = { "*.tsx", "*.ts", "*.js" },
         callback = function()
-          vim.cmd [[EslintFixAll]]
-          -- keep_position.stay_position(function ()
-          --   vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
-          -- end)
+          local errorList = vim.diagnostic.get(0)
+          for index, value in ipairs(errorList) do
+            if value.severity == 1 then
+              keep_position.stay_position(function()
+                vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+              end)
+              break
+            end
+          end
         end
       })
     end,
