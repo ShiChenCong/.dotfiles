@@ -5,7 +5,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 P = function(v)
-  print(vim.inspect(v))
+  vim.notify(vim.inspect(v))
   return v
 end
 
