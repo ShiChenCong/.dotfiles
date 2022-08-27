@@ -15,7 +15,8 @@ M.init = function(capabilities)
           for index, value in ipairs(errorList) do
             if value.severity == 1 and value.source == 'eslint' then
               keep_position.stay_position(function()
-                vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+                -- vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
+                vim.cmd [[EslintFixAll]]
               end)
               break
             end
