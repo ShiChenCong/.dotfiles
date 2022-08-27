@@ -13,7 +13,7 @@ M.init = function(capabilities)
         callback = function()
           local errorList = vim.diagnostic.get(0)
           for index, value in ipairs(errorList) do
-            if value.severity == 1 then
+            if value.severity == 1 and value.source == 'eslint' then
               keep_position.stay_position(function()
                 vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
               end)

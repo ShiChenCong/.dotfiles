@@ -6,7 +6,7 @@ vim.cmd [[
   augroup end
 
   augroup luaFormat
-    autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync()
+    autocmd BufWritePre *.lua lua vim.lsp.buf.format({sync=true})
   augroup end
 
   augroup CursorLine

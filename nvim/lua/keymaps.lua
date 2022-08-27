@@ -7,7 +7,6 @@ map('n', 'J', 'mzJ`z')
 
 map('n', 'q', '<Nop>')
 map('n', 'Q', 'q')
--- map('n', 'u', 'mzu`zzz')
 map('n', 'u', function()
   keep_position.stay_position(function()
     vim.cmd [[u]]
@@ -38,7 +37,7 @@ map('n', 'tp', ':tabprevious<CR>')
 map('n', 'tc', ':tabclose<CR>')
 map('n', 'to', ':tabonly<CR>')
 
-map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR>')
+map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', 'mw', '*')
@@ -183,15 +182,6 @@ map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>
 map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
 map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', '<leader>fo', "<cmd>Telescope oldfiles only_cwd=true<CR>")
-
---jsx-utils
--- map('n', ',e', ':mF:%!eslint_d --stdin --fix-to-stdout<CR>`F')
--- vim.cmd [[nnoremap ,e mF:%!eslint_d --stdin --fix-to-stdout<CR>`F]]
--- map('n', ',e', function()
---   keep_position.stay_position(function()
---     vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
---   end)
--- end)
 
 --nvim-tree
 map('n', ',f', '<cmd>NvimTreeToggle<CR>')
