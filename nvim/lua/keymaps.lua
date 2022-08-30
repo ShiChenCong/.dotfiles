@@ -221,4 +221,6 @@ function! ExecuteMacroOverVisualRange()
 echo "@".getcmdline()
 execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+command! -nargs=1 S let @/ = '\V'.escape(<q-args>, '\')|set hlsearch
 ]]

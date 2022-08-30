@@ -26,7 +26,7 @@ local rep = extras.rep
 local postfix = require("luasnip.extras.postfix").postfix
 
 
-function firstToUpper(str)
+local firstToUpper = function(str)
   return (str:gsub("^%l", string.upper))
 end
 

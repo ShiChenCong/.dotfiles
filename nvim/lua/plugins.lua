@@ -85,6 +85,9 @@ return packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
       require('conf.treesitter')
     end, cond = function() return not vim.g.vscode end }
+
+    use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
+
     use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
       require('conf.comment')
     end, cond = function() return not vim.g.vscode end,
