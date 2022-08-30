@@ -30,10 +30,13 @@ map('n', ',r', ":LspRestart<CR>")
 map('n', 'yw', 'yiw')
 map('n', 'dw', 'diw')
 map('n', 'cw', 'ciw')
-map('n', '/', function()
+map('n', '<A-/>', function()
   local word = vim.fn.input("Search > ")
-  vim.fn.setreg('/', word)
-  vim.cmd('set hlsearch')
+  if word ~= nil then
+    vim.fn.setreg('/', word)
+    vim.cmd('set hlsearch')
+    vim.cmd('normal n')
+  end
 end)
 
 map('n', ',t', ':tabnew<CR>')
@@ -226,6 +229,4 @@ function! ExecuteMacroOverVisualRange()
 echo "@".getcmdline()
 execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
-command! -nargs=1 S let @/ = '\V'.escape(<q-args>, '\')|set hlsearch
 ]]
