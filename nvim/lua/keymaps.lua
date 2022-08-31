@@ -7,7 +7,7 @@ map('n', 'J', 'mzJ`z')
 
 map('n', 'q', '<Nop>')
 map('n', 'Q', 'q')
-map('n', '<A-u>', function()
+map('n', 'su', function()
   keep_position.stay_position(function()
     vim.cmd [[u]]
   end)
