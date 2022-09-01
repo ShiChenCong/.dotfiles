@@ -3,7 +3,9 @@ package https://github.com/fabioantunes/fish-nvm
 package peco
 package z
 theme cbjohnson
+theme clearance
 theme default
 theme eclm
 theme integral
+theme robbyrussell
 theme sushi

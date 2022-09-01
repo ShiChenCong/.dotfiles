@@ -32,7 +32,7 @@ map('n', 'dw', 'diw')
 map('n', 'cw', 'ciw')
 map('n', '<A-/>', function()
   local word = vim.fn.input("Search > ")
-  if word ~= nil then
+  if word ~= nil and #word ~= 0 then
     vim.fn.setreg('/', word)
     vim.cmd('set hlsearch')
     vim.cmd('normal n')
