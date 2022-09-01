@@ -6,13 +6,13 @@ require('Comment').setup({
     return require('Comment.jsx').calculate(ctx)
   end,
   toggler = {
-    line = 'cl',
-    block = 'cb',
+    line = 'sb',
+    block = 'sn',
   },
   opleader = {
     ---Line-comment keymap
-    line = 'cl',
+    line = 'sb',
     ---Block-comment keymap
-    block = 'cb',
+    block = 'sn',
   },
 })
