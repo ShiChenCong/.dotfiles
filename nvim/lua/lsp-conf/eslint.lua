@@ -1,13 +1,16 @@
 ---@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local keep_position = require('util.keep_position')
+local formatter = require('formatter.format')
+local log = require "formatter.log"
+local util = require "formatter.util"
 
 local M = {}
 M.init = function(capabilities)
   nvim_lsp.eslint.setup {
     on_attach = function()
       vim.api.nvim_create_augroup('AutoFormatAndFixEslint', { clear = true })
-      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         group = 'AutoFormatAndFixEslint',
         pattern = { "*.tsx", "*.ts", "*.js" },
         callback = function()
@@ -15,8 +18,22 @@ M.init = function(capabilities)
           for index, value in ipairs(errorList) do
             if value.severity == 1 and value.source == 'eslint' then
               keep_position.stay_position(function()
-                -- vim.cmd [[%!eslint_d --stdin --fix-to-stdout --stdin-filename %]]
-                vim.cmd [[EslintFixAll]]
+                log.current_format_mods = ''
+                formatter.start_task({ {
+                  config = {
+                    exe = "eslint_d",
+                    args = {
+                      "--stdin",
+                      "--stdin-filename",
+                      util.escape_path(util.get_current_buffer_file_path()),
+                      "--fix-to-stdout",
+                    },
+                    stdin = true,
+                    try_node_modules = true,
+                  },
+                  name = "eslint_d"
+                } }, vim.fn.line('w0'), vim.fn.line("$"), { write = true })
+
               end)
               break
             end
