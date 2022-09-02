@@ -80,12 +80,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "set fo-=c fo-=r fo-=o",
 })
 
--- vim.api.nvim_create_augroup('AutoFormatAndFixEslint', { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   group = 'AutoFormatAndFixEslint',
---   pattern = { "*.tsx", "*.ts", "*.js" },
---   callback = function()
---     vim.cmd [[EslintFixAll]]
---     -- vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
---   end
--- })
+vim.api.nvim_create_augroup('AutoFormat', { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = 'AutoFormat',
+  pattern = { "*.tsx", "*.ts", "*.js" },
+  callback = function()
+    local clients = vim.lsp.get_active_clients()
+    local has_eslint = false
+    for index, value in ipairs(clients) do
+      if value.name == 'eslint' then
+        has_eslint = true
+      end
+    end
+
+    if has_eslint == false then
+      vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
+    end
+  end
+})
