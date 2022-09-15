@@ -61,7 +61,7 @@ local options = {
   -- CursorHold触发的时间
   updatetime = 500,
   -- 侧边数字列的宽度
-  numberwidth = 2,
+  numberwidth = 1,
   timeoutlen = 500,
   -- 修改fillchar
   fillchars = { diff = '╱', vertright = ' ' }
