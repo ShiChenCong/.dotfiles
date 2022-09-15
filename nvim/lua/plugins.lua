@@ -130,9 +130,13 @@ return packer.startup({
     -- use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use "kristijanhusak/defx-git"
-    use "kristijanhusak/defx-icons"
-    use "Shougo/defx.nvim"
+    use {
+      "Shougo/defx.nvim",
+      requires = { "kristijanhusak/defx-git", "kristijanhusak/defx-icons" },
+      config = function()
+        require('conf.defx')
+      end
+    }
 
     use { "onsails/lspkind.nvim", module = { 'lspkind' } }
 

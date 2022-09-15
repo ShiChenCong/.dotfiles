@@ -1,18 +1,31 @@
-if !exists('g:loaded_defx') | finish | endif
-if exists('g:vscode') | finish | endif
+vim.cmd [[
+let s:prev_buffer = 0
+let s:jump_to_defx = 0
 
-" Define mappings
-"cnoreabbrev sf Defx -listed -new
-"      \ -columns=indent:mark:icon:icons:filename:git:size
-"      \ -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent>sf :<C-u>Defx -listed -resume
-      \ -columns=indent:mark:icon:mark:icons:mark:filename:git:size
-      \ -buffer-name=tab`tabpagenr()`
-      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>
+function! s:close_prev_buffer()
+  if &filetype == 'defx'
+    let s:jump_to_defx = 1
+  endif
 
+  if &filetype != "defx" && s:jump_to_defx
+    echomsg s:prev_buffer
+    if s:prev_buffer > 0 && nvim_buf_is_valid(s:prev_buffer)
+      echomsg "执行删除之前的buffer"
+      execute 'bd '.. s:prev_buffer
+    endif
+    let s:jump_to_defx = 0
+  endif
+endfunc
+
+augroup user_plugin_defx
+  autocmd!
+  autocmd WinLeave * let s:prev_buffer = bufnr()
+  autocmd BufEnter * call <sid>close_prev_buffer()
+augroup END
 autocmd FileType defx call s:defx_my_settings()
-	function! s:defx_my_settings() abort
+
+function! s:defx_my_settings() abort
+    let s:jump_to_defx = 1
 	  " Define mappings
 	  nnoremap <silent><buffer><expr> <CR>
 	  \ defx#do_action('open')
@@ -96,3 +109,4 @@ call defx#custom#column('git', 'indicators', {
 
 let g:DevIconsArtifactFixChar = '            '
 let g:DevIconsAppendArtifactFix = 1
+]]
