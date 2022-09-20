@@ -1,34 +1,28 @@
 vim.cmd [[
-let s:prev_buffer = 0
-let s:jump_to_defx = 0
-
-function! s:close_prev_buffer()
-  if &filetype == 'defx'
-    let s:jump_to_defx = 1
-  endif
-
-  if &filetype != "defx" && s:jump_to_defx
-    echomsg s:prev_buffer
-    if s:prev_buffer > 0 && nvim_buf_is_valid(s:prev_buffer)
-      echomsg "执行删除之前的buffer"
-      execute 'bd '.. s:prev_buffer
+let s:current_buf = 0
+function! Close_prev_buffer(timer_id)
+  let l:buffers = getbufinfo()
+  for i in range(0,len(l:buffers))
+    if l:buffers[i]['bufnr'] == s:current_buf
+      execute 'bd ' . l:buffers[i-2]['bufnr']
+      break
     endif
-    let s:jump_to_defx = 0
-  endif
+  endfor
 endfunc
+
+function! s:open_with_close()
+  call timer_start(200, 'Close_prev_buffer')
+  return defx#do_action('open')
+endfun
 
 augroup user_plugin_defx
   autocmd!
-  autocmd WinLeave * let s:prev_buffer = bufnr()
-  autocmd BufEnter * call <sid>close_prev_buffer()
+  autocmd BufEnter * if &filetype != 'defx' | let s:current_buf = bufnr('%') | endif
+  autocmd FileType defx call <SID>defx_my_settings()
 augroup END
-autocmd FileType defx call s:defx_my_settings()
 
 function! s:defx_my_settings() abort
-    let s:jump_to_defx = 1
-	  " Define mappings
-	  nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('open')
+    nnoremap <silent><buffer><expr> <CR>  <sid>open_with_close()
 	  nnoremap <silent><buffer><expr> c
 	  \ defx#do_action('copy')
 	  nnoremap <silent><buffer><expr> m
