@@ -98,6 +98,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end
 })
 
+-- 保存自动格式化
 vim.api.nvim_create_augroup("formatOnSave", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = 'formatOnSave',
