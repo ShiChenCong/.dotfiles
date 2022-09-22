@@ -1,4 +1,3 @@
--- 设置自动保存时的格式化、EslintFix等
 vim.cmd [[
   augroup cssFormat
     autocmd FileType less,css,html
