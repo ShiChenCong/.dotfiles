@@ -12,8 +12,8 @@ local config = {
     top = 0,
     bottom = 0,
   },
-  cursor_blink_ease_in = "Constant",
-  cursor_blink_ease_out = "Constant",
+  -- cursor_blink_ease_in = "Constant",
+  -- cursor_blink_ease_out = "Constant",
 }
 
 return config

@@ -18,24 +18,6 @@ M.init = function(capabilities)
           for index, value in ipairs(errorList) do
             if value.severity == 1 and value.source == 'eslint' then
               vim.cmd [[EslintFixAll]]
-              -- keep_position.stay_position(function()
-              --   log.current_format_mods = ''
-              --   formatter.start_task({ {
-              --     config = {
-              --       exe = "eslint_d",
-              --       args = {
-              --         "--stdin",
-              --         "--stdin-filename",
-              --         util.escape_path(util.get_current_buffer_file_path()),
-              --         "--fix-to-stdout",
-              --       },
-              --       stdin = true,
-              --       try_node_modules = true,
-              --     },
-              --     name = "eslint_d"
-              --   } }, vim.fn.line('w0'), vim.fn.line("$"), { write = true })
-              --
-              -- end)
               break
             end
           end

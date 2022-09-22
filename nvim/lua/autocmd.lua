@@ -98,3 +98,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end
   end
 })
+
+vim.api.nvim_create_augroup("formatOnSave", { clear = false })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = 'formatOnSave',
+  pattern = { "*.tsx", "*.ts", "*.js" },
+  callback = function()
+    local cwd = vim.fn.getcwd()
+    if string.find(cwd, 'dna-frontend') == nil then
+      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+    end
+  end
+})
