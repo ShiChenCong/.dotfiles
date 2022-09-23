@@ -106,7 +106,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   callback = function()
     local cwd = vim.fn.getcwd()
     if string.find(cwd, 'dna-frontend') == nil then
-      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      -- vim.cmd [[lua vim.lsp.buf.format({ async = true })]]
+      vim.lsp.buf.formatting_seq_sync()
     end
   end
 })
