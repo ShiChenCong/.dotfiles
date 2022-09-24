@@ -219,7 +219,7 @@ map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 --   nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 --   nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 -- ]]
-
+map('n', 'fi', ":Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>")
 vim.cmd [[
 let @i = 'ceimportf=cf(from f)x'
 nnoremap <leader>cri :global/require/normal @i<CR>
@@ -230,6 +230,5 @@ echo "@".getcmdline()
 execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 nnoremap <silent>sf :<C-u>Defx -listed -resume -columns=indent:mark:icon:mark:icons:mark:filename:git:size -buffer-name=tab`tabpagenr()` `expand('%:p:h')` -search=`expand('%:p')`<CR>
-nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>
 
 ]]
