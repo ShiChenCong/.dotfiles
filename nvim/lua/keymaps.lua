@@ -214,12 +214,16 @@ map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
 map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
 map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 
--- 跳转也能加到jumplist
--- vim.cmd [[
---   nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
---   nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
--- ]]
-map('n', 'fi', ":Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>")
+vim.keymap.set('n', '<A-p>', vim.schedule(function()
+  vim.cmd('bd' .. BUFNUM)
+  return vim.fn['defx#do_action']('open')
+end), { expr = true })
+
+map('n', 'fi', function()
+  BUFNUM = vim.api.nvim_get_current_buf()
+  vim.cmd [[Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>]]
+end)
+
 vim.cmd [[
 let @i = 'ceimportf=cf(from f)x'
 nnoremap <leader>cri :global/require/normal @i<CR>
