@@ -219,7 +219,7 @@ local current_buf = 0
 local function defx_keymap()
   vim.keymap.set('n', '<CR>', function()
     local timer = vim.loop.new_timer()
-    timer:start(150, 0, vim.schedule_wrap(function()
+    timer:start(100, 0, vim.schedule_wrap(function()
       if vim.api.nvim_buf_is_loaded(current_buf) then
         local ok = pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
         if ok then
