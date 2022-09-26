@@ -1,3 +1,4 @@
+local map = require('util.map')
 vim.cmd [[
   augroup cssFormat
     autocmd FileType less,css,html
@@ -107,3 +108,37 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end
   end
 })
+
+local current_buf = 0
+
+local function defx_keymap()
+  vim.keymap.set('n', '<CR>', function()
+    local timer = vim.loop.new_timer()
+    timer:start(100, 0, vim.schedule_wrap(function()
+      if vim.api.nvim_buf_is_loaded(current_buf) then
+        local ok = pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
+        if ok then
+          current_buf = 0
+        else
+          vim.notify('close prev buffer failed', vim.log.levels.WARN)
+        end
+        if timer and not timer:is_closing() then
+          timer:close()
+        end
+      end
+    end))
+    return vim.fn['defx#do_action']('open')
+  end, { buffer = true, expr = true })
+end
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'defx',
+  callback = function()
+    defx_keymap()
+  end,
+})
+
+map('n', 'fi', function()
+  current_buf = vim.api.nvim_get_current_buf()
+  vim.cmd [[Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>]]
+end)
