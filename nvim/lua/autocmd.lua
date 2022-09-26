@@ -130,7 +130,7 @@ local function defx_keymap()
       end
     end))
     return vim.fn['defx#do_action']('open')
-  end, { buffer = true, expr = true })
+  end, { buffer = true, expr = true, silent = true })
 end
 
 vim.api.nvim_create_autocmd('FileType', {
