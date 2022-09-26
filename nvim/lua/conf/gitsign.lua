@@ -4,7 +4,7 @@ require('gitsigns').setup {
     local gs = package.loaded.gitsigns
 
     local function map(mode, l, r, opts)
-      opts = opts or {}
+      opts = opts or { silent = true }
       opts.buffer = bufnr
       vim.keymap.set(mode, l, r, opts)
     end

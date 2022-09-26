@@ -1,6 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
   indent = {
-    enable = true
+    enable = true,
+    disable = {},
   },
   incremental_selection = {
     enable = true,
@@ -11,10 +12,10 @@ require 'nvim-treesitter.configs'.setup {
       node_decremental = "grm",
     },
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = false,
+  -- },
   autotag = {
     enable = true,
   },
@@ -27,6 +28,7 @@ require 'nvim-treesitter.configs'.setup {
     'tsx',
     'javascript',
     'html',
-    'lua'
+    'lua',
+    'json'
   }
 }
