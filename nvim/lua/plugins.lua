@@ -57,7 +57,7 @@ return packer.startup({
     use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end, cond = function() return not vim.g.vscode end }
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter', config = function() require('bqf').setup({ auto_enable = false, }) end, cond = function() return not vim.g.vscode end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter', cond = function() return not vim.g.vscode end }
-    use { "mfussenegger/nvim-dap", keys = { '<leader>da' }, config = function() require('conf.dap') end, cond = function() return not vim.g.vscode end }
+    -- use { "mfussenegger/nvim-dap", keys = { '<leader>da' }, config = function() require('conf.dap') end, cond = function() return not vim.g.vscode end }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function() require('conf.formatter') end, cond = function() return not vim.g.vscode end }
     use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function() require('pqf').setup() end, cond = function() return not vim.g.vscode end }
     use { 'akinsho/git-conflict.nvim', event = 'BufRead', config = function()
