@@ -155,7 +155,11 @@ end)
 map('n', ',q', ":q<CR>")
 
 -- BufferLine
-map('n', '<leader>co', '<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>')
+map('n', '<leader>co', function()
+  vim.cmd [[BufferLineCloseLeft]]
+  vim.cmd [[BufferLineCloseRight]]
+  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+end)
 map('n', '<leader>cr', '<Cmd>BufferLineCloseRight<CR>')
 map('n', '<leader>cl', '<Cmd>BufferLineCloseLeft<CR>')
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')

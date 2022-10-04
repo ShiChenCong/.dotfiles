@@ -103,8 +103,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   callback = function()
     local cwd = vim.fn.getcwd()
     if string.find(cwd, 'dna-frontend') == nil then
-      -- vim.cmd [[lua vim.lsp.buf.format({ async = true })]]
-      vim.lsp.buf.formatting_seq_sync()
+      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      -- vim.lsp.buf.formatting_seq_sync()
     end
   end
 })
@@ -117,7 +117,6 @@ local function defx_keymap()
     timer:start(100, 0, vim.schedule_wrap(function()
       if vim.api.nvim_buf_is_loaded(current_buf) then
         local ok = pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
-        -- vim.cmd('redraw!')
         vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
         if ok then
           current_buf = 0
