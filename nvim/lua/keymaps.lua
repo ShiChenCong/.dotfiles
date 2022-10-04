@@ -160,15 +160,19 @@ map('n', '<leader>co', function()
   vim.cmd [[BufferLineCloseRight]]
   vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
 end)
-map('n', '<leader>cr', '<Cmd>BufferLineCloseRight<CR>')
-map('n', '<leader>cl', '<Cmd>BufferLineCloseLeft<CR>')
+map('n', '<leader>cr', function()
+  vim.cmd [[BufferLineCloseRight]]
+end)
+map('n', '<leader>cl', function()
+  vim.cmd [[BufferLineCloseLeft]]
+end)
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
 map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 -- map('n', '<leader>;', "<cmd>BufferLineTogglePin<CR>")
-map('n', 'c;', "<cmd>BufferLineGroupClose ungrouped<CR>")
+-- map('n', 'c;', "<cmd>BufferLineGroupClose ungrouped<CR>")
 -- map('n', '<leader>;', "<Cmd>BufferPin<CR>", { nowait = true })
 
 -- vim-fugitive
