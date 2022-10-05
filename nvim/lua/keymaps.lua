@@ -77,7 +77,7 @@ map('n', "sj", '<C-w>j')
 map('n', "sk", '<C-w>k')
 map('n', "sl", '<C-w>l')
 
-map('v', 'L', "$")
+map('v', 'L', "$<Left>")
 map('n', 'L', "$")
 
 map('n', "H", "^")

@@ -28,7 +28,7 @@ vim.cmd [[
 
   augroup gotoLastPosition
       autocmd BufReadPost *
-         \ if line("'\"") > 0 && line("'\"") <= line("$") |
+         \ if line("'\"") > 1 && line("'\"") <= line("$") |
          \   exe "normal! g`\"" |
          \   exe "normal zz" |
          \ endif
