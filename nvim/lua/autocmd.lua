@@ -52,13 +52,13 @@ vim.cmd [[
   hi DiagnosticUnderlineHint gui=undercurl
 ]]
 
--- vim.api.nvim_create_augroup("setWinbar", { clear = false })
--- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
---   group = 'setWinbar',
---   callback = function()
---     require("winbar").get_winbar()
---   end,
--- })
+vim.api.nvim_create_augroup("setWinbar", { clear = false })
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  group = 'setWinbar',
+  callback = function()
+    require("winbar").get_winbar()
+  end,
+})
 
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
@@ -75,25 +75,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   command = "set fo-=c fo-=r fo-=o",
 })
-
--- vim.api.nvim_create_augroup('AutoFormat', { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   group = 'AutoFormat',
---   pattern = { "*.tsx", "*.ts", "*.js" },
---   callback = function()
---     local clients = vim.lsp.get_active_clients()
---     local has_eslint = false
---     for index, value in ipairs(clients) do
---       if value.name == 'eslint' then
---         has_eslint = true
---       end
---     end
---
---     if has_eslint == false then
---       vim.cmd [[lua vim.lsp.buf.formatting_sync()]]
---     end
---   end
--- })
 
 -- 保存自动格式化
 vim.api.nvim_create_augroup("formatOnSave", { clear = false })
