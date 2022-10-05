@@ -143,3 +143,13 @@ map('n', 'fi', function()
   current_buf = vim.api.nvim_get_current_buf()
   vim.cmd [[Defx -new `expand('%:p:h')` -search=`expand('%:p')` -columns=indent:mark:icon:mark:icons:mark:filename:git:size<CR>]]
 end)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'fugitive',
+  callback = function()
+    map('n', "sh", '<C-w>h', { buffer = true })
+    map('n', "sj", '<C-w>j', { buffer = true })
+    map('n', "sk", '<C-w>k', { buffer = true })
+    map('n', "sl", '<C-w>l', { buffer = true })
+  end,
+})
