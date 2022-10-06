@@ -6,10 +6,10 @@ local options = {
   -- 换行
   wrap = true,
   -- 命令行高度
-  cmdheight = 1,
+  cmdheight = 0,
   -- 侧边数字栏
   number = true,
-  -- relativenumber = true,
+  relativenumber = true,
   -- 复用系统剪切板
   clipboard = "unnamedplus",
   -- 只显示一个status line
