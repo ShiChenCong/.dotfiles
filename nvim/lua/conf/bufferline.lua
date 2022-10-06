@@ -1,6 +1,11 @@
 vim.opt.termguicolors = true
 require("bufferline").setup {
   options = {
+    hover = {
+      enabled = true,
+      delay = 200,
+      reveal = { 'close' }
+    },
     offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "left" } },
     separator_style = "slant",
     custom_filter = function(buf_number, buf_numbers)

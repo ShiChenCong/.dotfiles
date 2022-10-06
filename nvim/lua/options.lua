@@ -64,7 +64,9 @@ local options = {
   numberwidth = 1,
   timeoutlen = 500,
   -- 修改fillchar
-  fillchars = { diff = '╱', vertright = ' ' }
+  fillchars = { diff = '╱', vertright = ' ' },
+  --响应鼠标,
+  mousemoveevent = true
 }
 
 for k, v in pairs(options) do
