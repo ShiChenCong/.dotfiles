@@ -25,6 +25,20 @@ local function getTmux()
   return all_windows
 end
 
+vim.o.shortmess = vim.o.shortmess .. "S"
+
+local function search_count()
+  if vim.api.nvim_get_vvar("hlsearch") == 1 then
+    local res = vim.fn.searchcount({ maxcount = 999, timeout = 500 })
+
+    if res.total > 0 then
+      return string.format("%d/%d", res.current, res.total)
+    end
+  end
+
+  return ""
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -37,7 +51,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch' },
+    lualine_b = { 'branch', { search_count, type = "lua_expr" } },
     lualine_c = {
       -- '%=',
       -- getTmux
@@ -45,7 +59,8 @@ lualine.setup {
     },
     lualine_x = {
       -- 'encoding',
-      { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
+      { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ',
+        hint = ' ' } },
       'filetype'
     },
     lualine_y = { 'progress' },
