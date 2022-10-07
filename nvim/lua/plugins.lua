@@ -85,53 +85,22 @@ return packer.startup({
 
     use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
-    use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function()
-      require('conf.comment')
-    end,
-    event = { 'BufReadPre' }
-    }
+    use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function() require('conf.comment') end, event = { 'BufReadPre' } }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
       require('conf.ufo')
     end }
 
-    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function()
-      require('lsp')
-    end }
+    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function() require('lsp') end }
 
-    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function()
-      require('conf.harpoon')
-    end }
+    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function() require('conf.harpoon') end }
 
-    use { "luukvbaal/stabilize.nvim",
-      config = function() require("stabilize").setup() end,
-      event = { 'BufReadPre' }
-    }
-
-    use { 'mrshmllow/document-color.nvim', config = function()
-      require("document-color").setup {
-        mode = "background", -- "background" | "foreground" | "single"
-      }
-    end,
-    event = { 'BufReadPre' }
-    }
+    use { 'mrshmllow/document-color.nvim', config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
-    -- use {
-    --   'romgrk/barbar.nvim',
-    --   requires = { 'kyazdani42/nvim-web-devicons' }
-    -- }
-    ---主题
-    -- use 'ful1e5/onedark.nvim'
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use {
-      "Shougo/defx.nvim",
-      requires = { "kristijanhusak/defx-git", "kristijanhusak/defx-icons" },
-      config = function()
-        require('conf.defx')
-      end
-    }
+    use { "Shougo/defx.nvim", requires = { "kristijanhusak/defx-git", "kristijanhusak/defx-icons" }, config = function() require('conf.defx') end }
 
     use { "onsails/lspkind.nvim", module = { 'lspkind' } }
 

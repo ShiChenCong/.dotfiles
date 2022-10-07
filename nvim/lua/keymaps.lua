@@ -151,21 +151,11 @@ map('n', ',d', function()
     -- vim.cmd("bd#")
   end
 end)
--- 关闭当前window
-map('n', ',q', ":q<CR>")
 
 -- BufferLine
-map('n', '<leader>co', function()
-  vim.cmd [[BufferLineCloseLeft]]
-  vim.cmd [[BufferLineCloseRight]]
-  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
-end)
-map('n', '<leader>cr', function()
-  vim.cmd [[BufferLineCloseRight]]
-end)
-map('n', '<leader>cl', function()
-  vim.cmd [[BufferLineCloseLeft]]
-end)
+map('n', '<leader>co', ":%bd|e#<CR>")
+map('n', '<leader>cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
+map('n', '<leader>cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
@@ -222,15 +212,15 @@ map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
 map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
 map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 
-vim.cmd [[
-let @i = 'ceimportf=cf(from f)x'
-nnoremap <leader>cri :global/require/normal @i<CR>
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-echo "@".getcmdline()
-execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-nnoremap <silent>sf :<C-u>Defx -listed -resume -columns=indent:mark:icon:mark:icons:mark:filename:git:size -buffer-name=tab`tabpagenr()` `expand('%:p:h')` -search=`expand('%:p')`<CR>
-
-]]
+-- vim.cmd [[
+-- let @i = 'ceimportf=cf(from f)x'
+-- nnoremap <leader>cri :global/require/normal @i<CR>
+-- xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+--
+-- function! ExecuteMacroOverVisualRange()
+-- echo "@".getcmdline()
+-- execute ":'<,'>normal @".nr2char(getchar())
+-- endfunction
+-- nnoremap <silent>sf :<C-u>Defx -listed -resume -columns=indent:mark:icon:mark:icons:mark:filename:git:size -buffer-name=tab`tabpagenr()` `expand('%:p:h')` -search=`expand('%:p')`<CR>
+--
+-- ]]

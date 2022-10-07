@@ -6,7 +6,7 @@ local options = {
   -- 换行
   wrap = true,
   -- 命令行高度
-  cmdheight = 0,
+  cmdheight = 1,
   -- 侧边数字栏
   number = true,
   relativenumber = true,
@@ -66,7 +66,9 @@ local options = {
   -- 修改fillchar
   fillchars = { diff = '╱', vertright = ' ' },
   --响应鼠标,
-  mousemoveevent = true
+  mousemoveevent = true,
+  --新开window保持代码不动
+  splitkeep = 'screen'
 }
 
 for k, v in pairs(options) do
