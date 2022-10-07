@@ -153,7 +153,8 @@ map('n', ',d', function()
 end)
 
 -- BufferLine
-map('n', '<leader>co', ":%bd|e#<CR>")
+-- map('n', '<leader>co', ":%bd|e#<CR>")
+map('n', '<leader>co', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 map('n', '<leader>cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
 map('n', '<leader>cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
