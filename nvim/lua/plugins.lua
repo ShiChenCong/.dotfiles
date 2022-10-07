@@ -148,13 +148,18 @@ return packer.startup({
         end)
       end,
     }
-    -- use { 'rainbowhxch/accelerated-jk.nvim' }
+
     use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
       require('conf.toggleterm')
     end, event = 'BufRead' }
 
     use { "tiagovla/scope.nvim", config = function() require("scope").setup() end }
     -- use { 'vimpostor/vim-tpipeline' }
+    use { 'rainbowhxch/accelerated-jk.nvim', config = function()
+      require('accelerated-jk').setup()
+      vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+      vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+    end }
   end,
   config = {
     compile_path = compile_path,
