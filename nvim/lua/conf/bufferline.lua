@@ -6,7 +6,7 @@ require("bufferline").setup {
       delay = 200,
       reveal = { 'close' }
     },
-    offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "left" } },
+    offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
     separator_style = "slant",
     custom_filter = function(buf_number, buf_numbers)
       local buf_name = vim.fn.bufname(buf_number)
