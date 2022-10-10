@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local config = {
-  font_size = 16,
+  font_size = 17,
   line_height = 1.1,
   font = wezterm.font("JetBrains Mono"),
   window_decorations = "RESIZE",
