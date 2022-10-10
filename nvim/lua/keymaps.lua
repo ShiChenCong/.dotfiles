@@ -13,11 +13,11 @@ map('n', 'su', function()
   end)
 end)
 
-map('n', '<C-r>', function()
-  keep_position.stay_position(function()
-    vim.cmd('redo')
-  end)
-end)
+-- map('n', '<C-r>', function()
+--   keep_position.stay_position(function()
+--     vim.cmd('redo')
+--   end)
+-- end)
 
 
 map('n', 'g;', 'g;zz')

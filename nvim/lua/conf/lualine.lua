@@ -52,6 +52,7 @@ lualine.setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', { search_count, type = "lua_expr" } },
+    -- lualine_b = { 'branch' },
     lualine_c = {
       -- '%=',
       -- getTmux
