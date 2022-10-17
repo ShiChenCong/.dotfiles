@@ -8,7 +8,9 @@ map('n', 'J', 'mzJ`z')
 map('n', '<C-i>', '<C-i>')
 
 map('n', 'q', '<Nop>')
+map('n', ',w', ':w<CR>', { silent = true })
 map('n', 'Q', 'q')
+
 map('n', 'su', function()
   keep_position.stay_position(function()
     vim.cmd [[u]]
