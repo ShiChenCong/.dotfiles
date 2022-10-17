@@ -83,7 +83,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.tsx", "*.ts", "*.js", "*.lua" },
   callback = function()
     local cwd = vim.fn.getcwd()
-    if string.find(cwd, 'dna-frontend') == nil then
+    -- '-'is a magic character in Lua patterns. You need to escape it.
+    if string.find(cwd, 'dna%-frontend') == nil then
       vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
       -- vim.lsp.buf.formatting_seq_sync()
     end
