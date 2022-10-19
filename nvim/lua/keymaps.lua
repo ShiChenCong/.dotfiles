@@ -4,12 +4,16 @@ local keep_position = require('util.keep_position')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
+
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
 
-map('n', 'q', '<Nop>')
 map('n', ',w', ':w<CR>', { silent = true })
+map('n', ',1', ':q<CR>', { silent = true })
+
+-- 宏
 map('n', 'Q', 'q')
+map('n', 'q', '<Nop>')
 
 map('n', 'su', function()
   keep_position.stay_position(function()
