@@ -85,7 +85,8 @@ return packer.startup({
 
     use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
-    use { "numToStr/Comment.nvim", after = "nvim-treesitter", branch = 'jsx', config = function() require('conf.comment') end, event = { 'BufReadPre' } }
+    use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" }, config = function() require('conf.comment') end, event = { 'BufReadPre' } }
+    use { 'JoosepAlviste/nvim-ts-context-commentstring', event = { 'BufReadPre' } }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
       require('conf.ufo')

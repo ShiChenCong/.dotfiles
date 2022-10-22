@@ -12,10 +12,11 @@ require 'nvim-treesitter.configs'.setup {
       node_decremental = "grm",
     },
   },
-  -- context_commentstring = {
-  --   enable = true,
-  --   enable_autocmd = false,
-  -- },
+  -- 配合nvim-ts-context-commentstring插件
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
   autotag = {
     enable = true,
   },

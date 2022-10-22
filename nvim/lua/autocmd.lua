@@ -118,6 +118,7 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'defx',
   callback = function()
     defx_keymap()
+    vim.cmd("autocmd FileType defx nnoremap <buffer> ; :")
   end,
 })
 
