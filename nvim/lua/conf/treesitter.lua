@@ -1,8 +1,8 @@
 require 'nvim-treesitter.configs'.setup {
-  indent = {
-    enable = true,
-    disable = {},
-  },
+  -- indent = {
+  --   enable = true,
+  --   disable = {},
+  -- },
   incremental_selection = {
     enable = true,
     keymaps = {
