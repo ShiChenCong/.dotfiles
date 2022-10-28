@@ -72,3 +72,11 @@ ls.add_snippets(nil, {
     ]], { i(0) }))
   }
 })
+
+-- 回调
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LuasnipPreExpand",
+  callback = function()
+    print(123)
+  end
+})
