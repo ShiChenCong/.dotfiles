@@ -2,8 +2,8 @@ local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
 map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
-map('n', '[d', ":lua vim.diagnostic.goto_prev({float = {max_width = 100}})<CR>")
-map('n', ']d', ":lua vim.diagnostic.goto_next({float = {max_width = 100}})<CR>")
+map('n', '[d', ":lua vim.diagnostic.goto_prev({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
+map('n', ']d', ":lua vim.diagnostic.goto_next({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
 map('n', '<space>q', vim.diagnostic.setloclist)
 
 local on_attach = function(client, bufnr)
@@ -13,12 +13,10 @@ local on_attach = function(client, bufnr)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
   map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  -- map('n', '<space>rn', require('ui.renamer').open)
   map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
   -- map('n', 'gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
-  -- map('n', '<space>o', ":lua vim.lsp.buf.formatting_sync()<CR>", bufopts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
@@ -54,7 +52,7 @@ for _, lsp in ipairs(servers) do
     end,
   }
 end
-
+require 'lspconfig'.rust_analyzer.setup {}
 local signs = {
   { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
   { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
@@ -100,7 +98,5 @@ end
 -- 全局统一修改
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
-  -- Use a sharp border with `FloatBorder` highlights
   border = "rounded"
-}
-)
+})
