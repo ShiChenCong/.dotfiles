@@ -42,7 +42,7 @@ capabilities.textDocument.foldingRange = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -52,7 +52,7 @@ for _, lsp in ipairs(servers) do
     end,
   }
 end
-require 'lspconfig'.rust_analyzer.setup {}
+
 local signs = {
   { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
   { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
