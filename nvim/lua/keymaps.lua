@@ -65,7 +65,7 @@ map('i', '<C-d>', '<Esc>yypi')
 
 map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
-map('i', ";w", "<Esc>:w<cr>")
+-- map('i', ";w", "<Esc>:w<cr>")
 map('n', "<A-s>", ":w<CR>")
 map('n', "<leader>,", ":split<bar>below<bar>resize 10<bar>term<CR>")
 map('n', '[[', "<Cmd>call search('[([{<]')<CR>")
