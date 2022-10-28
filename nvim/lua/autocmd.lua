@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_augroup("formatOnSave", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = 'formatOnSave',
-  pattern = { "*.tsx", "*.ts", "*.js", "*.lua" },
+  pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
   callback = function()
     local cwd = vim.fn.getcwd()
     -- '-'is a magic character in Lua patterns. You need to escape it.

@@ -49,24 +49,30 @@ return packer.startup({
     use { "tpope/vim-unimpaired", event = 'BufRead' }
 
     -- work in neovim
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead', config = function() require('conf.trouble') end }
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead', config = function() return ('conf.diffview') end }
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead',
+      config = function() require('conf.trouble') end }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead',
+      config = function() return ('conf.diffview') end }
     use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end }
-    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter', config = function() require('bqf').setup({ auto_enable = false, }) end }
+    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
+      config = function() require('bqf').setup({ auto_enable = false, }) end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
     -- use { "mfussenegger/nvim-dap", keys = { '<leader>da' }, config = function() require('conf.dap') end }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function() require('conf.formatter') end }
-    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead', config = function() require('pqf').setup() end }
+    use { 'https://gitlab.com/yorickpeterse/nvim-pqf.git', event = 'BufRead',
+      config = function() require('pqf').setup() end }
     use { 'akinsho/git-conflict.nvim', event = 'BufRead', config = function()
-      require('git-conflict').setup({ default_mappings = true, disable_diagnostics = false, highlights = { incoming = 'DiffText', current = 'DiffAdd', } })
+      require('git-conflict').setup({ default_mappings = true, disable_diagnostics = false,
+        highlights = { incoming = 'DiffText', current = 'DiffAdd', } })
     end }
 
     -- use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
 
-    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, }, cmd = { "Telescope" }, keys = { '<leader>fw' }, config = function()
-      require('conf.telescope')
-    end }
+    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, },
+      cmd = { "Telescope" }, keys = { '<leader>fw' }, config = function()
+        require('conf.telescope')
+      end }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', after = 'telescope.nvim', config = function()
       require('telescope').load_extension('fzf')
     end }
@@ -77,7 +83,8 @@ return packer.startup({
     use { "lewis6991/gitsigns.nvim", event = 'BufReadPre', config = function() require('conf.gitsign') end }
     use { "tpope/vim-fugitive", cmd = 'Git' }
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }, config = function() require('conf.nvim-tree') end }
+    use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' },
+      config = function() require('conf.nvim-tree') end }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
       require('conf.treesitter')
@@ -85,7 +92,8 @@ return packer.startup({
 
     use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
-    use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" }, config = function() require('conf.comment') end, event = { 'BufReadPre' } }
+    use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" },
+      config = function() require('conf.comment') end, event = { 'BufReadPre' } }
     use { 'JoosepAlviste/nvim-ts-context-commentstring', event = { 'BufReadPre' } }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
@@ -96,12 +104,14 @@ return packer.startup({
 
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function() require('conf.harpoon') end }
 
-    use { 'mrshmllow/document-color.nvim', config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
+    use { 'mrshmllow/document-color.nvim',
+      config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use({ "catppuccin/nvim", as = "catppuccin" })
 
-    use { "Shougo/defx.nvim", requires = { "kristijanhusak/defx-git", "kristijanhusak/defx-icons" }, config = function() require('conf.defx') end }
+    use { "Shougo/defx.nvim", requires = { "kristijanhusak/defx-git", "kristijanhusak/defx-icons" },
+      config = function() require('conf.defx') end }
 
     use { "onsails/lspkind.nvim", module = { 'lspkind' } }
 
@@ -122,16 +132,16 @@ return packer.startup({
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
     }
 
-    -- use {
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('auto-session').setup {
-    --       log_level = 'error',
-    --       auto_session_suppress_dirs = { '~/', '~/Projects' }
-    --     }
-    --     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-    --   end
-    -- }
+    use {
+      'rmagatti/auto-session',
+      config = function()
+        require('auto-session').setup {
+          log_level = 'error',
+          auto_session_suppress_dirs = { '~/', '~/Projects' }
+        }
+        vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+      end
+    }
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
       require('conf.lualine')
     end }
