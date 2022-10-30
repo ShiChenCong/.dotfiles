@@ -1,9 +1,41 @@
+---@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
 map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
-map('n', '[d', ":lua vim.diagnostic.goto_prev({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
-map('n', ']d', ":lua vim.diagnostic.goto_next({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
+map('n', '[d', function()
+  local errorList = vim.diagnostic.get(0)
+  local has_error = false;
+  for index, value in ipairs(errorList) do
+    if value.severity == 1 then
+      has_error = true
+      break
+    end
+  end
+  -- 有错误的时候跳转错误，没有错误则跳转信息提示
+  if has_error then
+    vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+  else
+    vim.diagnostic.goto_prev({ float = { max_width = 100 } })
+  end
+end)
+
+map('n', ']d', function()
+  local errorList = vim.diagnostic.get(0)
+  local has_error = false;
+  for index, value in ipairs(errorList) do
+    if value.severity == 1 then
+      has_error = true
+      break
+    end
+  end
+  if has_error then
+    vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+  else
+    vim.diagnostic.goto_next({ float = { max_width = 100 } })
+  end
+end)
+
 map('n', '<space>q', vim.diagnostic.setloclist)
 
 local on_attach = function(client, bufnr)
