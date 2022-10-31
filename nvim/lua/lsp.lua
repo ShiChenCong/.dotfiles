@@ -1,9 +1,41 @@
+---@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
 map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
-map('n', '[d', ":lua vim.diagnostic.goto_prev({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
-map('n', ']d', ":lua vim.diagnostic.goto_next({float = {max_width = 100}, severity= vim.diagnostic.severity.ERROR})<CR>")
+map('n', '[d', function()
+  local errorList = vim.diagnostic.get(0)
+  local has_error = false;
+  for index, value in ipairs(errorList) do
+    if value.severity == 1 then
+      has_error = true
+      break
+    end
+  end
+  -- 有错误的时候跳转错误，没有错误则跳转信息提示
+  if has_error then
+    vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+  else
+    vim.diagnostic.goto_prev({ float = { max_width = 100 } })
+  end
+end)
+
+map('n', ']d', function()
+  local errorList = vim.diagnostic.get(0)
+  local has_error = false;
+  for index, value in ipairs(errorList) do
+    if value.severity == 1 then
+      has_error = true
+      break
+    end
+  end
+  if has_error then
+    vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+  else
+    vim.diagnostic.goto_next({ float = { max_width = 100 } })
+  end
+end)
+
 map('n', '<space>q', vim.diagnostic.setloclist)
 
 local on_attach = function(client, bufnr)
@@ -33,14 +65,12 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
@@ -71,6 +101,7 @@ local config = {
   update_in_insert = false,
   underline = true,
   severity_sort = true,
+  -- Lsp报错的提示框
   float = {
     focusable = true,
     style = "minimal",
@@ -87,16 +118,10 @@ require 'lsp-conf.tsserver'.init(on_attach, capabilities)
 require 'lsp-conf.lua'.init(on_attach, capabilities)
 require 'lsp-conf.eslint'.init(capabilities)
 
-local win = require('lspconfig.ui.windows')
-local _default_opts = win.default_opts
+-- LspInfo的边框
+require('lspconfig.ui.windows').default_options.border = 'single'
 
-win.default_opts = function(options)
-  local opts = _default_opts(options)
-  opts.border = 'single'
-  return opts
-end
--- 全局统一修改
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-  border = "rounded"
+-- -- 全局统一修改Hover的信息框
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
 })
