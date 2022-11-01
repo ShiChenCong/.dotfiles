@@ -209,6 +209,7 @@ vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = t
 
 --surround
 map('n', "<leader>'", "ysiw'", { remap = true })
+map('n', '<leader>"', 'ysiw"', { remap = true })
 map('n', '<leader>[', 'ysiw[', { remap = true })
 map('n', '<leader>{', 'ysiw{', { remap = true })
 map('n', '<leader>(', 'ysiw(', { remap = true })
