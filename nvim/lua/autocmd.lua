@@ -145,5 +145,6 @@ vim.api.nvim_create_autocmd('filetype', {
     map('n', 'K', 'd', { remap = true, buffer = true })
     map('n', 'h', '-', { remap = true, buffer = true })
     map('n', 'l', '<CR>', { remap = true, buffer = true })
+    map('n', 'r', 'R', { remap = true, buffer = true })
   end
 })
