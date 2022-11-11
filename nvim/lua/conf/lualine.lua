@@ -63,10 +63,10 @@ lualine.setup {
       'searchcount',
       { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ',
         hint = ' ' } },
-      'filetype'
+      -- 'filetype'
     },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_z = {}
   },
   inactive_sections = {
     lualine_c = { {

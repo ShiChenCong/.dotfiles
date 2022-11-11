@@ -86,13 +86,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     -- '-'is a magic character in Lua patterns. You need to escape it.
     if string.find(cwd, 'dna%-frontend') == nil then
       vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      -- vim.cmd("FormatModifications")
       -- vim.lsp.buf.formatting_seq_sync()
     end
   end
 })
 
 local current_buf = 0
-
 local function defx_keymap()
   vim.keymap.set('n', '<CR>', function()
     local timer = vim.loop.new_timer()
@@ -135,4 +135,15 @@ vim.api.nvim_create_autocmd('FileType', {
     map('n', "sk", '<C-w>k', { buffer = true })
     map('n', "sl", '<C-w>l', { buffer = true })
   end,
+})
+
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = 'netrw',
+  desc = 'Better mappings for netrw',
+  callback = function()
+    map('n', 'N', '%', { remap = true, buffer = true })
+    map('n', 'K', 'd', { remap = true, buffer = true })
+    map('n', 'h', '-', { remap = true, buffer = true })
+    map('n', 'l', '<CR>', { remap = true, buffer = true })
+  end
 })

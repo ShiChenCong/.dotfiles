@@ -53,7 +53,7 @@ map('n', 'tp', ':tabprevious<CR>')
 map('n', 'tc', ':tabclose<CR>')
 map('n', 'to', ':tabonly<CR>')
 
-map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left>')
+map('n', '<leader>e', ':Ex <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left><Left>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', 'mw', '*')
