@@ -137,12 +137,13 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd('filetype', {
+vim.api.nvim_create_autocmd('Filetype', {
   pattern = 'netrw',
   desc = 'Better mappings for netrw',
-  callback = function()
+  callback = function(opt)
     map('n', 'N', '%', { remap = true, buffer = true })
-    map('n', 'K', 'd', { remap = true, buffer = true })
+    map('n', 'K', 'd', { remap = true, buffer = opt.buf })
+    map('n', 'd', 'D', { remap = true, buffer = opt.buf })
     map('n', 'h', '-', { remap = true, buffer = true })
     map('n', 'l', '<CR>', { remap = true, buffer = true })
     map('n', 'r', 'R', { remap = true, buffer = true })
