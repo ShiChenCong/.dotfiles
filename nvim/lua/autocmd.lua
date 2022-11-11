@@ -140,10 +140,10 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('Filetype', {
   pattern = 'netrw',
   desc = 'Better mappings for netrw',
-  callback = function(opt)
+  callback = function()
     map('n', 'N', '%', { remap = true, buffer = true })
-    map('n', 'K', 'd', { remap = true, buffer = opt.buf })
-    map('n', 'd', 'D', { remap = true, buffer = opt.buf })
+    map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
+    map('n', 'd', 'D', { remap = true, buffer = true, nowait = true })
     map('n', 'h', '-', { remap = true, buffer = true })
     map('n', 'l', '<CR>', { remap = true, buffer = true })
     map('n', 'r', 'R', { remap = true, buffer = true })
