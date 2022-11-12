@@ -143,6 +143,7 @@ vim.api.nvim_create_autocmd('Filetype', {
   callback = function()
     map('n', 'N', '%', { remap = true, buffer = true })
     map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
+    map('n', '.', 'gh', { remap = true, buffer = true })
     map('n', 'd', 'D', { remap = true, buffer = true, nowait = true })
     map('n', 'h', '-', { remap = true, buffer = true })
     map('n', 'l', '<CR>', { remap = true, buffer = true })

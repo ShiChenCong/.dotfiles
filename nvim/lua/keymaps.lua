@@ -10,9 +10,10 @@ map('n', '<C-i>', '<C-i>')
 
 -- 为了更好的undo
 vim.cmd [[
-inoremap <Space> <Space><C-g>u
+inoremap <Space> <C-g>u<Space>
 inoremap <C-W> <C-G>u<C-W>
 inoremap <C-U> <C-G>u<C-U>
+inoremap <CR> <C-G>u<CR>
 ]]
 
 map('n', ',w', ':w<CR>', { silent = true })
