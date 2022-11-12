@@ -8,6 +8,13 @@ map('n', 'J', 'mzJ`z')
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
 
+-- 为了更好的undo
+vim.cmd [[
+inoremap <Space> <Space><C-g>u
+inoremap <C-W> <C-G>u<C-W>
+inoremap <C-U> <C-G>u<C-U>
+]]
+
 map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',1', ':q<CR>', { silent = true })
 
