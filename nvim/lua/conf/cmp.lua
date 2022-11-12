@@ -37,9 +37,16 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({
-      select = true
-    }),
+    -- ['<CR>'] = cmp.mapping.confirm({
+    --   select = true
+    -- }),
+    ["<CR>"] = function(fallback)
+      if cmp.visible() then
+        cmp.mapping.confirm({ select = true })()
+      else
+        fallback()
+      end
+    end,
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -89,15 +96,5 @@ cmp.setup.cmdline(':', {
   } })
 })
 
--- 改用oneDark主题提供的
--- vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080")
--- vim.cmd("highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6")
--- vim.cmd("highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6")
--- vim.cmd("highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE")
--- vim.cmd("highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE")
--- vim.cmd("highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE")
--- vim.cmd("highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0")
--- vim.cmd("highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0")
--- vim.cmd("highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4")
--- vim.cmd("highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4")
--- vim.cmd("highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4")
+-- 因为<CR>在cmp里的重新映射了 所以此map需要在这里重新映射
+vim.cmd [[inoremap <CR> <C-G>u<CR>]]

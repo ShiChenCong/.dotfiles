@@ -8,12 +8,11 @@ map('n', 'J', 'mzJ`z')
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
 
--- 为了更好的undo
+-- 为了更好的undo 还有一个在cmp的配置里
 vim.cmd [[
 inoremap <Space> <C-g>u<Space>
 inoremap <C-W> <C-G>u<C-W>
 inoremap <C-U> <C-G>u<C-U>
-inoremap <CR> <C-G>u<CR>
 ]]
 
 map('n', ',w', ':w<CR>', { silent = true })
