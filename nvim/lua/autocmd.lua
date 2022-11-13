@@ -148,5 +148,11 @@ vim.api.nvim_create_autocmd('Filetype', {
     map('n', 'h', '-', { remap = true, buffer = true })
     map('n', 'l', '<CR>', { remap = true, buffer = true })
     map('n', 'r', 'R', { remap = true, buffer = true })
+    map('n', '<leader>fd', function()
+      local path = vim.api.nvim_exec("echo b:netrw_curdir", true);
+      local file = vim.api.nvim_exec("echo expand('<cfile>')", true);
+      local fullPath = path .. '/' .. file;
+      require('conf.telescope').telescope_find_word_in_specifeid_file(fullPath)
+    end, { remap = true, buffer = true })
   end
 })
