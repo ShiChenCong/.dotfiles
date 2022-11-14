@@ -85,9 +85,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     local cwd = vim.fn.getcwd()
     -- '-'is a magic character in Lua patterns. You need to escape it.
     if string.find(cwd, 'dna%-frontend') == nil then
-      -- vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
-      -- 只格式化修改果的代码 速度更快
-      vim.cmd("FormatModifications")
+      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      -- 只格式化修改果的代码 速度更快 有问题导致多出一行
+      -- vim.cmd("FormatModifications")
+
       -- vim.lsp.buf.formatting_seq_sync()
     end
   end
