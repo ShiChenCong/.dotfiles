@@ -132,7 +132,7 @@ return packer.startup({
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
     }
 
-    use {
+    --[[ use {
       'rmagatti/auto-session',
       config = function()
         require('auto-session').setup {
@@ -141,7 +141,10 @@ return packer.startup({
         }
         vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
       end
-    }
+    } ]]
+    use { 'Shatur/neovim-session-manager', config = function()
+      require('session_manager').setup({})
+    end }
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
       require('conf.lualine')
     end }
