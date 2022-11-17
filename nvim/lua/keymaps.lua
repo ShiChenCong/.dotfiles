@@ -182,7 +182,7 @@ map('n', '<leader>gl', ":diffget //2<CR>")
 map('n', ',b', ':Git blame<CR>')
 
 --diffview
-map('n', '<leader>gh', '<cmd>DiffviewFileHistory ./<CR>')
+map('n', '<leader>gh', '<cmd>DiffviewFileHistory<CR>')
 map('n', '<leader>gf', '<cmd>DiffviewFileHistory %<CR>')
 map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
