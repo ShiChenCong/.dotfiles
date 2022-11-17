@@ -1,12 +1,10 @@
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snip" } })
 local ls = require('luasnip')
 ls.config.set_config({
-  history = false,
   region_check_events = "InsertEnter",
   delete_check_events = "TextChanged,InsertLeave",
 })
 
-local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
