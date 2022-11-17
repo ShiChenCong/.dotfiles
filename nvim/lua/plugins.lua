@@ -52,7 +52,7 @@ return packer.startup({
     use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead',
       config = function() require('conf.trouble') end }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead',
-      config = function() return ('conf.diffview') end }
+      config = function() require('conf.diffview') end }
     use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end }
     use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
       config = function() require('bqf').setup({ auto_enable = false, }) end }
