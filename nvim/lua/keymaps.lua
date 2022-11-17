@@ -222,15 +222,13 @@ map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
 map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
 map('n', '<M-C-RightMouse>', "<Plug>(VM-Mouse-Column)")
 
--- vim.cmd [[
--- let @i = 'ceimportf=cf(from f)x'
--- nnoremap <leader>cri :global/require/normal @i<CR>
--- xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
---
--- function! ExecuteMacroOverVisualRange()
--- echo "@".getcmdline()
--- execute ":'<,'>normal @".nr2char(getchar())
--- endfunction
--- nnoremap <silent>sf :<C-u>Defx -listed -resume -columns=indent:mark:icon:mark:icons:mark:filename:git:size -buffer-name=tab`tabpagenr()` `expand('%:p:h')` -search=`expand('%:p')`<CR>
---
--- ]]
+-- 为了更好的undo
+vim.cmd [[
+  inoremap <Space> <C-g>u<Space>
+  inoremap <C-W> <C-G>u<C-W>
+  inoremap <C-U> <C-G>u<C-U>
+  inoremap <buffer> . <c-g>u.
+  inoremap <buffer> ! <c-g>u!
+  inoremap <buffer> ? <c-g>u?
+  inoremap <buffer> , <c-g>u,
+]]

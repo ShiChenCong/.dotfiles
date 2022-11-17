@@ -96,15 +96,3 @@ cmp.setup.cmdline(':', {
     name = 'cmdline'
   } })
 })
-
--- 因为<CR>在cmp里的重新映射了 所以此map需要在这里重新映射
--- 为了更好的undo 还有一个在cmp的配置里
-vim.cmd [[
-  inoremap <Space> <C-g>u<Space>
-  inoremap <C-W> <C-G>u<C-W>
-  inoremap <C-U> <C-G>u<C-U>
-  inoremap <buffer> . <c-g>u.
-  inoremap <buffer> ! <c-g>u!
-  inoremap <buffer> ? <c-g>u?
-  inoremap <buffer> , <c-g>u,
-]]

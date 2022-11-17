@@ -15,7 +15,7 @@ require("bufferline").setup {
       end
 
       local filetype = vim.bo[buf_number].filetype
-      if filetype == 'qf' or filetype == '' then
+      if filetype == 'qf' then
         return false
       end
       return true

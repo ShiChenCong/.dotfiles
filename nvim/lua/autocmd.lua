@@ -111,7 +111,7 @@ local function defx_keymap()
     timer:start(10, 0, vim.schedule_wrap(function()
       if vim.api.nvim_buf_is_loaded(current_buf) then
         local ok = pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
-        vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+        -- vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
         if ok then
           current_buf = 0
         else
