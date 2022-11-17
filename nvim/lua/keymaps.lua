@@ -15,7 +15,7 @@ map('n', ',1', ':q<CR>', { silent = true })
 map('n', 'Q', 'q')
 map('n', 'q', '<Nop>')
 
-map('n', 'su', function()
+map('n', ',u', function()
   keep_position.stay_position(function()
     vim.cmd [[u]]
   end)
@@ -232,3 +232,7 @@ vim.cmd [[
   inoremap <buffer> ? <c-g>u?
   inoremap <buffer> , <c-g>u,
 ]]
+
+-- leap map
+map({ 'x', 'o', 'n' }, 's', '<Plug>(leap-forward-to)')
+map({ 'x', 'o', 'n' }, 'S', '<Plug>(leap-backward-to)')

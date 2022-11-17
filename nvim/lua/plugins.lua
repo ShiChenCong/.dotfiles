@@ -45,7 +45,9 @@ return packer.startup({
       end
     })
     use { "svban/YankAssassin.vim", event = 'BufRead' }
-    use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
+
+    -- use { "phaazon/hop.nvim", event = 'InsertEnter', config = function() require('conf.hop') end }
+    use { "ggandor/leap.nvim", event = 'BufRead' }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
 
     -- work in neovim
