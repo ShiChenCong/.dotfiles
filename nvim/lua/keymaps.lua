@@ -12,8 +12,8 @@ map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',1', ':q<CR>', { silent = true })
 
 -- 宏
-map('n', 'Q', 'q')
-map('n', 'q', '<Nop>')
+-- map('n', 'Q', 'q')
+-- map('n', 'q', '<Nop>')
 
 map('n', ',u', function()
   keep_position.stay_position(function()
@@ -234,5 +234,5 @@ vim.cmd [[
 ]]
 
 -- leap map
-map({ 'x', 'o', 'n' }, 's', '<Plug>(leap-forward-to)')
-map({ 'x', 'o', 'n' }, 'S', '<Plug>(leap-backward-to)')
+map({ 'x', 'o', 'n' }, 'q', '<Plug>(leap-forward-to)')
+map({ 'x', 'o', 'n' }, 'Q', '<Plug>(leap-backward-to)')
