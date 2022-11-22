@@ -12,4 +12,8 @@ map('n', '<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
 -- map('n', 'gk', ':lua require("harpoon.ui").nav_file(3)<CR>')
 -- map('n', 'gl', ':lua require("harpoon.ui").nav_file(3)<CR>')
 
-harpoon.setup({ menu = { width = 90, height = 6 } })
+harpoon.setup({
+  --[[ menu = {
+    width = vim.api.nvim_win_get_width(0) - 4,
+  } ]]
+})

@@ -181,7 +181,7 @@ return packer.startup({
       require('conf.toggleterm')
     end, event = 'BufRead' }
 
-    -- use { "tiagovla/scope.nvim", config = function() require("scope").setup() end }
+    use { "tiagovla/scope.nvim", config = function() require("scope").setup() end }
     -- use { 'vimpostor/vim-tpipeline' }
     use { 'rainbowhxch/accelerated-jk.nvim', config = function()
       require('accelerated-jk').setup()
@@ -189,7 +189,7 @@ return packer.startup({
       vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
     end }
 
-    use 'joechrisellis/lsp-format-modifications.nvim'
+    -- use 'joechrisellis/lsp-format-modifications.nvim'
   end,
   config = {
     compile_path = compile_path,

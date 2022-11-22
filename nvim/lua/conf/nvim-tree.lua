@@ -5,7 +5,6 @@ local list_binds = {
   { key = "ss", cb = '' },
   { key = "l", action = 'edit' },
   { key = "<leader>fd", action = "find word", action_cb = function(node)
-    print(node.absolute_path)
     require('conf.telescope').telescope_find_word_in_specifeid_file(node.absolute_path)
   end },
 }

@@ -6,9 +6,9 @@ require('formatter').setup {
     --   require('formatter.filetypes.lua').stylua,
     -- },
     typescriptreact = {
-      require('formatter.filetypes.typescriptreact').prettierd
+      -- require('formatter.filetypes.typescriptreact').prettierd
       -- eslint_d  more fast than eslintfixall
-      -- require('formatter.filetypes.typescriptreact').eslint_d
+      require('formatter.filetypes.typescriptreact').eslint_d
       -- function()
       --   return {
       --     exe = "prettierd",
@@ -18,7 +18,8 @@ require('formatter').setup {
       -- end
     },
     typescript = {
-      require('formatter.filetypes.typescriptreact').prettierd
+      -- require('formatter.filetypes.typescriptreact').prettierd
+      require('formatter.filetypes.typescriptreact').eslint_d
     },
     less = {
       require('formatter.filetypes.typescriptreact').prettierd

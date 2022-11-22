@@ -9,7 +9,7 @@ map('n', 'J', 'mzJ`z')
 map('n', '<C-i>', '<C-i>')
 
 map('n', ',w', ':w<CR>', { silent = true })
-map('n', ',1', ':q<CR>', { silent = true })
+map('n', ',q', ':q<CR>', { silent = true })
 
 -- 宏
 -- map('n', 'Q', 'q')
@@ -28,7 +28,7 @@ end)
 -- end)
 
 
-map('n', 'g;', 'g;zz')
+map('n', 'g;', 'g;')
 
 map('n', 'gq', ":q<CR>")
 map('n', 'mt', '%')
@@ -227,10 +227,12 @@ vim.cmd [[
   inoremap <Space> <C-g>u<Space>
   inoremap <C-W> <C-G>u<C-W>
   inoremap <C-U> <C-G>u<C-U>
-  inoremap <buffer> . <c-g>u.
-  inoremap <buffer> ! <c-g>u!
-  inoremap <buffer> ? <c-g>u?
-  inoremap <buffer> , <c-g>u,
+  inoremap . <c-g>u.
+  inoremap : <c-g>u:
+  inoremap ; <c-g>u;
+  inoremap ! <c-g>u!
+  inoremap ? <c-g>u?
+  inoremap , <c-g>u,
 ]]
 
 -- leap map

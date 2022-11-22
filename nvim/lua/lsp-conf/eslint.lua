@@ -17,7 +17,8 @@ M.init = function(capabilities)
           local errorList = vim.diagnostic.get(0)
           for index, value in ipairs(errorList) do
             if value.severity == 1 and value.source == 'eslint' then
-              vim.cmd [[EslintFixAll]]
+              -- vim.cmd [[EslintFixAll]]
+              vim.cmd [[FormatWrite]]
               break
             end
           end
