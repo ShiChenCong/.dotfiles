@@ -166,7 +166,7 @@ return packer.startup({
       require('conf.bufferline')
     end }
     use 'lewis6991/impatient.nvim'
-    use {
+    --[[ use {
       'AckslD/nvim-trevJ.lua',
       config = 'require("trevj").setup()', -- optional call for configurating non-default filetypes etc
       module = 'trevj',
@@ -175,7 +175,7 @@ return packer.startup({
           require('trevj').format_at_cursor()
         end)
       end,
-    }
+    } ]]
 
     use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
       require('conf.toggleterm')
@@ -190,6 +190,14 @@ return packer.startup({
     end }
 
     -- use 'joechrisellis/lsp-format-modifications.nvim'
+    use({
+      'Wansmer/treesj',
+      requires = { 'nvim-treesitter' },
+      config = function()
+        require('treesj').setup({})
+      end,
+      event = 'BufRead'
+    })
   end,
   config = {
     compile_path = compile_path,
