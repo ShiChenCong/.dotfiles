@@ -8,8 +8,8 @@ require 'nvim-treesitter.configs'.setup {
     keymaps = {
       init_selection = "g.",
       node_incremental = "g.",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      -- scope_incremental = "grc",
+      -- node_decremental = "grm",
     },
   },
   -- 配合nvim-ts-context-commentstring插件
@@ -30,7 +30,8 @@ require 'nvim-treesitter.configs'.setup {
     'javascript',
     'html',
     'lua',
-    'json'
+    'json',
+    'rust'
   }
 }
 

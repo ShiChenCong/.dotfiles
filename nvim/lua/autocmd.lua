@@ -25,14 +25,6 @@ vim.cmd [[
     autocmd!
     autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
   augroup end
-
-  augroup gotoLastPosition
-      autocmd BufReadPost *
-         \ if line("'\"") > 1 && line("'\"") <= line("$") |
-         \   exe "normal! g`\"" |
-         \   exe "normal zz" |
-         \ endif
- augroup end
 ]]
 
 vim.cmd [[
