@@ -61,13 +61,13 @@ return packer.startup({
     use { "tpope/vim-unimpaired", event = 'BufRead' }
 
     -- work in neovim
-    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead',
+    use { "ShiChenCong/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead',
       config = function() require('conf.trouble') end }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead',
       config = function() require('conf.diffview') end }
     use { "norcalli/nvim-colorizer.lua", event = 'BufRead', config = function() require('conf.csscolor') end }
-    use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
-      config = function() require('bqf').setup({ auto_enable = false, }) end }
+    -- use { "kevinhwang91/nvim-bqf", event = 'InsertEnter',
+    --   config = function() require('bqf').setup({ auto_enable = false, }) end }
     use { "windwp/nvim-ts-autotag", event = 'InsertEnter' }
     -- use { "mfussenegger/nvim-dap", keys = { '<leader>da' }, config = function() require('conf.dap') end }
     use { 'mhartington/formatter.nvim', event = 'BufRead', config = function() require('conf.formatter') end }
@@ -185,8 +185,8 @@ return packer.startup({
     -- use { 'vimpostor/vim-tpipeline' }
     use { 'rainbowhxch/accelerated-jk.nvim', config = function()
       require('accelerated-jk').setup()
-      vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-      vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+      vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+      vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
     end }
 
     -- use 'joechrisellis/lsp-format-modifications.nvim'
@@ -194,7 +194,10 @@ return packer.startup({
       'Wansmer/treesj',
       requires = { 'nvim-treesitter' },
       config = function()
-        require('treesj').setup({})
+        require('treesj').setup({
+          use_default_keymaps = false,
+        });
+        vim.keymap.set('n', '<leader>j', ':TSJToggle<CR>', { silent = true })
       end,
       event = 'BufRead'
     })

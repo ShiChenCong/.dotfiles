@@ -2,7 +2,8 @@ require('trouble').setup({
   -- position = 'left',
   -- width = 30
   padding = false,
-  height = 8
+  height = 8,
+  includeDeclaration = false
 })
 
 local opts = { noremap = true, silent = true }
