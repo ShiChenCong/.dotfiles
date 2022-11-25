@@ -12,8 +12,8 @@ map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',q', ':q<CR>', { silent = true })
 
 -- 宏
--- map('n', 'Q', 'q')
--- map('n', 'q', '<Nop>')
+map('n', 'Q', 'q')
+map('n', 'q', '<Nop>')
 
 map('n', ',u', function()
   keep_position.stay_position(function()
