@@ -117,12 +117,12 @@ map('v', 'p', '"_dP')
 map('v', '.', ':norm .<CR>')
 
 -- 移动行
-map('v', '<M-j>', ":m '>+1<CR>gv=gv")
-map('v', '<M-k>', ":m '<-2<CR>gv=gv")
-map('i', '<M-j>', '<esc>:m .+1<CR>==')
-map('i', '<M-k>', '<esc>:m .-2<CR>==')
-map('n', '<M-j>', ':m .+1<CR>==')
-map('n', '<M-k>', ':m .-2<CR>==')
+-- map('v', '<M-j>', ":m '>+1<CR>gv=gv")
+-- map('v', '<M-k>', ":m '<-2<CR>gv=gv")
+-- map('i', '<M-j>', '<esc>:m .+1<CR>==')
+-- map('i', '<M-k>', '<esc>:m .-2<CR>==')
+-- map('n', '<M-j>', ':m .+1<CR>==')
+-- map('n', '<M-k>', ':m .-2<CR>==')
 
 map('n', 'dw', 'vb"_d')
 map('n', '<C-a>', 'gg<S-v>G')
