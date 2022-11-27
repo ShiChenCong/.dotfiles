@@ -40,8 +40,8 @@ local options = {
   -- 关闭swapfile
   swapfile = false,
   -- 默认忽略大小写，当搜索的内容包含大写字母则改为大小写敏感
-  -- ignorecase = true,
-  -- smartcase = true,
+  ignorecase = true,
+  smartcase = true,
   -- 提前开启signcolumn 避免输入时侧边栏移动
   signcolumn = "yes",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
@@ -72,13 +72,16 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.opt.iskeyword:append("-")
+
 -- 关闭vim-mutli-cursor plugin的warning
 vim.g['VM_show_warnings'] = 0
 -- tpipeline闪烁
-vim.g['tpipeline_focuslost'] = 0
-vim.g['NERDTreeWinPos'] = 'right'
+-- vim.g['tpipeline_focuslost'] = 0
+-- vim.g['NERDTreeWinPos'] = 'right'
 
 vim.g['netrw_banner'] = 0
+
 vim.cmd [[
   set formatoptions-=cro
   let ghregex='\(^\|\s\s\)\zs\.\S\+'
