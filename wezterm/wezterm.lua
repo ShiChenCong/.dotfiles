@@ -12,9 +12,12 @@ local config = {
     top = 0,
     bottom = 0,
   },
-  enable_csi_u_key_encoding = true
+  enable_csi_u_key_encoding = true,
   -- cursor_blink_ease_in = "Constant",
   -- cursor_blink_ease_out = "Constant",
+  colors = {
+    background = '#25273a'
+  }
 }
 
 return config
