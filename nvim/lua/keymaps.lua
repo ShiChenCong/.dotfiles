@@ -47,7 +47,10 @@ map('n', '<A-/>', function()
   end
 end)
 
-map('n', ',t', ':tabnew<CR>')
+map('n', ',t', function()
+  vim.cmd [[tabnew]]
+  vim.fn.feedkeys('fi')
+end)
 map('n', 'tn', ':tabnext<CR>')
 map('n', 'tp', ':tabprevious<CR>')
 map('n', 'tc', ':tabclose<CR>')
