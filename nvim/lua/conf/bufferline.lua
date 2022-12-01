@@ -14,7 +14,12 @@ require("bufferline").setup {
         return false
       end
 
+      -- session刚打开的buffer 没有load 也会存在没filetype的情况，所以需要加上有无name的判断
       local filetype = vim.bo[buf_number].filetype
+      if filetype == '' and buf_name == '' then
+        return false
+      end
+
       if filetype == 'qf' then
         return false
       end
