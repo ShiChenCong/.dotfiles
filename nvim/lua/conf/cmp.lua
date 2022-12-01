@@ -82,14 +82,20 @@ cmp.setup({
 })
 
 cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline({
+    ['<C-n>'] = function() end,
+    ['<C-p>'] = function() end,
+  }),
   sources = { {
     name = 'buffer'
   } }
 })
 
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline({
+    ['<C-n>'] = function() end,
+    ['<C-p>'] = function() end,
+  }),
   sources = cmp.config.sources({ {
     name = 'path'
   } }, { {
