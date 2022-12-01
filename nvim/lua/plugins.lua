@@ -50,14 +50,14 @@ return packer.startup({
     use { "ggandor/leap.nvim", event = 'BufRead', config = function()
       require('leap').add_default_mappings()
     end }
-    --[[ use { "ggandor/flit.nvim", after = 'leap.nvim', config = function()
+    use { "ggandor/flit.nvim", after = 'leap.nvim', config = function()
       require('flit').setup {
         keys = { f = 'f', F = 'F', t = 't', T = 'T' },
         labeled_modes = "v",
         multiline = true,
         opts = {}
       }
-    end } ]]
+    end }
     use { "tpope/vim-unimpaired", event = 'BufRead' }
 
     -- work in neovim
