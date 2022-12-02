@@ -167,10 +167,10 @@ end)
 map('n', '<leader>co', function()
   local curBufnr = vim.api.nvim_get_current_buf();
   local bufs = vim.fn.getbufinfo({ buflisted = 1 });
-  local ids = ''
-  if #ids == 0 then
+  if #bufs == 1 then
     return
   end
+  local ids = ''
   for _, value in pairs(bufs) do
     if value.bufnr ~= curBufnr then
       ids = ids .. ' ' .. value.bufnr;
