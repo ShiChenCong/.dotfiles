@@ -164,8 +164,22 @@ map('n', ',d', function()
 end)
 
 -- BufferLine
--- map('n', '<leader>co', ":%bd|e#<CR>")
-map('n', '<leader>co', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', { noremap = true, silent = false })
+map('n', '<leader>co', function()
+  local curBufnr = vim.api.nvim_get_current_buf();
+  local bufs = vim.fn.getbufinfo({ buflisted = 1 });
+  local ids = ''
+  if #ids == 0 then
+    return
+  end
+  for _, value in pairs(bufs) do
+    if value.bufnr ~= curBufnr then
+      ids = ids .. ' ' .. value.bufnr;
+    end
+  end
+  vim.cmd('bd' .. ids)
+  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+end)
+-- map('n', '<leader>co', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 map('n', '<leader>cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
 map('n', '<leader>cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
