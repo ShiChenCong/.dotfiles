@@ -216,6 +216,10 @@ return packer.startup({
       -- vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end }
+
+    use { 'simrat39/rust-tools.nvim', config = function()
+      require('conf.rust-tool')
+    end }
   end,
   config = {
     compile_path = compile_path,
