@@ -26,8 +26,10 @@ cmp.setup({
     -- end
     format = lspkind.cmp_format({
       mode = 'symbol_text',
-      maxwidth = 50,
+      maxwidth = 30,
+      ellipsis_char = '...',
       before = function(entry, vim_item)
+        vim_item.menu = '';
         return vim_item
       end
     })
