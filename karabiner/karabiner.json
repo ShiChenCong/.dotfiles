@@ -50,7 +50,8 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net.kovidgoyal.kitty",
-                                            "^com\\.github\\.wez\\.wezterm$"
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com.microsoft.VSCode"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -78,7 +79,8 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net.kovidgoyal.kitty",
-                                            "^com\\.github\\.wez\\.wezterm$"
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com.microsoft.VSCode"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -106,7 +108,8 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net.kovidgoyal.kitty",
-                                            "^com\\.github\\.wez\\.wezterm$"
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com.microsoft.VSCode"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -134,7 +137,8 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net.kovidgoyal.kitty",
-                                            "^com\\.github\\.wez\\.wezterm$"
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com.microsoft.VSCode"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
