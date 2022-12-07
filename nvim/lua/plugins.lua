@@ -165,7 +165,6 @@ return packer.startup({
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = function()
       require('conf.bufferline')
     end }
-    use 'lewis6991/impatient.nvim'
     --[[ use {
       'AckslD/nvim-trevJ.lua',
       config = 'require("trevj").setup()', -- optional call for configurating non-default filetypes etc
@@ -217,7 +216,7 @@ return packer.startup({
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end }
 
-    use { 'simrat39/rust-tools.nvim', config = function()
+    use { 'simrat39/rust-tools.nvim', after = "nvim-lspconfig", config = function()
       require('conf.rust-tool')
     end }
   end,
