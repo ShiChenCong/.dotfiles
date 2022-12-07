@@ -44,8 +44,3 @@ require 'nvim-treesitter.configs'.setup {
 
 local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.less = "scss" -- the someft filetype will use the python parser and queries.
-
-local timer = vim.loop.new_timer()
-timer:start(50, 0, vim.schedule_wrap(function()
-  vim.cmd("e")
-end))

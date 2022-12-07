@@ -110,7 +110,7 @@ return packer.startup({
       require('conf.ufo')
     end }
 
-    use { "neovim/nvim-lspconfig", event = { 'BufReadPre' }, config = function() require('lsp') end }
+    use { "neovim/nvim-lspconfig", config = function() require('lsp') end }
 
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function() require('conf.harpoon') end }
 
@@ -214,7 +214,7 @@ return packer.startup({
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end }
 
-    use { 'simrat39/rust-tools.nvim', after = "nvim-lspconfig", config = function()
+    use { 'simrat39/rust-tools.nvim', config = function()
       require('conf.rust-tool')
     end }
   end,
