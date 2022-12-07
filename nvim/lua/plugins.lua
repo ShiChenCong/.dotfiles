@@ -34,7 +34,7 @@ return packer.startup({
     use 'wbthomason/packer.nvim'
 
     --------------------------------------------------lazyload--------------------------------------------------------------------
-    use { "windwp/nvim-autopairs", event = 'InsertEnter', config = function() require('conf.autopairs') end }
+    use { "windwp/nvim-autopairs", after = 'nvim-cmp', config = function() require('conf.autopairs') end }
 
     use({
       "kylechui/nvim-surround",
@@ -105,7 +105,7 @@ return packer.startup({
     use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
     use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" },
-      config = function() require('conf.comment') end, event = { 'BufReadPre' } }
+      config = function() require('conf.comment') end }
     use { 'JoosepAlviste/nvim-ts-context-commentstring', event = { 'BufReadPre' } }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()

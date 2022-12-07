@@ -1,9 +1,6 @@
 ---@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local keep_position = require('util.keep_position')
-local formatter = require('formatter.format')
-local log = require "formatter.log"
-local util = require "formatter.util"
 
 local M = {}
 M.init = function(capabilities)
