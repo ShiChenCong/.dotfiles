@@ -61,7 +61,7 @@ return packer.startup({
     use { "tpope/vim-unimpaired", event = 'BufRead' }
 
     -- work in neovim
-    use { "ShiChenCong/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", event = 'BufRead',
+    use { "ShiChenCong/trouble.nvim", requires = "kyazdani42/nvim-web-devicons",
       config = function() require('conf.trouble') end }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', event = 'BufRead',
       config = function() require('conf.diffview') end }
@@ -81,7 +81,8 @@ return packer.startup({
     -- use { "akinsho/toggleterm.nvim", tag = 'v1.*', event = 'BufRead', config = function() require('conf.toggleterm') end }
     use { "mg979/vim-visual-multi", event = 'BufRead' }
 
-    use { 'nvim-telescope/telescope.nvim', after = 'trouble.nvim', requires = { { 'nvim-lua/plenary.nvim' }, },
+    use { 'nvim-telescope/telescope.nvim',
+      requires = { { 'nvim-lua/plenary.nvim', 'trouble.nvim' }, },
       cmd = { "Telescope" }, keys = { '<leader>fw' }, config = function()
         require('conf.telescope')
       end }
@@ -104,9 +105,8 @@ return packer.startup({
 
     use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
-    use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" },
+    use { "numToStr/Comment.nvim", after = { "nvim-treesitter" },
       config = function() require('conf.comment') end }
-    use { 'JoosepAlviste/nvim-ts-context-commentstring', event = { 'BufReadPre' } }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
       require('conf.ufo')
