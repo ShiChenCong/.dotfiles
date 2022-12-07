@@ -99,11 +99,9 @@ return packer.startup({
     use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' },
       config = function() require('conf.nvim-tree') end }
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', event = 'BufRead', config = function()
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
       require('conf.treesitter')
     end }
-
-    use { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" }
 
     use { "numToStr/Comment.nvim", after = { "nvim-treesitter" },
       config = function() require('conf.comment') end }
