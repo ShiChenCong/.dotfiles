@@ -2,9 +2,7 @@ vim.g.mapleader = " "
 
 if not vim.g['vscode'] then
   require('options')
-  -- require('lsp')
   require('theme')
-  -- require('conf')
   require('keymaps')
   require('plugins')
   require('autocmd')
