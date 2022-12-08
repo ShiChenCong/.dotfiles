@@ -105,7 +105,7 @@ return packer.startup({
 
     use { "numToStr/Comment.nvim", after = { "nvim-treesitter", "nvim-ts-context-commentstring" },
       config = function() require('conf.comment') end }
-    use { 'JoosepAlviste/nvim-ts-context-commentstring', events = 'BufReadPre' }
+    use { 'JoosepAlviste/nvim-ts-context-commentstring', event = 'BufReadPre' }
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', event = 'BufRead', config = function()
       require('conf.ufo')
