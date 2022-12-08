@@ -6,6 +6,7 @@ map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 map('n', "<C-d>", '<C-d>zz')
 map('n', "<C-u>", '<C-u>zz')
+map('n', '<A-z>', 'u')
 
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
@@ -85,10 +86,10 @@ map('v', ">", ">gv")
 
 map('n', '<A-f>', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
-map('n', "sh", '<C-w>h')
-map('n', "sj", '<C-w>j')
-map('n', "sk", '<C-w>k')
-map('n', "sl", '<C-w>l')
+-- map('n', "sh", '<C-w>h')
+-- map('n', "sj", '<C-w>j')
+-- map('n', "sk", '<C-w>k')
+-- map('n', "sl", '<C-w>l')
 
 map('v', 'L', "$<Left>")
 map('n', 'L', "$")
@@ -122,12 +123,12 @@ map('v', 'p', '"_dP')
 map('v', '.', ':norm .<CR>')
 
 -- 移动行
--- map('v', '<M-j>', ":m '>+1<CR>gv=gv")
--- map('v', '<M-k>', ":m '<-2<CR>gv=gv")
+map('v', 'sj', ":m '>+1<CR>gv=gv")
+map('v', 'sk', ":m '<-2<CR>gv=gv")
 -- map('i', '<M-j>', '<esc>:m .+1<CR>==')
 -- map('i', '<M-k>', '<esc>:m .-2<CR>==')
--- map('n', '<M-j>', ':m .+1<CR>==')
--- map('n', '<M-k>', ':m .-2<CR>==')
+map('n', 'sj', ':m .+1<CR>==')
+map('n', 'sk', ':m .-2<CR>==')
 
 map('n', 'dw', 'vb"_d')
 map('n', '<C-a>', 'gg<S-v>G')
