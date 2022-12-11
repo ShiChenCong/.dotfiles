@@ -36,8 +36,6 @@ map('n', ']d', function()
   end
 end)
 
-map('n', '<space>q', vim.diagnostic.setloclist)
-
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
