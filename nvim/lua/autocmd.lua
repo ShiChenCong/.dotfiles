@@ -74,14 +74,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = 'formatOnSave',
   pattern = { "*.tsx", "*.ts", "*.js", "*.lua" },
   callback = function()
-    local cwd = vim.fn.getcwd()
-    -- '-'is a magic character in Lua patterns. You need to escape it.
-    if string.find(cwd, 'dna%-frontend') == nil then
-      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
-      -- 只格式化修改果的代码 速度更快 有问题导致多出一行
-      -- vim.cmd("FormatModifications")
+    local line_count = vim.fn.line('$');
+    if line_count < 500 then
+      local cwd = vim.fn.getcwd()
+      -- '-'is a magic character in Lua patterns. You need to escape it.
+      if string.find(cwd, 'dna%-frontend') == nil then
+        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+        -- 只格式化修改果的代码 速度更快 有问题导致多出一行
+        -- vim.cmd("FormatModifications")
 
-      -- vim.lsp.buf.formatting_seq_sync()
+        -- vim.lsp.buf.formatting_seq_sync()
+      end
     end
   end
 })
@@ -92,7 +95,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = 'formatOnSaveRust',
   pattern = { "*.rs" },
   callback = function()
-    vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+    local line_count = vim.fn.line('$');
+    if line_count < 500 then
+      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+    end
   end
 })
 

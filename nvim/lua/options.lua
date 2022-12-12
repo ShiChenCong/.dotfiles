@@ -73,6 +73,7 @@ for k, v in pairs(options) do
 end
 
 vim.opt.iskeyword:append("-")
+vim.opt.diffopt:append("vertical")
 
 -- 关闭vim-mutli-cursor plugin的warning
 vim.g['VM_show_warnings'] = 0
