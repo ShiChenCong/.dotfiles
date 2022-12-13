@@ -87,5 +87,7 @@ vim.cmd [[
   set formatoptions-=cro
   let ghregex='\(^\|\s\s\)\zs\.\S\+'
   let g:netrw_list_hide=ghregex
+  set makeprg=cargo
+  set errorformat='%t'
 ]]
 -- vim.cmd [[autocmd BufWinEnter * if line2byte(line("$") + 1) > 100000 | syntax clear | endif]]
