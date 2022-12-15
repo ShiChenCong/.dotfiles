@@ -58,10 +58,6 @@ local on_attach = function(client, bufnr)
     ]]
   end
 
-  if client.server_capabilities.colorProvider then
-    require("document-color").buf_attach(bufnr)
-  end
-
   -- if client.server_capabilities.documentRangeFormattingProvider then
   --   local lsp_format_modifications = require "lsp-format-modifications"
   --   lsp_format_modifications.attach(client, bufnr, { format_on_save = false })

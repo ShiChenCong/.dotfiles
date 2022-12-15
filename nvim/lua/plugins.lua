@@ -115,8 +115,8 @@ return packer.startup({
 
     use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function() require('conf.harpoon') end }
 
-    use { 'mrshmllow/document-color.nvim',
-      config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
+    -- use { 'mrshmllow/document-color.nvim',
+    --   config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
 
     --------------------------------------------------非lazyload--------------------------------------------------------------------
     use({ "catppuccin/nvim", as = "catppuccin" })
