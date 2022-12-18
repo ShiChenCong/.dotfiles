@@ -5,13 +5,6 @@ vim.cmd [[
      \ autocmd BufWritePost <buffer> FormatWrite
   augroup end
 
-  augroup CursorLine
-    au!
-    au VimEnter * setlocal cursorline
-    au WinEnter * setlocal cursorline
-    au BufWinEnter * setlocal cursorline
-  augroup END
-
   augroup termOpenInsert
     autocmd TermOpen * startinsert
   augroup END
@@ -50,17 +43,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     require("winbar").get_winbar()
   end,
-})
-
-vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-  group = 'leaveSetCursorLine',
-  callback = function()
-    local filetype = vim.bo.filetype;
-    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
-      vim.cmd [[setlocal nocursorline]]
-    end
-  end
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -164,5 +146,24 @@ vim.api.nvim_create_autocmd('Filetype', {
       local fullPath = path .. '/' .. file;
       require('conf.telescope').telescope_find_word_in_specifeid_file(fullPath)
     end, { remap = true, buffer = true })
+  end
+})
+
+vim.api.nvim_create_augroup("hl_cursor_line", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+  group = "hl_cursor_line",
+  callback = function()
+    vim.cmd("set cursorline")
+  end
+})
+
+vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+  group = 'leaveSetCursorLine',
+  callback = function()
+    local filetype = vim.bo.filetype;
+    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
+      vim.cmd [[setlocal nocursorline]]
+    end
   end
 })
