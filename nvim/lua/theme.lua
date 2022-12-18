@@ -1,7 +1,7 @@
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup {
   custom_highlights = {
-    MatchParen = { fg = "#FE640B", bg = "#000000" },
+    MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
   },
   compile = {
     enabled = true,
