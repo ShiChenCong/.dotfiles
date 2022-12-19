@@ -19,11 +19,10 @@ vim.cmd [[
     autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
   augroup end
 ]]
-
+-- "设置cmp float 弹框样式
+-- highlight FloatBorder guibg=#02b36
+-- highlight NormalFloat guibg=#02b36
 vim.cmd [[
-  "设置cmp float 弹框样式
-  highlight FloatBorder guibg=#02b36
-  highlight NormalFloat guibg=#02b36
 
   " 设置匹配单词高亮
   hi! LspReferenceRead cterm=bold ctermbg=red guibg=#1c4c5e

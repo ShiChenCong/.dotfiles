@@ -208,7 +208,7 @@ map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 
 --telescope
-map('n', '<leader>fmw', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 -- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
 -- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
 map('n', '<leader>ff', "<cmd>Telescope git_files use_git_root=false<CR>")

@@ -4,7 +4,7 @@ local options = {
   -- -- 上下滚动
   -- scrolloff = 5,
   -- 换行
-  wrap = true,
+  wrap = false,
   -- 命令行高度
   cmdheight = 1,
   -- 侧边数字栏
@@ -43,7 +43,7 @@ local options = {
   ignorecase = true,
   smartcase = true,
   -- 提前开启signcolumn 避免输入时侧边栏移动
-  signcolumn = "yes",
+  signcolumn = "number",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
   -- foldmethod = "indent",
   foldexpr = "nvim_treesitter#foldexpr()",
