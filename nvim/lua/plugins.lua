@@ -113,7 +113,7 @@ return packer.startup({
 
     use { "neovim/nvim-lspconfig", config = function() require('lsp') end }
 
-    use { "ThePrimeagen/harpoon", keys = { { 'n', '<C-e>' } }, config = function() require('conf.harpoon') end }
+    use { "ThePrimeagen/harpoon", keys = { ',e' }, config = function() require('conf.harpoon') end }
 
     -- use { 'mrshmllow/document-color.nvim',
     --   config = function() require("document-color").setup { mode = "background", } end, event = { 'BufReadPre' } }
