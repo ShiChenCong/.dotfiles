@@ -39,9 +39,9 @@ local options = {
   splitright = true,
   -- 关闭swapfile
   swapfile = false,
-  -- 默认忽略大小写，当搜索的内容包含大写字母则改为大小写敏感
-  ignorecase = true,
-  smartcase = true,
+  -- 默认忽略大小写，当搜索的内容包含大写字母则改为大小写敏感 中文替换时特别卡
+  -- ignorecase = true,
+  -- smartcase = true,
   -- 提前开启signcolumn 避免输入时侧边栏移动
   signcolumn = "number",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
@@ -65,7 +65,7 @@ local options = {
   --响应鼠标,
   mousemoveevent = true,
   --新开window保持代码不动
-  splitkeep = 'screen'
+  --splitkeep = 'screen'
 }
 
 for k, v in pairs(options) do
