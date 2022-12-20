@@ -157,7 +157,7 @@ vim.api.nvim_create_autocmd('Filetype', {
 -- })
 --
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
-vim.api.nvim_create_autocmd({ "WinLeave", 'WinEnter', 'BufEnter', 'BufRead' }, {
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   group = 'leaveSetCursorLine',
   callback = function()
     local filetype = vim.bo.filetype;
