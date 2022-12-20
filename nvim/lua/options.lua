@@ -65,7 +65,7 @@ local options = {
   --响应鼠标,
   mousemoveevent = true,
   --新开window保持代码不动
-  --splitkeep = 'screen'
+  splitkeep = 'screen'
 }
 
 for k, v in pairs(options) do
