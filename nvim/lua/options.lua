@@ -43,7 +43,7 @@ local options = {
   -- ignorecase = true,
   -- smartcase = true,
   -- 提前开启signcolumn 避免输入时侧边栏移动
-  signcolumn = "number",
+  signcolumn = "yes",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
   -- foldmethod = "indent",
   foldexpr = "nvim_treesitter#foldexpr()",
