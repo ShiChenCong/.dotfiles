@@ -166,3 +166,10 @@ vim.api.nvim_create_autocmd('Filetype', {
 --     end
 --   end
 -- })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "Trouble", "defx" },
+  callback = function()
+    vim.cmd('set cursorline')
+  end,
+})
