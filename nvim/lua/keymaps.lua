@@ -169,7 +169,7 @@ end)
 -- BufferLine
 map('n', '<leader>co', function()
   local curBufnr = vim.api.nvim_get_current_buf();
-  local bufs = vim.fn.getbufinfo({ buflisted = 1 });
+  local bufs = vim.fn.getbufinfo({ buflisted = 1, hidden = false });
   if #bufs == 1 then
     return
   end
