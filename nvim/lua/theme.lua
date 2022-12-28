@@ -10,7 +10,6 @@ require("catppuccin").setup {
 }
 
 vim.cmd [[colorscheme catppuccin-macchiato]]
-vim.cmd [[colorscheme catppuccin-macchiato]]
 vim.cmd [[
   hi DiffAdd ctermbg=4 guibg=#283b4D guifg=NONE
   hi DiffDelete ctermfg=12 ctermbg=6 guibg=#3F2D3D  guifg=NONE
