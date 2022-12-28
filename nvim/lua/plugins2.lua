@@ -128,11 +128,11 @@ require("lazy").setup({
     }
   },
 
-  -- { 'Shatur/neovim-session-manager', config = function()
-  --   require('session_manager').setup({
-  --     autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
-  --   })
-  -- end },
+  { 'Shatur/neovim-session-manager', config = function()
+    require('session_manager').setup({
+      autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
+    })
+  end },
   { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', 'catppuccin/nvim' },
     config = function()
       require('conf.lualine')
