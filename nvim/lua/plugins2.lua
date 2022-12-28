@@ -12,7 +12,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
-  { 'catppuccin/nvim', name = 'catppuccin'},
+  { 'catppuccin/nvim', name = 'catppuccin' },
   { "windwp/nvim-autopairs", config = function() require('conf.autopairs') end, event = "InsertEnter" },
 
   ({
@@ -65,15 +65,16 @@ require("lazy").setup({
     end,
     cmd = { "Telescope" }, keys = { '<leader>fw' },
     dependencies = {
-      'nvim-lua/plenary.nvim', 'trouble.nvim',
+      'nvim-lua/plenary.nvim',
+      'trouble.nvim',
       -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', config = function()
       --   require('telescope').load_extension('fzf')
       -- end },
-      { 'nvim-telescope/telescope-ui-select.nvim', config = function()
-        require("telescope").load_extension("ui-select")
-      end },
     }
   },
+  { 'nvim-telescope/telescope-ui-select.nvim', config = function()
+    require("telescope").load_extension("ui-select")
+  end },
 
   { "lewis6991/gitsigns.nvim", config = function() require('conf.gitsign') end, event = 'BufEnter' },
   { "tpope/vim-fugitive", cmd = 'Git' },
