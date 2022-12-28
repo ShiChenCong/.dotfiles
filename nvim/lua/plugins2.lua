@@ -99,7 +99,6 @@ require("lazy").setup({
   { "neovim/nvim-lspconfig", config = function() require('lsp') end },
 
   { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end, keys = { ",e" } },
-  ({ "catppuccin/nvim", as = "catppuccin" }),
 
   {
     "Shougo/defx.nvim",
@@ -133,7 +132,7 @@ require("lazy").setup({
       autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
     })
   end },
-  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', 'catppuccin/nvim' },
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('conf.lualine')
     end },
@@ -177,6 +176,7 @@ require("lazy").setup({
     -- vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
     -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
   end },
+  { "catppuccin/nvim" }
 
 }, {
   defaults = {
