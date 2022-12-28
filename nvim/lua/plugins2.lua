@@ -12,6 +12,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
+  { 'catppuccin/nvim', name = 'catppuccin'},
   { "windwp/nvim-autopairs", config = function() require('conf.autopairs') end, event = "InsertEnter" },
 
   ({
@@ -176,7 +177,6 @@ require("lazy").setup({
     -- vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
     -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
   end },
-  { "catppuccin/nvim" }
 
 }, {
   defaults = {
