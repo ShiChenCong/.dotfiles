@@ -47,7 +47,7 @@ require("lazy").setup({
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim',
     config = function() require('conf.diffview') end, cmd = { 'DiffviewFileHistory', 'DiffviewOpen' } },
   { "norcalli/nvim-colorizer.lua", config = function() require('conf.csscolor') end, event = 'BufEnter' },
-  { "windwp/nvim-ts-autotag", event = 'InsertEnter' },
+  { "windwp/nvim-ts-autotag", event = "BufEnter" },
   { 'mhartington/formatter.nvim', config = function() require('conf.formatter') end, event = 'BufEnter' },
   -- { 'https://gitlab.com/yorickpeterse/nvim-pqf.git',
   --   config = function() require('pqf').setup() end },
