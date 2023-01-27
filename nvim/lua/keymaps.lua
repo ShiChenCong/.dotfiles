@@ -8,11 +8,6 @@ map('n', "<C-d>", '<C-d>zz')
 map('n', "<C-u>", '<C-u>zz')
 map('n', '<A-z>', 'u')
 
-map('n', 'dp', function()
-  vim.cmd("bd #")
-  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
-end)
-
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
 
@@ -56,11 +51,8 @@ map('n', '<A-/>', function()
 end)
 
 map('n', ',t', function()
-  keep_position.stay_position(function()
-    local file_path = vim.api.nvim_buf_get_name(0);
-    vim.cmd [[tabnew]]
-    vim.cmd('e ' .. file_path)
-  end)
+  vim.cmd [[tabnew]]
+  vim.fn.feedkeys('fi')
 end)
 map('n', 'tn', ':tabnext<CR>')
 map('n', 'tp', ':tabprevious<CR>')
