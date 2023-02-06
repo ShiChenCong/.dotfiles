@@ -1,5 +1,6 @@
-local map = require('util.map')
+local map           = require('util.map')
 local keep_position = require('util.keep_position')
+local is_git        = require('util.is_git')
 
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
@@ -196,7 +197,11 @@ map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 
 -- vim-fugitive
 map('n', '<leader>gp', ':Git push<CR>')
-map('n', ',g', ':Git<CR>')
+map('n', ',g', function()
+  if is_git.is_git_dir() then
+    vim.cmd('Git')
+  end
+end)
 map('n', '<leader>gr', ":diffget //3<CR>")
 map('n', '<leader>gl', ":diffget //2<CR>")
 map('n', ',b', ':Git blame<CR>')
@@ -211,7 +216,13 @@ map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 -- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
 -- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
-map('n', '<leader>ff', "<cmd>Telescope git_files use_git_root=false<CR>")
+map('n', '<leader>ff', function()
+  if is_git.is_git_dir() then
+    vim.cmd("Telescope git_files use_git_root=false")
+  else
+    vim.cmd("Telescope find_files find_command=rg,--ignore,--hidden,--files")
+  end
+end)
 map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
 map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
 map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
