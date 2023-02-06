@@ -1,6 +1,7 @@
 vim.opt.termguicolors = true
 require("bufferline").setup {
   options = {
+    show_duplicate_prefix = false,
     hover = {
       enabled = true,
       delay = 200,

@@ -50,27 +50,28 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- 保存自动格式化
-local pre_format_second = 11
-vim.api.nvim_create_augroup("formatOnSave", { clear = false })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = 'formatOnSave',
-  pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
-  callback = function()
-    local line_count = vim.fn.line('$');
-    if line_count < 500 then
-      local cwd = vim.fn.getcwd()
-      -- '-'is a magic character in Lua patterns. You need to escape it.
-      if string.find(cwd, 'dna%-frontend') == nil then
-        if (os.time() - pre_format_second) > 2 then
-          pre_format_second = os.time()
-          vim.cmd [[lua vim.lsp.buf.format({ async = true })]]
-          -- 为了解决async format需要重新保存的问题
-          vim.defer_fn(function() vim.cmd('w') end, 200)
-        end
-      end
-    end
-  end
-})
+-- local pre_format_second = 11
+-- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = 'formatOnSave',
+--   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
+--   callback = function()
+--     local line_count = vim.fn.line('$');
+--     if line_count < 500 then
+--       local cwd = vim.fn.getcwd()
+--       -- '-'is a magic character in Lua patterns. You need to escape it.
+--       if string.find(cwd, 'dna%-frontend') == nil then
+--         vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+--         -- if (os.time() - pre_format_second) > 2 then
+--         --   pre_format_second = os.time()
+--         --   vim.cmd [[lua vim.lsp.buf.format({ async = true })]]
+--         --   -- 为了解决async format需要重新保存的问题
+--         --   vim.defer_fn(function() vim.cmd('w') end, 200)
+--         -- end
+--       end
+--     end
+--   end
+-- })
 
 local current_buf = 0
 local function defx_keymap()

@@ -28,6 +28,8 @@ require 'nvim-tree'.setup {
   },
   renderer = {
     icons = {
+      git_placement = "after",
+      modified_placement = "after",
       glyphs = {
         git = git_icons
       }
