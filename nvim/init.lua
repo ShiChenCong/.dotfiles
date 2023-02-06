@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 
-if not vim.g.vscode then
+if not vim.g['vscode'] then
   require('options')
   require('keymaps')
-  require('plugins')
+  require('plugins2')
   require('theme')
   require('autocmd')
 else

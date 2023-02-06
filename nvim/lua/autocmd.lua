@@ -49,7 +49,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "set fo-=c fo-=r fo-=o",
 })
 
--- 保存自动格式化
 -- local pre_format_second = 11
 -- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
 -- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -72,6 +71,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --     end
 --   end
 -- })
+
+-- 不支持documentRangeFormattingProvider的
+vim.api.nvim_create_augroup("formatOnSaveRust", { clear = false })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = 'formatOnSaveRust',
+  pattern = { "*.rs" },
+  callback = function()
+    local line_count = vim.fn.line('$');
+    if line_count < 500 then
+      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+    end
+  end
+})
 
 local current_buf = 0
 local function defx_keymap()
