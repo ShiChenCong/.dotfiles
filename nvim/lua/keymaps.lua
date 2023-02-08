@@ -111,6 +111,12 @@ map('n', '}', '}zz')
 
 map('n', ';', ":", { silent = false })
 
+map('n', 'dp', function()
+  vim.cmd("bd #")
+  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+end)
+
+
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
 map('x', 'c', '"_c')

@@ -119,9 +119,7 @@ require("lazy").setup({
     end,
     event = 'InsertEnter',
     dependencies = {
-      { 'L3MON4D3/LuaSnip', config = function()
-        require('conf.luasnip')
-      end },
+      { 'L3MON4D3/LuaSnip', config = function() require('conf.luasnip') end },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
@@ -142,9 +140,9 @@ require("lazy").setup({
   { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons', config = function()
     require('conf.bufferline')
   end },
-  { "akinsho/toggleterm.nvim", version = 'v2.*', config = function()
-    require('conf.toggleterm')
-  end, event = 'BufRead' },
+  -- { "akinsho/toggleterm.nvim", version = 'v2.*', config = function()
+  --   require('conf.toggleterm')
+  -- end, event = 'BufRead' },
 
   { "tiagovla/scope.nvim", config = function() require("scope").setup() end },
   { 'rainbowhxch/accelerated-jk.nvim', config = function()
@@ -179,6 +177,8 @@ require("lazy").setup({
     -- vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
     -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
   end },
+
+  -- { "williamboman/mason.nvim", config = function() require("mason").setup() end }
 
 }, {
   defaults = {
