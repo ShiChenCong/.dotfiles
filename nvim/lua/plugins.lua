@@ -100,7 +100,7 @@ require("lazy").setup({
 
   { "neovim/nvim-lspconfig", config = function() require('lsp') end },
 
-  { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end, keys = { ",e" } },
+  { "ThePrimeagen/harpoon", config = function() require('conf.harpoon') end, keys = { "<C-e>" } },
 
   {
     "Shougo/defx.nvim",
