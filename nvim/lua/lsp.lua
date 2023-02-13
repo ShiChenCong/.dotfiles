@@ -62,54 +62,53 @@ local on_attach = function(client, bufnr)
   --   local lsp_format_modifications = require "lsp-format-modifications"
   --   lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
   -- end
-
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
+    dynamicRegistration = false,
+    lineFoldingOnly = true
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'emmet_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    root_dir = function()
-      return vim.fn.getcwd()
-    end,
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = function()
+        return vim.fn.getcwd()
+      end,
   }
 end
 
 local signs = {
-  { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
-  { name = "DiagnosticSignWarn", text = '', texthl = 'DiagnosticSignWarn' },
-  { name = "DiagnosticSignInfo", text = '', texthl = 'DiagnosticSignInfo' },
-  { name = "DiagnosticSignHint", text = '', texthl = 'DiagnosticSignHint' },
+    { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
+    { name = "DiagnosticSignWarn",  text = '', texthl = 'DiagnosticSignWarn' },
+    { name = "DiagnosticSignInfo",  text = '', texthl = 'DiagnosticSignInfo' },
+    { name = "DiagnosticSignHint",  text = '', texthl = 'DiagnosticSignHint' },
 }
 for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
 end
 
 local config = {
-  virtual_text = false,
-  signs = {
-    active = signs,
-  },
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  -- Lsp报错的提示框
-  float = {
-    focusable = true,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
+    virtual_text = false,
+    signs = {
+        active = signs,
+    },
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    -- Lsp报错的提示框
+    float = {
+        focusable = true,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+    },
 }
 
 vim.diagnostic.config(config)
@@ -123,5 +122,5 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 
 -- -- 全局统一修改Hover的信息框
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
+        border = "rounded",
+    })
