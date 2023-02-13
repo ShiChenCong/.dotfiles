@@ -52,8 +52,11 @@ map('n', '<A-/>', function()
 end)
 
 map('n', ',t', function()
-  vim.cmd [[tabnew]]
-  vim.fn.feedkeys('fi')
+  keep_position.stay_position(function()
+    local file_path = vim.api.nvim_buf_get_name(0);
+    vim.cmd [[tabnew]]
+    vim.cmd('e ' .. file_path)
+  end)
 end)
 map('n', 'tn', ':tabnext<CR>')
 map('n', 'tp', ':tabprevious<CR>')
