@@ -1,12 +1,12 @@
 -- vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup {
-  custom_highlights = {
-    MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
-  },
-  compile = {
-    enabled = true,
-    path = vim.fn.stdpath "cache" .. "/catppuccin"
-  }
+    custom_highlights = {
+        MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
+    },
+    compile = {
+        enabled = true,
+        path = vim.fn.stdpath "cache" .. "/catppuccin"
+    }
 }
 
 vim.cmd [[colorscheme catppuccin-macchiato]]

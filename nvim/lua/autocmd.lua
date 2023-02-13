@@ -13,7 +13,7 @@ vim.cmd [[
   augroup termNoNumber
     au TermOpen * setlocal nonumber norelativenumber nospell
   augroup END
-  
+
   augroup _fold_bug_solution  " https://github.com/nvim-telescope/telescope.nvim/issues/559
     autocmd!
     autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
@@ -38,15 +38,15 @@ vim.cmd [[
 
 vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  group = 'setWinbar',
-  callback = function()
-    require("winbar").get_winbar()
-  end,
+    group = 'setWinbar',
+    callback = function()
+      require("winbar").get_winbar()
+    end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  command = "set fo-=c fo-=r fo-=o",
+    pattern = "*",
+    command = "set fo-=c fo-=r fo-=o",
 })
 
 -- local pre_format_second = 11
@@ -75,14 +75,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- 不支持documentRangeFormattingProvider的
 vim.api.nvim_create_augroup("formatOnSaveRust", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = 'formatOnSaveRust',
-  pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
-  callback = function()
-    local line_count = vim.fn.line('$');
-    if line_count < 200 then
-      vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+    group = 'formatOnSaveRust',
+    --   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
+    callback = function()
+      local line_count = vim.fn.line('$');
+      if line_count < 200 then
+        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      end
     end
-  end
 })
 
 local current_buf = 0
@@ -108,11 +108,11 @@ local function defx_keymap()
 end
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'defx',
-  callback = function()
-    defx_keymap()
-    vim.cmd("autocmd FileType defx nnoremap <buffer> ; :")
-  end,
+    pattern = 'defx',
+    callback = function()
+      defx_keymap()
+      vim.cmd("autocmd FileType defx nnoremap <buffer> ; :")
+    end,
 })
 
 map('n', 'fi', function()
@@ -131,23 +131,23 @@ end)
 -- })
 
 vim.api.nvim_create_autocmd('Filetype', {
-  pattern = 'netrw',
-  desc = 'Better mappings for netrw',
-  callback = function()
-    map('n', 'N', '%', { remap = true, buffer = true })
-    map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
-    map('n', '.', 'gh', { remap = true, buffer = true })
-    map('n', 'd', 'D', { remap = true, buffer = true, nowait = true })
-    map('n', 'h', '-', { remap = true, buffer = true })
-    map('n', 'l', '<CR>', { remap = true, buffer = true })
-    map('n', 'r', 'R', { remap = true, buffer = true })
-    map('n', '<leader>fd', function()
-      local path = vim.api.nvim_exec("echo b:netrw_curdir", true);
-      local file = vim.api.nvim_exec("echo expand('<cfile>')", true);
-      local fullPath = path .. '/' .. file;
-      require('conf.telescope').telescope_find_word_in_specifeid_file(fullPath)
-    end, { remap = true, buffer = true })
-  end
+    pattern = 'netrw',
+    desc = 'Better mappings for netrw',
+    callback = function()
+      map('n', 'N', '%', { remap = true, buffer = true })
+      map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
+      map('n', '.', 'gh', { remap = true, buffer = true })
+      map('n', 'd', 'D', { remap = true, buffer = true, nowait = true })
+      map('n', 'h', '-', { remap = true, buffer = true })
+      map('n', 'l', '<CR>', { remap = true, buffer = true })
+      map('n', 'r', 'R', { remap = true, buffer = true })
+      map('n', '<leader>fd', function()
+        local path = vim.api.nvim_exec("echo b:netrw_curdir", true);
+        local file = vim.api.nvim_exec("echo expand('<cfile>')", true);
+        local fullPath = path .. '/' .. file;
+        require('conf.telescope').telescope_find_word_in_specifeid_file(fullPath)
+      end, { remap = true, buffer = true })
+    end
 })
 
 -- vim.api.nvim_create_augroup("hl_cursor_line", { clear = true })
@@ -160,18 +160,18 @@ vim.api.nvim_create_autocmd('Filetype', {
 --
 vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  group = 'leaveSetCursorLine',
-  callback = function()
-    local filetype = vim.bo.filetype;
-    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
-      vim.cmd [[setlocal nocursorline]]
+    group = 'leaveSetCursorLine',
+    callback = function()
+      local filetype = vim.bo.filetype;
+      if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
+        vim.cmd [[setlocal nocursorline]]
+      end
     end
-  end
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { "Trouble", "defx" },
-  callback = function()
-    vim.cmd('set cursorline')
-  end,
+    pattern = { "Trouble", "defx" },
+    callback = function()
+      vim.cmd('set cursorline')
+    end,
 })
