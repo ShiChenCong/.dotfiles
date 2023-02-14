@@ -177,7 +177,8 @@ require("lazy").setup({
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end },
 
-    { "williamboman/mason.nvim", config = function() require("mason").setup() end }
+    { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+    { 'manzeloth/live-server' }
 
 }, {
     defaults = {
