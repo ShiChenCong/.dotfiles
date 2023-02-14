@@ -57,7 +57,11 @@ require("lazy").setup({
           highlights = { incoming = 'DiffText', current = 'DiffAdd', }
       })
     end, event = 'BufEnter' },
-    { "akinsho/toggleterm.nvim", tag = 'v1.*',      event = 'BufRead', config = function() require('conf.toggleterm') end },
+    {
+        "akinsho/toggleterm.nvim",
+        event = 'BufRead',
+        config = function() require('conf.toggleterm') end,
+    },
     { "mg979/vim-visual-multi",  keys = { '<C-n>' } },
 
     { 'nvim-telescope/telescope.nvim',
