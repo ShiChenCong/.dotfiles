@@ -73,13 +73,21 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'emmet_ls' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      root_dir = function()
-        return vim.fn.getcwd()
-      end,
-  }
+  if lsp == 'emmet_ls' then
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { 'html' }
+    }
+  else
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
+    }
+  end
 end
 
 local signs = {

@@ -78,9 +78,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     group = 'formatOnSaveRust',
     --   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
     callback = function()
-      local line_count = vim.fn.line('$');
-      if line_count < 200 then
-        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+      local cwd = vim.fn.getcwd()
+      if string.find(cwd, 'dna%-frontend') == nil then
+        local line_count = vim.fn.line('$');
+        if line_count < 200 then
+          vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+        end
       end
     end
 })

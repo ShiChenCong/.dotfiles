@@ -182,7 +182,7 @@ require("lazy").setup({
     end },
 
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
-    { 'manzeloth/live-server' }
+    { 'manzeloth/live-server',   keys = { ",r" } }
 
 }, {
     defaults = {
