@@ -4,7 +4,7 @@ local options = {
     -- -- 上下滚动
     -- scrolloff = 5,
     -- 换行
-    wrap = false,
+    wrap = true,
     -- 命令行高度
     cmdheight = 1,
     -- 侧边数字栏
