@@ -30,16 +30,16 @@ require 'nvim-treesitter.configs'.setup {
           end
         end,
     },
-    ensure_installed = {
-        'css',
-        'typescript',
-        'tsx',
-        'javascript',
-        'html',
-        'lua',
-        'json',
-        'rust'
-    }
+    -- ensure_installed = {
+    --     'css',
+    --     'typescript',
+    --     'tsx',
+    --     'javascript',
+    --     'html',
+    --     'lua',
+    --     'json',
+    --     'rust'
+    -- }
 }
 
 local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
