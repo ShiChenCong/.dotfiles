@@ -30,16 +30,16 @@ require 'nvim-treesitter.configs'.setup {
           end
         end,
     },
-    -- ensure_installed = {
-    --     'css',
-    --     'typescript',
-    --     'tsx',
-    --     'javascript',
-    --     'html',
-    --     'lua',
-    --     'json',
-    --     'rust'
-    -- }
+    ensure_installed = {
+        'css',
+        'typescript',
+        'tsx',
+        'javascript',
+        'html',
+        'lua',
+        'json',
+        'rust'
+    }
 }
 
 vim.treesitter.language.register('scss', 'less')
