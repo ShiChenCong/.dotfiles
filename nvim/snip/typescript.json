@@ -10,12 +10,20 @@
   },
   "useCallback": {
     "prefix": "ub",
-    "body": ["const ${1} = useCallback(() => {", "\t${2}", "}, [${3}])"],
+    "body": [
+      "const ${1} = useCallback(() => {",
+      "\t${2}",
+      "}, [${3}])"
+    ],
     "description": "React useCallback() hook"
   },
   "useEffect": {
     "prefix": "ue",
-    "body": ["useEffect(() => {", "\t$1", "}, [${3}])"],
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "}, [${3}])"
+    ],
     "description": "React useEffect() hook"
   },
   "useRequest": {
@@ -39,12 +47,12 @@
     "description": "Creates a React functional component without PropTypes"
   },
   "Log to the console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1: ', $1)"
-		],
-		"description": "Log to the console"
-	},
+    "prefix": "log",
+    "body": [
+      "console.log($1)"
+    ],
+    "description": "Log to the console"
+  },
   "imoprt": {
     "prefix": "im",
     "body": "import ${2} from ${1}"
@@ -82,4 +90,3 @@
     ]
   }
 }
-

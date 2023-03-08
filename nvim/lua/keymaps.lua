@@ -227,7 +227,7 @@ map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { sear
 -- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
 map('n', '<leader>ff', function()
   if is_git.is_git_dir() then
-    vim.cmd("Telescope git_files use_git_root=false")
+    vim.cmd("Telescope git_files use_git_root=false find_command=rg,--ignore,--hidden,--files")
   else
     vim.cmd("Telescope find_files find_command=rg,--ignore,--hidden,--files")
   end

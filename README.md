@@ -1,7 +1,11 @@
+  #### install im-select
+  + `brew tap daipeihust/tap && brew install im-select`
+
   #### Tmux
   + `brew install tmux`
   + `git clone https://github.com/tmux-plugins/tmux-sensible ~/clone/path`
-  #### Telescope
+
+  #### rg
   + `brew install rg`
 
   #### install with Bun
