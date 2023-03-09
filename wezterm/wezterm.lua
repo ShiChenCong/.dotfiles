@@ -1,23 +1,37 @@
+function getMacModel()
+  local f = io.popen("/usr/sbin/system_profiler SPHardwareDataType")
+  local info = f:read("*all")
+  f:close()
+  local model = info:match("Model Identifier: ([%w_]+)")
+  if model == "MacBookPro" then
+    return "MacBook Pro"
+  elseif model == "Macmini" then
+    return "Mac mini9"
+  else
+    return "Unknown"
+  end
+end
+
 local wezterm = require('wezterm')
 local config = {
-  font_size = 17,
-  line_height = 1.1,
-  font = wezterm.font("JetBrains Mono"),
-  window_decorations = "RESIZE",
-  hide_tab_bar_if_only_one_tab = true,
-  color_scheme = 'Whimsy',
-  window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
-  },
-  enable_csi_u_key_encoding = true,
-  -- cursor_blink_ease_in = "Constant",
-  -- cursor_blink_ease_out = "Constant",
-  colors = {
-    background = '#25273a'
-  }
+    font_size = getMacModel() and 24 or 17,
+    line_height = 1.1,
+    font = wezterm.font("JetBrains Mono"),
+    window_decorations = "RESIZE",
+    hide_tab_bar_if_only_one_tab = true,
+    color_scheme = 'Whimsy',
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
+    enable_csi_u_key_encoding = true,
+    -- cursor_blink_ease_in = "Constant",
+    -- cursor_blink_ease_out = "Constant",
+    colors = {
+        background = '#25273a'
+    }
 }
 
 return config
