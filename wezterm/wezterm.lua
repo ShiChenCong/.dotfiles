@@ -5,7 +5,7 @@ function getMacModel()
   local model = info:match("Model Identifier: ([%w_]+)")
   if model == "MacBookPro" then
     return "MacBook Pro"
-  elseif model == "Macmini" then
+  elseif model == "Macmini9" then
     return "Mac mini9"
   else
     return "Unknown"
@@ -14,7 +14,7 @@ end
 
 local wezterm = require('wezterm')
 local config = {
-    font_size = getMacModel() and 24 or 17,
+    font_size = getMacModel() == 'Mac mini9' and 24 or 17,
     line_height = 1.1,
     font = wezterm.font("JetBrains Mono"),
     window_decorations = "RESIZE",
