@@ -71,7 +71,7 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'emmet_ls' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   if lsp == 'emmet_ls' then
     nvim_lsp[lsp].setup {
