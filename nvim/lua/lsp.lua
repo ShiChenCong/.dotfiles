@@ -83,9 +83,9 @@ for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
-        root_dir = function()
-          return vim.fn.getcwd()
-        end,
+        -- root_dir = function()
+        --   return vim.fn.getcwd()
+        -- end,
     }
   end
 end

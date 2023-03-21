@@ -6,11 +6,6 @@ if not vim.g['vscode'] then
   require('plugins')
   require('theme')
   require('autocmd')
-  require('im-select').setup {
-      default_im_select    = "com.apple.keylayout.ABC",
-      disable_auto_restore = 0,
-      default_command      = 'im-select'
-  }
 else
   require('vscode.keymaps')
 end
