@@ -189,9 +189,8 @@ map('n', '<leader>co', function()
       ids = ids .. ' ' .. value.bufnr;
     end
   end
-  print(ids)
-  -- vim.cmd(ids)
-  -- vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  vim.cmd(ids)
+  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
 end)
 -- map('n', '<leader>co', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', { noremap = true, silent = false })
 map('n', '<leader>cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
