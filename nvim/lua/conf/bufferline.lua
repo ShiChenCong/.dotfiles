@@ -1,22 +1,5 @@
 vim.opt.termguicolors = true
 require("bufferline").setup {
-    highlights = require("catppuccin.groups.integrations.bufferline").get {
-        styles = { "italic", "bold" },
-        custom = {
-            all = {
-                buffer_selected = { bg = "#24273a" },
-                separator_selected = { bg = "#24273a" },
-                close_button_selected = { bg = "#24273a" },
-                modified_selected = { bg = "#24273a" },
-                -- indicator_selected = { bg = "#24273a" }
-                background = { fg = "#646470" },
-                -- tab = { bg = "#24273a" },
-                -- tab_selected = { fg = "#fdfdfd", bg = "#fdfdfd", bold = true },
-                -- tab_separator = { fg = "#fdfdfd", bg = "#fdfdfd" },
-                -- tab_separator_selected = { fg = "#24273a" },
-            },
-        },
-    },
     options = {
         close_icon = 'x',
         buffer_close_icon = 'x',
