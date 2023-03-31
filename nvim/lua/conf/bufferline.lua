@@ -12,6 +12,8 @@ require("bufferline").setup {
         },
     },
     options = {
+        close_icon = 'x',
+        buffer_close_icon = 'x',
         show_duplicate_prefix = true,
         hover = {
             enabled = true,
