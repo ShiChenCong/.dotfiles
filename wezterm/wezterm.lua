@@ -31,7 +31,9 @@ local config = {
     -- cursor_blink_ease_out = "Constant",
     colors = {
         background = '#25273a'
-    }
+    },
+    window_background_opacity = 0.9,
+    macos_window_background_blur = 30
 }
 
 return config
