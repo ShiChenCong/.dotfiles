@@ -1,5 +1,6 @@
 vim.opt.termguicolors = true
 require("bufferline").setup {
+    -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
     options = {
         close_icon = 'x',
         buffer_close_icon = 'x',
