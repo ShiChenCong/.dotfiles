@@ -31,8 +31,6 @@ local excludes = function()
   return false
 end
 
--- local onedark_bg = '#282c34';
--- local catppuccin_bg = "#24273a"
 local macchiato = require("catppuccin.palettes").get_palette "macchiato"
 vim.api.nvim_set_hl(0, 'WinBarPath', { bg = macchiato.base, fg = '#adbac7' })
 vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#282c34', fg = '#ff3838' })
