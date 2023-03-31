@@ -142,7 +142,7 @@ require("lazy").setup({
         end },
     { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons', config = function()
       require('conf.bufferline')
-    end },
+    end, after = "catppuccin" },
     -- { "akinsho/toggleterm.nvim", version = 'v2.*', config = function()
     --   require('conf.toggleterm')
     -- end, event = 'BufRead' },

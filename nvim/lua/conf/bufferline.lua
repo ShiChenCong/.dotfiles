@@ -1,5 +1,16 @@
 vim.opt.termguicolors = true
 require("bufferline").setup {
+    highlights = require("catppuccin.groups.integrations.bufferline").get {
+        styles = { "italic", "bold" },
+        custom = {
+            all = {
+                buffer_selected = { bg = "#24273a" },
+                separator_selected = { bg = "#24273a" },
+                close_button_selected = { bg = "#24273a" },
+                background = { fg = "#646470" },
+            },
+        },
+    },
     options = {
         show_duplicate_prefix = true,
         hover = {
