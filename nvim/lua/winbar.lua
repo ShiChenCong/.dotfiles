@@ -34,8 +34,7 @@ end
 -- local onedark_bg = '#282c34';
 -- local catppuccin_bg = "#24273a"
 local macchiato = require("catppuccin.palettes").get_palette "macchiato"
-print(macchiato.base)
-vim.api.nvim_set_hl(0, 'WinBarPath', { bg = macchiato.mantle, fg = '#adbac7' })
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = macchiato.base, fg = '#adbac7' })
 vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#282c34', fg = '#ff3838' })
 
 function M.get_winbar()

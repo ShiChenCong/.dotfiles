@@ -1,5 +1,6 @@
 -- vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup {
+  catppuccin_flavour = 'macchiato',
   custom_highlights = {
     MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
   },
@@ -9,7 +10,7 @@ require("catppuccin").setup {
   }
 }
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd [[
   hi DiffAdd ctermbg=4 guibg=#283b4D guifg=NONE
   hi DiffDelete ctermfg=12 ctermbg=6 guibg=#3F2D3D  guifg=NONE
