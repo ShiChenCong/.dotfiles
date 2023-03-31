@@ -9,7 +9,7 @@ require("bufferline").setup {
                 close_button_selected = { bg = "#24273a" },
                 modified_selected = { bg = "#24273a" },
                 -- indicator_selected = { bg = "#24273a" }
-                -- background = { fg = "#646470", bg = "#24273a" },
+                background = { fg = "#646470" },
                 -- tab = { bg = "#24273a" },
                 -- tab_selected = { fg = "#fdfdfd", bg = "#fdfdfd", bold = true },
                 -- tab_separator = { fg = "#fdfdfd", bg = "#fdfdfd" },
