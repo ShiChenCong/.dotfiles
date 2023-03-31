@@ -7,7 +7,7 @@ require("bufferline").setup {
                 buffer_selected = { bg = "#24273a" },
                 separator_selected = { bg = "#24273a" },
                 close_button_selected = { bg = "#24273a" },
-                background = { fg = "#646470" },
+                background = { fg = "#646470", bg = "#181825" },
             },
         },
     },
