@@ -71,7 +71,12 @@ map('n', 'mw', '*')
 map('n', '<C-;>', 'u')
 
 map('i', '<C-o>', '<Esc>ddO')
-map('i', '<C-d>', '<Esc>yypi')
+map('i', '<C-d>',function ()
+  vim.api.nvim_input('<Esc>')
+  vim.cmd.normal('"0yy')
+  vim.cmd.normal('"0p')
+  vim.api.nvim_input('i')
+end)
 
 map('n', "<BS>", ':noh<CR>')
 map('i', "<A-s>", "<Esc> :w<CR>")
