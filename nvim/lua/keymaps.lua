@@ -66,7 +66,7 @@ map('n', 'to', ':tabonly<CR>')
 map('n', '<leader>e', ':Explore <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left><Left>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
-map('n', 'mw', '*')
+map('n', 'mm', '*')
 
 map('n', '<C-;>', 'u')
 
