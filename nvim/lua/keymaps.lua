@@ -69,6 +69,8 @@ map('t', '<Esc>', '<C-\\><C-n>')
 map('n', 'mm', '*')
 
 map('n', '<C-;>', 'u')
+map('n', '<C-,>', 'u')
+map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('i', '<C-o>', '<Esc>ddO')
 map('i', '<C-d>',function ()
@@ -93,7 +95,6 @@ map('n', '<leader><M-l>', ":vertical resize -2<CR>")
 map('v', "<", "<gv")
 map('v', ">", ">gv")
 
-map('n', '<A-f>', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 -- map('n', "sh", '<C-w>h')
 -- map('n', "sj", '<C-w>j')
@@ -247,7 +248,7 @@ map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', '<leader>fo', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 
 --nvim-tree
-map('n', ',f', '<cmd>NvimTreeToggle<CR>')
+map('n', '<A-f>', '<cmd>NvimTreeToggle<CR>')
 -- 配合preview
 -- map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
 vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
