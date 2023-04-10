@@ -66,14 +66,21 @@ map('n', 'to', ':tabonly<CR>')
 map('n', '<leader>e', ':Explore <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left><Left>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
-map('n', 'mm', '*')
+map('n', 'mm', function()
+  local line = vim.fn.getline('.')
+  local col = vim.fn.col('.')
+  local l = line:sub(col, col)
+  if l == '[' or l == ']'then
+    print(l)
+  end
+end)
 
 map('n', '<C-;>', 'u')
 map('n', '<C-,>', 'u')
 map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('i', '<C-o>', '<Esc>ddO')
-map('i', '<C-d>',function ()
+map('i', '<C-d>', function()
   vim.api.nvim_input('<Esc>')
   vim.cmd.normal('"0yy')
   vim.cmd.normal('"0p')
@@ -192,7 +199,7 @@ map('n', '<leader>co', function()
   -- local ids = 'bd'
   for _, value in pairs(bufs) do
     if value.bufnr ~= curBufnr then
-      vim.cmd('bd '.. value.bufnr)
+      vim.cmd('bd ' .. value.bufnr)
       -- ids = ids .. ' ' .. value.bufnr;
     end
   end
