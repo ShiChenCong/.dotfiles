@@ -44,7 +44,7 @@ local on_attach = function(client, bufnr)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
   map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
-  map('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
+  map('n', '<space>gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 

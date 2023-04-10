@@ -3,54 +3,54 @@ local trouble = require("trouble.providers.telescope")
 local action_layout = require("telescope.actions.layout")
 local map = require('util/map')
 require('telescope').setup {
-  defaults = {
-    -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
-    -- prompt_prefix = "",
-    file_ignore_patterns = { "node_modules" },
-    sorting_strategy = "ascending",
-    layout_config = {
-      prompt_position = "top",
-      horizontal = {
-        width_padding = 0.04,
-        height_padding = 0.1,
-        preview_width = 0.5,
-      },
-      vertical = {
-        width_padding = 0.05,
-        height_padding = 1,
-        peview_height = 0.5,
-      },
+    defaults = {
+        -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
+        -- prompt_prefix = "",
+        file_ignore_patterns = { "node_modules" },
+        sorting_strategy = "ascending",
+        layout_config = {
+            prompt_position = "top",
+            horizontal = {
+                width_padding = 0.04,
+                height_padding = 0.1,
+                preview_width = 0.5,
+            },
+            vertical = {
+                width_padding = 0.05,
+                height_padding = 1,
+                peview_height = 0.5,
+            },
+        },
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+                ["<a-q>"] = trouble.open_selected_with_trouble,
+                ['<A-p>'] = action_layout.toggle_preview,
+                -- ['<C-j>'] = actions.move_selection_next,
+                -- ['<C-k>'] = actions.move_selection_previous,
+            }
+        },
+        -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+        -- generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
     },
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        ["<a-q>"] = trouble.open_selected_with_trouble,
-        ['<A-p>'] = action_layout.toggle_preview,
-        -- ['<C-j>'] = actions.move_selection_next,
-        -- ['<C-k>'] = actions.move_selection_previous,
-      }
+    pickers = {
+        -- live_grep = { theme = "dropdown", shorten = { len = 2 } },
+        -- find_files = { theme = "dropdown" }
+        find_files = { previewer = false },
+        git_files = { previewer = false },
+        oldfiles = { previewer = false }
     },
-    -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
-    -- generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
-  },
-  pickers = {
-    -- live_grep = { theme = "dropdown", shorten = { len = 2 } },
-    -- find_files = { theme = "dropdown" }
-    find_files = { previewer = false },
-    git_files = { previewer = false },
-    oldfiles = { previewer = false }
-  },
-  extensions = {
-    fzf = {
-      fuzzy = true, -- false will only do exact matching
-      override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    extensions = {
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        },
+        ["ui-select"] = {
+            require("telescope.themes").get_cursor {}
+        }
     },
-    ["ui-select"] = {
-      require("telescope.themes").get_cursor {}
-    }
-  },
 }
 local M = {}
 M.telescope_find_word_in_specifeid_file = function(path)
