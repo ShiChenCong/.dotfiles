@@ -70,8 +70,10 @@ map('n', 'mm', function()
   local line = vim.fn.getline('.')
   local col = vim.fn.col('.')
   local l = line:sub(col, col)
-  if l == '[' or l == ']'then
-    print(l)
+  if l == '[' or l == ']' or l == '{' or l == '}' or l == '(' or l == ')' then
+    vim.cmd.normal('%')
+  else
+    vim.cmd.normal('*')
   end
 end)
 
