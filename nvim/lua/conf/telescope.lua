@@ -23,9 +23,11 @@ require('telescope').setup {
         },
         mappings = {
             i = {
+                ['<C-u>'] = false,
                 ["<esc>"] = actions.close,
                 ["<a-q>"] = trouble.open_selected_with_trouble,
                 ['<A-p>'] = action_layout.toggle_preview,
+                ["<c-e>"] = actions.to_fuzzy_refine
                 -- ['<C-j>'] = actions.move_selection_next,
                 -- ['<C-k>'] = actions.move_selection_previous,
             }
