@@ -79,56 +79,60 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
         filetypes = { 'html' }
     }
+  elseif lsp == 'rust_analyzer' then
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
+    }
   else
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
-        -- root_dir = function()
-        --   return vim.fn.getcwd()
-        -- end,
     }
   end
-end
 
-local signs = {
-    { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
-    { name = "DiagnosticSignWarn",  text = '', texthl = 'DiagnosticSignWarn' },
-    { name = "DiagnosticSignInfo",  text = '', texthl = 'DiagnosticSignInfo' },
-    { name = "DiagnosticSignHint",  text = '', texthl = 'DiagnosticSignHint' },
-}
-for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
-end
+  local signs = {
+      { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
+      { name = "DiagnosticSignWarn",  text = '', texthl = 'DiagnosticSignWarn' },
+      { name = "DiagnosticSignInfo",  text = '', texthl = 'DiagnosticSignInfo' },
+      { name = "DiagnosticSignHint",  text = '', texthl = 'DiagnosticSignHint' },
+  }
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
+  end
 
-local config = {
-    virtual_text = false,
-    signs = {
-        active = signs,
-    },
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    -- Lsp报错的提示框
-    float = {
-        focusable = true,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
-}
+  local config = {
+      virtual_text = false,
+      signs = {
+          active = signs,
+      },
+      update_in_insert = false,
+      underline = true,
+      severity_sort = true,
+      -- Lsp报错的提示框
+      float = {
+          focusable = true,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+      },
+  }
 
-vim.diagnostic.config(config)
+  vim.diagnostic.config(config)
 
-require 'lsp-conf.tsserver'.init(on_attach, capabilities)
-require 'lsp-conf.lua'.init(on_attach, capabilities)
-require 'lsp-conf.eslint'.init(capabilities)
+  require 'lsp-conf.tsserver'.init(on_attach, capabilities)
+  require 'lsp-conf.lua'.init(on_attach, capabilities)
+  require 'lsp-conf.eslint'.init(capabilities)
 
--- LspInfo的边框
-require('lspconfig.ui.windows').default_options.border = 'single'
+  -- LspInfo的边框
+  require('lspconfig.ui.windows').default_options.border = 'single'
 
--- -- 全局统一修改Hover的信息框
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-    })
+  -- -- 全局统一修改Hover的信息框
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+          border = "rounded",
+      })
