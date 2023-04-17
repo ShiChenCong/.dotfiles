@@ -130,8 +130,11 @@ map('n', '}', '}zz')
 map('n', ';', ":", { silent = false })
 
 map('n', 'dp', function()
-  vim.cmd("bd #")
-  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  local pre = vim.fn.getreg('#')
+  if pre then
+    vim.cmd("bd #")
+    vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  end
 end)
 
 

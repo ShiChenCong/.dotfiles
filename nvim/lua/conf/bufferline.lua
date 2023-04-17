@@ -11,7 +11,11 @@ require("bufferline").setup {
       reveal = { 'close' }
     },
     offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
-    separator_style = "slant",
+    indicator = {
+      -- icon = '▎',         -- this should be omitted if indicator style is not 'icon'
+      style = 'none',
+    },
+    -- separator_style = "slant",
     custom_filter = function(buf_number, buf_numbers)
       local buf_name = vim.fn.bufname(buf_number)
       if string.find(buf_name, 'fugitive') then
