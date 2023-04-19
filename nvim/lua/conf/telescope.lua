@@ -1,10 +1,12 @@
 local actions = require("telescope.actions")
 local pickers = require "telescope.pickers"
 local trouble = require("trouble.providers.telescope")
+local previewers = require "telescope.previewers"
 local finders = require "telescope.finders"
 local action_layout = require("telescope.actions.layout")
 local map = require('util/map')
-require('telescope').setup {
+
+local opts = {
   defaults = {
     -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
     -- prompt_prefix = "",
@@ -56,13 +58,16 @@ require('telescope').setup {
     }
   },
 }
+
+require('telescope').setup(opts)
+
 local M = {}
 M.telescope_find_word_in_specifeid_file = function(path)
   local handledPath = path or vim.fn['defx#get_candidate']().action__path
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
-local function search_files(word)
+M.search_files = function(word)
   local handled_word = string.gmatch(word, "%S+")
   local results = vim.fn.systemlist("rg " .. handled_word() .. " -l")
   local formatted_results = {}
@@ -70,11 +75,9 @@ local function search_files(word)
     table.insert(formatted_results, { value = result })
   end
 
-  local prompt_title = "Results for rg scc -l"
-  ---@diagnostic disable-next-line: missing-parameter
-  local search_picker = pickers.new({
-    prompt_title = prompt_title,
-    finder = finders.new_table({
+  pickers.new({}, {
+    prompt_title = "Result",
+    finder = finders.new_table {
       results = formatted_results,
       entry_maker = function(entry)
         return {
@@ -82,11 +85,15 @@ local function search_files(word)
           display = entry.value,
           ordinal = entry.value,
         }
-      end,
-    }),
-  })
-
-  search_picker:find()
+      end
+    },
+    previewer = previewers.new_buffer_previewer {
+      title = "My preview",
+      define_preview = function(self, entry, status)
+        vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { "line 1", "line 2" })
+      end
+    }
+  }):find()
 end
 
 local telescope_find_word = function()
@@ -98,7 +105,7 @@ local telescope_find_word = function()
       require('telescope.builtin').grep_string({ search = handled_word(), word_match = '-w' })
     else
       if word:find('-f') then
-        search_files(word)
+        M.search_files(word)
       else
         require('telescope.builtin').grep_string({ search = word })
       end
