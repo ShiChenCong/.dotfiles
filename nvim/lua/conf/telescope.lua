@@ -1,5 +1,6 @@
 local actions = require("telescope.actions")
 local pickers = require "telescope.pickers"
+local conf = require("telescope.config").values
 local trouble = require("trouble.providers.telescope")
 local previewers = require "telescope.previewers"
 local finders = require "telescope.finders"
@@ -62,12 +63,13 @@ local opts = {
 require('telescope').setup(opts)
 
 local M = {}
+
 M.telescope_find_word_in_specifeid_file = function(path)
   local handledPath = path or vim.fn['defx#get_candidate']().action__path
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
-M.search_files = function(word)
+local function search_files(word)
   local handled_word = string.gmatch(word, "%S+")
   local results = vim.fn.systemlist("rg " .. handled_word() .. " -l")
   local formatted_results = {}
@@ -87,12 +89,7 @@ M.search_files = function(word)
         }
       end
     },
-    previewer = previewers.new_buffer_previewer {
-      title = "My preview",
-      define_preview = function(self, entry, status)
-        vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { "line 1", "line 2" })
-      end
-    }
+    previewer = conf.file_previewer(opts)
   }):find()
 end
 
@@ -105,7 +102,7 @@ local telescope_find_word = function()
       require('telescope.builtin').grep_string({ search = handled_word(), word_match = '-w' })
     else
       if word:find('-f') then
-        M.search_files(word)
+        search_files(word)
       else
         require('telescope.builtin').grep_string({ search = word })
       end
