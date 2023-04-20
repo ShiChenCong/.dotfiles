@@ -71,7 +71,7 @@ M.telescope_find_word_in_specifeid_file = function(path)
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
-local function search_files(word)
+--[[ local function search_result_file_once(word)
   local handled_word = string.gmatch(word, "%S+")
   local results = vim.fn.systemlist("rg " .. handled_word() .. " -l")
 
@@ -83,25 +83,25 @@ local function search_files(word)
     },
     previewer = conf.file_previewer(opts)
   }):find()
-end
-
-local telescope_find_word = function()
+end ]]
+local function telescope_find_word()
   local word = vim.fn.input("Search > ")
   local len = #word
   if len ~= 0 then
-    if word:find('-w') then
-      local handled_word = string.gmatch(word, "%S+")
-      require('telescope.builtin').grep_string({ search = handled_word(), word_match = '-w' })
-    else
-      if word:find('-f') then
-        search_files(word)
-      else
-        require('telescope.builtin').grep_string({ search = word })
+    if string.find(word, "%s") then
+      local pattern = "(%S+)%s+(.*)"
+      local handleWord, additional_args = string.match(word, pattern)
+      local arg_table = {}
+      for arg in string.gmatch(additional_args, "%S+") do
+        table.insert(arg_table, arg)
       end
+      print(vim.inspect(arg_table))
+      require('telescope.builtin').grep_string({ search = handleWord, additional_args = arg_table })
+    else
+      require('telescope.builtin').grep_string({ search = word })
     end
   end
 end
-
 
 map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
 map('n', '<leader>fw', telescope_find_word)
