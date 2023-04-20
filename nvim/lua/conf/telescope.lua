@@ -95,7 +95,6 @@ local function telescope_find_word()
       for arg in string.gmatch(additional_args, "%S+") do
         table.insert(arg_table, arg)
       end
-      print(vim.inspect(arg_table))
       require('telescope.builtin').grep_string({ search = handleWord, additional_args = arg_table })
     else
       require('telescope.builtin').grep_string({ search = word })
