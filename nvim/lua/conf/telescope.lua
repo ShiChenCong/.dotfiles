@@ -2,9 +2,11 @@ local actions = require("telescope.actions")
 local pickers = require "telescope.pickers"
 local conf = require("telescope.config").values
 local trouble = require("trouble.providers.telescope")
-local previewers = require "telescope.previewers"
 local finders = require "telescope.finders"
 local action_layout = require("telescope.actions.layout")
+local get_icon = require 'nvim-web-devicons'.get_icon
+local entry_display = require "telescope.pickers.entry_display"
+local make_entry = require "telescope.make_entry"
 local map = require('util/map')
 
 local opts = {
@@ -72,22 +74,12 @@ end
 local function search_files(word)
   local handled_word = string.gmatch(word, "%S+")
   local results = vim.fn.systemlist("rg " .. handled_word() .. " -l")
-  local formatted_results = {}
-  for _, result in ipairs(results) do
-    table.insert(formatted_results, { value = result })
-  end
 
   pickers.new({}, {
     prompt_title = "Result",
     finder = finders.new_table {
-      results = formatted_results,
-      entry_maker = function(entry)
-        return {
-          value = entry.value,
-          display = entry.value,
-          ordinal = entry.value,
-        }
-      end
+      results = results,
+      entry_maker = make_entry.gen_from_file(opts)
     },
     previewer = conf.file_previewer(opts)
   }):find()
