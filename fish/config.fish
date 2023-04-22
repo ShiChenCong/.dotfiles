@@ -26,6 +26,9 @@ set -g PATH /Users/shichencong/.nvm/versions/node/v18.2.0/bin $PATH
 # set -gx PATH /usr/local/bin/node:$PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
 
+# deno
+set -x PATH $HOME/.deno/bin:$PATH
+
 set -U fish_greeting ""
 
 set -gx TERM wezterm
