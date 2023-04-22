@@ -99,7 +99,11 @@ local function telescope_find_word_with_args()
     local args = vim.fn.input("Args > ")
     local arg_len = #args
     if arg_len ~= 0 then
-      require('telescope.builtin').grep_string({ search = word, additional_args = { args } })
+      local arg_table = {}
+      for arg in string.gmatch(args, "%S+") do
+        table.insert(arg_table, arg)
+      end
+      require('telescope.builtin').grep_string({ search = word, additional_args = arg_table })
     end
   end
 end
