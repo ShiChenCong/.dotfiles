@@ -88,21 +88,24 @@ local function telescope_find_word()
   local word = vim.fn.input("Search > ")
   local len = #word
   if len ~= 0 then
-    if string.find(word, "%s") then
-      local pattern = "(%S+)%s+(.*)"
-      local handleWord, additional_args = string.match(word, pattern)
-      local arg_table = {}
-      for arg in string.gmatch(additional_args, "%S+") do
-        table.insert(arg_table, arg)
-      end
-      require('telescope.builtin').grep_string({ search = handleWord, additional_args = arg_table })
-    else
-      require('telescope.builtin').grep_string({ search = word })
+    require('telescope.builtin').grep_string({ search = word })
+  end
+end
+
+local function telescope_find_word_with_args()
+  local word = vim.fn.input("Search > ")
+  local len = #word
+  if len ~= 0 then
+    local args = vim.fn.input("Args > ")
+    local arg_len = #args
+    if arg_len ~= 0 then
+      require('telescope.builtin').grep_string({ search = word, additional_args = { args } })
     end
   end
 end
 
 map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
 map('n', '<leader>fw', telescope_find_word)
+map('n', '<leader>fe', telescope_find_word_with_args)
 
 return M
