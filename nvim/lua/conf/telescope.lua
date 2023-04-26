@@ -30,6 +30,11 @@ local opts = {
     },
     mappings = {
       i = {
+        -- ['<C-u>'] = function(prompt_nr)
+        --   local action_state   = require "telescope.actions.state"
+        --   local current_picker = action_state.get_current_picker(prompt_nr) -- picker state
+        --   local line           = current_picker._selection_row + 1
+        -- end,
         ['<C-u>'] = false,
         ["<esc>"] = actions.close,
         ["<a-q>"] = trouble.open_selected_with_trouble,
