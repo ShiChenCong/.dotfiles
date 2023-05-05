@@ -241,7 +241,7 @@ require("lazy").setup({
   },
 
   { "williamboman/mason.nvim", config = function() require("mason").setup() end },
-  { 'manzeloth/live-server',   keys = { ",r" } },
+  -- { 'manzeloth/live-server',   keys = { ",r" } },
   -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()
   --   require('im_select').setup {
   --       default_im_select    = "com.apple.keylayout.ABC",
