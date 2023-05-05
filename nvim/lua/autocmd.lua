@@ -73,20 +73,20 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- })
 
 -- 不支持documentRangeFormattingProvider的
-vim.api.nvim_create_augroup("formatOnSaveRust", { clear = false })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = 'formatOnSaveRust',
-  --   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
-  callback = function()
-    local cwd = vim.fn.getcwd()
-    if string.find(cwd, 'dna%-frontend') == nil then
-      local line_count = vim.fn.line('$');
-      if line_count < 500 then
-        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
-      end
-    end
-  end
-})
+-- vim.api.nvim_create_augroup("formatOnSaveRust", { clear = false })
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = 'formatOnSaveRust',
+--   --   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
+--   callback = function()
+--     local cwd = vim.fn.getcwd()
+--     if string.find(cwd, 'dna%-frontend') == nil then
+--       local line_count = vim.fn.line('$');
+--       if line_count < 500 then
+--         vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+--       end
+--     end
+--   end
+-- })
 
 local current_buf = 0
 local function defx_keymap()
@@ -160,24 +160,24 @@ vim.api.nvim_create_autocmd('Filetype', {
 --     vim.cmd("set cursorline")
 --   end
 -- })
---
--- vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
--- vim.api.nvim_create_autocmd({ 'BufEnter' }, {
---   group = 'leaveSetCursorLine',
---   callback = function()
---     local filetype = vim.bo.filetype;
---     if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
---       vim.cmd [[setlocal nocursorline]]
---     end
---   end
--- })
 
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { "Trouble", "defx" },
---   callback = function()
---     vim.cmd('set cursorline')
---   end,
--- })
+vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  group = 'leaveSetCursorLine',
+  callback = function()
+    local filetype = vim.bo.filetype;
+    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
+      vim.cmd [[setlocal nocursorline]]
+    end
+  end
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "Trouble", "defx" },
+  callback = function()
+    vim.cmd('set cursorline')
+  end,
+})
 
 vim.api.nvim_create_autocmd('BufRead', {
   callback = function()
