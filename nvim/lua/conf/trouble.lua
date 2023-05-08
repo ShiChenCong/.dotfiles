@@ -3,7 +3,6 @@ require('trouble').setup({
   -- width = 30
   padding = false,
   height = 8,
-  includeDeclaration = false,
   action_keys = {
     jump_close = {},
     toggle_fold = { "o" }

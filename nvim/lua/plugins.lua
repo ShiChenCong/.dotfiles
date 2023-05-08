@@ -51,7 +51,7 @@ require("lazy").setup({
   },
   { "tpope/vim-unimpaired",        event = 'BufEnter' },
   {
-    "ShiChenCong/trouble.nvim",
+    "folke/trouble.nvim",
     dependencies = "kyazdani42/nvim-web-devicons",
     config = function() require('conf.trouble') end,
     event = 'BufEnter'
