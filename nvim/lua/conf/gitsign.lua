@@ -1,5 +1,11 @@
 require('gitsigns').setup {
-  current_line_blame = false,
+  current_line_blame = true,
+   current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol',
+    delay = 400,
+    ignore_whitespace = true,
+  },
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -46,4 +52,4 @@ require('gitsigns').setup {
   end,
 }
 
-vim.cmd("hi GitSignsCurrentLineBlame guifg=#4e5362")
+-- vim.cmd("hi GitSignsCurrentLineBlame guifg=#4e5362")

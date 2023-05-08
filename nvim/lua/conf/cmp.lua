@@ -10,7 +10,7 @@ local has_words_before = function()
 end
 cmp.setup({
     window = {
-        -- completion = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
     snippet = {
