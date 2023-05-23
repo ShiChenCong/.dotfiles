@@ -71,6 +71,10 @@ ls.add_snippets(nil, {
   }
 })
 
+ls.add_snippets('all',{
+  s("/**", fmt([[ /** {} */ ]],{ i(0)}))
+})
+
 --[[ -- 回调
 vim.api.nvim_create_autocmd("User", {
   pattern = "LuasnipPreExpand",

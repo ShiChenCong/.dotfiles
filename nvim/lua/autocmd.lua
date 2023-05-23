@@ -183,7 +183,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('BufRead', {
   callback = function()
     local line_count = vim.fn.line('$');
-    if line_count > 500 then
+    if line_count > 500 or  vim.fn.getfsize(vim.fn.expand('%')) > 102400 then
       -- if vim.fn.getfsize(vim.fn.expand('%')) > 10000 then -- 1 MB
       vim.opt_local.foldmethod = 'manual'
       vim.opt_local.foldexpr = '0'
