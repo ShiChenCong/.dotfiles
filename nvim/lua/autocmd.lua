@@ -166,7 +166,8 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   group = 'leaveSetCursorLine',
   callback = function()
     local filetype = vim.bo.filetype;
-    if (filetype ~= 'Trouble' and filetype ~= "DiffviewFileHistory" and filetype ~= 'NvimTree') then
+    local excluded_filetypes = { 'Trouble', 'DiffviewFileHistory', 'NvimTree', 'DiffviewFiles' }
+    if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
       vim.cmd [[setlocal nocursorline]]
     end
   end

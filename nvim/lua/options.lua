@@ -46,12 +46,12 @@ local options = {
   signcolumn = "yes",
   -- 折叠代码 默认有些代码无法识别折叠 比如jsx等
   -- foldmethod = "indent",
-  foldexpr = "nvim_treesitter#foldexpr()",
-  foldmethod = 'expr',
+  -- foldexpr = "nvim_treesitter#foldexpr()",
+  -- foldmethod = 'expr',
   -- 默认打开文件不折叠
-  foldenable = false,
-  foldlevel = 99,
-  foldlevelstart = 99,
+  -- foldenable = false,
+  -- foldlevel = 99,
+  -- foldlevelstart = 99,
   -- enable mouseclicks
   mouse = 'a',
   completeopt = { "menu", "menuone", "noselect" },

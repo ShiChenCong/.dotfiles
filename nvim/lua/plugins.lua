@@ -160,7 +160,7 @@ require("lazy").setup({
     config = function()
       require('conf.cmp')
     end,
-    event = 'InsertEnter',
+    event = 'BufRead',
     dependencies = {
       { 'L3MON4D3/LuaSnip',        config = function() require('conf.luasnip') end },
       { 'saadparwaiz1/cmp_luasnip' },
@@ -199,7 +199,7 @@ require("lazy").setup({
   --   require('conf.toggleterm')
   -- end, event = 'BufRead' },
 
-  { "tiagovla/scope.nvim",     config = function() require("scope").setup() end },
+  { "tiagovla/scope.nvim",     config = function() require("scope").setup() end, event = 'VeryLazy' },
   -- {
   --   'rainbowhxch/accelerated-jk.nvim',
   --   config = function()
@@ -224,6 +224,7 @@ require("lazy").setup({
 
   {
     'alexghergh/nvim-tmux-navigation',
+    event = 'VeryLazy',
     config = function()
       local nvim_tmux_nav = require('nvim-tmux-navigation')
 
@@ -240,7 +241,7 @@ require("lazy").setup({
     end
   },
 
-  { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+  { "williamboman/mason.nvim", config = function() require("mason").setup() end, event = 'VeryLazy' },
   -- { 'manzeloth/live-server',   keys = { ",r" } },
   -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()
   --   require('im_select').setup {
