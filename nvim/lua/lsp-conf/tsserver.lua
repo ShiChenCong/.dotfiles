@@ -41,7 +41,6 @@ M.init = function(on_attach, capabilities)
       end
     }
   }
-
 end
 
 return M
