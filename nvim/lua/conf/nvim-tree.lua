@@ -36,14 +36,14 @@ local git_icons = {
 require 'nvim-tree'.setup {
   view = {
     mappings = {
-      list = list_binds,
+      -- list = list_binds,
     },
-    float = {
-      enable = true,
-      open_win_config = {
-        relative = 'win'
-      }
-    },
+    -- float = {
+    --   enable = true,
+    --   open_win_config = {
+    --     relative = 'win'
+    --   }
+    -- },
   },
   filters = {
     dotfiles = true,

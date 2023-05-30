@@ -29,9 +29,9 @@ local firstToUpper = function(str)
 end
 
 local function fn(
-      args, -- text from i(2) in this example i.e. { { "456" } }
-      parent, -- parent snippet or parent node
-      user_args -- user_args from opts.user_args
+  args,     -- text from i(2) in this example i.e. { { "456" } }
+  parent,   -- parent snippet or parent node
+  user_args -- user_args from opts.user_args
 )
   return user_args .. firstToUpper(args[1][1])
 end
@@ -41,9 +41,9 @@ ls.add_snippets(nil, {
     s("us", {
       t 'const [', i(1),
       t ',',
-      f(fn, -- callback (args, parent, user_args) -> string
-        { 1 }, -- node indice(s) whose text is passed to fn, i.e. i(2)
-        { user_args = { "set" } }-- opts
+      f(fn,                       -- callback (args, parent, user_args) -> string
+        { 1 },                    -- node indice(s) whose text is passed to fn, i.e. i(2)
+        { user_args = { "set" } } -- opts
       ),
       t '] = useState(',
       i(2),
@@ -71,10 +71,15 @@ ls.add_snippets(nil, {
   }
 })
 
-ls.add_snippets('all',{
-  s("/**", fmt([[ /** {} */ ]],{ i(0)}))
+ls.add_snippets('all', {
+  s("/**", fmt([[ /** {} */ ]], { i(0) }))
 })
-
+ls.add_snippets('all', {
+  s("log", { t 'console.log(', f(function()
+    local value = vim.fn.getreg('"');
+    return value
+  end), t ')' })
+})
 --[[ -- 回调
 vim.api.nvim_create_autocmd("User", {
   pattern = "LuasnipPreExpand",
