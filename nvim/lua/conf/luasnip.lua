@@ -77,7 +77,7 @@ ls.add_snippets('all', {
 ls.add_snippets('all', {
   s("log", { t 'console.log(', f(function()
     local value = vim.fn.getreg('"');
-    return value
+    return "\"" .. value .. " is: \", " .. value
   end), t ')' })
 })
 --[[ -- 回调
