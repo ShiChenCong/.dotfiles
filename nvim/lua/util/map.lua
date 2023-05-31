@@ -19,6 +19,7 @@ L         = function(filename)
   return false
 end
 
+-- 把message插入到当前光标下 put =execute('messages')
 I         = function(command, buffer_id, isRowVim)
   local id = buffer_id or 0
   local current_line = vim.api.nvim_win_get_cursor(0)[1];
