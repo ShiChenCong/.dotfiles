@@ -250,6 +250,7 @@ require("lazy").setup({
   --       default_command      = 'im-select'
   --   }
   -- end }
+  { 'Bekaboo/dropbar.nvim' }
 }, {
   defaults = {
     lazy = false
