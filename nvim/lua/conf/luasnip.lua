@@ -75,7 +75,10 @@ ls.add_snippets('all', {
   s("/**", fmt([[ /** {} */ ]], { i(0) }))
 })
 ls.add_snippets('all', {
-  s("log", { t 'console.log(', f(function()
+  s("log", fmt([[ console.log({}) ]], { i(0) }))
+})
+ls.add_snippets('all', {
+  s("ll", { t 'console.log(', f(function()
     local value = vim.fn.getreg('"');
     local success, result = pcall(function()
       return "\"" .. value .. " is: \", " .. value
