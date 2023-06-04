@@ -1,40 +1,5 @@
----@diagnostic disable: unused-local
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
-
-map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
-map('n', '[d', function()
-  local errorList = vim.diagnostic.get(0)
-  local has_error = false;
-  for index, value in ipairs(errorList) do
-    if value.severity == 1 then
-      has_error = true
-      break
-    end
-  end
-  -- 有错误的时候跳转错误，没有错误则跳转信息提示
-  if has_error then
-    vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
-  else
-    vim.diagnostic.goto_prev({ float = { max_width = 100 } })
-  end
-end)
-
-map('n', ']d', function()
-  local errorList = vim.diagnostic.get(0)
-  local has_error = false;
-  for index, value in ipairs(errorList) do
-    if value.severity == 1 then
-      has_error = true
-      break
-    end
-  end
-  if has_error then
-    vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
-  else
-    vim.diagnostic.goto_next({ float = { max_width = 100 } })
-  end
-end)
 
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -47,6 +12,38 @@ local on_attach = function(client, bufnr)
   map('n', '<space>gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
   map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
+  map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
+  map('n', '[d', function()
+    local errorList = vim.diagnostic.get(0)
+    local has_error = false;
+    for index, value in ipairs(errorList) do
+      if value.severity == 1 then
+        has_error = true
+        break
+      end
+    end
+    -- 有错误的时候跳转错误，没有错误则跳转信息提示
+    if has_error then
+      vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+    else
+      vim.diagnostic.goto_prev({ float = { max_width = 100 } })
+    end
+  end)
+  map('n', ']d', function()
+    local errorList = vim.diagnostic.get(0)
+    local has_error = false;
+    for index, value in ipairs(errorList) do
+      if value.severity == 1 then
+        has_error = true
+        break
+      end
+    end
+    if has_error then
+      vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+    else
+      vim.diagnostic.goto_next({ float = { max_width = 100 } })
+    end
+  end)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[

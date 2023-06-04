@@ -14,6 +14,7 @@ map('n', '<C-i>', '<C-i>')
 
 map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',q', ':q<CR>', { silent = true })
+map('n', '<cr>', 'ciw')
 
 -- 宏
 -- map('n', 'Q', 'q')
