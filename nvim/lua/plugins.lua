@@ -172,11 +172,17 @@ require("lazy").setup({
   },
 
   {
-    'Shatur/neovim-session-manager',
+    'rmagatti/auto-session',
     config = function()
-      require('session_manager').setup({
-        autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
-      })
+      require("auto-session").setup {
+        log_level = "error",
+        auto_restore_enabled = false,
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      }
+      local timer = vim.loop.new_timer()
+      timer:start(70, 0, vim.schedule_wrap(function()
+        vim.cmd('SessionRestore')
+      end))
     end
   },
   {
