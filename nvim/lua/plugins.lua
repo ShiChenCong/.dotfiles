@@ -176,13 +176,8 @@ require("lazy").setup({
     config = function()
       require("auto-session").setup {
         log_level = "error",
-        auto_restore_enabled = false,
         auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       }
-      local timer = vim.loop.new_timer()
-      timer:start(70, 0, vim.schedule_wrap(function()
-        vim.cmd('SessionRestore')
-      end))
     end
   },
   {
@@ -247,7 +242,7 @@ require("lazy").setup({
     end
   },
 
-  { "williamboman/mason.nvim", config = function() require("mason").setup() end, event = 'VeryLazy' },
+  { "williamboman/mason.nvim", config = function() require("mason").setup() end},
   {
     'j-hui/fidget.nvim',
     config = function()
