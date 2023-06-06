@@ -1,7 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
     indent = {
-        enable = true,
-        disable = { 'rust' },
+        enable = true
     },
     incremental_selection = {
         enable = true,
