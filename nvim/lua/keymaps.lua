@@ -1,6 +1,7 @@
 local map           = require('util.map')
 local keep_position = require('util.keep_position')
 local is_git        = require('util.is_git')
+local get_listed_buf_count = require('util.util').get_listed_buf_count
 
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
@@ -17,7 +18,7 @@ map('n', '<C-i>', '<C-i>')
 
 map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',q', ':q<CR>', { silent = true })
-map('n', '<cr>', '"_ciw')
+-- map('n', '<cr>', '"_ciw')
 
 -- 宏
 -- map('n', 'Q', 'q')
@@ -134,8 +135,8 @@ map('n', '}', '}zz')
 map('n', ';', ":", { silent = false })
 
 map('n', 'dp', function()
-  local buf_len = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buf_len ~= '1' then
+  local count = get_listed_buf_count()
+  if count > 1 then
     vim.cmd("bprevious | bdelete")
   end
 end)
@@ -174,9 +175,9 @@ map('n', '<C-k>', '<C-\\><C-N><C-k>')
 map('n', ',d', function()
   local len = #vim.api.nvim_list_wins()
   -- local bufferLen = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
-  local bufferLen = #vim.fn.getbufinfo({ buflisted = 1 })
+  local bufferLen = get_listed_buf_count()
   if (len > 1) then
-    if (bufferLen == "1") then
+    if (bufferLen == 1) then
       vim.cmd("q")
       -- 配合nvim-tree的preview
     elseif (vim.bo.bufhidden == 'delete') then
