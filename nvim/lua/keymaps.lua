@@ -17,7 +17,7 @@ map('n', '<C-i>', '<C-i>')
 
 map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',q', ':q<CR>', { silent = true })
-map('n', '<cr>', 'ciw')
+map('n', '<cr>', '"_ciw')
 
 -- 宏
 -- map('n', 'Q', 'q')
@@ -134,10 +134,9 @@ map('n', '}', '}zz')
 map('n', ';', ":", { silent = false })
 
 map('n', 'dp', function()
-  local pre = vim.fn.getreg('#')
-  if pre then
-    vim.cmd("bd #")
-    vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  local buf_len = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
+  if buf_len ~= '1' then
+    vim.cmd("bprevious | bdelete")
   end
 end)
 

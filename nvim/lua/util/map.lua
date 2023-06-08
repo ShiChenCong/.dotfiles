@@ -27,15 +27,14 @@ I         = function(command, buffer_id, isRowVim)
   if isRowVim then
     handle_command = command
   else
-    handle_command ="lua P(".. command..")"
+    handle_command = "lua P(" .. command .. ")"
   end
-  local value = vim.api.nvim_exec(handle_command,true)
+  local value = vim.api.nvim_exec(handle_command, true)
   local lines = {}
   for line in string.gmatch(value, "[^\r\n]+") do
     table.insert(lines, line)
   end
   vim.api.nvim_buf_set_lines(id, current_line, current_line + 1, false, lines)
-
 end
 
 return map
