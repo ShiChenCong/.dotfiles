@@ -134,7 +134,7 @@ map('n', '}', '}zz')
 map('n', ';', ":", { silent = false })
 
 map('n', 'dp', function()
-  local buf_len = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
+  local buf_len = #vim.fn.getbufinfo({ buflisted = 1 })
   if buf_len ~= '1' then
     vim.cmd("bprevious | bdelete")
   end
@@ -173,7 +173,8 @@ map('n', '<C-k>', '<C-\\><C-N><C-k>')
 -- 关闭当前
 map('n', ',d', function()
   local len = #vim.api.nvim_list_wins()
-  local bufferLen = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
+  -- local bufferLen = vim.api.nvim_exec("echo len(getbufinfo({'buflisted':1}))", true)
+  local bufferLen = #vim.fn.getbufinfo({ buflisted = 1 })
   if (len > 1) then
     if (bufferLen == "1") then
       vim.cmd("q")
