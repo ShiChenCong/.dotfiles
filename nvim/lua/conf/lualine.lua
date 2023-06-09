@@ -74,7 +74,7 @@ lualine.setup {
           hint = ' '
         }
       },
-      'filetype'
+      -- 'filetype'
     },
     lualine_y = { 'progress' },
     lualine_z = {}

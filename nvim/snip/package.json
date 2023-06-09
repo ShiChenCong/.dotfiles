@@ -17,6 +17,12 @@
           "gitcommit"
         ],
         "path": "./git.json"
+      },
+      {
+        "language": [
+          "rust"
+        ],
+        "path": "./rust.json"
       }
     ]
   }

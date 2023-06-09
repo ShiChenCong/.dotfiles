@@ -1,0 +1,9 @@
+{
+  "println": {
+    "prefix": "p",
+    "body": [
+      "println!(\"{}\", ${1});"
+    ],
+    "description": "println!"
+  }
+}

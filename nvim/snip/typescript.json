@@ -81,5 +81,17 @@
       "",
       "export default ${1}"
     ]
+  },
+  "react FC": {
+    "prefix": "rf",
+    "body": [
+      "interface IProps{}",
+      "export default function ${1}(",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      ")"
+    ],
+    "description": "react FC"
   }
 }
