@@ -242,11 +242,12 @@ require("lazy").setup({
     end
   },
 
-  { "williamboman/mason.nvim", config = function() require("mason").setup() end},
+  { "williamboman/mason.nvim", config = function() require("mason").setup() end },
   {
     'j-hui/fidget.nvim',
+    tag = "legacy",
     config = function()
-      require "fidget".setup {}
+      require "fidget".setup { }
     end
   }
   -- { 'manzeloth/live-server',   keys = { ",r" } },
