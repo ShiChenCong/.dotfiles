@@ -72,8 +72,11 @@ require('telescope').setup(opts)
 local M = {}
 
 M.telescope_find_word_in_specifeid_file = function(path)
-  local handledPath = path or vim.fn['defx#get_candidate']().action__path
-  require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
+  local filetype = vim.bo.filetype
+  if filetype == 'defx' then
+    local handledPath = path or vim.fn['defx#get_candidate']().action__path
+    require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
+  end
 end
 
 --[[ local function search_result_file_once(word)
