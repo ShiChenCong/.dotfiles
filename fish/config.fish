@@ -27,6 +27,7 @@ set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH
 set -g PATH /Users/shichencong/.nvm/versions/node/v18.2.0/bin $PATH
 # set -gx PATH /usr/local/bin/node:$PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
+set -g PATH /Users/scc/.local/share/bob/nvim-bin $PATH
 
 # deno
 set -x PATH $HOME/.deno/bin:$PATH
