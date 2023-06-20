@@ -75,20 +75,20 @@ ls.add_snippets('all', {
   s("/**", fmt([[ /** {} */ ]], { i(0) }))
 })
 ls.add_snippets('all', {
-  s("log", fmt([[ console.log({}) ]], { i(0) }))
-})
-ls.add_snippets('all', {
   s("ll", { t 'console.log(', f(function()
     local value = vim.fn.getreg('"');
     local success, result = pcall(function()
-      return "\"" .. value .. " is: \", " .. value
+      return "\'" .. value .. " is: \', " .. value
     end)
     if success then
       return result
     else
-    return ""
-end
+      return ""
+    end
   end), t ')' })
+})
+ls.add_snippets('all', {
+  s("log", fmt([[ console.log({}) ]], { i(0) }))
 })
 --[[ -- 回调
 vim.api.nvim_create_autocmd("User", {

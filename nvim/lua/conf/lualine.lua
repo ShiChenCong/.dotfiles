@@ -87,5 +87,5 @@ lualine.setup {
     } },
   },
   tabline = {},
-  extensions = { 'fugitive', 'fzf', 'nvim-tree', 'quickfix', 'toggleterm' }
+  extensions = { 'fugitive', 'nvim-tree', 'quickfix', 'toggleterm' }
 }
