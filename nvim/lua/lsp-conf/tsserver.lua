@@ -26,42 +26,34 @@ M.init = function(on_attach, capabilities)
     capabilities = capabilities,
     cmd = { "typescript-language-server", "--stdio" },
     settings = {
-      typescript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        }
-      },
-      javascript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        }
-      }
+      -- typescript = {
+      --   inlayHints = {
+      --     includeInlayParameterNameHints = 'all',
+      --     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      --     includeInlayFunctionParameterTypeHints = true,
+      --     includeInlayVariableTypeHints = true,
+      --     includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      --     includeInlayPropertyDeclarationTypeHints = true,
+      --     includeInlayFunctionLikeReturnTypeHints = true,
+      --     includeInlayEnumMemberValueHints = true,
+      --   }
+      -- },
+      -- javascript = {
+      --   inlayHints = {
+      --     includeInlayParameterNameHints = 'all',
+      --     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      --     includeInlayFunctionParameterTypeHints = true,
+      --     includeInlayVariableTypeHints = true,
+      --     includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      --     includeInlayPropertyDeclarationTypeHints = true,
+      --     includeInlayFunctionLikeReturnTypeHints = true,
+      --     includeInlayEnumMemberValueHints = true,
+      --   }
+      -- }
     },
     init_options = {
       preferences = {
         providePrefixAndSuffixTextForRename = false,
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-        importModuleSpecifierPreference = 'non-relative'
       }
     },
     handlers = {
