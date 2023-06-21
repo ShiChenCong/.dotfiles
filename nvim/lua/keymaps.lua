@@ -1,6 +1,6 @@
-local map           = require('util.map')
-local keep_position = require('util.keep_position')
-local is_git        = require('util.is_git')
+local map                  = require('util.map')
+local keep_position        = require('util.keep_position')
+local is_git               = require('util.is_git')
 local get_listed_buf_count = require('util.util').get_listed_buf_count
 
 map('n', 'n', 'nzzzv')
@@ -68,7 +68,20 @@ map('n', 'tp', ':tabprevious<CR>')
 map('n', 'tc', ':tabclose<CR>')
 map('n', 'to', ':tabonly<CR>')
 
-map('n', '<leader>e', ':Explore <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left><Left>')
+-- map('n', '<leader>e', ':Explore <bar> :sil! /<C-R>=expand("%:t")<CR><CR> :noh<CR> <Left><Left>')
+map('n', '<leader>e', function()
+  local cur_file = vim.fn.expand('%:t')
+  vim.cmd.Ex()
+
+  local starting_line = 0 -- line number of the first file
+  local lines = vim.api.nvim_buf_get_lines(0, starting_line, -1, false)
+  for i, file in ipairs(lines) do
+    if (file == cur_file) then
+      vim.api.nvim_win_set_cursor(0, { starting_line + i, 0 })
+      return
+    end
+  end
+end)
 map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', 'mm', function()
