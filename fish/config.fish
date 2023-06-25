@@ -3,7 +3,7 @@ alias v "nvim"
 
 alias t "tmux"
 alias ta "tmux attach"
-alias lg 'lazygit'
+alias l 'lazygit'
 alias cl 'clear'
 alias j 'z'
 alias p 'pnpm'

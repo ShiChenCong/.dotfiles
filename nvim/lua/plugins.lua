@@ -83,7 +83,7 @@ require("lazy").setup({
     event = 'BufRead',
     config = function() require('conf.toggleterm') end,
   },
-  { "mg979/vim-visual-multi",  keys = { '<C-n>' } },
+  -- { "mg979/vim-visual-multi",  keys = { '<C-n>' } },
 
   {
     'nvim-telescope/telescope.nvim',
@@ -200,7 +200,7 @@ require("lazy").setup({
   --   require('conf.toggleterm')
   -- end, event = 'BufRead' },
 
-  { "tiagovla/scope.nvim",     config = function() require("scope").setup() end, event = 'VeryLazy' },
+  -- { "tiagovla/scope.nvim",     config = function() require("scope").setup() end, event = 'VeryLazy' },
   -- {
   --   'rainbowhxch/accelerated-jk.nvim',
   --   config = function()
