@@ -40,7 +40,7 @@ ls.add_snippets(nil, {
   typescriptreact = {
     s("us", {
       t 'const [', i(1),
-      t ',',
+      t ', ',
       f(fn,                       -- callback (args, parent, user_args) -> string
         { 1 },                    -- node indice(s) whose text is passed to fn, i.e. i(2)
         { user_args = { "set" } } -- opts
