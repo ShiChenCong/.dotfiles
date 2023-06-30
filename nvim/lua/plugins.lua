@@ -36,17 +36,17 @@ require("lazy").setup({
     config = function() require('leap').add_default_mappings() end,
     event = 'BufEnter',
     dependencies = {
-      {
-        "ggandor/flit.nvim",
-        config = function()
-          require('flit').setup {
-            keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-            labeled_modes = "v",
-            multiline = true,
-            opts = {}
-          }
-        end
-      },
+      -- {
+      --   "ggandor/flit.nvim",
+      --   config = function()
+      --     require('flit').setup {
+      --       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+      --       labeled_modes = "v",
+      --       multiline = true,
+      --       opts = {}
+      --     }
+      --   end
+      -- },
     }
   },
   { "tpope/vim-unimpaired",        event = 'BufEnter' },
@@ -247,7 +247,7 @@ require("lazy").setup({
     'j-hui/fidget.nvim',
     tag = "legacy",
     config = function()
-      require "fidget".setup { }
+      require "fidget".setup {}
     end
   }
   -- { 'manzeloth/live-server',   keys = { ",r" } },

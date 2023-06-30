@@ -315,5 +315,5 @@ vim.cmd [[
 ]]
 
 -- leap map
-map({ 'x', 'o', 'n' }, 'q', '<Plug>(leap-forward-to)')
-map({ 'x', 'o', 'n' }, 'Q', '<Plug>(leap-backward-to)')
+map({ 'x', 'o', 'n' }, 'f', '<Plug>(leap-forward-to)')
+map({ 'x', 'o', 'n' }, 'F', '<Plug>(leap-backward-to)')
