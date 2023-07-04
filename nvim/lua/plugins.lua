@@ -49,7 +49,7 @@ require("lazy").setup({
       -- },
     }
   },
-  { "tpope/vim-unimpaired",        event = 'BufEnter' },
+  -- { "tpope/vim-unimpaired",        event = 'BufEnter' },
   {
     "folke/trouble.nvim",
     dependencies = "kyazdani42/nvim-web-devicons",
