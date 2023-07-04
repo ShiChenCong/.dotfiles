@@ -95,8 +95,7 @@ map('n', 'mm', function()
   end
 end)
 
-map('n', '<C-;>', 'u')
-map('n', '<C-,>', 'u')
+map('n', '<C-;>', '<C-6>')
 map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('i', '<C-o>', '<Esc>ddO')
@@ -150,7 +149,7 @@ map('n', ';', ":", { silent = false })
 map('n', 'dp', function()
   local count = get_listed_buf_count()
   if count > 1 then
-    vim.cmd("bprevious | bdelete")
+    vim.cmd("bprevious | bw")
   end
 end)
 
@@ -197,16 +196,16 @@ map('n', ',d', function()
       local isNvimtreeOpen = require 'nvim-tree.view'.is_visible()
       if isNvimtreeOpen then
         vim.cmd('NvimTreeClose')
-        vim.cmd("bd!")
+        vim.cmd("bw!")
         vim.cmd('NvimTreeOpen')
       else
-        vim.cmd("bd!")
+        vim.cmd("bw!")
       end
     else
-      vim.cmd("b#|bd#")
+      vim.cmd("b#|bw#")
     end
   else
-    vim.cmd('bd!')
+    vim.cmd('bw!')
     -- vim.cmd('b#')
     -- vim.cmd("bd#")
   end
@@ -222,7 +221,7 @@ map('n', 'co', function()
   -- local ids = 'bd'
   for _, value in pairs(bufs) do
     if value.bufnr ~= curBufnr then
-      vim.cmd('bd ' .. value.bufnr)
+      vim.cmd('bw ' .. value.bufnr)
       -- ids = ids .. ' ' .. value.bufnr;
     end
   end
