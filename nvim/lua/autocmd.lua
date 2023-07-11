@@ -49,20 +49,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "set fo-=c fo-=r fo-=o",
 })
 
-vim.api.nvim_create_augroup("formatOnSave", { clear = false })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = 'formatOnSave',
-  pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
-  callback = function()
-    local line_count = vim.fn.line('$');
-    if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
-      local cwd = vim.fn.getcwd()
-      if string.find(cwd, 'dna%-frontend') == nil then
-        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
-      end
-    end
-  end
-})
+-- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = 'formatOnSave',
+--   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
+--   callback = function()
+--     local line_count = vim.fn.line('$');
+--     -- 行数小于500 && 文件小于10k才再保存的时候 执行格式化
+--     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
+--       local cwd = vim.fn.getcwd()
+--       if string.find(cwd, 'dna%-frontend') == nil then
+--         vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+--       end
+--     end
+--   end
+-- })
 
 local current_buf = 0
 local function defx_keymap()
@@ -159,7 +160,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('BufRead', {
   callback = function()
     local line_count = vim.fn.line('$');
-    if line_count > 500 or  vim.fn.getfsize(vim.fn.expand('%')) > 102400 then
+    if line_count > 500 or vim.fn.getfsize(vim.fn.expand('%')) > 102400 then
       -- if vim.fn.getfsize(vim.fn.expand('%')) > 10000 then -- 1 MB
       vim.opt_local.foldmethod = 'manual'
       vim.opt_local.foldexpr = '0'
