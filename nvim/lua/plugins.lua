@@ -31,24 +31,24 @@ require("lazy").setup({
   }),
   { "svban/YankAssassin.vim", event = 'BufEnter' },
 
-  {
-    "ggandor/leap.nvim",
-    config = function() require('leap').add_default_mappings() end,
-    event = 'BufEnter',
-    dependencies = {
-      -- {
-      --   "ggandor/flit.nvim",
-      --   config = function()
-      --     require('flit').setup {
-      --       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-      --       labeled_modes = "v",
-      --       multiline = true,
-      --       opts = {}
-      --     }
-      --   end
-      -- },
-    }
-  },
+  -- {
+  --   "ggandor/leap.nvim",
+  --   config = function() require('leap').add_default_mappings() end,
+  --   event = 'BufEnter',
+  --   dependencies = {
+  --     -- {
+  --     --   "ggandor/flit.nvim",
+  --     --   config = function()
+  --     --     require('flit').setup {
+  --     --       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+  --     --       labeled_modes = "v",
+  --     --       multiline = true,
+  --     --       opts = {}
+  --     --     }
+  --     --   end
+  --     -- },
+  --   }
+  -- },
   -- { "tpope/vim-unimpaired",        event = 'BufEnter' },
   {
     "folke/trouble.nvim",
@@ -249,6 +249,23 @@ require("lazy").setup({
     config = function()
       require "fidget".setup {}
     end
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {
+      modes= {
+        char = {
+          enabled = false
+        }
+      }
+    },
+    -- stylua: ignore
+    keys = {
+      { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+      { "F", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    },
   }
   -- { 'manzeloth/live-server',   keys = { ",r" } },
   -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()

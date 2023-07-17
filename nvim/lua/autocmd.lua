@@ -138,17 +138,17 @@ vim.api.nvim_create_autocmd('Filetype', {
 --   end
 -- })
 
-vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
-vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  group = 'leaveSetCursorLine',
-  callback = function()
-    local filetype = vim.bo.filetype;
-    local excluded_filetypes = { 'Trouble', 'DiffviewFileHistory', 'NvimTree', 'DiffviewFiles' }
-    if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
-      vim.cmd [[setlocal nocursorline]]
-    end
-  end
-})
+-- vim.api.nvim_create_augroup("leaveSetCursorLine", { clear = false })
+-- vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+--   group = 'leaveSetCursorLine',
+--   callback = function()
+--     local filetype = vim.bo.filetype;
+--     local excluded_filetypes = { 'Trouble', 'DiffviewFileHistory', 'NvimTree', 'DiffviewFiles' }
+--     if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
+--       vim.cmd [[setlocal nocursorline]]
+--     end
+--   end
+-- })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { "Trouble", "defx" },
