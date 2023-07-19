@@ -258,6 +258,9 @@ require("lazy").setup({
       modes= {
         char = {
           enabled = false
+        },
+        search = {
+          enabled = false
         }
       }
     },
