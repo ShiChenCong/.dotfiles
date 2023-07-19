@@ -54,6 +54,9 @@ M.init = function(on_attach, capabilities)
     init_options = {
       preferences = {
         providePrefixAndSuffixTextForRename = false,
+      },
+      tsserver = {
+        path = '/opt/homebrew/lib/node_modules/typescript/lib/tsserver.js'
       }
     },
     handlers = {
