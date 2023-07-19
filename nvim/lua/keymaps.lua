@@ -210,7 +210,7 @@ map('n', ',d', function()
 end)
 
 -- BufferLine
-map('n', 'co', function()
+--[[ map('n', 'co', function()
   local curBufnr = vim.api.nvim_get_current_buf();
   local bufs = vim.fn.getbufinfo({ buflisted = 1, hidden = false });
   if #bufs == 1 then
@@ -226,10 +226,10 @@ map('n', 'co', function()
   -- print(ids)
   -- vim.cmd(ids)
   vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
-end)
--- map('n', '<leader>co', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', { noremap = true, silent = false })
-map('n', 'cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
-map('n', 'cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = false })
+end) ]]
+map('n', 'co', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true })
+map('n', 'cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
+map('n', 'cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
