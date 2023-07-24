@@ -37,19 +37,6 @@ local function fn(
 end
 
 ls.add_snippets(nil, {
-  typescriptreact = {
-    s("us", {
-      t 'const [', i(1),
-      t ', ',
-      f(fn,                       -- callback (args, parent, user_args) -> string
-        { 1 },                    -- node indice(s) whose text is passed to fn, i.e. i(2)
-        { user_args = { "set" } } -- opts
-      ),
-      t '] = useState(',
-      i(2),
-      t ')'
-    }),
-  },
   html = {
     s("html", fmt([[
         <!DOCTYPE html>
@@ -71,25 +58,35 @@ ls.add_snippets(nil, {
   }
 })
 
-ls.add_snippets('all', {
-  s("/**", fmt([[ /** {} */ ]], { i(0) }))
+
+local js_doc_snip = s("/**", fmt([[ /** {} */ ]], { i(0) }))
+local use_state_snip = s("us", {
+  t 'const [', i(1),
+  t ', ',
+  f(fn,                       -- callback (args, parent, user_args) -> string
+    { 1 },                    -- node indice(s) whose text is passed to fn, i.e. i(2)
+    { user_args = { "set" } } -- opts
+  ),
+  t '] = useState(',
+  i(2),
+  t ')'
 })
-ls.add_snippets('all', {
-  s("ll", { t 'console.log(', f(function()
-    local value = vim.fn.getreg('"');
-    local success, result = pcall(function()
-      return "\'" .. value .. " is: \', " .. value
-    end)
-    if success then
-      return result
-    else
-      return ""
-    end
-  end), t ')' })
-})
-ls.add_snippets('all', {
-  s("log", fmt([[ console.log({}) ]], { i(0) }))
-})
+local log_snip = s("l", fmt([[ console.log({}) ]], { i(0) }))
+local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
+  local value = vim.fn.getreg('"');
+  local success, result = pcall(function()
+    return "\'" .. value .. " is: \', " .. value
+  end)
+  if success then
+    return result
+  else
+    return ""
+  end
+end), t ')' })
+
+ls.add_snippets('javascript', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
+ls.add_snippets('typescriptreact', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
+ls.add_snippets('typescript', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
 --[[ -- 回调
 vim.api.nvim_create_autocmd("User", {
   pattern = "LuasnipPreExpand",
