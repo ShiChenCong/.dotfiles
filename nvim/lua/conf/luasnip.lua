@@ -84,9 +84,12 @@ local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
   end
 end), t ')' })
 
-ls.add_snippets('javascript', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
-ls.add_snippets('typescriptreact', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
-ls.add_snippets('typescript', { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
+local frontend_file = {
+  "javascript", "javascriptreact", "typescript", "typescriptreact"
+}
+for _, value in ipairs(frontend_file) do
+  ls.add_snippets(value, { log_snip, use_state_snip, log_with_prefix_snip, js_doc_snip })
+end
 --[[ -- 回调
 vim.api.nvim_create_autocmd("User", {
   pattern = "LuasnipPreExpand",
