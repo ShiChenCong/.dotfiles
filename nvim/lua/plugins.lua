@@ -255,7 +255,7 @@ require("lazy").setup({
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
-      modes= {
+      modes = {
         char = {
           enabled = false
         },
