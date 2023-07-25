@@ -269,7 +269,8 @@ require("lazy").setup({
       { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
       { "F", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
     },
-  }
+  },
+  { "RRethy/vim-illuminate",   event = 'VeryLazy' }
   -- { 'manzeloth/live-server',   keys = { ",r" } },
   -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()
   --   require('im_select').setup {

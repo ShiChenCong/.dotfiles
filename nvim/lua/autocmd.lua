@@ -25,6 +25,10 @@ vim.cmd [[
 vim.cmd [[
 
   " 设置匹配单词高亮
+  hi IlluminatedWordRead guibg=#1c4c5e gui=NONE
+  hi IlluminatedWordText guibg=#1c4c5e gui=NONE
+  hi IlluminatedWordWrite guibg=#1c4c5e gui=NONE
+
   hi! LspReferenceRead cterm=bold ctermbg=red guibg=#1c4c5e
   hi! LspReferenceText cterm=bold ctermbg=red guibg=#1c4c5e
   hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#1c4c5e

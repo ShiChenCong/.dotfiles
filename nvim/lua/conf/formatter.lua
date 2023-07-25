@@ -5,6 +5,12 @@ require('formatter').setup {
     -- lua = {
     --   require('formatter.filetypes.lua').stylua,
     -- },
+    javascript = {
+      require('formatter.filetypes.typescriptreact').prettierd
+    },
+    javascriptreact = {
+      require('formatter.filetypes.typescriptreact').prettierd
+    },
     typescriptreact = {
       require('formatter.filetypes.typescriptreact').prettierd
       -- eslint_d  more fast than eslintfixall

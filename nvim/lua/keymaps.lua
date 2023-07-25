@@ -3,12 +3,12 @@ local keep_position        = require('util.keep_position')
 local is_git               = require('util.is_git')
 local get_listed_buf_count = require('util.util').get_listed_buf_count
 
-map('n', 'n', 'nzzzv')
-map('n', 'N', 'Nzzzv')
+-- map('n', 'n', 'nzzzv')
+-- map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 map('n', "<C-d>", '<C-d>zz')
 map('n', "<C-u>", '<C-u>zz')
-map('n', '<A-z>', 'u')
+-- map('n', '<A-z>', 'u')
 
 -- 使用 *的时候不要自动跳到下一个
 map('n', '*', "*``")
