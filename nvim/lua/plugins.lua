@@ -201,15 +201,15 @@ require("lazy").setup({
   -- end, event = 'BufRead' },
 
   -- { "tiagovla/scope.nvim",     config = function() require("scope").setup() end, event = 'VeryLazy' },
-  -- {
-  --   'rainbowhxch/accelerated-jk.nvim',
-  --   config = function()
-  --     require('accelerated-jk').setup()
-  --     vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-  --     vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
-  --   end,
-  --   event = 'BufRead'
-  -- },
+  {
+    'rainbowhxch/accelerated-jk.nvim',
+    config = function()
+      require('accelerated-jk').setup()
+      vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+      vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+    end,
+    event = 'BufRead'
+  },
 
   ({
     'Wansmer/treesj',

@@ -58,12 +58,6 @@ local on_attach = function(client, bufnr)
   -- if client.server_capabilities.inlayHintProvider then
   --   vim.lsp.buf.inlay_hint(bufnr, true)
   -- end
-
-
-  -- if client.server_capabilities.documentRangeFormattingProvider then
-  --   local lsp_format_modifications = require "lsp-format-modifications"
-  --   lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
-  -- end
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
