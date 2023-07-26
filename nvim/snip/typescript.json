@@ -58,10 +58,6 @@
     "prefix": "cn",
     "body": "const { ${2} } = ${1}"
   },
-  "cc": {
-    "prefix": "cc",
-    "body": "className='${1}'"
-  },
   ":bug: fix:": {
     "prefix": "bf",
     "body": ":bug: fix:${0}"
