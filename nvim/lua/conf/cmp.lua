@@ -28,13 +28,13 @@ cmp.setup({
       mode = 'symbol_text',
       maxwidth = 30,
       ellipsis_char = '...',
-      menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        path = "[Path]"
-      }),
+      -- menu = ({
+      --   buffer = "[Buffer]",
+      --   nvim_lsp = "[LSP]",
+      --   luasnip = "[LuaSnip]",
+      --   nvim_lua = "[Lua]",
+      --   path = "[Path]"
+      -- }),
       before = function(entry, vim_item)
         vim_item.menu = '';
         return vim_item
@@ -82,7 +82,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'nvim_lsp' },
-    { name = 'path' }
+    -- { name = 'path' }
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
