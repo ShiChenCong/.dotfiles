@@ -28,13 +28,13 @@ cmp.setup({
       mode = 'symbol_text',
       maxwidth = 30,
       ellipsis_char = '...',
-      -- menu = ({
-      --   buffer = "[Buffer]",
-      --   nvim_lsp = "[LSP]",
-      --   luasnip = "[LuaSnip]",
-      --   nvim_lua = "[Lua]",
-      --   path = "[Path]"
-      -- }),
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        path = "[Path]"
+      }),
       before = function(entry, vim_item)
         vim_item.menu = '';
         return vim_item
