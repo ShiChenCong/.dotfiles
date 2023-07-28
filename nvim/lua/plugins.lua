@@ -270,7 +270,22 @@ require("lazy").setup({
       { "F", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
     },
   },
-  { "RRethy/vim-illuminate",   event = 'VeryLazy' }
+  { "RRethy/vim-illuminate",   event = 'VeryLazy' },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {},
+  --   config = function()
+  --     require("typescript-tools").setup {
+  --       settings = {
+  --         tsserver_path = '/opt/homebrew/lib/node_modules/typescript/lib/tsserver.js'
+  --       },
+  --       tsserver_file_preferences = {
+  --         providePrefixAndSuffixTextForRename = false,
+  --       }
+  --     }
+  --   end,
+  -- }
   -- { 'manzeloth/live-server',   keys = { ",r" } },
   -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()
   --   require('im_select').setup {
