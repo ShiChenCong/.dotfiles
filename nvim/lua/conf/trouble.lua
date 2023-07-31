@@ -5,8 +5,8 @@ require('trouble').setup({
   height = 8,
   include_declaration = {},
   action_keys = {
-    jump_close = {},
-    toggle_fold = { "o" }
+    -- jump_close = {},
+    -- toggle_fold = { "o" }
   }
 })
 
