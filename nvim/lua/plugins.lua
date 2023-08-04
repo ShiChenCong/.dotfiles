@@ -110,11 +110,11 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim", config = function() require('conf.gitsign') end, event = 'BufEnter' },
   { "tpope/vim-fugitive",      cmd = 'Git' },
 
-  {
-    'kyazdani42/nvim-tree.lua',
-    config = function() require('conf.nvim-tree') end,
-    cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }
-  },
+  -- {
+  --   'kyazdani42/nvim-tree.lua',
+  --   config = function() require('conf.nvim-tree') end,
+  --   cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }
+  -- },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -255,6 +255,12 @@ require("lazy").setup({
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
+      highlight = {
+        backdrop = false
+      },
+      prompt = {
+        enabled=false,
+      },
       modes = {
         char = {
           enabled = false

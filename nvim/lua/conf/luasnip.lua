@@ -72,7 +72,7 @@ local use_state_snip = s("us", {
   t ')'
 })
 local log_snip = s("l", fmt([[ console.log({}) ]], { i(0) }))
-local class_name_snip = s("cc", fmt([[ className="{}" ]], { i(0) }))
+local class_name_snip = s("cc", fmt([[ className="{}"]], { i(0) }))
 local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
   local value = vim.fn.getreg('"');
   local success, result = pcall(function()

@@ -193,14 +193,14 @@ map('n', ',d', function()
       vim.cmd("q")
       -- 配合nvim-tree的preview
     elseif (vim.bo.bufhidden == 'delete') then
-      local isNvimtreeOpen = require 'nvim-tree.view'.is_visible()
-      if isNvimtreeOpen then
-        vim.cmd('NvimTreeClose')
+      -- local isNvimtreeOpen = require 'nvim-tree.view'.is_visible()
+      -- if isNvimtreeOpen then
+      --   vim.cmd('NvimTreeClose')
+      --   vim.cmd("bd!")
+      --   vim.cmd('NvimTreeOpen')
+      -- else
         vim.cmd("bd!")
-        vim.cmd('NvimTreeOpen')
-      else
-        vim.cmd("bd!")
-      end
+      -- end
     else
       vim.cmd("b#|bd#")
     end
