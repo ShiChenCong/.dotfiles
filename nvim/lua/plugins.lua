@@ -242,7 +242,17 @@ require("lazy").setup({
     end
   },
 
-  { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        ui = {
+          border = 'rounded',
+          height = 0.85
+        }
+      })
+    end
+  },
   {
     'j-hui/fidget.nvim',
     tag = "legacy",
@@ -277,7 +287,7 @@ require("lazy").setup({
       { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" }
     },
   },
-  { "RRethy/vim-illuminate",   event = 'VeryLazy' },
+  { "RRethy/vim-illuminate", event = 'VeryLazy' },
   -- {
   --   "pmizio/typescript-tools.nvim",
   --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
