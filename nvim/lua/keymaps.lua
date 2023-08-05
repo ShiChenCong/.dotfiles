@@ -16,7 +16,7 @@ map('n', '*', "*``")
 -- 为了让c-i映射生效 配合kitty里的配置
 map('n', '<C-i>', '<C-i>')
 
-map('n', ',w', ':w<CR>', { silent = true })
+-- map('n', ',w', ':w<CR>', { silent = true })
 map('n', ',q', ':q<CR>', { silent = true })
 -- map('n', '<cr>', '"_ciw')
 
@@ -96,7 +96,7 @@ map('n', 'mm', function()
 end)
 
 map('n', '<C-;>', '<C-6>')
-map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
+-- map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('i', '<C-o>', '<Esc>ddO')
 map('i', '<C-d>', function()
@@ -199,7 +199,7 @@ map('n', ',d', function()
       --   vim.cmd("bd!")
       --   vim.cmd('NvimTreeOpen')
       -- else
-        vim.cmd("bd!")
+      vim.cmd("bd!")
       -- end
     else
       vim.cmd("b#|bd#")
@@ -260,7 +260,7 @@ map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 -- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
 -- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
-map('n', '<leader>ff', function()
+map('n', ',f', function()
   if is_git.is_git_dir() then
     vim.cmd("Telescope git_files use_git_root=false find_command=rg,--ignore,--hidden,--files")
   else

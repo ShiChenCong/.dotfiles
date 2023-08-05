@@ -67,8 +67,8 @@ local M = {}
 
 M.telescope_find_word_in_specifeid_file = function(path)
   local filetype = vim.bo.filetype
-    local handledPath = path or vim.fn['defx#get_candidate']().action__path
-    require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
+  local handledPath = path or vim.fn['defx#get_candidate']().action__path
+  require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
 --[[ local function search_result_file_once(word)
@@ -109,7 +109,7 @@ local function telescope_find_word_with_args()
 end
 
 map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
-map('n', '<leader>fw', telescope_find_word)
+map('n', ',w', telescope_find_word)
 map('n', '<leader>fe', telescope_find_word_with_args)
 
 return M
