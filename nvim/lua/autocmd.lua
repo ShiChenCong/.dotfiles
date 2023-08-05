@@ -1,24 +1,19 @@
 local map = require('util.map')
-vim.cmd [[
-  augroup cssFormat
-    autocmd FileType less,css,html
-     \ autocmd BufWritePost <buffer> FormatWrite
-  augroup end
-
-  augroup termOpenInsert
-    autocmd TermOpen * startinsert
-  augroup END
-
-  " no numbers in term mode
-  augroup termNoNumber
-    au TermOpen * setlocal nonumber norelativenumber nospell
-  augroup END
-
-  augroup _fold_bug_solution  " https://github.com/nvim-telescope/telescope.nvim/issues/559
-    autocmd!
-    autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup termOpenInsert
+--     autocmd TermOpen * startinsert
+--   augroup END
+--
+--   " no numbers in term mode
+--   augroup termNoNumber
+--     au TermOpen * setlocal nonumber norelativenumber nospell
+--   augroup END
+--
+--   augroup _fold_bug_solution  " https://github.com/nvim-telescope/telescope.nvim/issues/559
+--     autocmd!
+--     autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
+--   augroup end
+-- ]]
 -- "设置cmp float 弹框样式
 -- highlight FloatBorder guibg=#02b36
 -- highlight NormalFloat guibg=#02b36
@@ -63,9 +58,18 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
       local cwd = vim.fn.getcwd()
       if string.find(cwd, 'dna%-frontend') == nil then
-        vim.cmd [[lua vim.lsp.buf.format({ async = false })]]
+        vim.lsp.buf.format({ async = false })
       end
     end
+  end
+})
+
+vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  group = 'formatOnSave2',
+  pattern = { "*.less,*.css,*.html" },
+  callback = function()
+    vim.cmd('FormatWrite')
   end
 })
 
