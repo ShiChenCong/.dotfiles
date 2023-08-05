@@ -69,7 +69,10 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   group = 'formatOnSave2',
   pattern = { "*.less,*.css,*.html" },
   callback = function()
-    vim.cmd('FormatWrite')
+    local line_count = vim.fn.line('$');
+    if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
+      vim.cmd('FormatWrite')
+    end
   end
 })
 
