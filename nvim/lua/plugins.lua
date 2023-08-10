@@ -150,7 +150,7 @@ require("lazy").setup({
       "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
       { "onsails/lspkind.nvim" },
     },
-    cmd = "Defx",
+    -- cmd = "Defx",
     config = function() require('conf.defx') end,
   },
 
@@ -302,7 +302,12 @@ require("lazy").setup({
       return {
         normal_keys = {
           -- to change default lhs of key mapping change the key
-          ['j']={},
+          ['j']={
+            method = false
+          },
+          ['k']={
+            method = false
+          },
           [','] = {
             -- assigning nil to method exits from multi cursor mode
             method = N.clear_others,

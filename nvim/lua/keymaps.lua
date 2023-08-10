@@ -96,7 +96,7 @@ map('n', 'mm', function()
 end)
 
 map('n', '<C-;>', '<C-6>')
--- map('n', ',f', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
+map('n', ',c', ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
 
 map('i', '<C-o>', '<Esc>ddO')
 map('i', '<C-d>', function()
@@ -272,13 +272,13 @@ map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
 map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
 map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
 map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
-map('n', '<leader>fo', "<cmd>Telescope oldfiles only_cwd=true<CR>")
+map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 
 --nvim-tree
 map('n', '<A-f>', '<cmd>NvimTreeToggle<CR>')
 -- 配合preview
 -- map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
-vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
 
 --toggleterm
 -- map('n', ',t', ":ToggleTermToggleAll<CR>")
