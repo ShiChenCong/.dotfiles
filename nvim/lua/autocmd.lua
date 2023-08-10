@@ -43,10 +43,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  command = "set fo-=c fo-=r fo-=o",
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "*",
+--   command = "set fo-=c fo-=r fo-=o",
+-- })
 
 -- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
 -- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
