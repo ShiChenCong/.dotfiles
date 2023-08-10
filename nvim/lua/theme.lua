@@ -8,6 +8,9 @@ require("catppuccin").setup {
     enabled = true,
     path = vim.fn.stdpath "cache" .. "/catppuccin"
   },
+  integrations = {
+    neotree = true
+  }
   -- transparent_background = true
 }
 
