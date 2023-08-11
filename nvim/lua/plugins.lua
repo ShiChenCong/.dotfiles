@@ -145,15 +145,15 @@ require("lazy").setup({
   { "ThePrimeagen/harpoon",  config = function() require('conf.harpoon') end, keys = { "<C-e>" } },
   { "onsails/lspkind.nvim" },
 
-  -- {
-  --   "Shougo/defx.nvim",
-  --   dependencies = {
-  --     "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
-  --     { "onsails/lspkind.nvim" },
-  --   },
-  --   -- cmd = "Defx",
-  --   config = function() require('conf.defx') end,
-  -- },
+  {
+    "Shougo/defx.nvim",
+    dependencies = {
+      "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
+      { "onsails/lspkind.nvim" },
+    },
+    -- cmd = "Defx",
+    config = function() require('conf.defx') end,
+  },
 
 
   {
@@ -336,24 +336,6 @@ require("lazy").setup({
         desc = 'Create a selection for selected text or word under the cursor',
       },
     },
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require("neo-tree").setup({
-        popup_border_style = "rounded",
-        window = {
-          position = "float"
-        }
-      })
-      vim.cmd([[nnoremap fi :Neotree reveal<cr>]])
-    end
   },
   -- {
   --   "pmizio/typescript-tools.nvim",
