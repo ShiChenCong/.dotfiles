@@ -73,20 +73,7 @@ end
 
 M.reveal_in_finder = function(path)
   local fullPath = path or vim.fn['defx#get_candidate']().action__path
-  -- 使用字符串分割获取路径部分
-  local separator = "/"
-  local segments = {}
-  for segment in fullPath:gmatch("[^" .. separator .. "]+") do
-    table.insert(segments, segment)
-  end
-
-  -- 去掉文件名部分
-  table.remove(segments, #segments)
-
-  -- 构建路径
-  local directoryPath = table.concat(segments, separator)
-  os.execute("open  /" .. directoryPath)
-  -- require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
+  os.execute("open  /" .. fullPath .. " -R")
 end
 
 --[[ local function search_result_file_once(word)
