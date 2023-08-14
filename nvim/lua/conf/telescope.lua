@@ -71,6 +71,24 @@ M.telescope_find_word_in_specifeid_file = function(path)
   require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
 end
 
+M.reveal_in_finder = function(path)
+  local fullPath = path or vim.fn['defx#get_candidate']().action__path
+  -- 使用字符串分割获取路径部分
+  local separator = "/"
+  local segments = {}
+  for segment in fullPath:gmatch("[^" .. separator .. "]+") do
+    table.insert(segments, segment)
+  end
+
+  -- 去掉文件名部分
+  table.remove(segments, #segments)
+
+  -- 构建路径
+  local directoryPath = table.concat(segments, separator)
+  os.execute("open  /" .. directoryPath)
+  -- require("telescope.builtin").live_grep({ search_dirs = { handledPath }, file_ignore_patterns = {} })
+end
+
 --[[ local function search_result_file_once(word)
   local handled_word = string.gmatch(word, "%S+")
   local results = vim.fn.systemlist("rg " .. handled_word() .. " -l")
@@ -109,6 +127,9 @@ local function telescope_find_word_with_args()
 end
 
 map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
+map('n', '<leader>fo', M.reveal_in_finder)
+
+
 map('n', ',w', telescope_find_word)
 map('n', '<leader>fe', telescope_find_word_with_args)
 
