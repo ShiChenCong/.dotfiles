@@ -59,7 +59,9 @@ ls.add_snippets(nil, {
 })
 
 
-local js_doc_snip = s("/**", fmt([[ /** {} */ ]], { i(0) }))
+local js_doc_snip = s("/**", fmt([[ /** 
+* {}
+*/ ]], { i(0) }))
 local use_state_snip = s("us", {
   t 'const [', i(1),
   t ', ',
