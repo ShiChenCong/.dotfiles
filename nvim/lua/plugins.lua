@@ -151,7 +151,7 @@ require("lazy").setup({
       "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
       { "onsails/lspkind.nvim" },
     },
-    -- cmd = "Defx",
+    keys = "fi",
     config = function() require('conf.defx') end,
   },
 
