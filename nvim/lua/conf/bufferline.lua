@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 vim.opt.termguicolors = true
 require("bufferline").setup {
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
@@ -15,7 +16,7 @@ require("bufferline").setup {
       -- icon = '▎',         -- this should be omitted if indicator style is not 'icon'
       style = 'none',
     },
-    -- separator_style = "slant",
+    separator_style = "slant",
     custom_filter = function(buf_number, buf_numbers)
       local buf_name = vim.fn.bufname(buf_number)
       if string.find(buf_name, 'fugitive') then

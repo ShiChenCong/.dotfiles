@@ -296,7 +296,8 @@ require("lazy").setup({
         filetypes_denylist = {
           'harpoon',
           'fugitive',
-          'Trouble'
+          'Trouble',
+          'mason'
         },
       })
     end
