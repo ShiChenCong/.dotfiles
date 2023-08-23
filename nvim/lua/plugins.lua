@@ -288,7 +288,19 @@ require("lazy").setup({
       { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" }
     },
   },
-  { "RRethy/vim-illuminate", event = 'VeryLazy' },
+  {
+    "RRethy/vim-illuminate",
+    event = 'VeryLazy',
+    config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'harpoon',
+          'fugitive',
+          'Trouble'
+        },
+      })
+    end
+  },
   -- lazy.nvim:
   -- {
   --   "smoka7/multicursors.nvim",
