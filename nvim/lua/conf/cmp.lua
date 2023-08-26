@@ -80,7 +80,19 @@ cmp.setup({
     end, { "i", "s" })
   }),
   sources = cmp.config.sources({
-    { name = 'luasnip' }, -- For luasnip users.
+    {
+      name = 'luasnip',
+      option = { use_show_condition = true },
+      entry_filter = function()
+        -- 在字符串和备注里不触发snip
+        local context = require("cmp.config.context")
+        local string_ctx = context.in_treesitter_capture("string") or context.in_syntax_group("String")
+        local comment_ctx = context.in_treesitter_capture("comment") or context.in_syntax_group("Comment")
+
+        --   Returning `true` will keep the entry, while returning `false` will remove it.
+        return not string_ctx and not comment_ctx
+      end,
+    }, -- For luasnip users.
     { name = 'nvim_lsp' },
     -- { name = 'path' }
     -- { name = 'vsnip' }, -- For vsnip users.
