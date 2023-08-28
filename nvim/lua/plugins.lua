@@ -297,7 +297,8 @@ require("lazy").setup({
           'harpoon',
           'fugitive',
           'Trouble',
-          'mason'
+          'mason',
+          'lazy'
         },
       })
     end
