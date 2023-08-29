@@ -298,7 +298,8 @@ require("lazy").setup({
           'fugitive',
           'Trouble',
           'mason',
-          'lazy'
+          'lazy',
+          'netrw'
         },
       })
     end
