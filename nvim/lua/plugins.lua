@@ -284,17 +284,6 @@ require("lazy").setup({
       'kyazdani42/nvim-web-devicons'     -- optional
     }
   },
-  {
-    "nvimdev/guard.nvim",
-    config = function()
-      -- local ft = require('guard.filetype')
-      -- ft('javascript'):fmt('lsp'):append({ fn = function() vim.cmd('EslintFixAll') end })
-      -- require('guard').setup({
-      --   fmt_on_save = true,
-      --   lsp_as_default_formatter = false,
-      -- })
-    end
-  }
 }, {
   defaults = {
     lazy = false
