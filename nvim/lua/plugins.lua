@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local map = require('util.map')
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -65,10 +66,10 @@ require("lazy").setup({
   { "norcalli/nvim-colorizer.lua", config = function() require('conf.csscolor') end,  event = 'BufEnter' },
   { "windwp/nvim-ts-autotag",      event = "BufEnter" },
   { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
-  {
-    'https://gitlab.com/yorickpeterse/nvim-pqf.git',
-    config = function() require('pqf').setup() end
-  },
+  -- {
+  --   'https://gitlab.com/yorickpeterse/nvim-pqf.git',
+  --   config = function() require('pqf').setup() end
+  -- },
   {
     'akinsho/git-conflict.nvim',
     config = function()
@@ -80,11 +81,11 @@ require("lazy").setup({
     end,
     event = 'BufEnter'
   },
-  {
-    "akinsho/toggleterm.nvim",
-    event = 'BufRead',
-    config = function() require('conf.toggleterm') end,
-  },
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   event = 'BufRead',
+  --   config = function() require('conf.toggleterm') end,
+  -- },
   -- { "mg979/vim-visual-multi",  keys = { '<C-n>' } },
 
   {
@@ -316,10 +317,15 @@ require("lazy").setup({
           enable = false
         },
         finder = {
+          default = 'ref',
           layout = 'normal',
           max_height = 0.6
+        },
+        lightbulb = {
+          enable = false
         }
       })
+      map('n','<c-\\>',':Lspsaga term_toggle<CR>')
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter', -- optional
