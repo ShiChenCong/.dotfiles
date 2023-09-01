@@ -3,10 +3,11 @@ require('trouble').setup({
   -- width = 30
   padding = false,
   height = 8,
-  include_declaration = {},
+  auto_fold=true,
+  -- include_declaration = {"lsp_implementations"},
   action_keys = {
-    -- jump_close = {},
-    -- toggle_fold = { "o" }
+    jump_close = {},
+    toggle_fold = { "o" }
   }
 })
 
