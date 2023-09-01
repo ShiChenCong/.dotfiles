@@ -301,11 +301,31 @@ require("lazy").setup({
           'Trouble',
           'mason',
           'lazy',
-          'netrw'
+          'netrw',
+          'sagafinder',
+          'saga_codeaction'
         },
       })
     end
   },
+  {
+    'nvimdev/lspsaga.nvim',
+    config = function()
+      require('lspsaga').setup({
+        symbol_in_winbar = {
+          enable = false
+        },
+        finder = {
+          layout = 'normal',
+          max_height = 0.6
+        }
+      })
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter', -- optional
+      'kyazdani42/nvim-web-devicons'     -- optional
+    }
+  }
   -- lazy.nvim:
   -- {
   --   "smoka7/multicursors.nvim",
