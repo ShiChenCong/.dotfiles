@@ -32,25 +32,6 @@ require("lazy").setup({
   }),
   { "svban/YankAssassin.vim", event = 'BufEnter' },
 
-  -- {
-  --   "ggandor/leap.nvim",
-  --   config = function() require('leap').add_default_mappings() end,
-  --   event = 'BufEnter',
-  --   dependencies = {
-  --     -- {
-  --     --   "ggandor/flit.nvim",
-  --     --   config = function()
-  --     --     require('flit').setup {
-  --     --       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-  --     --       labeled_modes = "v",
-  --     --       multiline = true,
-  --     --       opts = {}
-  --     --     }
-  --     --   end
-  --     -- },
-  --   }
-  -- },
-  -- { "tpope/vim-unimpaired",        event = 'BufEnter' },
   {
     "folke/trouble.nvim",
     dependencies = "kyazdani42/nvim-web-devicons",
@@ -66,10 +47,6 @@ require("lazy").setup({
   { "norcalli/nvim-colorizer.lua", config = function() require('conf.csscolor') end,  event = 'BufEnter' },
   { "windwp/nvim-ts-autotag",      event = "BufEnter" },
   { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
-  -- {
-  --   'https://gitlab.com/yorickpeterse/nvim-pqf.git',
-  --   config = function() require('pqf').setup() end
-  -- },
   {
     'akinsho/git-conflict.nvim',
     config = function()
@@ -81,12 +58,6 @@ require("lazy").setup({
     end,
     event = 'BufEnter'
   },
-  -- {
-  --   "akinsho/toggleterm.nvim",
-  --   event = 'BufRead',
-  --   config = function() require('conf.toggleterm') end,
-  -- },
-  -- { "mg979/vim-visual-multi",  keys = { '<C-n>' } },
 
   {
     'nvim-telescope/telescope.nvim',
@@ -98,26 +69,12 @@ require("lazy").setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'trouble.nvim',
-      -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', config = function()
-      --   require('telescope').load_extension('fzf')
-      -- end },
     }
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    config = function()
-      require("telescope").load_extension("ui-select")
-    end
   },
 
   { "lewis6991/gitsigns.nvim", config = function() require('conf.gitsign') end, event = 'BufEnter' },
   { "tpope/vim-fugitive",      cmd = 'Git' },
 
-  -- {
-  --   'kyazdani42/nvim-tree.lua',
-  --   config = function() require('conf.nvim-tree') end,
-  --   cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' }
-  -- },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -200,11 +157,6 @@ require("lazy").setup({
     end,
     after = "catppuccin"
   },
-  -- { "akinsho/toggleterm.nvim", version = 'v2.*', config = function()
-  --   require('conf.toggleterm')
-  -- end, event = 'BufRead' },
-
-  -- { "tiagovla/scope.nvim",     config = function() require("scope").setup() end, event = 'VeryLazy' },
   {
     'rainbowhxch/accelerated-jk.nvim',
     config = function()
@@ -325,85 +277,24 @@ require("lazy").setup({
           enable = false
         }
       })
-      map('n','<c-\\>',':Lspsaga term_toggle<CR>')
+      map('n', '<c-\\>', ':Lspsaga term_toggle<CR>')
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter', -- optional
       'kyazdani42/nvim-web-devicons'     -- optional
     }
+  },
+  {
+    "nvimdev/guard.nvim",
+    config = function()
+      -- local ft = require('guard.filetype')
+      -- ft('javascript'):fmt('lsp'):append({ fn = function() vim.cmd('EslintFixAll') end })
+      -- require('guard').setup({
+      --   fmt_on_save = true,
+      --   lsp_as_default_formatter = false,
+      -- })
+    end
   }
-  -- lazy.nvim:
-  -- {
-  --   "smoka7/multicursors.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     'nvim-treesitter/nvim-treesitter',
-  --     'smoka7/hydra.nvim',
-  --   },
-  --   opts = function()
-  --     local N = require 'multicursors.normal_mode'
-  --     local I = require 'multicursors.insert_mode'
-  --     return {
-  --       normal_keys = {
-  --         -- to change default lhs of key mapping change the key
-  --         ['j'] = {
-  --           method = false
-  --         },
-  --         ['k'] = {
-  --           method = false
-  --         },
-  --         [','] = {
-  --           -- assigning nil to method exits from multi cursor mode
-  --           method = N.clear_others,
-  --           -- you can pass :map-arguments here
-  --           opts = { desc = 'Clear others' },
-  --         },
-  --       },
-  --       insert_keys = {
-  --         -- to change default lhs of key mapping change the key
-  --         ['<CR>'] = {
-  --           -- assigning nil to method exits from multi cursor mode
-  --           method = I.Cr_method,
-  --           -- you can pass :map-arguments here
-  --           opts = { desc = 'New line' },
-  --         },
-  --       },
-  --     }
-  --   end,
-  --   cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-  --   keys = {
-  --     {
-  --       mode = { 'v', 'n' },
-  --       '<Leader>m',
-  --       '<cmd>MCstart<cr>',
-  --       desc = 'Create a selection for selected text or word under the cursor',
-  --     },
-  --   },
-  -- },
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  --   opts = {},
-  --   config = function()
-  --     require("typescript-tools").setup {
-  --       settings = {
-  --         tsserver_path = '/opt/homebrew/lib/node_modules/typescript/lib/tsserver.js'
-  --       },
-  --       tsserver_file_preferences = {
-  --         providePrefixAndSuffixTextForRename = false,
-  --       }
-  --     }
-  --   end,
-  -- }
-  -- { 'manzeloth/live-server',   keys = { ",r" } },
-  -- { 'keaising/im-select.nvim', event = 'BufEnter', config = function()
-  --   require('im_select').setup {
-  --       default_im_select    = "com.apple.keylayout.ABC",
-  --       disable_auto_restore = 0,
-  --       default_command      = 'im-select'
-  --   }
-  -- end }
-  -- { 'Bekaboo/dropbar.nvim' }
 }, {
   defaults = {
     lazy = false
