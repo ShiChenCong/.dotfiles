@@ -65,8 +65,10 @@ require("lazy").setup({
   { "norcalli/nvim-colorizer.lua", config = function() require('conf.csscolor') end,  event = 'BufEnter' },
   { "windwp/nvim-ts-autotag",      event = "BufEnter" },
   { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
-  -- { 'https://gitlab.com/yorickpeterse/nvim-pqf.git',
-  --   config = function() require('pqf').setup() end },
+  {
+    'https://gitlab.com/yorickpeterse/nvim-pqf.git',
+    config = function() require('pqf').setup() end
+  },
   {
     'akinsho/git-conflict.nvim',
     config = function()

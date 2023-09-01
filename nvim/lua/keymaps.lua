@@ -313,6 +313,7 @@ vim.cmd [[
   inoremap , <c-g>u,
 ]]
 
--- leap map
--- map({ 'x', 'o', 'n' }, 'f', '<Plug>(leap-forward-to)')
--- map({ 'x', 'o', 'n' }, 'F', '<Plug>(leap-backward-to)')
+map('n',']a', ':cn<cr>')
+map('n','[a', ':cp<cr>')
+map('n',']f', ':cnf<cr>')
+map('n','[f', ':cpf<cr>')
