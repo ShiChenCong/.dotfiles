@@ -7,10 +7,10 @@ local on_attach = function(client, bufnr)
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
-  -- map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  map('n', '<space>rn', ":Lspsaga rename<CR>", bufopts)
+  map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  -- map('n', '<space>rn', ":Lspsaga rename<CR>", bufopts)
   -- map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
-  map('n','<leader>.',':Lspsaga code_action<CR>')
+  map('n', '<leader>.', ':Lspsaga code_action<CR>')
   map('n', '<space>gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
   -- map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
   map('n', 'gr', "<cmd>Lspsaga finder<CR>", bufopts)
@@ -97,9 +97,9 @@ end
 
 local signs = {
   { name = "DiagnosticSignError", text = '󰅚 ', texthl = 'DiagnosticSignError' },
-  { name = "DiagnosticSignWarn",  text = '󰀪 ', texthl = 'DiagnosticSignWarn' },
-  { name = "DiagnosticSignInfo",  text = '󰋽 ', texthl = 'DiagnosticSignInfo' },
-  { name = "DiagnosticSignHint",  text = '󰌶 ', texthl = 'DiagnosticSignHint' },
+  { name = "DiagnosticSignWarn", text = '󰀪 ', texthl = 'DiagnosticSignWarn' },
+  { name = "DiagnosticSignInfo", text = '󰋽 ', texthl = 'DiagnosticSignInfo' },
+  { name = "DiagnosticSignHint", text = '󰌶 ', texthl = 'DiagnosticSignHint' },
 }
 for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })

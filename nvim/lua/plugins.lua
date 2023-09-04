@@ -271,7 +271,6 @@ require("lazy").setup({
         finder = {
           default = 'ref',
           layout = 'normal',
-          max_height = 0.6
         },
         lightbulb = {
           enable = false
