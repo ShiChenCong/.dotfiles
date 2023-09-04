@@ -71,6 +71,17 @@ require("lazy").setup({
       'trouble.nvim',
     }
   },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    config = function()
+      require("telescope").load_extension("ui-select")
+    end
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    event = 'BufRead',
+    config = function() require('conf.toggleterm') end,
+  },
 
   { "lewis6991/gitsigns.nvim", config = function() require('conf.gitsign') end, event = 'BufEnter' },
   { "tpope/vim-fugitive",      cmd = 'Git' },
@@ -255,35 +266,12 @@ require("lazy").setup({
           'mason',
           'lazy',
           'netrw',
-          'sagafinder',
-          'saga_codeaction',
           'qf'
         },
       })
     end
   },
-  {
-    'nvimdev/lspsaga.nvim',
-    config = function()
-      require('lspsaga').setup({
-        symbol_in_winbar = {
-          enable = false
-        },
-        finder = {
-          default = 'ref',
-          layout = 'normal',
-        },
-        lightbulb = {
-          enable = false
-        }
-      })
-      map('n', '<c-\\>', ':Lspsaga term_toggle<CR>')
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter', -- optional
-      'kyazdani42/nvim-web-devicons'     -- optional
-    }
-  },
+  { 'kevinhwang91/nvim-bqf' }
 }, {
   defaults = {
     lazy = false
