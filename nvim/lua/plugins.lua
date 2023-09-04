@@ -256,7 +256,8 @@ require("lazy").setup({
           'lazy',
           'netrw',
           'sagafinder',
-          'saga_codeaction'
+          'saga_codeaction',
+          'qf'
         },
       })
     end

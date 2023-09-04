@@ -4,7 +4,6 @@ require('trouble').setup({
   padding = false,
   height = 8,
   auto_fold = true,
-  include_declaration = { },
 })
 
 local opts = { noremap = true, silent = true }
