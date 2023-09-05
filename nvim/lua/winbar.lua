@@ -31,8 +31,9 @@ local excludes = function()
   return false
 end
 
-local macchiato = require("catppuccin.palettes").get_palette "macchiato"
-vim.api.nvim_set_hl(0, 'WinBarPath', { bg = macchiato.base, fg = '#adbac7' })
+local normal_hl_id = vim.fn.hlID('Normal')
+local bg_trans_id = vim.fn.synIDtrans(normal_hl_id)
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = vim.fn.synIDattr(bg_trans_id, 'bg#b'), fg = '#adbac7' })
 vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#282c34', fg = '#ff3838' })
 
 function M.get_winbar()
