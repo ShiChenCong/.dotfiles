@@ -276,6 +276,7 @@ require("lazy").setup({
     config = function()
       require('bqf').setup({
         preview = {
+          -- 设置preview window 透明度
           winblend = 0,
         }
       })
