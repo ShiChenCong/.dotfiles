@@ -2,7 +2,7 @@
 require("catppuccin").setup {
   catppuccin_flavour = 'macchiato',
   -- custom_highlights = {
-    -- MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
+  -- MatchParen = { fg = "#FE640B", bg = "#1c1a1a" },
   -- },
   compile = {
     enabled = true,
@@ -17,6 +17,8 @@ require("catppuccin").setup {
 vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd [[
   hi Folded guibg=NONE guifg=NONE
-  hi Search guibg=#3f4a57 guifg=NONE
-  hi IncSearch guibg=#3f4a57 guifg=NONE
 ]]
+-- vim.cmd [[
+--   hi Search guibg=#3f4a57 guifg=NONE
+--   hi IncSearch guibg=#3f4a57 guifg=NONE
+-- ]]
