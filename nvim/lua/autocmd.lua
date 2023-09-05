@@ -49,18 +49,18 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --   command = "set fo-=c fo-=r fo-=o",
 -- })
 
-vim.api.nvim_create_augroup("formatOnSave", { clear = false })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = 'formatOnSave',
-  pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
-  callback = function()
-    local line_count = vim.fn.line('$');
-    -- 行数小于500 && 文件小于10k才再保存的时候 执行格式化
-    if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
-        vim.lsp.buf.format({ async = false })
-    end
-  end
-})
+-- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = 'formatOnSave',
+--   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
+--   callback = function()
+--     local line_count = vim.fn.line('$');
+--     -- 行数小于500 && 文件小于10k才再保存的时候 执行格式化
+--     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
+--         vim.lsp.buf.format({ async = false })
+--     end
+--   end
+-- })
 
 vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

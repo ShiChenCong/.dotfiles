@@ -292,9 +292,6 @@ map('n', '<leader>[', 'ysiw[', { remap = true })
 map('n', '<leader>{', 'ysiw{', { remap = true })
 map('n', '<leader>(', 'ysiw(', { remap = true })
 
---bqf
-map('n', '<leader>p', "<cmd>BqfToggle<CR>")
-
 --mutli cursor
 map('n', '<C-LeftMouse>', "<Plug>(VM-Mouse-Cursor)")
 map('n', '<C-RightMouse>', "<Plug>(VM-Mouse-Word)")
