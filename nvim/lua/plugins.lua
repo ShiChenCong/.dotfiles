@@ -271,7 +271,16 @@ require("lazy").setup({
       })
     end
   },
-  { 'kevinhwang91/nvim-bqf' }
+  {
+    'kevinhwang91/nvim-bqf',
+    config = function()
+      require('bqf').setup({
+        preview = {
+          winblend = 0,
+        }
+      })
+    end
+  }
 }, {
   defaults = {
     lazy = false
