@@ -278,8 +278,14 @@ require("lazy").setup({
         preview = {
           -- 设置preview window 透明度
           winblend = 0,
-        }
+        },
       })
+    end
+  },
+  {
+    'junegunn/fzf',
+    run = function()
+      vim.fn['fzf#install']()
     end
   }
 }, {
