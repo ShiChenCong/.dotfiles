@@ -119,5 +119,21 @@ map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
 
 map('n', ',w', telescope_find_word)
 map('n', '<leader>fe', telescope_find_word_with_args)
+map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+-- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
+-- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
+map('n', ',f', function()
+  if is_git.is_git_dir() then
+    vim.cmd("Telescope git_files use_git_root=false find_command=rg,--ignore,--hidden,--files")
+  else
+    vim.cmd("Telescope find_files find_command=rg,--ignore,--hidden,--files")
+  end
+end)
+map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
+map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
+map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
+map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 
 return M

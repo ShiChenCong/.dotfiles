@@ -178,7 +178,7 @@ map('n', 'sk', ':m .-2<CR>==')
 
 map('n', 'dw', 'vb"_d')
 map('n', '<C-a>', 'gg<S-v>G')
-
+local a =
 -- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
 map('n', '<C-l>', '<C-\\><C-N><C-l>')
@@ -211,24 +211,6 @@ map('n', ',d', function()
   end
 end)
 
--- BufferLine
---[[ map('n', 'co', function()
-  local curBufnr = vim.api.nvim_get_current_buf();
-  local bufs = vim.fn.getbufinfo({ buflisted = 1, hidden = false });
-  if #bufs == 1 then
-    return
-  end
-  -- local ids = 'bd'
-  for _, value in pairs(bufs) do
-    if value.bufnr ~= curBufnr then
-      vim.cmd('bd ' .. value.bufnr)
-      -- ids = ids .. ' ' .. value.bufnr;
-    end
-  end
-  -- print(ids)
-  -- vim.cmd(ids)
-  vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
-end) ]]
 map('n', 'co', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true })
 map('n', 'cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
 map('n', 'cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
@@ -258,33 +240,6 @@ map('n', '<leader>gf', '<cmd>DiffviewFileHistory %<CR>')
 map('n', '<leader>gc', "<cmd>DiffviewClose<CR>")
 map('n', '<leader>gd', "<cmd>DiffviewOpen<CR>")
 
---telescope
-map('n', '<leader>fm', "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
--- map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({theme = dropdown})<CR>")
--- map('n', '<leader>ff', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>")
-map('n', ',f', function()
-  if is_git.is_git_dir() then
-    vim.cmd("Telescope git_files use_git_root=false find_command=rg,--ignore,--hidden,--files")
-  else
-    vim.cmd("Telescope find_files find_command=rg,--ignore,--hidden,--files")
-  end
-end)
-map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
-map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
-map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
-map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
-map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
-
---nvim-tree
-map('n', '<A-f>', '<cmd>NvimTreeToggle<CR>')
--- 配合preview
--- map('n', '<CR>', ':lua vim.bo.bufhidden = ""<CR>')
--- vim.api.nvim_set_keymap('n', ',c', '<cmd>NvimTreeFindFile<CR> zz', { noremap = true, silent = true })
-
---toggleterm
--- map('n', ',t', ":ToggleTermToggleAll<CR>")
-
 --surround
 map('n', "<leader>'", "ysiw'", { remap = true })
 map('n', '<leader>"', 'ysiw"', { remap = true })
@@ -304,7 +259,6 @@ vim.cmd [[
   inoremap <C-U> <C-G>u<C-U>
   inoremap . <c-g>u.
   inoremap : <c-g>u:
-  inoremap ; <c-g>u;
   inoremap ! <c-g>u!
   inoremap ? <c-g>u?
   inoremap , <c-g>u,
