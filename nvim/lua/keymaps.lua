@@ -211,9 +211,9 @@ map('n', ',d', function()
   end
 end)
 
-map('n', 'co', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true })
-map('n', 'cr', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
-map('n', 'cl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
+map('n', 'co', '<Cmd>BufferLineCloseOthers<CR>', { noremap = true, silent = true })
+map('n', 'cr', '<Cmd>BufferLineCloseRight<CR>', { noremap = true, silent = true })
+map('n', 'cl', '<Cmd>BufferLineCloseLeft<CR>', { noremap = true, silent = true })
 -- map('n', 'c;', '<cmd>BufferCloseAllButPinned<CR>')
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
