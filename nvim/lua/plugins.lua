@@ -266,7 +266,8 @@ require("lazy").setup({
           'mason',
           'lazy',
           'netrw',
-          'qf'
+          'qf',
+          'gitcommit'
         },
       })
     end
@@ -287,6 +288,9 @@ require("lazy").setup({
     run = function()
       vim.fn['fzf#install']()
     end
+  },
+  {
+    "itchyny/vim-qfedit"
   }
 }, {
   defaults = {
