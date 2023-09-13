@@ -158,3 +158,27 @@ vim.api.nvim_create_autocmd('BufRead', {
     end
   end,
 })
+
+local pre_buf_list = {}
+local cur_buf_num = nil
+local pre_buf_num = nil
+vim.api.nvim_create_autocmd('BufRead', {
+  callback = function()
+    if cur_buf_num == nil and pre_buf_num == nil then
+      pre_buf_num = vim.api.nvim_get_current_buf()
+      cur_buf_num = vim.api.nvim_get_current_buf()
+    else
+      table.insert(pre_buf_list, cur_buf_num)
+      pre_buf_num = cur_buf_num
+      cur_buf_num = vim.api.nvim_get_current_buf()
+    end
+  end
+})
+
+map('n', 'dp', function()
+  local last_buf_num = pre_buf_list[#pre_buf_list]
+  if vim.api.nvim_buf_is_loaded(last_buf_num) then
+    vim.cmd("bd " .. table.remove(pre_buf_list))
+    vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  end
+end)

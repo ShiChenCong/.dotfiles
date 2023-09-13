@@ -148,14 +148,6 @@ map('n', '}', '}zz')
 
 map('n', ';', ":", { silent = false })
 
-map('n', 'dp', function()
-  local count = get_listed_buf_count()
-  if count > 1 then
-    vim.cmd("bprevious | bd")
-  end
-end)
-
-
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
 map('x', 'c', '"_c')
