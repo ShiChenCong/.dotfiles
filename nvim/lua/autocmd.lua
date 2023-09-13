@@ -177,7 +177,7 @@ vim.api.nvim_create_autocmd('BufRead', {
 
 map('n', 'dp', function()
   local last_buf_num = pre_buf_list[#pre_buf_list]
-  if vim.api.nvim_buf_is_loaded(last_buf_num) then
+  if last_buf_num ~= nil and vim.api.nvim_buf_is_loaded(last_buf_num) then
     vim.cmd("bd " .. table.remove(pre_buf_list))
     vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
   end
