@@ -162,7 +162,9 @@ vim.api.nvim_create_autocmd('BufRead', {
 local pre_buf_list = {}
 local cur_buf_num = nil
 local pre_buf_num = nil
+vim.api.nvim_create_augroup("delete_pre_buffer", { clear = true })
 vim.api.nvim_create_autocmd('BufRead', {
+  group = "delete_pre_buffer",
   callback = function()
     if cur_buf_num == nil and pre_buf_num == nil then
       pre_buf_num = vim.api.nvim_get_current_buf()
