@@ -44,7 +44,7 @@ map('n', 'g;', 'g;')
 map('n', 'gq', ":q<CR>")
 map('n', 'mt', '%')
 map('v', 'mt', '%')
-map('n', ',r', ":LiveServer start<CR>")
+-- map('n', ',r', ":LiveServer start<CR>")
 
 map('n', 'yw', 'yiw')
 map('n', 'dw', 'diw')
