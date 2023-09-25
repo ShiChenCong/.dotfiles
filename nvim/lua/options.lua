@@ -82,12 +82,8 @@ vim.g['VM_show_warnings'] = 0
 -- vim.g['tpipeline_focuslost'] = 0
 -- vim.g['NERDTreeWinPos'] = 'right'
 
-vim.g['netrw_banner'] = 0
-
 vim.cmd [[
   set formatoptions-=cro
-  let ghregex='\(^\|\s\s\)\zs\.\S\+'
-  let g:netrw_list_hide=ghregex
 ]]
 -- vim.cmd [[autocmd BufWinEnter * if line2byte(line("$") + 1) > 100000 | syntax clear | endif]]
 -- vim.g.netrw_banner = 0        -- disable that anoying Netrw banner
