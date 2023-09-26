@@ -19,7 +19,6 @@ map('n', 'd', function()
     local confirmation = vim.fn.input("Delete directory " .. current_path .. " and its contents? (y/n): ")
     if confirmation == 'y' or confirmation == 'Y' then
       vim.fn.system('rm -r ' .. current_path)
-      vim.cmd('edit ' .. vim.fn.getcwd())
     end
   else
     local confirmation = vim.fn.input("Delete file " .. current_path .. "? (y/n): ")
