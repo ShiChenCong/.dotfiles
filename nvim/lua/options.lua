@@ -90,3 +90,10 @@ vim.cmd [[
 -- vim.g.netrw_browser_split = 4 -- open in a prior window
 -- vim.g.netrw_altv = 1          -- open splits to the right
 -- vim.g.netrw_liststyle = 3     -- treeview
+
+vim.g['netrw_banner'] = 0
+vim.cmd([[
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let ghregex='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_list_hide=ghregex
+]])

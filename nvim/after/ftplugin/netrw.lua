@@ -3,14 +3,8 @@ local telescope = require('conf.telescope')
 local o = vim.opt
 
 o.colorcolumn = nil
-vim.g['netrw_banner'] = 0
 
 -- Line numbers etc in Netrw
-vim.cmd([[
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-let ghregex='\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_list_hide=ghregex
-]])
 map('n', 'N', '%', { remap = true, buffer = true })
 -- new Dir
 map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
