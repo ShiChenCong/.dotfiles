@@ -27,6 +27,7 @@ map('n', 'd', function()
       vim.fn.delete(current_path)
     end
   end
+  vim.cmd('edit ' .. path)
 end, { remap = true, buffer = true, nowait = true })
 -- backward
 map('n', 'h', '-', { remap = true, buffer = true })
