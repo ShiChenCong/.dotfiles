@@ -11,7 +11,21 @@ map('n', 'K', '<Plug>NetrwMakeDir', { remap = true, buffer = true })
 -- toggle hidden file
 map('n', '.', 'gh', { remap = true, buffer = true })
 -- delete file
-map('n', 'd', 'D', { remap = true, buffer = true, nowait = true })
+map('n', 'd', function()
+  local current_path = vim.fn.expand('%:p')
+  if vim.fn.isdirectory(current_path) == 1 then
+    local confirmation = vim.fn.input("Delete directory " .. current_path .. " and its contents? (y/n): ")
+    if confirmation == 'y' or confirmation == 'Y' then
+      vim.fn.system('rm -r ' .. current_path)
+      vim.cmd('edit ' .. vim.fn.getcwd())
+    end
+  else
+    local confirmation = vim.fn.input("Delete file " .. current_path .. "? (y/n): ")
+    if confirmation == 'y' or confirmation == 'Y' then
+      vim.fn.delete(current_path)
+    end
+  end
+end, { remap = true, buffer = true, nowait = true })
 -- backward
 map('n', 'h', '-', { remap = true, buffer = true })
 -- forward
