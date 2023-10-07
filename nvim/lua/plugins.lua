@@ -267,7 +267,8 @@ require("lazy").setup({
           'lazy',
           'netrw',
           'qf',
-          'gitcommit'
+          'gitcommit',
+          'DiffviewFiles'
         },
       })
     end
