@@ -62,17 +62,17 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --   end
 -- })
 
--- vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   group = 'formatOnSave2',
---   pattern = { "*.less,*.css,*.html" },
---   callback = function()
---     local line_count = vim.fn.line('$');
---     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
---       vim.cmd('FormatWrite')
---     end
---   end
--- })
+vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  group = 'formatOnSave2',
+  pattern = { "*.less,*.css,*.html" },
+  callback = function()
+    local line_count = vim.fn.line('$');
+    if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
+      vim.cmd('FormatWrite')
+    end
+  end
+})
 
 
 -- vim.api.nvim_create_autocmd('FileType', {
