@@ -116,15 +116,15 @@ require("lazy").setup({
   { "ThePrimeagen/harpoon",  config = function() require('conf.harpoon') end, keys = { "<C-e>" } },
   { "onsails/lspkind.nvim" },
 
-  {
-    "Shougo/defx.nvim",
-    dependencies = {
-      "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
-      { "onsails/lspkind.nvim" },
-    },
-    keys = "fi",
-    config = function() require('conf.defx') end,
-  },
+  -- {
+  --   "Shougo/defx.nvim",
+  --   dependencies = {
+  --     "kristijanhusak/defx-git", "kristijanhusak/defx-icons",
+  --     { "onsails/lspkind.nvim" },
+  --   },
+  --   keys = "fi",
+  --   config = function() require('conf.defx') end,
+  -- },
 
 
   {
@@ -273,26 +273,26 @@ require("lazy").setup({
       })
     end
   },
-  {
-    'kevinhwang91/nvim-bqf',
-    config = function()
-      require('bqf').setup({
-        preview = {
-          -- 设置preview window 透明度
-          winblend = 0,
-        },
-      })
-    end
-  },
-  {
-    'junegunn/fzf',
-    run = function()
-      vim.fn['fzf#install']()
-    end
-  },
-  {
-    "itchyny/vim-qfedit"
-  }
+  -- {
+  --   'kevinhwang91/nvim-bqf',
+  --   config = function()
+  --     require('bqf').setup({
+  --       preview = {
+  --         -- 设置preview window 透明度
+  --         winblend = 0,
+  --       },
+  --     })
+  --   end
+  -- },
+  -- {
+  --   'junegunn/fzf',
+  --   run = function()
+  --     vim.fn['fzf#install']()
+  --   end
+  -- },
+  -- {
+  --   "itchyny/vim-qfedit"
+  -- }
 }, {
   defaults = {
     lazy = false

@@ -3,7 +3,7 @@ require('trouble').setup({
   -- width = 30
   padding = false,
   height = 8,
-  auto_fold = true,
+  -- auto_fold = true,
 })
 
 local opts = { noremap = true, silent = true }
