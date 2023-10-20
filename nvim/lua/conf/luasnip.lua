@@ -59,7 +59,7 @@ ls.add_snippets(nil, {
 })
 
 
-local js_doc_snip = s("/**", fmt([[/** 
+local js_doc_snip = s("/**", fmt([[/**
 * {}
 */]], { i(0) }))
 local use_state_snip = s("us", {
@@ -106,3 +106,14 @@ vim.api.nvim_create_autocmd("User", {
     print(123)
   end
 }) ]]
+-- vim.api.nvim_create_autocmd("User", {
+--   pattern = "LuasnipPreExpand",
+--   callback = function()
+--     local snippet = require("luasnip").session.event_node
+--     if type(snippet:get_docstring()) == 'table' and string.find(snippet:get_docstring()[1], 'console.log') then
+--       vim.api.nvim_input('<Esc>')
+--       vim.api.nvim_input(':w')
+--       vim.api.nvim_input('<cr>')
+--     end
+--   end
+-- })

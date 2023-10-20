@@ -268,7 +268,8 @@ require("lazy").setup({
           'netrw',
           'qf',
           'gitcommit',
-          'DiffviewFiles'
+          'DiffviewFiles',
+          'TelescopePrompt'
         },
       })
     end
