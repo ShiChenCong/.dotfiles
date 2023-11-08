@@ -294,6 +294,10 @@ require("lazy").setup({
   -- {
   --   "itchyny/vim-qfedit"
   -- }
+  {
+    'vidocqh/auto-indent.nvim',
+    opts = {},
+  },
 }, {
   defaults = {
     lazy = false
