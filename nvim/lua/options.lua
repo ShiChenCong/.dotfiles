@@ -97,3 +97,6 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 ]])
+vim.cmd [[
+  hi Folded guibg=NONE guifg=NONE
+]]

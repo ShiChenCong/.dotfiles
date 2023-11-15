@@ -15,9 +15,6 @@ require("catppuccin").setup {
 }
 
 vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd [[
-  hi Folded guibg=NONE guifg=NONE
-]]
 -- vim.cmd [[
 --   hi Search guibg=#3f4a57 guifg=NONE
 --   hi IncSearch guibg=#3f4a57 guifg=NONE
