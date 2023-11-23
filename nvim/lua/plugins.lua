@@ -232,6 +232,9 @@ require("lazy").setup({
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
+      jump = {
+        pos = 'end'
+      },
       highlight = {
         backdrop = false
       },
