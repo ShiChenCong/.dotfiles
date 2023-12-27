@@ -34,6 +34,9 @@ vim.o.foldenable = false
 
 require('ufo').setup({
   -- fold_virt_text_handler = handler
+  provider_selector = function(bufnr, filetype, buftype)
+    return { 'treesitter', 'indent' }
+  end
 })
 
 map('n', '[z', require('ufo.action').goPreviousClosedFold)

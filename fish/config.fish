@@ -35,3 +35,10 @@ set -x PATH $HOME/.deno/bin:$PATH
 set -U fish_greeting ""
 
 set -gx TERM wezterm
+
+
+# 测试
+set -x PATH /Users/scc/rust-project/t-filter/target/release $PATH
+alias ff 't-filter'
+
+set -x PATH /Users/scc/rust-project/fish-demo/target/release $PATH

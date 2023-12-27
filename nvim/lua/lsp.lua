@@ -2,7 +2,7 @@ local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -62,12 +62,8 @@ local on_attach = function(client, bufnr)
   -- end
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
-}
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- 配合nvim-cmp
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
@@ -77,14 +73,14 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
       filetypes = { 'html' }
     }
-  elseif lsp == 'rust_analyzer' then
-    nvim_lsp[lsp].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      -- root_dir = function()
-      --   return vim.fn.getcwd()
-      -- end,
-    }
+  -- elseif lsp == 'rust_analyzer' then
+  --   nvim_lsp[lsp].setup {
+  --     on_attach = on_attach,
+  --     capabilities = capabilities,
+  --     -- root_dir = function()
+  --     --   return vim.fn.getcwd()
+  --     -- end,
+  --   }
   else
     nvim_lsp[lsp].setup {
       on_attach = on_attach,

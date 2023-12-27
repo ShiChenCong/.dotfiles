@@ -65,6 +65,18 @@
   "function Component": {
     "prefix": "ff",
     "body": [
+      "const ${1} = () => {",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1}"
+    ]
+  },
+  "typescript function Component": {
+    "prefix": "ft",
+    "body": [
       "interface IProps {",
       "",
       "}",

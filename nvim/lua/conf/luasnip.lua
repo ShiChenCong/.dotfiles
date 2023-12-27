@@ -99,21 +99,15 @@ for _, value in ipairs(frontend_file) do
     class_name_snip
   })
 end
---[[ -- 回调
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "LuasnipPreExpand",
   callback = function()
-    print(123)
+    local snippet = require("luasnip").session.event_node
+    if type(snippet:get_docstring()) == 'table' and string.find(snippet:get_docstring()[1], 'console.log') then
+      vim.api.nvim_input('<Esc>')
+      vim.api.nvim_input(':w')
+      vim.api.nvim_input('<cr>')
+    end
   end
-}) ]]
--- vim.api.nvim_create_autocmd("User", {
---   pattern = "LuasnipPreExpand",
---   callback = function()
---     local snippet = require("luasnip").session.event_node
---     if type(snippet:get_docstring()) == 'table' and string.find(snippet:get_docstring()[1], 'console.log') then
---       vim.api.nvim_input('<Esc>')
---       vim.api.nvim_input(':w')
---       vim.api.nvim_input('<cr>')
---     end
---   end
--- })
+})

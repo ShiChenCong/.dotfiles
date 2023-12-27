@@ -62,17 +62,18 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --   end
 -- })
 
-vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = 'formatOnSave2',
-  pattern = { "*.less,*.css,*.html" },
-  callback = function()
-    local line_count = vim.fn.line('$');
-    if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
-      vim.cmd('FormatWrite')
-    end
-  end
-})
+-- 最新版本支持lsp直接格式化
+-- vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   group = 'formatOnSave2',
+--   pattern = { "*.less,*.css,*.html" },
+--   callback = function()
+--     local line_count = vim.fn.line('$');
+--     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
+--       vim.cmd('FormatWrite')
+--     end
+--   end
+-- })
 
 
 -- vim.api.nvim_create_autocmd('FileType', {
@@ -124,11 +125,11 @@ vim.api.nvim_create_autocmd('BufRead', {
   end,
 })
 
-local pre_buf_list = {}
-local cur_buf_num = nil
-local pre_buf_num = nil
+pre_buf_list = {}
+cur_buf_num = nil
+pre_buf_num = nil
 vim.api.nvim_create_augroup("delete_pre_buffer", { clear = true })
-vim.api.nvim_create_autocmd('BufRead', {
+vim.api.nvim_create_autocmd('BufEnter', {
   group = "delete_pre_buffer",
   callback = function()
     if cur_buf_num == nil and pre_buf_num == nil then
