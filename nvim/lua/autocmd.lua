@@ -148,9 +148,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 local function deleteBuf()
-  -- 先判断是不是当前的buf 如果是则不执行操作 
-  local len = bus[#bus]
-  local last_index = bus[len]
+  -- 先判断是不是当前的buf 如果是则不执行操作
+  local last_index = bus[#bus]
   if last_index ~= vim.api.nvim_get_current_buf() then
     vim.cmd("bd " .. table.remove(bus))
     vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
@@ -160,7 +159,7 @@ end
 map('n', 'dp', function()
   local last_buf_num = bus[#bus]
   if last_buf_num ~= nil and vim.api.nvim_buf_is_loaded(last_buf_num) then
-        deleteBuf()
+    deleteBuf()
   else
     -- 如果已经关闭了，则继续往前找到没有关闭的buffer
     for i, value in ipairs(bus) do
@@ -173,4 +172,3 @@ map('n', 'dp', function()
     end
   end
 end)
-
