@@ -132,21 +132,45 @@ vim.api.nvim_create_augroup("delete_pre_buffer", { clear = true })
 vim.api.nvim_create_autocmd('BufEnter', {
   group = "delete_pre_buffer",
   callback = function()
+    -- netrw和首页 不需要加入
+    if vim.bo.filetype == 'netrw' or vim.bo.filetype == "" then
+      return
+    end
     if cur == nil and pre == nil then
       pre = vim.api.nvim_get_current_buf()
       cur = vim.api.nvim_get_current_buf()
     else
-      table.insert(bus, cur)
       pre = cur
       cur = vim.api.nvim_get_current_buf()
+      table.insert(bus, pre)
     end
   end
 })
 
-map('n', 'dp', function()
-  local last_buf_num = bus[#bus]
-  if last_buf_num ~= nil and vim.api.nvim_buf_is_loaded(last_buf_num) then
+local function deleteBuf()
+  -- 先判断是不是当前的buf 如果是则不执行操作 
+  local len = bus[#bus]
+  local last_index = bus[len]
+  if last_index ~= vim.api.nvim_get_current_buf() then
     vim.cmd("bd " .. table.remove(bus))
     vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
   end
+end
+
+map('n', 'dp', function()
+  local last_buf_num = bus[#bus]
+  if last_buf_num ~= nil and vim.api.nvim_buf_is_loaded(last_buf_num) then
+        deleteBuf()
+  else
+    -- 如果已经关闭了，则继续往前找到没有关闭的buffer
+    for i, value in ipairs(bus) do
+      if not vim.api.nvim_buf_is_loaded(last_buf_num) then
+        -- 说明已经关闭，则直接从bus删除此buf number
+        table.remove(bus, i)
+      else
+        deleteBuf()
+      end
+    end
+  end
 end)
+
