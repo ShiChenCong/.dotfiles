@@ -125,28 +125,28 @@ vim.api.nvim_create_autocmd('BufRead', {
   end,
 })
 
-pre_buf_list = {}
-cur_buf_num = nil
-pre_buf_num = nil
+bus = {}
+cur = nil
+pre = nil
 vim.api.nvim_create_augroup("delete_pre_buffer", { clear = true })
 vim.api.nvim_create_autocmd('BufEnter', {
   group = "delete_pre_buffer",
   callback = function()
-    if cur_buf_num == nil and pre_buf_num == nil then
-      pre_buf_num = vim.api.nvim_get_current_buf()
-      cur_buf_num = vim.api.nvim_get_current_buf()
+    if cur == nil and pre == nil then
+      pre = vim.api.nvim_get_current_buf()
+      cur = vim.api.nvim_get_current_buf()
     else
-      table.insert(pre_buf_list, cur_buf_num)
-      pre_buf_num = cur_buf_num
-      cur_buf_num = vim.api.nvim_get_current_buf()
+      table.insert(bus, cur)
+      pre = cur
+      cur = vim.api.nvim_get_current_buf()
     end
   end
 })
 
 map('n', 'dp', function()
-  local last_buf_num = pre_buf_list[#pre_buf_list]
+  local last_buf_num = bus[#bus]
   if last_buf_num ~= nil and vim.api.nvim_buf_is_loaded(last_buf_num) then
-    vim.cmd("bd " .. table.remove(pre_buf_list))
+    vim.cmd("bd " .. table.remove(bus))
     vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
   end
 end)
