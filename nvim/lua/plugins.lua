@@ -79,7 +79,7 @@ require("lazy").setup({
   },
   {
     "akinsho/toggleterm.nvim",
-    event = 'BufRead',
+    keys = { "<C-\\>" },
     config = function() require('conf.toggleterm') end,
   },
 
@@ -300,6 +300,7 @@ require("lazy").setup({
   {
     'vidocqh/auto-indent.nvim',
     opts = {},
+    event = "InsertEnter"
   },
 }, {
   defaults = {

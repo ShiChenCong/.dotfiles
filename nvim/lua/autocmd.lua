@@ -153,6 +153,8 @@ local function deleteBuf()
   if last_index ~= vim.api.nvim_get_current_buf() then
     vim.cmd("bd " .. table.remove(bus))
     vim.cmd('lua vim.o.tabline = "%!v:lua.nvim_bufferline()"')
+  else
+    table.remove(bus)
   end
 end
 
