@@ -170,7 +170,7 @@ map('n', 'sk', ':m .-2<CR>==')
 
 map('n', 'dw', 'vb"_d')
 map('n', '<C-a>', 'gg<S-v>G')
-local a =
+
 -- terminal move
 map('n', '<C-h>', '<C-\\><C-N><C-h>')
 map('n', '<C-l>', '<C-\\><C-N><C-l>')

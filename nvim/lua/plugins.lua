@@ -297,11 +297,11 @@ require("lazy").setup({
   -- {
   --   "itchyny/vim-qfedit"
   -- }
-  {
-    'vidocqh/auto-indent.nvim',
-    opts = {},
-    event = "InsertEnter"
-  },
+  -- {
+  --   'vidocqh/auto-indent.nvim',
+  --   opts = {},
+  --   event = "InsertEnter"
+  -- },
 }, {
   defaults = {
     lazy = false
