@@ -25,7 +25,10 @@ end
 local config = {
   font_size = getMacModel() == 'Mac mini9' and 24 or 17,
   line_height = 1.1,
-  font = wezterm.font("JetBrains Mono"),
+  font = wezterm.font_with_fallback({
+    "JetBrains Mono",
+    "苹方-简"
+  }),
   window_decorations = "RESIZE",
   hide_tab_bar_if_only_one_tab = true,
   color_scheme = 'Whimsy',
