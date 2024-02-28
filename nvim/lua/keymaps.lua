@@ -2,6 +2,7 @@ local map                  = require('util.map')
 local keep_position        = require('util.keep_position')
 local is_git               = require('util.is_git')
 local get_listed_buf_count = require('util.util').get_listed_buf_count
+local _, ts_utils          = pcall(require, "nvim-treesitter.ts_utils")
 
 map('i', '<C-;>', '<C-w>')
 
@@ -86,11 +87,30 @@ map('n', '<leader>e', function()
 end)
 map('t', '<Esc>', '<C-\\><C-n>')
 
+local isHtmlNode= function()
+  local curbuf = vim.api.nvim_get_current_buf()
+  local ok, _ = pcall(vim.treesitter.get_parser, curbuf)
+  if not ok then
+    vim.notify('Does not find any parser for current buffer')
+    return
+  end
+  local curnode = vim.treesitter.get_node({ bufnr = curbuf })
+  if not curnode then
+    return
+  end
+  local parent = curnode:parent()
+  local ptype = parent and parent:type() or nil
+  local available = { 'jsx_opening_element', 'jsx_element', 'jsx_closing_element' }
+  if ptype and vim.tbl_contains(available, ptype) then
+    return true
+  end
+  return false
+end
 map('n', 'mm', function()
   local line = vim.fn.getline('.')
   local col = vim.fn.col('.')
   local l = line:sub(col, col)
-  if l == '[' or l == ']' or l == '{' or l == '}' or l == '(' or l == ')' then
+  if l == '[' or l == ']' or l == '{' or l == '}' or l == '(' or l == ')' or isHtmlNode() then
     vim.cmd.normal('%')
   else
     vim.cmd.normal('*')
