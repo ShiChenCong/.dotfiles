@@ -2,6 +2,12 @@ local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 -- 配合nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- 配合 nvim-ufo
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls' }
 for _, lsp in ipairs(servers) do
