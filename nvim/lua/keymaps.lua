@@ -2,7 +2,6 @@ local map                  = require('util.map')
 local keep_position        = require('util.keep_position')
 local is_git               = require('util.is_git')
 local get_listed_buf_count = require('util.util').get_listed_buf_count
-local _, ts_utils          = pcall(require, "nvim-treesitter.ts_utils")
 
 map('i', '<C-;>', '<C-w>')
 
@@ -87,7 +86,7 @@ map('n', '<leader>e', function()
 end)
 map('t', '<Esc>', '<C-\\><C-n>')
 
-local isHtmlNode= function()
+local isHtmlNode = function()
   local curbuf = vim.api.nvim_get_current_buf()
   local ok, _ = pcall(vim.treesitter.get_parser, curbuf)
   if not ok then
@@ -106,6 +105,7 @@ local isHtmlNode= function()
   end
   return false
 end
+
 map('n', 'mm', function()
   local line = vim.fn.getline('.')
   local col = vim.fn.col('.')

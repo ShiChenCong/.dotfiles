@@ -15,6 +15,8 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
   map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
   map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
+  map('n', '<leader>[d', vim.diagnostic.goto_prev)
+  map('n', '<leader>]d', vim.diagnostic.goto_next)
   map('n', '[d', function()
     local errorList = vim.diagnostic.get(0)
     local has_error = false;
@@ -46,7 +48,6 @@ local on_attach = function(client, bufnr)
       vim.diagnostic.goto_next({ float = { max_width = 100 } })
     end
   end)
-
 end
 
 -- 配合nvim-cmp
@@ -60,14 +61,14 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
       filetypes = { 'html' }
     }
-  -- elseif lsp == 'rust_analyzer' then
-  --   nvim_lsp[lsp].setup {
-  --     on_attach = on_attach,
-  --     capabilities = capabilities,
-  --     -- root_dir = function()
-  --     --   return vim.fn.getcwd()
-  --     -- end,
-  --   }
+    -- elseif lsp == 'rust_analyzer' then
+    --   nvim_lsp[lsp].setup {
+    --     on_attach = on_attach,
+    --     capabilities = capabilities,
+    --     -- root_dir = function()
+    --     --   return vim.fn.getcwd()
+    --     -- end,
+    --   }
   else
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
