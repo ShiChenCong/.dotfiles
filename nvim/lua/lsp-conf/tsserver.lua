@@ -20,9 +20,8 @@ local function filterReactDTS(value)
 end
 
 local M = {}
-M.init = function(on_attach, capabilities)
+M.init = function(capabilities)
   nvim_lsp['tsserver'].setup {
-    on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "typescript-language-server", "--stdio" },
     settings = {

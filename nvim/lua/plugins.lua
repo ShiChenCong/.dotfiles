@@ -105,12 +105,32 @@ require("lazy").setup({
 
   {
     'kevinhwang91/nvim-ufo',
-    dependencies = 'kevinhwang91/promise-async',
     config = function()
       require('conf.ufo')
     end,
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup(
+            {
+              relculright = true,
+              segments = {
+                { text = { builtin.foldfunc },    click = "v:lua.ScFa" },
+                { text = { "%s" },                click = "v:lua.ScSa" },
+                { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" }
+              }
+            }
+          )
+        end
+
+      }
+    },
     event = 'BufEnter'
   },
+
 
   { "neovim/nvim-lspconfig", config = function() require('lsp') end },
   { "ThePrimeagen/harpoon",  config = function() require('conf.harpoon') end, keys = { "<C-e>" } },
