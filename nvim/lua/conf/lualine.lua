@@ -55,11 +55,11 @@ lualine.setup {
     lualine_c = {
       -- '%=',
       -- getTmux
-      {
-        'filename',
-        path = 1,
-        color = { fg = '#545970' },
-      }
+      -- {
+      --   'filename',
+      --   path = 1,
+      --   color = { fg = '#545970' },
+      -- }
     },
     lualine_x = {
       -- 'encoding',
