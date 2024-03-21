@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '[d', function()
       local errorList = vim.diagnostic.get(0)
       local has_error = false;
-      for index, value in ipairs(errorList) do
+      for _, value in ipairs(errorList) do
         if value.severity == 1 then
           has_error = true
           break
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', ']d', function()
       local errorList = vim.diagnostic.get(0)
       local has_error = false;
-      for index, value in ipairs(errorList) do
+      for _, value in ipairs(errorList) do
         if value.severity == 1 then
           has_error = true
           break
