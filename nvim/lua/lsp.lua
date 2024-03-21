@@ -3,25 +3,11 @@ local map = require('util.map')
 -- 配合nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls' }
 for _, lsp in ipairs(servers) do
-  if lsp == 'emmet_ls' then
-    nvim_lsp[lsp].setup {
-      capabilities = capabilities,
-      filetypes = { 'html' }
-    }
-    -- elseif lsp == 'rust_analyzer' then
-    --   nvim_lsp[lsp].setup {
-    --     capabilities = capabilities,
-    --     -- root_dir = function()
-    --     --   return vim.fn.getcwd()
-    --     -- end,
-    --   }
-  else
-    nvim_lsp[lsp].setup {
-      capabilities = capabilities,
-    }
-  end
+  nvim_lsp[lsp].setup {
+    capabilities = capabilities,
+  }
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -106,8 +92,7 @@ local config = {
 
 vim.diagnostic.config(config)
 
-require 'lsp-conf.tsserver'.init( capabilities)
-require 'lsp-conf.lua'.init(capabilities)
+require 'lsp-conf.tsserver'.init(capabilities)
 require 'lsp-conf.eslint'.init(capabilities)
 
 -- LspInfo的边框
