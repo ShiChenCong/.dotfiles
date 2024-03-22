@@ -40,6 +40,10 @@ vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = 'setWinbar',
   callback = function()
+    local exclude_filetype = { 'markdown' }
+    if vim.tbl_contains(exclude_filetype, vim.bo.filetype) then
+      return
+    end
     require("winbar").get_winbar()
   end,
 })
