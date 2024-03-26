@@ -45,7 +45,8 @@ local function lsp_reference_count()
   local cursor_pos = util.get_cursor_pos(winid)
   local bufnr = vim.api.nvim_get_current_buf()
   local i = ref.bisect_left(ref.buf_get_references(bufnr), cursor_pos)
-  return string.format("%d/%d", i, #ref.buf_get_references(bufnr))
+  local total_references = #ref.buf_get_references(bufnr)
+  return string.format("%d/%d", i, total_references)
 end
 
 lualine.setup {
@@ -65,7 +66,11 @@ lualine.setup {
     lualine_c = {
       -- '%=',
       -- getTmux
-      -- lsp_reference_count
+      {
+        lsp_reference_count,
+        path = 1,
+        color = { fg = '#545970' },
+      }
       -- {
       --   'filename',
       --   path = 1,
@@ -74,7 +79,7 @@ lualine.setup {
     },
     lualine_x = {
       -- 'encoding',
-      lsp_reference_count,
+      -- lsp_reference_count,
       'searchcount',
       {
         'diagnostics',
