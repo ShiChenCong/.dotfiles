@@ -49,6 +49,7 @@ map('v', 'mt', '%')
 map('n', 'yw', 'yiw')
 map('n', 'dw', 'diw')
 map('n', 'cw', 'ciw')
+map('n',"<leader>w",":/ \\<\\><Left><Left>",{ silent = false })
 map('n', '<A-/>', function()
   local word = vim.fn.input("Search > ")
   if word ~= nil and #word ~= 0 then

@@ -38,6 +38,16 @@ local function search_count()
   return ""
 end
 
+local function lsp_reference_count()
+  local ref = require('illuminate.reference')
+  local util = require('illuminate.util')
+  local winid = vim.fn.win_getid()
+  local cursor_pos = util.get_cursor_pos(winid)
+  local bufnr = vim.api.nvim_get_current_buf()
+  local i = ref.bisect_left(ref.buf_get_references(bufnr), cursor_pos)
+  return string.format("%d/%d", i, #ref.buf_get_references(bufnr))
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -55,6 +65,7 @@ lualine.setup {
     lualine_c = {
       -- '%=',
       -- getTmux
+      -- lsp_reference_count
       -- {
       --   'filename',
       --   path = 1,
@@ -63,6 +74,7 @@ lualine.setup {
     },
     lualine_x = {
       -- 'encoding',
+      lsp_reference_count,
       'searchcount',
       {
         'diagnostics',
