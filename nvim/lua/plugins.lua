@@ -118,8 +118,8 @@ require("lazy").setup({
             {
               relculright = true,
               segments = {
-                { text = { builtin.foldfunc },    click = "v:lua.ScFa" },
-                { text = { "%s" },                click = "v:lua.ScSa" },
+                { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+                { text = { "%s" },                  click = "v:lua.ScSa" },
                 { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" }
               }
             }
@@ -292,6 +292,22 @@ require("lazy").setup({
     opts = {},
     -- event = "InsertEnter"
   },
+  {
+    "folke/neodev.nvim",
+    config = function()
+      require("neodev").setup({ })
+      local lspconfig = require('lspconfig')
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = "Replace"
+            }
+          }
+        }
+      })
+    end
+  }
 }, {
   defaults = {
     lazy = false
