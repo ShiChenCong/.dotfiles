@@ -44,7 +44,7 @@ function M.get_winbar()
   local file_path = vim.api.nvim_eval('fnamemodify(expand("%"), ":~:.")')
   local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and ' ⊚' or ''
 
-  file_path = file_path:gsub('/', '  ')
+  file_path = file_path:gsub('/', ' ➤ ')
 
   local value = '  %#WinBarPath#'
       .. file_path

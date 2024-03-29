@@ -1,7 +1,7 @@
 local actions       = require("telescope.actions")
 local pickers       = require "telescope.pickers"
 local conf          = require("telescope.config").values
-local trouble       = require("trouble.providers.telescope")
+local trouble       = require("trouble.sources.telescope")
 local finders       = require "telescope.finders"
 local action_layout = require("telescope.actions.layout")
 local get_icon      = require 'nvim-web-devicons'.get_icon
@@ -38,9 +38,18 @@ local opts          = {
         -- end,
         ['<C-u>'] = false,
         ["<esc>"] = actions.close,
-        ["<a-q>"] = trouble.open_selected_with_trouble,
+        ["<a-q>"] = trouble.open,
         ['<A-p>'] = action_layout.toggle_preview,
-        ["<c-e>"] = actions.to_fuzzy_refine
+        ["<c-e>"] = actions.to_fuzzy_refine,
+        ["<cr>"] = function(prompt_nr)
+          local action_state = require("telescope.actions.state")
+          local picker = action_state.get_current_picker(prompt_nr)
+          if #picker:get_multi_selection() > 1 then
+            trouble.open(prompt_nr)
+          else
+            actions.select_default(prompt_nr)
+          end
+        end,
         -- ['<C-j>'] = actions.move_selection_next,
         -- ['<C-k>'] = actions.move_selection_previous,
       }

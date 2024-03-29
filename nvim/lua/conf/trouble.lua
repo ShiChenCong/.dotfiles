@@ -3,8 +3,12 @@ require('trouble').setup({
   -- width = 30
   padding = false,
   height = 8,
+  follow = false,
+  focus = true,
+  auto_refresh = false,
   -- auto_fold = true,
   include_declaration = {},
+  -- preview = { type = 'split', position = 'right', relative = 'win', size = 0.5 }
 })
 
 local opts = { noremap = true, silent = true }

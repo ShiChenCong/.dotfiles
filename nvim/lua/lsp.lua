@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- map('n', '<space>rn', ":Lspsaga rename<CR>", bufopts)
     map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
     map('n', '<space>gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
-    map('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', bufopts)
+    map('n', 'gr', '<cmd>Trouble lsp_references<cr>', bufopts)
     map('n', '<leader>gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
     map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
     map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")

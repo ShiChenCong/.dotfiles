@@ -33,6 +33,7 @@ require("lazy").setup({
 
   {
     "folke/trouble.nvim",
+    branch = 'dev',
     dependencies = "kyazdani42/nvim-web-devicons",
     config = function() require('conf.trouble') end,
     event = 'BufEnter'
