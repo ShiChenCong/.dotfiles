@@ -44,9 +44,15 @@ require("lazy").setup({
     config = function() require('conf.diffview') end,
     cmd = { 'DiffviewFileHistory', 'DiffviewOpen' }
   },
-  { "norcalli/nvim-colorizer.lua", config = function() require('conf.csscolor') end,  event = 'BufEnter' },
-  { "windwp/nvim-ts-autotag",      event = "BufEnter" },
-  { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = function()
+      require('nvim-highlight-colors').setup({})
+    end,
+    event = 'BufEnter'
+  },
+  { "windwp/nvim-ts-autotag",  event = "BufEnter" },
+  -- { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
   {
     'akinsho/git-conflict.nvim',
     config = function()
@@ -158,6 +164,7 @@ require("lazy").setup({
     config = function()
       require("auto-session").setup {
         log_level = "error",
+        auto_session_use_git_branch = true,
         auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       }
     end
@@ -295,7 +302,7 @@ require("lazy").setup({
   {
     "folke/neodev.nvim",
     config = function()
-      require("neodev").setup({ })
+      require("neodev").setup({})
       local lspconfig = require('lspconfig')
       lspconfig.lua_ls.setup({
         settings = {

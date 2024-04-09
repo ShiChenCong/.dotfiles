@@ -277,9 +277,9 @@ vim.cmd [[
   inoremap , <c-g>u,
 ]]
 
-map('n', ']a', ':cn<cr>')
-map('n', '[a', ':cp<cr>')
-map('n', ']f', ':cnf<cr>')
-map('n', '[f', ':cpf<cr>')
+-- map('n', ']a', ':cn<cr>')
+-- map('n', '[a', ':cp<cr>')
+-- map('n', ']f', ':cnf<cr>')
+-- map('n', '[f', ':cpf<cr>')
 
 map('n', ',a', 'za')

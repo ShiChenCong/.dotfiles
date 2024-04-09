@@ -53,31 +53,29 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --   command = "set fo-=c fo-=r fo-=o",
 -- })
 
--- vim.api.nvim_create_augroup("formatOnSave", { clear = false })
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   group = 'formatOnSave',
---   pattern = { "*.tsx", "*.ts", "*.js", "*.lua", "*.rs" },
---   callback = function()
---     local line_count = vim.fn.line('$');
---     -- 行数小于500 && 文件小于10k才再保存的时候 执行格式化
---     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 10240 then
---         vim.lsp.buf.format({ async = false })
---     end
---   end
--- })
-
+local function is_node_module_file()
+  local current_file = vim.fn.expand('%:p')
+  return string.find(current_file, 'node_modules') ~= nil
+end
 -- 最新版本支持lsp直接格式化
--- vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   group = 'formatOnSave2',
---   pattern = { "*.less,*.css,*.html" },
---   callback = function()
---     local line_count = vim.fn.line('$');
---     if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 5000 then
---       vim.cmd('FormatWrite')
---     end
---   end
--- })
+vim.api.nvim_create_augroup("formatOnSave2", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = 'formatOnSave2',
+  pattern = {
+    "*.less,*.css,*.html",
+    "*.tsx,*.jsx", "*.ts", "*.js", "*.lua", "*.rs"
+  },
+  callback = function()
+    local line_count = vim.fn.line('$');
+    -- 如果是node_modules 里面
+    -- if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 15000 then
+    if is_node_module_file ~= true and line_count < 500 then
+      -- vim.cmd('FormatWrite')
+      vim.lsp.buf.format({ async = false })
+      -- vim.cmd.write()
+    end
+  end
+})
 
 
 -- vim.api.nvim_create_autocmd('FileType', {
