@@ -132,8 +132,8 @@ vim.api.nvim_create_augroup("delete_pre_buffer", { clear = true })
 vim.api.nvim_create_autocmd('BufEnter', {
   group = "delete_pre_buffer",
   callback = function()
-    -- netrw和首页 不需要加入
-    if vim.bo.filetype == 'netrw' or vim.bo.filetype == "" or vim.bo.filetype == 'trouble' then
+    local exclude_filetype = { "", 'netrw', 'trouble' }
+    if vim.tbl_contains(exclude_filetype, vim.bo.filetype) then
       return
     end
     if #bus == 0 then
