@@ -24,8 +24,7 @@ require("lazy").setup({
   ({
     "kylechui/nvim-surround",
     config = function()
-      require("nvim-surround").setup({
-      })
+      require("nvim-surround").setup({})
     end,
     event = 'BufEnter'
   }),
@@ -185,15 +184,15 @@ require("lazy").setup({
     end,
     after = "catppuccin"
   },
-  {
-    'rainbowhxch/accelerated-jk.nvim',
-    config = function()
-      require('accelerated-jk').setup()
-      vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-      vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
-    end,
-    event = 'BufRead'
-  },
+  -- {
+  --   'rainbowhxch/accelerated-jk.nvim',
+  --   config = function()
+  --     require('accelerated-jk').setup()
+  --     vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+  --     vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+  --   end,
+  --   event = 'BufRead'
+  -- },
 
   ({
     'Wansmer/treesj',
