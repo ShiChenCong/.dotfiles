@@ -37,4 +37,4 @@ require 'nvim-treesitter.configs'.setup {
   }
 }
 
-vim.treesitter.language.register('scss', 'less')
+-- vim.treesitter.language.register('scss', 'less')
