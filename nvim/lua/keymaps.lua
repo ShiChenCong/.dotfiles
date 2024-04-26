@@ -231,7 +231,9 @@ map('n', 'cl', '<Cmd>BufferLineCloseLeft<CR>', { noremap = true, silent = true }
 map('n', 'mr', '<Cmd>BufferLineMoveNext<CR>')
 map('n', 'ml', '<Cmd>BufferLineMovePrev<CR>')
 map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
+map("v", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
+map("v", "<leader><TAB>", "<cmd>BufferLineCyclePrev<CR>")
 -- map('n', '<leader>;', "<cmd>BufferLineTogglePin<CR>")
 -- map('n', 'c;', "<cmd>BufferLineGroupClose ungrouped<CR>")
 -- map('n', '<leader>;', "<Cmd>BufferPin<CR>", { nowait = true })
@@ -283,3 +285,20 @@ vim.cmd [[
 -- map('n', '[f', ':cpf<cr>')
 
 map('n', ',a', 'za')
+
+if vim.g.neovide then
+  vim.keymap.set(
+    { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
+    '<D-v>',
+    function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
+    { noremap = true, silent = true }
+  )
+  vim.g.neovide_remember_window_size = true
+  -- vim.g.neovide_confirm_quit = true
+  -- vim.g.neovide_no_idle = true
+  vim.o.guifont = "JetBrainsMono Nerd Font:h17"
+  -- 开启Alt和Meta按键
+  vim.g.neovide_input_macos_alt_is_meta = true
+  -- 兼容A-n https://github.com/neovide/neovide/issues/1866
+  vim.g.neovide_input_ime = false
+end

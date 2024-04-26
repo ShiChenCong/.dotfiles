@@ -13,6 +13,9 @@ local is_git        = require('util.is_git')
 local opts          = {
   defaults = {
     -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
+    path_display = {
+      filename_first = {}
+    },
     -- prompt_prefix = "",
     file_ignore_patterns = { "node_modules" },
     sorting_strategy = "ascending",
