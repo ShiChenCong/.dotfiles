@@ -296,7 +296,7 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   -- vim.g.neovide_confirm_quit = true
   -- vim.g.neovide_no_idle = true
-  vim.o.guifont = "JetBrainsMono Nerd Font:h17"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h18:w0.5"
   -- 开启Alt和Meta按键
   vim.g.neovide_input_macos_alt_is_meta = true
   -- 兼容A-n https://github.com/neovide/neovide/issues/1866,导致无法输入中文
@@ -307,4 +307,27 @@ if vim.g.neovide then
   map('n', 'sp', function()
     require('illuminate').goto_prev_reference()
   end)
+  -- 兼容A-n https://github.com/neovide/neovide/issues/1866
+  -- vim.g.neovide_input_ime = false
+  local function set_ime(args)
+    if args.event:match("Enter$") then
+      vim.g.neovide_input_ime = true
+    else
+      vim.g.neovide_input_ime = false
+    end
+  end
+
+  local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+
+  vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+    group = ime_input,
+    pattern = "*",
+    callback = set_ime
+  })
+
+  vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
+    group = ime_input,
+    pattern = "[/\\?]",
+    callback = set_ime
+  })
 end
