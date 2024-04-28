@@ -299,6 +299,12 @@ if vim.g.neovide then
   vim.o.guifont = "JetBrainsMono Nerd Font:h17"
   -- 开启Alt和Meta按键
   vim.g.neovide_input_macos_alt_is_meta = true
-  -- 兼容A-n https://github.com/neovide/neovide/issues/1866
-  vim.g.neovide_input_ime = false
+  -- 兼容A-n https://github.com/neovide/neovide/issues/1866,导致无法输入中文
+  -- vim.g.neovide_input_ime = false
+  map('n', 'sn', function()
+    require('illuminate').goto_next_reference()
+  end)
+  map('n', 'sp', function()
+    require('illuminate').goto_prev_reference()
+  end)
 end
