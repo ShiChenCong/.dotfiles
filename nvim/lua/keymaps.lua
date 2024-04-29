@@ -296,7 +296,7 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   -- vim.g.neovide_confirm_quit = true
   -- vim.g.neovide_no_idle = true
-  vim.o.guifont = "JetBrainsMono Nerd Font:h18:w0.5"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h17:w0.5"
   -- 开启Alt和Meta按键
   vim.g.neovide_input_macos_alt_is_meta = true
   -- 兼容A-n https://github.com/neovide/neovide/issues/1866,导致无法输入中文
@@ -327,7 +327,7 @@ if vim.g.neovide then
 
   vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
     group = ime_input,
-    pattern = "[/\\?]",
+    pattern = "*",
     callback = set_ime
   })
 end

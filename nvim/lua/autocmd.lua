@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     local line_count = vim.fn.line('$');
     -- 如果是node_modules 里面
     -- if line_count < 500 and vim.fn.getfsize(vim.fn.expand('%')) < 15000 then
-    if is_node_module_file ~= true and line_count < 500 then
+    if is_node_module_file ~= true and line_count < 700 then
       -- vim.cmd('FormatWrite')
       -- vim.lsp.buf.format({ async = false })
       vim.lsp.buf.format { filter = function(client) return client.name ~= "tsserver" end }

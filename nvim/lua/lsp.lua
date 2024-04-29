@@ -4,8 +4,8 @@ local map = require('util.map')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- 配合 nvim-ufo
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true
 }
 
 
