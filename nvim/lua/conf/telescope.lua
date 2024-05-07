@@ -16,6 +16,7 @@ local get_file_index = function(prompt_nr)
   local current_picker = action_state.get_current_picker(prompt_nr)
   local line           = current_picker._selection_row + 1
   M.file_index         = line
+  M.total_file_amount  = current_picker.stats.displayed
   require('lualine').refresh()
 end
 
