@@ -74,13 +74,13 @@ require("lazy").setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'trouble.nvim',
+      {
+        'nvim-telescope/telescope-ui-select.nvim',
+        config = function()
+          require("telescope").load_extension("ui-select")
+        end
+      },
     }
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    config = function()
-      require("telescope").load_extension("ui-select")
-    end
   },
   {
     "akinsho/toggleterm.nvim",
@@ -300,6 +300,7 @@ require("lazy").setup({
   },
   {
     "folke/neodev.nvim",
+    ft = 'lua',
     config = function()
       require("neodev").setup({})
       local lspconfig = require('lspconfig')
