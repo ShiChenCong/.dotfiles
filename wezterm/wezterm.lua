@@ -23,8 +23,8 @@ local function getMacModel()
 end
 
 local config = {
-  font_size = getMacModel() == 'Mac mini9' and 24 or 17,
-  line_height = 1.1,
+  font_size = getMacModel() == 'Mac mini9' and 24 or 16.5,
+  line_height = 1.05,
   font = wezterm.font_with_fallback({
     "JetBrains Mono",
     "苹方-简"

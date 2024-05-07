@@ -158,11 +158,11 @@ map('n', ',f', function()
     vim.cmd("Telescope find_files find_command=rg,--ignore,--hidden,--files")
   end
 end)
-map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
-map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
-map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
-map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
+-- map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
+-- map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
+-- map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+-- map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
+-- map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 
 return M
