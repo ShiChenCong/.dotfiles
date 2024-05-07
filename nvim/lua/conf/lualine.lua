@@ -1,5 +1,4 @@
 local status, lualine = pcall(require, "lualine")
-local telescope       = require('conf.telescope')
 
 if (not status) then return end
 local notInTmux = vim.fn.expand("$TERM_PROGRAM") ~= "tmux"
@@ -75,7 +74,7 @@ lualine.setup {
       },
       {
         function()
-          local number = telescope.file_index
+          local number = require('conf.telescope').file_index
           if number == nil then
             return ''
           end
