@@ -1,16 +1,25 @@
-local actions       = require("telescope.actions")
-local pickers       = require "telescope.pickers"
-local conf          = require("telescope.config").values
-local trouble       = require("trouble.sources.telescope")
-local finders       = require "telescope.finders"
-local action_layout = require("telescope.actions.layout")
-local get_icon      = require 'nvim-web-devicons'.get_icon
-local entry_display = require "telescope.pickers.entry_display"
-local make_entry    = require "telescope.make_entry"
-local map           = require('util/map')
-local is_git        = require('util.is_git')
+local actions        = require("telescope.actions")
+local pickers        = require "telescope.pickers"
+local conf           = require("telescope.config").values
+local trouble        = require("trouble.sources.telescope")
+local finders        = require "telescope.finders"
+local action_layout  = require("telescope.actions.layout")
+local get_icon       = require 'nvim-web-devicons'.get_icon
+local entry_display  = require "telescope.pickers.entry_display"
+local make_entry     = require "telescope.make_entry"
+local map            = require('util/map')
+local is_git         = require('util.is_git')
+local M              = {}
 
-local opts          = {
+local get_file_index = function(prompt_nr)
+  local action_state   = require "telescope.actions.state"
+  local current_picker = action_state.get_current_picker(prompt_nr)
+  local line           = current_picker._selection_row + 1
+  M.file_index         = line
+  require('lualine').refresh()
+end
+
+local opts           = {
   defaults = {
     -- path_display = { shorten = { len = 2, exclude = { 4, 5, 6, 7, 8, 9 } } },
     path_display = {
@@ -40,7 +49,10 @@ local opts          = {
         --   local line           = current_picker._selection_row + 1
         -- end,
         ['<C-u>'] = false,
-        ["<esc>"] = actions.close,
+        ["<esc>"] = function(prompt_nr)
+          M.file_index = nil
+          actions.close(prompt_nr)
+        end,
         ["<a-q>"] = trouble.open,
         ['<A-p>'] = action_layout.toggle_preview,
         ["<c-e>"] = actions.to_fuzzy_refine,
@@ -53,8 +65,14 @@ local opts          = {
             actions.select_default(prompt_nr)
           end
         end,
-        -- ['<C-j>'] = actions.move_selection_next,
-        -- ['<C-k>'] = actions.move_selection_previous,
+        ['<C-n>'] = function(prompt_nr)
+          actions.move_selection_next(prompt_nr)
+          get_file_index(prompt_nr)
+        end,
+        ['<C-p>'] = function(prompt_nr)
+          actions.move_selection_previous(prompt_nr)
+          get_file_index(prompt_nr)
+        end,
       }
     },
     -- file_sorter =  require'telescope.sorters'.get_fzy_sorter,
@@ -75,8 +93,6 @@ local opts          = {
 }
 
 require('telescope').setup(opts)
-
-local M = {}
 
 M.telescope_find_word_in_specifeid_file = function(path)
   local filetype = vim.bo.filetype
