@@ -5,7 +5,7 @@
   "accelerated-jk.nvim": { "branch": "main", "commit": "8fb5dad4ccc1811766cebf16b544038aeeb7806f" },
   "auto-indent.nvim": { "branch": "main", "commit": "46801cf8857d42a20a73c40b0a5d3dfe8b2b6192" },
   "auto-session": { "branch": "main", "commit": "9e0a169b6fce8791278abbd110717b921afe634d" },
-  "bufferline.nvim": { "branch": "main", "commit": "f4b4b980ce88d546aeb69d11463187c8f716a1a1" },
+  "bufferline.nvim": { "branch": "main", "commit": "1f39c7872bcc874b00299a0d7f6770c48c2b7ecd" },
   "catppuccin": { "branch": "main", "commit": "6af91673ceccbd6e073b66c439e7fce239f72d24" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
