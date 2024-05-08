@@ -70,7 +70,7 @@ require("lazy").setup({
       require('conf.telescope')
     end,
     cmd = { "Telescope" },
-    keys = { '<leader>fw' },
+    keys = { ',f' },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'trouble.nvim',
