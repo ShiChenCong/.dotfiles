@@ -74,12 +74,15 @@ lualine.setup {
       },
       {
         function()
-          local number = require('conf.telescope').file_index
-          local total = require('conf.telescope').total_file_amount
-          if number == nil then
-            return ''
+          if package.loaded["telescope"] ~= nil then
+            local number = require('conf.telescope').file_index
+            local total = require('conf.telescope').total_file_amount
+            if number == nil then
+              return ''
+            end
+            return number .. '/' .. total
           end
-          return number .. '/' .. total
+          return ''
         end,
         path = 1,
         color = { fg = '#545970' },
