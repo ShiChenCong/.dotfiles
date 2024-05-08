@@ -1,5 +1,4 @@
 local map = require('util.map')
-local telescope = require('conf.telescope')
 -- vim.cmd [[
 --   augroup termOpenInsert
 --     autocmd TermOpen * startinsert
