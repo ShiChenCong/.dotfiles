@@ -102,7 +102,7 @@ require("lazy").setup({
   {
     "numToStr/Comment.nvim",
     config = function() require('conf.comment') end,
-    event = 'BufEnter',
+    keys = { "gc" },
     dependencies = {
       { 'JoosepAlviste/nvim-ts-context-commentstring' },
     }
@@ -204,7 +204,7 @@ require("lazy").setup({
       });
       vim.keymap.set('n', '<leader>j', ':TSJToggle<CR>', { silent = true })
     end,
-    event = 'BufRead'
+    keys = '<leader>j'
   }),
 
   {
@@ -297,7 +297,7 @@ require("lazy").setup({
   {
     'vidocqh/auto-indent.nvim',
     opts = {},
-    -- event = "InsertEnter"
+    event = "InsertEnter"
   },
   {
     "folke/neodev.nvim",
