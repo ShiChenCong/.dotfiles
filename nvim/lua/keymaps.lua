@@ -286,6 +286,12 @@ vim.cmd [[
 
 map('n', ',a', 'za')
 
+map('n', 'sn', function()
+  require('illuminate').goto_next_reference()
+end)
+map('n', 'sp', function()
+  require('illuminate').goto_prev_reference()
+end)
 if vim.g.neovide then
   vim.keymap.set(
     { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
