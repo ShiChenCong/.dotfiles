@@ -102,7 +102,6 @@ require("lazy").setup({
   {
     "numToStr/Comment.nvim",
     config = function() require('conf.comment') end,
-    keys = { "gc" },
     dependencies = {
       { 'JoosepAlviste/nvim-ts-context-commentstring' },
     }
