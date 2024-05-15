@@ -245,6 +245,11 @@ map('n', ',g', function()
     vim.cmd('Git')
   end
 end)
+map('n', '<leader>,g', function()
+  if is_git.is_git_dir() then
+    vim.cmd('vertical Git')
+  end
+end)
 map('n', '<leader>gr', ":diffget //3<CR>")
 map('n', '<leader>gl', ":diffget //2<CR>")
 -- map('n', ',b', ':Git blame<CR>')
@@ -302,7 +307,7 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   -- vim.g.neovide_confirm_quit = true
   -- vim.g.neovide_no_idle = true
-  vim.o.guifont = "JetBrainsMono Nerd Font:h17:w0.5"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h16:w0.5"
   -- 开启Alt和Meta按键
   vim.g.neovide_input_macos_alt_is_meta = true
   -- 行高
