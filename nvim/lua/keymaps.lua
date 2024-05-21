@@ -309,7 +309,7 @@ if vim.g.neovide then
   -- vim.g.neovide_no_idle = true
   vim.o.guifont = "JetBrainsMono Nerd Font:h16:w0.5"
   -- 开启Alt和Meta按键
-  vim.g.neovide_input_macos_alt_is_meta = true
+  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   -- 行高
   vim.opt.linespace = 4
   -- 滚动速度
@@ -347,3 +347,14 @@ if vim.g.neovide then
     callback = set_ime
   })
 end
+
+map('n', 'sf', ':NvimTreeFindFile<CR>')
+map('n', '<leader>q', function()
+  local is_open = require 'nvim-tree.view'.is_visible()
+  if is_open then
+    vim.cmd('NvimTreeToggle')
+  else
+    vim.cmd('NvimTreeFindFile')
+    vim.cmd [[normal zz]]
+  end
+end)

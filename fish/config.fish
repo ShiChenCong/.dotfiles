@@ -13,7 +13,8 @@ alias ssr "http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087"
 alias ff "fzf | xargs nvim"
 
 alias ps "python3 -m http.server"
-alias nv '/Applications/neovide.app/Contents/MacOS/neovide'
+# alias nv '/Applications/neovide.app/Contents/MacOS/neovide'
+alias nv 'neovide --frame=none'
 
 alias gs 'git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph'
 alias ssr "http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890"

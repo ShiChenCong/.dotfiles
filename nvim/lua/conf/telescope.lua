@@ -165,5 +165,6 @@ map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
 -- map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
 -- map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
+require("telescope").load_extension("ui-select")
 
 return M

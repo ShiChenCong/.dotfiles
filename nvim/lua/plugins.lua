@@ -50,7 +50,25 @@ require("lazy").setup({
     end,
     event = 'BufEnter'
   },
-  { "windwp/nvim-ts-autotag",  event = "BufEnter" },
+  {
+    "windwp/nvim-ts-autotag",
+    event = "BufEnter",
+    config = function(self, opts)
+      require('nvim-ts-autotag').setup({
+        did_setup = false,
+        opts = {
+          enable_close = true,         -- Auto close tags
+          enable_rename = true,        -- Auto rename pairs of tags
+          enable_close_on_slash = true -- Auto close on trailing </
+        },
+        per_filetype = {
+          ["html"] = {
+            enable_close = false
+          }
+        }
+      })
+    end
+  },
   -- { 'mhartington/formatter.nvim',  config = function() require('conf.formatter') end, event = 'BufEnter' },
   {
     'akinsho/git-conflict.nvim',
@@ -76,9 +94,9 @@ require("lazy").setup({
       'trouble.nvim',
       {
         'nvim-telescope/telescope-ui-select.nvim',
-        config = function()
-          require("telescope").load_extension("ui-select")
-        end
+        -- config = function()
+        -- require("telescope").load_extension("ui-select")
+        -- end
       },
     }
   },
