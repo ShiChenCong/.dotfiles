@@ -282,6 +282,8 @@ vim.cmd [[
   inoremap ! <c-g>u!
   inoremap ? <c-g>u?
   inoremap , <c-g>u,
+  inoremap ， <c-g>u，,
+  inoremap 。 <c-g>u。
 ]]
 
 -- map('n', ']a', ':cn<cr>')
