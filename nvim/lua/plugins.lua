@@ -193,8 +193,7 @@ require("lazy").setup({
     end
   },
   {
-    -- 'akinsho/bufferline.nvim',
-    'Theyashsawarkar/bufferline.nvim',
+    'akinsho/bufferline.nvim',
     version = "*",
     dependencies = 'kyazdani42/nvim-web-devicons',
     config = function()
@@ -312,9 +311,18 @@ require("lazy").setup({
     end
   },
   {
-    'vidocqh/auto-indent.nvim',
-    opts = {},
-    event = "InsertEnter"
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+          style = {
+            { fg = "#adbac7" },
+          },
+        }
+      })
+    end
   },
   {
     "folke/neodev.nvim",
