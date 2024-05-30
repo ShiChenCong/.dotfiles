@@ -32,7 +32,6 @@ require("lazy").setup({
 
   {
     "folke/trouble.nvim",
-    branch = 'dev',
     dependencies = "kyazdani42/nvim-web-devicons",
     config = function() require('conf.trouble') end,
     event = 'BufEnter'
@@ -313,12 +312,21 @@ require("lazy").setup({
   {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    branch = 'dev',
     config = function()
       require("hlchunk").setup({
         chunk = {
+          delay = 0,
           enable = true,
           style = {
             { fg = "#adbac7" },
+          },
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = ">",
           },
         }
       })
