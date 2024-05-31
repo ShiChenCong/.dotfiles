@@ -321,6 +321,9 @@ require("lazy").setup({
           style = {
             { fg = "#8c98a3" },
           },
+          exclude_filetypes = {
+            less = true,
+          },
           chars = {
             horizontal_line = "─",
             vertical_line = "│",
