@@ -318,7 +318,7 @@ require("lazy").setup({
         chunk = {
           enable = true,
           style = {
-            { fg = "#adbac7" },
+            { fg = "#8c98a3" },
           },
         }
       })
