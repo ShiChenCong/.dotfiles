@@ -32,8 +32,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '<leader>gr', function() vim.lsp.buf.references({ includeDeclaration = false }) end, bufopts)
     map('n', '<space>o', ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
     map('n', '<space>l', ":lua vim.diagnostic.open_float({max_width=100})<CR>")
-    map('n', '<leader>[d', vim.diagnostic.goto_prev)
-    map('n', '<leader>]d', vim.diagnostic.goto_next)
+    -- map('n', '<leader>[d', vim.diagnostic.goto_prev)
+    -- map('n', '<leader>]d', vim.diagnostic.goto_next)
     map('n', '[d', function()
       local errorList = vim.diagnostic.get(0)
       local has_error = false;
