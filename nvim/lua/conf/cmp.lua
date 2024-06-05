@@ -98,7 +98,7 @@ cmp.setup({
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-    {name='lazydev',group_index=0}
+    { name = 'lazydev', group_index = 0 }
   }, {
     {
       name = 'buffer',
