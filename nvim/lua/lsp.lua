@@ -9,7 +9,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer','lua_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
