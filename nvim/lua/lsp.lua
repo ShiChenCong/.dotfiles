@@ -9,7 +9,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer','lua_ls' }
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
@@ -67,20 +67,31 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end)
   end,
 })
-local signs = {
-  { name = "DiagnosticSignError", text = '󰅚 ', texthl = 'DiagnosticSignError' },
-  { name = "DiagnosticSignWarn", text = '󰀪 ', texthl = 'DiagnosticSignWarn' },
-  { name = "DiagnosticSignInfo", text = '󰋽 ', texthl = 'DiagnosticSignInfo' },
-  { name = "DiagnosticSignHint", text = '󰌶 ', texthl = 'DiagnosticSignHint' },
-}
-for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
-end
+-- local signs = {
+--   { name = "DiagnosticSignError", text = '󰅚 ', texthl = 'DiagnosticSignError' },
+--   { name = "DiagnosticSignWarn", text = '󰀪 ', texthl = 'DiagnosticSignWarn' },
+--   { name = "DiagnosticSignInfo", text = '󰋽 ', texthl = 'DiagnosticSignInfo' },
+--   { name = "DiagnosticSignHint", text = '󰌶 ', texthl = 'DiagnosticSignHint' },
+-- }
+-- for _, sign in ipairs(signs) do
+--   vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
+-- end
 
 local config = {
   virtual_text = false,
   signs = {
-    active = signs,
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.INFO] = '󰋽 ',
+      [vim.diagnostic.severity.HINT] = '󰌶 ',
+    },
+    -- linehl = {
+    --   [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+    -- },
+    -- numhl = {
+    --   [vim.diagnostic.severity.WARN] = 'WarningMsg',
+    -- },
   },
   update_in_insert = false,
   underline = true,

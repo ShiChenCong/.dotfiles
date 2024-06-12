@@ -54,7 +54,6 @@ require("lazy").setup({
     event = "BufEnter",
     config = function(self, opts)
       require('nvim-ts-autotag').setup({
-        did_setup = false,
         opts = {
           enable_close = true,         -- Auto close tags
           enable_rename = true,        -- Auto rename pairs of tags
@@ -309,32 +308,32 @@ require("lazy").setup({
       })
     end
   },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    branch = 'dev',
-    config = function()
-      require("hlchunk").setup({
-        chunk = {
-          delay = 0,
-          enable = true,
-          style = {
-            { fg = "#8c98a3" },
-          },
-          exclude_filetypes = {
-            less = true,
-          },
-          chars = {
-            horizontal_line = "─",
-            vertical_line = "│",
-            left_top = "╭",
-            left_bottom = "╰",
-            right_arrow = ">",
-          },
-        }
-      })
-    end
-  },
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   branch = 'dev',
+  --   config = function()
+  --     require("hlchunk").setup({
+  --       chunk = {
+  --         delay = 0,
+  --         enable = true,
+  --         style = {
+  --           { fg = "#8c98a3" },
+  --         },
+  --         exclude_filetypes = {
+  --           less = true,
+  --         },
+  --         chars = {
+  --           horizontal_line = "─",
+  --           vertical_line = "│",
+  --           left_top = "╭",
+  --           left_bottom = "╰",
+  --           right_arrow = ">",
+  --         },
+  --       }
+  --     })
+  --   end
+  -- },
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
