@@ -2,8 +2,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
-    "clone",
-    "--filter=blob:none",
+    "clone", "--filter=blob:none",
     "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
     lazypath,
@@ -19,7 +18,7 @@ require("lazy").setup({
       require('theme')
     end
   },
-  { "windwp/nvim-autopairs",  config = function() require('conf.autopairs') end, event = "InsertEnter" },
+  { "windwp/nvim-autopairs",   config = function() require('conf.autopairs') end, event = "InsertEnter" },
 
   ({
     "kylechui/nvim-surround",
@@ -28,7 +27,7 @@ require("lazy").setup({
     end,
     event = 'BufEnter'
   }),
-  { "svban/YankAssassin.vim", event = 'BufEnter' },
+  { "svban/YankAssassin.nvim", event = 'BufEnter' },
 
   {
     "folke/trouble.nvim",

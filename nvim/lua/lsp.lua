@@ -16,6 +16,16 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+require('lspconfig').ds_pinyin_lsp.setup {
+  capabilities = capabilities,
+  filetypes = { '*' },
+  init_options = {
+    db_path = "/Users/scc/lsp/dict.db3",
+    completion_on = true,
+    match_as_same_as_input = true,
+  }
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
