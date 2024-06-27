@@ -18,12 +18,13 @@ end
 
 require('lspconfig').ds_pinyin_lsp.setup {
   capabilities = capabilities,
-  filetypes = { '*' },
+  filetypes = { 'typescript', 'javascript', 'typescriptreact', 'rust', 'lua', 'gitcommit', 'TelescopePrompt' },
   init_options = {
     db_path = "/Users/scc/lsp/dict.db3",
     completion_on = true,
     match_as_same_as_input = true,
-  }
+    show_symbols_only_follow_by_hanzi = true
+  },
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
