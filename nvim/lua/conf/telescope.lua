@@ -4,7 +4,6 @@ local conf           = require("telescope.config").values
 local trouble        = require("trouble.sources.telescope")
 local finders        = require "telescope.finders"
 local action_layout  = require("telescope.actions.layout")
-local get_icon       = require 'nvim-web-devicons'.get_icon
 local entry_display  = require "telescope.pickers.entry_display"
 local make_entry     = require "telescope.make_entry"
 local map            = require('util/map')

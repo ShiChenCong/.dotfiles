@@ -18,28 +18,24 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end
   },
+  ---@diagnostic disable-next-line: missing-fields
   formatting = {
     -- format = function(_, vim_item)
     --   vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
     --   -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
     --   return vim_item
     -- end
-    format = lspkind.cmp_format({
-      mode = 'symbol_text',
-      maxwidth = 30,
-      ellipsis_char = '...',
-      menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        path = "[Path]"
-      }),
-      before = function(entry, vim_item)
-        vim_item.menu = '';
-        return vim_item
+    format = function(entry, item)
+      local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+      item = require("lspkind").cmp_format({
+        -- any lspkind format settings here
+      })(entry, item)
+      if color_item.abbr_hl_group then
+        item.kind_hl_group = color_item.abbr_hl_group
+        item.kind = color_item.abbr
       end
-    })
+      return item
+    end
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
