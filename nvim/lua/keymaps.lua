@@ -360,3 +360,5 @@ map('n', '<leader>q', function()
     vim.cmd [[normal zz]]
   end
 end)
+
+map('n', 'q', '<Nop>')

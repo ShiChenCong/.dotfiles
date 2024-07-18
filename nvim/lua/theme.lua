@@ -14,7 +14,7 @@ require("catppuccin").setup {
   -- transparent_background = true
 }
 
-vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "catppuccin"
 -- vim.cmd [[
 --   hi Search guibg=#3f4a57 guifg=NONE
 --   hi IncSearch guibg=#3f4a57 guifg=NONE
