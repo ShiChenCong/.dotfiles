@@ -306,6 +306,8 @@ if vim.g.neovide then
     function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
     { noremap = true, silent = true }
   )
+  vim.keymap.set("n", "<D-s>", ":w<CR>")
+  vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>")
   vim.g.neovide_remember_window_size = true
   -- vim.g.neovide_confirm_quit = true
   -- vim.g.neovide_no_idle = true
