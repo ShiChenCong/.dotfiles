@@ -29,9 +29,9 @@ local firstToUpper = function(str)
 end
 
 local function fn(
-  args,     -- text from i(2) in this example i.e. { { "456" } }
-  parent,   -- parent snippet or parent node
-  user_args -- user_args from opts.user_args
+    args,     -- text from i(2) in this example i.e. { { "456" } }
+    parent,   -- parent snippet or parent node
+    user_args -- user_args from opts.user_args
 )
   return user_args .. firstToUpper(args[1][1])
 end
@@ -75,7 +75,7 @@ local use_state_snip = s("us", {
 })
 local log_snip = s("l", fmt([[ console.log({})]], { i(0) }))
 local class_name_snip = s("cc", fmt([[ className="{}"]], { i(0) }))
-local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
+--[[ local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
   local value = vim.fn.getreg('"');
   local success, result = pcall(function()
     return "\'" .. value .. " is: \', " .. value
@@ -85,7 +85,7 @@ local log_with_prefix_snip = s("ll", { t 'console.log(', f(function()
   else
     return ""
   end
-end), t ')' })
+end), t ')' }) ]]
 
 local frontend_file = {
   "javascript", "javascriptreact", "typescript", "typescriptreact"
@@ -94,7 +94,7 @@ for _, value in ipairs(frontend_file) do
   ls.add_snippets(value, {
     log_snip,
     use_state_snip,
-    log_with_prefix_snip,
+    -- log_with_prefix_snip,
     js_doc_snip,
     class_name_snip
   })
