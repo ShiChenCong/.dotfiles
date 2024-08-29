@@ -50,6 +50,20 @@ local function lsp_reference_count()
   return string.format("[%d/%d]", i, total_references)
 end
 
+local enable = false
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeFindPre",
+  callback = function()
+    enable = true
+  end
+})
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeResumePost",
+  callback = function()
+    enable = false
+  end
+})
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -74,6 +88,9 @@ lualine.setup {
       },
       {
         function()
+          if enable == false then
+            return ''
+          end
           if package.loaded["telescope"] ~= nil then
             local number = require('conf.telescope').file_index
             local total = require('conf.telescope').total_file_amount
