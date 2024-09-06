@@ -21,7 +21,7 @@ end
 
 local M = {}
 M.init = function(capabilities)
-  nvim_lsp['tsserver'].setup {
+  nvim_lsp['ts_ls'].setup {
     capabilities = capabilities,
     cmd = { "typescript-language-server", "--stdio" },
     settings = {
