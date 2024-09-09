@@ -206,7 +206,7 @@ local function redir_vim_command(cmd, vertical)
   vim.cmd("redir => output")
   vim.cmd("silent " .. cmd)
   vim.cmd("redir END")
-  local output = vim.fn.vsplit(vim.g.output, "\n")
+  local output = vim.fn.split(vim.g.output, "\n")
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, 0, false, output)
 

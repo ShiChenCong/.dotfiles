@@ -5,6 +5,19 @@ local function filter(arr, fn)
     return arr
   end
 
+  --  处理useCallback
+  if #arr == 2 then
+    local first_line = arr[1].targetRange.start.line
+    if first_line == arr[2].targetRange.start.line then
+      local bufnr = vim.api.nvim_get_current_buf()
+      local line = vim.api.nvim_buf_get_lines(bufnr, first_line, first_line + 1,
+        false)
+      if string.match(line[1], 'useCallback') then
+        return arr[2]
+      end
+    end
+  end
+
   local filtered = {}
   for k, v in pairs(arr) do
     if fn(v, k, arr) then
@@ -60,7 +73,7 @@ M.init = function(capabilities)
     },
     handlers = {
       ['textDocument/definition'] = function(err, result, method, ...)
-        if vim.tbl_islist(result) and #result > 1 then
+        if vim.islist(result) and #result > 1 then
           local filtered_result = filter(result, filterReactDTS)
           return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
         end
