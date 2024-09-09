@@ -188,7 +188,8 @@ local function redir_open_win(buf, vertical, stderr_p)
   local wn = stderr_p and "redir_sterr_win" or "redir_win"
   if vim.g[wn] == nil then
     local win = vim.api.nvim_open_win(buf, true, {
-      vertical = vertical,
+      -- vertical = vertical,
+      vertical = true,
     })
     vim.api.nvim_create_autocmd("WinClosed", {
       pattern = { string.format("%d", win) },
