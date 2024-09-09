@@ -13,7 +13,7 @@ local function filter(arr, fn)
       local line = vim.api.nvim_buf_get_lines(bufnr, first_line, first_line + 1,
         false)
       if string.match(line[1], 'useCallback') then
-        return arr[2]
+        return arr[1]
       end
     end
   end
