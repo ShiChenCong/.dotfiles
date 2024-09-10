@@ -15,5 +15,8 @@ map('n', '<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
 harpoon.setup({
   menu = {
     width = vim.api.nvim_win_get_width(0) - 40,
+  },
+  global_settings = {
+    mark_branch = true,
   }
 })
