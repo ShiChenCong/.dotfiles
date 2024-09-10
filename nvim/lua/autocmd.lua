@@ -325,4 +325,4 @@ vim.api.nvim_create_user_command("Redir", redir, {
   range = true,
   bang = true,
 })
-map('n', ',m', ':Redir messages<cr>')
+map('n', '<leader>m', ':Redir messages<cr>')
