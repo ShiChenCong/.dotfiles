@@ -4,7 +4,6 @@ M.is_git_dir = function()
   local result = cmd:read("*a")
   cmd:close()
 
-  print(result)
   return result == "true\n"
 end
 

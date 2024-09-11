@@ -63,6 +63,15 @@ vim.api.nvim_create_autocmd("User", {
     enable = false
   end
 })
+vim.api.nvim_create_autocmd('BufLeave', {
+  pattern = '*',
+  callback = function()
+    local ft = vim.bo.filetype
+    if ft == 'TelescopePrompt' then
+      enable = false
+    end
+  end
+})
 
 lualine.setup {
   options = {
