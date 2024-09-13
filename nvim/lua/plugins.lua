@@ -69,11 +69,7 @@ require("lazy").setup({
   {
     'akinsho/git-conflict.nvim',
     config = function()
-      require('git-conflict').setup({
-        default_mappings = true,
-        disable_diagnostics = false,
-        highlights = { incoming = 'DiffText', current = 'DiffAdd', }
-      })
+      require('git-conflict').setup()
     end,
     event = 'BufEnter'
   },
@@ -163,7 +159,14 @@ require("lazy").setup({
     end,
     event = { 'InsertEnter', 'CmdlineEnter' },
     dependencies = {
-      { 'L3MON4D3/LuaSnip',        config = function() require('conf.luasnip') end },
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.3.0",
+        build = "make install_jsregexp",
+        config = function()
+          require('conf.luasnip')
+        end
+      },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
