@@ -352,15 +352,15 @@ if vim.g.neovide then
   })
 end
 
-map('n', 'sf', ':NvimTreeFindFile<CR>')
-map('n', '<leader>q', function()
-  local is_open = require 'nvim-tree.view'.is_visible()
-  if is_open then
-    vim.cmd('NvimTreeToggle')
-  else
-    vim.cmd('NvimTreeFindFile')
-    vim.cmd [[normal zz]]
-  end
-end)
+-- map('n', 'sf', ':NvimTreeFindFile<CR>')
+-- map('n', '<leader>q', function()
+--   local is_open = require 'nvim-tree.view'.is_visible()
+--   if is_open then
+--     vim.cmd('NvimTreeToggle')
+--   else
+--     vim.cmd('NvimTreeFindFile')
+--     vim.cmd [[normal zz]]
+--   end
+-- end)
 
 map('n', 'q', '<Nop>')
