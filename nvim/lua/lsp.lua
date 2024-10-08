@@ -56,9 +56,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end
       -- 有错误的时候跳转错误，没有错误则跳转信息提示
       if has_error then
-        vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+        vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR, float = true })
+        -- vim.diagnostic.goto_prev({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
       else
-        vim.diagnostic.goto_prev({ float = { max_width = 100 } })
+        -- vim.diagnostic.goto_prev({ float = { max_width = 100 } })
+        vim.diagnostic.jump({ count = -1, float = true })
       end
     end)
     map('n', ']d', function()
@@ -71,9 +73,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
       end
       if has_error then
-        vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+        -- vim.diagnostic.goto_next({ float = { max_width = 100 }, severity = vim.diagnostic.severity.ERROR })
+        vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR, float = true })
       else
-        vim.diagnostic.goto_next({ float = { max_width = 100 } })
+        -- vim.diagnostic.goto_next({ float = { max_width = 100 } })
+        vim.diagnostic.jump({ count = 1, float = true })
       end
     end)
   end,
