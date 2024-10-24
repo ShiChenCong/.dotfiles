@@ -324,32 +324,32 @@ require("lazy").setup({
       })
     end
   },
-  -- {
-  --   "shellRaining/hlchunk.nvim",
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   branch = 'dev',
-  --   config = function()
-  --     require("hlchunk").setup({
-  --       chunk = {
-  --         delay = 0,
-  --         enable = true,
-  --         style = {
-  --           { fg = "#8c98a3" },
-  --         },
-  --         exclude_filetypes = {
-  --           less = true,
-  --         },
-  --         chars = {
-  --           horizontal_line = "─",
-  --           vertical_line = "│",
-  --           left_top = "╭",
-  --           left_bottom = "╰",
-  --           right_arrow = ">",
-  --         },
-  --       }
-  --     })
-  --   end
-  -- },
+  --[[ {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    branch = 'dev',
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          delay = 0,
+          enable = true,
+          style = {
+            { fg = "#8c98a3" },
+          },
+          exclude_filetypes = {
+            less = true,
+          },
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = ">",
+          },
+        }
+      })
+    end
+  }, ]]
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -384,7 +384,7 @@ require("lazy").setup({
       end)
 
       -- add cursors above/below the main cursor
-      vim.keymap.set("n", "<up>", function() mc.addCursor("k") end)
+      -- vim.keymap.set("n", "<up>", function() mc.addCursor("k") end)
       -- vim.keymap.set("n", "<down>", function() mc.addCursor("j") end)
 
       -- add a cursor and jump to the next word under cursor

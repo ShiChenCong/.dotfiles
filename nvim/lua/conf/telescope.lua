@@ -123,6 +123,7 @@ local function telescope_find_word()
   local len = #word
   if len ~= 0 then
     require('telescope.builtin').grep_string({ search = word })
+    -- require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({ search = word }))
   end
 end
 
@@ -160,7 +161,7 @@ map('n', ',f', function()
 end)
 map('n', '<leader>fg', "<cmd>Telescope git_status<CR>")
 -- map('n', '<leader>g', "<cmd>Telescope git_commits<CR>")
--- map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
 -- map('n', '<leader>fch', "<cmd>lua require('telescope.builtin').command_history()<CR>")
 -- map('n', '<leader>fi', "<cmd>lua require('telescope.builtin').registers()<CR>")
 map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
