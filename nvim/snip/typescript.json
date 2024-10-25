@@ -17,15 +17,6 @@
     ],
     "description": "React useCallback() hook"
   },
-  "useEffect": {
-    "prefix": "ue",
-    "body": [
-      "useEffect(() => {",
-      "\t$1",
-      "}, [${3}])"
-    ],
-    "description": "React useEffect() hook"
-  },
   "useRequest": {
     "prefix": "ur",
     "body": "const [${1}, ${2}] = useRequest(${3})",

@@ -157,7 +157,8 @@ require("lazy").setup({
     config = function()
       require('conf.cmp')
     end,
-    event = { 'InsertEnter', 'CmdlineEnter' },
+    -- event = { 'InsertEnter', 'CmdlineEnter' },
+    event = { 'BufRead' },
     dependencies = {
       {
         "L3MON4D3/LuaSnip",

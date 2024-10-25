@@ -62,6 +62,13 @@ ls.add_snippets(nil, {
 local js_doc_snip = s("/**", fmt([[/**
 * {}
 */]], { i(0) }))
+
+local use_effect_snip = s("ue", fmt([[
+useEffect(() => {{
+  {}
+}},[{}])
+]], { i(1), i(0) }))
+
 local use_state_snip = s("us", {
   t 'const [', i(1),
   t ', ',
@@ -92,6 +99,7 @@ local frontend_file = {
 }
 for _, value in ipairs(frontend_file) do
   ls.add_snippets(value, {
+    use_effect_snip,
     log_snip,
     use_state_snip,
     -- log_with_prefix_snip,

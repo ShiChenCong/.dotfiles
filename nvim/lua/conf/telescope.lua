@@ -143,9 +143,7 @@ local function telescope_find_word_with_args()
   end
 end
 
-map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file)
--- map('n', '<leader>fo', M.reveal_in_finder)
-
+map('n', '<leader>fd', M.telescope_find_word_in_specifeid_file) -- map('n', '<leader>fo', M.reveal_in_finder)
 
 map('n', ',w', telescope_find_word)
 map('n', '<leader>fe', telescope_find_word_with_args)

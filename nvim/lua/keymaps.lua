@@ -172,7 +172,8 @@ map('n', ';', ":", { silent = false })
 --ciw不会yank改变的单词
 map('n', 'c', '"_c')
 map('x', 'c', '"_c')
--- map('n', 'C', '"_c')
+map('n', 'C', '"_C')
+map('n', 'S', '"_S')
 
 map('n', 'p', 'p=`]')
 -- 覆盖选中的部门 不会yank
