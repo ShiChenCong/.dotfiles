@@ -11,7 +11,10 @@ require('trouble').setup({
     }
   },
   ---@type trouble.Window.opts
-  preview = { type = 'split', position = 'right', relative = 'win', size = 0.5 }
+  preview = { type = 'split', position = 'right', relative = 'win', size = 0.5 },
+  keys = {
+    ["<A-p>"] = "toggle_preview"
+  }
 })
 
 -- local opts = { noremap = true, silent = true }

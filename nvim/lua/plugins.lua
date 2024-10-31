@@ -157,8 +157,8 @@ require("lazy").setup({
     config = function()
       require('conf.cmp')
     end,
-    -- event = { 'InsertEnter', 'CmdlineEnter' },
-    event = { 'BufRead' },
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    -- event = { 'BufRead' },
     dependencies = {
       {
         "L3MON4D3/LuaSnip",
@@ -397,7 +397,7 @@ require("lazy").setup({
       -- add and remove cursors with control + left click
       vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
     end,
-  }
+  },
 }, {
   defaults = {
     lazy = false
