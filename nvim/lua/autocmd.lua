@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     if is_node_module_file ~= true and line_count < 700 then
       -- vim.cmd('FormatWrite')
       -- vim.lsp.buf.format({ async = false })
-      vim.lsp.buf.format { filter = function(client) return client.name ~= "tsserver" end }
+      vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
       -- vim.cmd.write()
     end
   end
