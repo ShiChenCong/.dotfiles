@@ -72,6 +72,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       -- vim.cmd('FormatWrite')
       -- vim.lsp.buf.format({ async = false })
       -- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
+      pcall(vim.cmd, 'undojoin')
       vim.lsp.buf.format {}
       -- vim.cmd.write()
     end
