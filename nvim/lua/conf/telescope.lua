@@ -165,4 +165,11 @@ map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').git_branches()<CR>
 map('n', ',o', "<cmd>Telescope oldfiles only_cwd=true<CR>")
 require("telescope").load_extension("ui-select")
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function(args)
+    vim.wo.wrap = true
+  end,
+})
+
 return M

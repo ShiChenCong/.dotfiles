@@ -365,3 +365,4 @@ end
 -- end)
 
 map('n', 'q', '<Nop>')
+map('n', 's', '<Nop>')
