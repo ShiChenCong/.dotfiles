@@ -73,3 +73,7 @@ set -x PATH /Users/scc/rust-project/fish-demo/target/release $PATH
 #     nvm use default
 #   end
 # end
+
+export PUB_HOSTED_URL="https://pub.flutter-io.cn"
+export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+export PATH="/Users/scc/flutter/flutter/bin:$PATH"
