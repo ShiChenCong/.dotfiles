@@ -186,6 +186,7 @@ end)
 
 
 
+-- 读取message到buf
 vim.g.DEBUG = false
 local log = require("plenary.log").new({
   plugin = "redir",
