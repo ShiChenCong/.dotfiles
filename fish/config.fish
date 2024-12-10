@@ -25,21 +25,21 @@ alias unset_proxy 'set -e https_proxy; set -e http_proxy; set -e all_proxy'
 
 
 set -gx PATH /opt/homebrew/bin $PATH
-set -gx PATH ~/.local/bin $PATH
-set -gx PATH ~/.bun/bin $PATH
-set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH
+# set -gx PATH ~/.local/bin $PATH
+# set -gx PATH ~/.bun/bin $PATH
+# set -gx PATH /opt/homebrew/Cellar/node@14/14.17.6/bin:$PATH
 set -gx PATH /usr/local/bin:$PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
 set -g PATH /Users/scc/.local/share/bob/nvim-bin $PATH
-set -g PATH /Users/shichencong/.local/share/bob/nvim-bin $PATH
-
-# deno
-set -x PATH $HOME/.deno/bin:$PATH
-
-set -U fish_greeting ""
-
-set -gx TERM wezterm
-
+# set -g PATH /Users/shichencong/.local/share/bob/nvim-bin $PATH
+#
+# # deno
+# set -x PATH $HOME/.deno/bin:$PATH
+#
+# set -U fish_greeting ""
+#
+# set -gx TERM wezterm
+#
 
 # 测试
 set -x PATH /Users/scc/rust-project/t-filter/target/release $PATH
