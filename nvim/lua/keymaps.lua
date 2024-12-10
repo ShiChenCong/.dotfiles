@@ -244,11 +244,13 @@ map('n', '<leader>gp', ':Git push<CR>')
 map('n', ',g', function()
   if is_git.is_git_dir() then
     vim.cmd('Git')
+    vim.api.nvim_feedkeys("}j", "n", true)
   end
 end)
 map('n', '<leader>,g', function()
   if is_git.is_git_dir() then
     vim.cmd('vertical Git')
+    vim.api.nvim_feedkeys("}j", "n", true)
   end
 end)
 map('n', '<leader>gr', ":diffget //3<CR>")
