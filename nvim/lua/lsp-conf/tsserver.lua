@@ -12,6 +12,9 @@ local function filter(arr, fn)
       local bufnr = vim.api.nvim_get_current_buf()
       local line = vim.api.nvim_buf_get_lines(bufnr, first_line, first_line + 1,
         false)
+      if line[1] == nil then
+        return arr
+      end
       if string.match(line[1], 'useCallback') then
         return arr[1]
       end
