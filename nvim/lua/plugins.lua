@@ -27,7 +27,16 @@ require("lazy").setup({
     end,
     event = "InsertEnter",
   }),
-  -- { "svban/YankAssassin.nvim", event = 'BufEnter' },
+  {
+    "svban/YankAssassin.nvim",
+    event = 'BufEnter',
+    config = function()
+      require("YankAssassin").setup {
+        auto_normal = true,
+        auto_visual = true,
+      }
+    end,
+  },
 
   {
     "folke/trouble.nvim",
