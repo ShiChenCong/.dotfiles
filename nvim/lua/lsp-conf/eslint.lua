@@ -3,7 +3,7 @@ local nvim_lsp = require('lspconfig')
 local keep_position = require('util.keep_position')
 
 local M = {}
-M.init = function(capabilities)
+M.init = function()
   nvim_lsp.eslint.setup {
     -- -- settings = { format = false },
     on_attach = function()

@@ -1,15 +1,16 @@
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
--- 配合nvim-cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- -- 配合nvim-cmp
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- 配合 nvim-ufo
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
-}
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true
+-- }
 
 
-local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls' }
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls', 'eslint' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
@@ -136,7 +137,7 @@ local config = {
 vim.diagnostic.config(config)
 
 require 'lsp-conf.tsserver'.init(capabilities)
-require 'lsp-conf.eslint'.init(capabilities)
+-- require 'lsp-conf.eslint'.init()
 
 -- LspInfo的边框
 require('lspconfig.ui.windows').default_options.border = 'single'

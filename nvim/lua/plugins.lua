@@ -161,29 +161,29 @@ require("lazy").setup({
   { "onsails/lspkind.nvim" },
 
 
-  {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require('conf.cmp')
-    end,
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    -- event = { 'BufRead' },
-    dependencies = {
-      {
-        "L3MON4D3/LuaSnip",
-        version = "v2.3.0",
-        build = "make install_jsregexp",
-        config = function()
-          require('conf.luasnip')
-        end
-      },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-cmdline' },
-    }
-  },
+  -- {
+  --   'hrsh7th/nvim-cmp',
+  --   config = function()
+  --     require('conf.cmp')
+  --   end,
+  --   event = { 'InsertEnter', 'CmdlineEnter' },
+  --   -- event = { 'BufRead' },
+  --   dependencies = {
+  --     {
+  --       "L3MON4D3/LuaSnip",
+  --       version = "v2.3.0",
+  --       build = "make install_jsregexp",
+  --       config = function()
+  --         require('conf.luasnip')
+  --       end
+  --     },
+  --     { 'saadparwaiz1/cmp_luasnip' },
+  --     { 'hrsh7th/cmp-nvim-lsp' },
+  --     { 'hrsh7th/cmp-buffer' },
+  --     { 'hrsh7th/cmp-path' },
+  --     { 'hrsh7th/cmp-cmdline' },
+  --   }
+  -- },
 
   {
     'rmagatti/auto-session',
@@ -406,6 +406,30 @@ require("lazy").setup({
       -- add and remove cursors with control + left click
       vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
     end,
+  },
+  {
+    'saghen/blink.cmp',
+    lazy = false, -- lazy loading handled internally
+    dependencies = 'rafamadriz/friendly-snippets',
+
+    version = 'v0.*',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        ['<CR>'] = { 'accept', 'fallback' },
+      },
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 100,
+        }
+      },
+    },
+    -- allows extending the providers array elsewhere in your config
+    -- without having to redefine it
+    opts_extend = { "sources.default" }
   },
 }, {
   defaults = {
