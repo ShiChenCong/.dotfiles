@@ -45,7 +45,7 @@ set -g PATH /Users/shichencong/.local/share/bob/nvim-bin $PATH
 set -x PATH /Users/scc/rust-project/t-filter/target/release $PATH
 alias ff 't-filter'
 
-set -x PATH /Users/scc/rust-project/fish-demo/target/release $PATH
+# set -x PATH /Users/scc/rust-project/fish-demo/target/release $PATH
 
 # function nvm
 #   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
@@ -74,9 +74,9 @@ set -x PATH /Users/scc/rust-project/fish-demo/target/release $PATH
 #   end
 # end
 
-export PUB_HOSTED_URL="https://pub.flutter-io.cn"
-export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
-export PATH="/Users/scc/flutter/flutter/bin:$PATH"
+# export PUB_HOSTED_URL="https://pub.flutter-io.cn"
+# export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+# export PATH="/Users/scc/flutter/flutter/bin:$PATH"
 
 export PATH="$HOME/.rubies/ruby-3.3.6/bin:$PATH"
 
