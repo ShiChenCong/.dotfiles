@@ -79,7 +79,6 @@ export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 export PATH="/Users/scc/flutter/flutter/bin:$PATH"
 
 export PATH="$HOME/.rubies/ruby-3.3.6/bin:$PATH"
-export GITHUB_TOKEN=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
 
 set npm_root (npm root -g)
 set npm_bin (dirname (dirname $npm_root))/bin
