@@ -25,17 +25,26 @@ cmp.setup({
     --   -- vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
     --   return vim_item
     -- end
-    format = function(entry, item)
-      local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
-      item = require("lspkind").cmp_format({
-        -- any lspkind format settings here
-      })(entry, item)
-      if color_item.abbr_hl_group then
-        item.kind_hl_group = color_item.abbr_hl_group
-        item.kind = color_item.abbr
-      end
-      return item
-    end
+    -- format = function(entry, item)
+    --   local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+    --   item = require("lspkind").cmp_format({
+    --     -- any lspkind format settings here
+    --   })(entry, item)
+    --   if color_item.abbr_hl_group then
+    --     item.kind_hl_group = color_item.abbr_hl_group
+    --     item.kind = color_item.abbr
+    --   end
+    --   return item
+    -- end
+    format = lspkind.cmp_format({
+      mode = 'text', -- show only symbol annotations
+      menu = ({      -- showing type in menu
+        nvim_lsp = "[LSP]",
+        path = "[Path]",
+        buffer = "[Buffer]",
+        luasnip = "[LuaSnip]",
+      }),
+    })
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -90,7 +99,7 @@ cmp.setup({
       end,
     }, -- For luasnip users.
     { name = 'nvim_lsp' },
-    -- { name = 'path' }
+    { name = 'path' },
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
