@@ -35,11 +35,17 @@ vim.cmd [[
   hi DiagnosticUnderlineHint gui=undercurl
 ]]
 
+-- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+--   callback=function ()
+--     print(vim.bo.filetype)
+--   end
+-- })
+
 vim.api.nvim_create_augroup("setWinbar", { clear = false })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = 'setWinbar',
   callback = function()
-    local exclude_filetype = { 'markdown' }
+    local exclude_filetype = { 'markdown','blink-cmp-menu','blink-cmp-documentation' }
     if vim.tbl_contains(exclude_filetype, vim.bo.filetype) then
       return
     end
