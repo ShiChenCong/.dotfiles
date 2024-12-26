@@ -157,7 +157,12 @@ require("lazy").setup({
 
 
   { "neovim/nvim-lspconfig", config = function() require('lsp') end },
-  { "ThePrimeagen/harpoon",  config = function() require('conf.harpoon') end, keys = { "<C-e>" } },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    config = function() require('conf.harpoon') end,
+    keys = { "<C-e>" },
+  },
   { "onsails/lspkind.nvim" },
 
 
@@ -407,6 +412,17 @@ require("lazy").setup({
       vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
     end,
   },
+  {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+    config = function()
+      -- require('bqf').setup({
+      --   preview = {
+      --     show_title = false,
+      --   }
+      -- })
+    end
+  }
 }, {
   defaults = {
     lazy = false
