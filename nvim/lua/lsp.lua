@@ -105,6 +105,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local config = {
   virtual_text = false,
+  -- virtual_text = {
+  --   prefix = "●", -- 图标，可以换成其他符号，如 "⚠", "✖", "ℹ"
+  --   spacing = 1, -- 与代码的距离
+  -- },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '󰅚 ',

@@ -81,6 +81,6 @@ export PATH="/Users/scc/flutter/flutter/bin:$PATH"
 
 export PATH="$HOME/.rubies/ruby-3.3.6/bin:$PATH"
 
-set npm_root (npm root -g)
-set npm_bin (dirname (dirname $npm_root))/bin
-set -g PATH $npm_bin $PATH
+# set npm_root (npm root -g)
+# set npm_bin (dirname (dirname $npm_root))/bin
+# set -g PATH $npm_bin $PATH

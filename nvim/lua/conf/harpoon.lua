@@ -13,6 +13,10 @@ vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 -- map('n', 'gl', ':lua require("harpoon.ui").nav_file(3)<CR>')
 
 harpoon.setup({
+  settings = {
+    save_on_toggle = true,
+    sync_on_ui_close = true
+  }
   -- menu = {
   --   width = vim.api.nvim_win_get_width(0) - 40,
   -- },
