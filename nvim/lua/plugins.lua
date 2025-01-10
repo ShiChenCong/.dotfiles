@@ -410,7 +410,6 @@ require("lazy").setup({
   {
     "saghen/blink.cmp",
     dependencies = {
-      "rafamadriz/friendly-snippets",
       "onsails/lspkind.nvim",
     },
     version = "*",
