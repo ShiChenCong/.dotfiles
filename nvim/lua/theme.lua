@@ -9,15 +9,9 @@ require("catppuccin").setup {
     path = vim.fn.stdpath "cache" .. "/catppuccin"
   },
   integrations = {
-    neotree = true,
-    -- blink_cmp = true
+    blink_cmp = true
   }
   -- transparent_background = true
 }
 
 vim.cmd.colorscheme "catppuccin"
--- vim.cmd [[
---   hi Search guibg=#3f4a57 guifg=NONE
---   hi IncSearch guibg=#3f4a57 guifg=NONE
--- ]]
--- 

@@ -436,7 +436,14 @@ require("lazy").setup({
       --   nerd_font_variant = 'mono'
       -- },
       completion = {
-        menu = { border = 'rounded' },
+        menu = {
+          border = 'rounded',
+          draw = {
+            padding = 1,
+            gap = 4,
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+          }
+        },
         documentation = {
           window = { border = 'rounded' },
           auto_show = true,
