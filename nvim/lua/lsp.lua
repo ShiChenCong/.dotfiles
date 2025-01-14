@@ -14,11 +14,11 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
     settings = {
-      tailwindCSS = {
-        experimental = {
-          configFile = '/Users/scc/workplace/new-merak/node_modules/@dian/vite-preset-react/lib/tailwindcss.config.js'
-        }
-      }
+      -- tailwindCSS = {
+      --   experimental = {
+      --     configFile = '/Users/scc/workplace/new-merak/node_modules/@dian/vite-preset-react/lib/tailwindcss.config.js'
+      --   }
+      -- }
     }
   }
 end

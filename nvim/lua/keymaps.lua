@@ -313,7 +313,8 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   -- vim.g.neovide_confirm_quit = true
   -- vim.g.neovide_no_idle = true
-  vim.o.guifont = "JetBrainsMono Nerd Font:h16:w0.5"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h14:w0.5"
+  vim.g.neovide_cursor_vfx_particle_speed = 120.0
   -- 开启Alt和Meta按键
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   -- 行高
