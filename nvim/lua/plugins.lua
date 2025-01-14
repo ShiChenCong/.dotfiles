@@ -431,12 +431,40 @@ require("lazy").setup({
     ---@type blink.cmp.Config
     opts = {
       snippets = { preset = 'luasnip' },
-      keymap = { preset = 'default' },
       appearance = {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono'
       },
 
+      keymap = {
+        ["<C-e>"] = { "hide", "fallback" },
+        -- ["<CR>"] = { "accept", "fallback" },
+        ["<CR>"] = {
+          function(cmp)
+            local mode = vim.api.nvim_get_mode().mode
+            if mode == 'c' then
+              return nil
+            end
+            return cmp.accept()
+          end,
+          "fallback"
+        },
+
+        ["<Tab>"] = {
+          function(cmp)
+            return cmp.select_next()
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = {
+          function(cmp)
+            return cmp.select_prev()
+          end,
+          "snippet_backward",
+          "fallback",
+        },
+      },
       sources = {
         default = { 'snippets', 'lsp', 'path', 'buffer' },
         providers = {
