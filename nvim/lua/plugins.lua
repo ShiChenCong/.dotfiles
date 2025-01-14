@@ -164,7 +164,7 @@ require("lazy").setup({
     keys = { "<C-e>" },
   },
 
-  { "onsails/lspkind.nvim" },
+  -- { "onsails/lspkind.nvim" },
 
 
   -- {
@@ -377,7 +377,7 @@ require("lazy").setup({
       -- },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings,
+  { "Bilal2453/luvit-meta",  lazy = true }, -- optional `vim.uv` typings,
   {
     "jake-stewart/multicursor.nvim",
     event = 'InsertEnter',
@@ -431,14 +431,16 @@ require("lazy").setup({
     ---@type blink.cmp.Config
     opts = {
       snippets = { preset = 'luasnip' },
-      appearance = {
-        use_nvim_cmp_as_default = true,
-        nerd_font_variant = 'mono'
-      },
+      -- appearance = {
+      --   use_nvim_cmp_as_default = true,
+      --   nerd_font_variant = 'mono'
+      -- },
       completion = {
+        menu = { border = 'rounded' },
         documentation = {
+          window = { border = 'rounded' },
           auto_show = true,
-        }
+        },
       },
 
       keymap = {
