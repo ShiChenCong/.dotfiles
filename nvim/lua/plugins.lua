@@ -438,7 +438,25 @@ require("lazy").setup({
       },
 
       sources = {
-        default = { 'snippets', 'lsp', 'path',  'buffer' },
+        default = { 'snippets', 'lsp', 'path', 'buffer' },
+        providers = {
+          snippets = {
+            min_keyword_length = 1,
+            score_offset = 4,
+          },
+          lsp = {
+            min_keyword_length = 1,
+            score_offset = 3,
+          },
+          path = {
+            min_keyword_length = 1,
+            score_offset = 2,
+          },
+          buffer = {
+            min_keyword_length = 1,
+            score_offset = 1,
+          },
+        },
       },
     },
     opts_extend = { "sources.default" }
