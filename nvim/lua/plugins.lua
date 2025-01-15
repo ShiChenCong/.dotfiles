@@ -420,8 +420,13 @@ require("lazy").setup({
       --   nerd_font_variant = 'mono'
       -- },
       completion = {
+        accept = {
+          auto_brackets = {
+            enabled = false,
+          },
+        },
         menu = {
-          border = 'rounded',
+          -- border = 'none',
           draw = {
             padding = 1,
             gap = 4,
@@ -439,7 +444,7 @@ require("lazy").setup({
           }
         },
         documentation = {
-          window = { border = 'rounded' },
+          -- window = { border = 'rounded' },
           auto_show = true,
           auto_show_delay_ms = 0,
         },
