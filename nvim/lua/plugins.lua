@@ -163,33 +163,6 @@ require("lazy").setup({
     config = function() require('conf.harpoon') end,
     keys = { "<C-e>" },
   },
-  { "onsails/lspkind.nvim" },
-
-
-  {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require('conf.cmp')
-    end,
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    -- event = { 'BufRead' },
-    dependencies = {
-      {
-        "L3MON4D3/LuaSnip",
-        version = "v2.3.0",
-        build = "make install_jsregexp",
-        config = function()
-          require('conf.luasnip')
-        end
-      },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-cmdline' },
-    }
-  },
-
   {
     'rmagatti/auto-session',
     config = function()
@@ -376,7 +349,7 @@ require("lazy").setup({
       -- },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings,
+  { "Bilal2453/luvit-meta",  lazy = true }, -- optional `vim.uv` typings,
   {
     "jake-stewart/multicursor.nvim",
     event = 'InsertEnter',
@@ -413,6 +386,7 @@ require("lazy").setup({
     end,
   },
   {
+
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
     config = function()
@@ -422,7 +396,97 @@ require("lazy").setup({
       --   }
       -- })
     end
-  }
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "onsails/lspkind.nvim",
+      {
+        'L3MON4D3/LuaSnip',
+        version = 'v2.*',
+        config = function()
+          require('conf.luasnip')
+        end
+      }
+    },
+    version = "*",
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      snippets = { preset = 'luasnip' },
+      -- appearance = {
+      --   use_nvim_cmp_as_default = true,
+      --   nerd_font_variant = 'mono'
+      -- },
+      completion = {
+        menu = {
+          border = 'rounded',
+          draw = {
+            padding = 1,
+            gap = 4,
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+          }
+        },
+        documentation = {
+          window = { border = 'rounded' },
+          auto_show = true,
+        },
+      },
+
+      keymap = {
+        ["<C-e>"] = { "hide", "fallback" },
+        -- ["<CR>"] = { "accept", "fallback" },
+        ["<CR>"] = {
+          function(cmp)
+            local mode = vim.api.nvim_get_mode().mode
+            if mode == 'c' then
+              return nil
+            end
+            return cmp.accept()
+          end,
+          "fallback"
+        },
+
+        ["<Tab>"] = {
+          function(cmp)
+            return cmp.select_next()
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = {
+          function(cmp)
+            return cmp.select_prev()
+          end,
+          "snippet_backward",
+          "fallback",
+        },
+      },
+      sources = {
+        default = { 'snippets', 'lsp', 'path', 'buffer' },
+        providers = {
+          snippets = {
+            min_keyword_length = 1,
+            score_offset = 4,
+          },
+          lsp = {
+            min_keyword_length = 1,
+            score_offset = 3,
+          },
+          path = {
+            min_keyword_length = 1,
+            score_offset = 2,
+          },
+          buffer = {
+            min_keyword_length = 1,
+            score_offset = 1,
+          },
+        },
+      },
+    },
+    opts_extend = { "sources.default" }
+  },
 }, {
   defaults = {
     lazy = false

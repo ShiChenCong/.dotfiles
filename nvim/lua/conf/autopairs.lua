@@ -1,7 +1,7 @@
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local handlers = require('nvim-autopairs.completion.handlers')
-local cmp = require('cmp')
-local keymap = require("cmp.utils.keymap")
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local handlers = require('nvim-autopairs.completion.handlers')
+-- local cmp = require('cmp')
+-- local keymap = require("cmp.utils.keymap")
 
 -- cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
 --   filetypes = {
