@@ -400,7 +400,7 @@ require("lazy").setup({
   {
     "saghen/blink.cmp",
     dependencies = {
-      "onsails/lspkind.nvim",
+      { "onsails/lspkind.nvim" },
       {
         'L3MON4D3/LuaSnip',
         version = 'v2.*',
@@ -426,11 +426,22 @@ require("lazy").setup({
             padding = 1,
             gap = 4,
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  return require("lspkind").symbolic(ctx.kind, {
+                    mode = "symbol",
+                    preset = "codicons",
+                  })
+                end,
+              },
+            },
           }
         },
         documentation = {
           window = { border = 'rounded' },
           auto_show = true,
+          auto_show_delay_ms = 0,
         },
       },
 
