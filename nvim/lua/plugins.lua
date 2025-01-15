@@ -493,7 +493,7 @@ require("lazy").setup({
             score_offset = 4,
           },
           lsp = {
-            min_keyword_length = 1,
+            min_keyword_length = 0,
             score_offset = 3,
           },
           path = {
