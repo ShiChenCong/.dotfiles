@@ -497,7 +497,7 @@ require("lazy").setup({
             score_offset = 3,
           },
           path = {
-            min_keyword_length = 1,
+            min_keyword_length = 0,
             score_offset = 2,
           },
           buffer = {
