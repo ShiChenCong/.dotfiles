@@ -1,7 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
 -- -- 配合nvim-cmp
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- 配合 nvim-ufo
 -- capabilities.textDocument.foldingRange = {
 --   dynamicRegistration = false,
@@ -9,7 +9,7 @@ local map = require('util.map')
 -- }
 
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+-- local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls', 'eslint' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -28,16 +28,16 @@ nvim_lsp.denols.setup {
   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
--- require('lspconfig').ds_pinyin_lsp.setup {
---   capabilities = capabilities,
---   filetypes = { 'typescript', 'javascript', 'typescriptreact', 'rust', 'lua', 'gitcommit', 'TelescopePrompt' },
---   init_options = {
---     db_path = "/Users/scc/lsp/dict.db3",
---     completion_on = true,
---     match_as_same_as_input = true,
---     show_symbols_only_follow_by_hanzi = true
---   },
--- }
+require('lspconfig').ds_pinyin_lsp.setup {
+  capabilities = capabilities,
+  filetypes = { 'typescript', 'javascript', 'typescriptreact', 'rust', 'lua', 'gitcommit', 'TelescopePrompt' },
+  init_options = {
+    db_path = "/Users/scc/lsp/dict.db3",
+    completion_on = true,
+    match_as_same_as_input = true,
+    show_symbols_only_follow_by_hanzi = true
+  },
+}
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

@@ -5,6 +5,12 @@ require("catppuccin").setup {
     return {
       BlinkCmpMenu = {
         bg = colors.mantle
+      },
+      BlinkCmpMenuBorder = {
+        bg = colors.mantle
+      },
+      BlinkCmpDocBorder = {
+        bg = colors.mantle
       }
     }
   end,

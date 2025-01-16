@@ -397,7 +397,7 @@ require("lazy").setup({
       -- })
     end
   },
-  {
+  --[[ {
     "saghen/blink.cmp",
     dependencies = {
       { "onsails/lspkind.nvim" },
@@ -426,13 +426,18 @@ require("lazy").setup({
       --   nerd_font_variant = 'mono'
       -- },
       completion = {
+        list = {
+          selection = {
+            preselect = false
+          }
+        },
         accept = {
           auto_brackets = {
             enabled = false,
           },
         },
         menu = {
-          -- border = 'none',
+          border = 'rounded',
           draw = {
             padding = 1,
             gap = 4,
@@ -450,7 +455,7 @@ require("lazy").setup({
           }
         },
         documentation = {
-          -- window = { border = 'rounded' },
+          window = { border = 'rounded' },
           auto_show = true,
           auto_show_delay_ms = 0,
         },
@@ -458,14 +463,16 @@ require("lazy").setup({
 
       keymap = {
         ["<C-e>"] = { "hide", "fallback" },
-        -- ["<CR>"] = { "accept", "fallback" },
         ["<CR>"] = {
           function(cmp)
             local mode = vim.api.nvim_get_mode().mode
             if mode == 'c' then
               return nil
             end
-            return cmp.accept()
+
+            if cmp.is_visible then
+              return cmp.accept({ index = 1 })
+            end
           end,
           "fallback"
         },
@@ -508,7 +515,33 @@ require("lazy").setup({
       },
     },
     opts_extend = { "sources.default" }
+  }, ]]
+
+  {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('conf.cmp')
+    end,
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    -- event = { 'BufRead' },
+    dependencies = {
+      { "onsails/lspkind.nvim" },
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.3.0",
+        build = "make install_jsregexp",
+        config = function()
+          require('conf.luasnip')
+        end
+      },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+    }
   },
+
 }, {
   defaults = {
     lazy = false
