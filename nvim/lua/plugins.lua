@@ -397,7 +397,7 @@ require("lazy").setup({
       -- })
     end
   },
-  --[[ {
+  {
     "saghen/blink.cmp",
     dependencies = {
       { "onsails/lspkind.nvim" },
@@ -470,8 +470,13 @@ require("lazy").setup({
               return nil
             end
 
+            local a = require('blink.cmp.completion.list').get_selected_item()
             if cmp.is_visible then
-              return cmp.accept({ index = 1 })
+              if a ~= nil then
+                return cmp.accept()
+              else
+                return cmp.accept({ index = 1 })
+              end
             end
           end,
           "fallback"
@@ -519,9 +524,9 @@ require("lazy").setup({
       },
     },
     opts_extend = { "sources.default" }
-  }, ]]
+  },
 
-  {
+  --[[ {
     'hrsh7th/nvim-cmp',
     config = function()
       require('conf.cmp')
@@ -544,7 +549,7 @@ require("lazy").setup({
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-cmdline' },
     }
-  },
+  }, ]]
 
 }, {
   defaults = {
