@@ -502,6 +502,10 @@ require("lazy").setup({
           lsp = {
             min_keyword_length = 0,
             score_offset = 3,
+            name = "LSP",
+            module = "blink.cmp.sources.lsp",
+            -- score_offset = 2000,
+            fallbacks = { "snippets" },
           },
           path = {
             min_keyword_length = 0,

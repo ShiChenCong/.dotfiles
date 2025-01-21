@@ -28,16 +28,16 @@ nvim_lsp.denols.setup {
   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
-require('lspconfig').ds_pinyin_lsp.setup {
-  capabilities = capabilities,
-  filetypes = { 'typescript', 'javascript', 'typescriptreact', 'rust', 'lua', 'gitcommit', 'TelescopePrompt' },
-  init_options = {
-    db_path = "/Users/scc/lsp/dict.db3",
-    completion_on = true,
-    match_as_same_as_input = true,
-    show_symbols_only_follow_by_hanzi = true
-  },
-}
+-- require('lspconfig').ds_pinyin_lsp.setup {
+--   capabilities = capabilities,
+--   filetypes = { 'typescript', 'javascript', 'typescriptreact', 'rust', 'lua', 'gitcommit', 'TelescopePrompt' },
+--   init_options = {
+--     db_path = "/Users/scc/lsp/dict.db3",
+--     completion_on = true,
+--     match_as_same_as_input = true,
+--     show_symbols_only_follow_by_hanzi = true
+--   },
+-- }
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
