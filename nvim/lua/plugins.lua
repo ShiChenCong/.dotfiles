@@ -445,7 +445,8 @@ require("lazy").setup({
             components = {
               kind = {
                 text = function(ctx)
-                  local space = string.rep(" ", 10 - string.len(ctx.kind))
+                  local len = 10 - string.len(ctx.kind)
+                  local space = string.rep(" ", len)
                   return ctx.kind .. space .. '[' .. ctx.source_name .. ']'
                 end
               }
@@ -507,8 +508,7 @@ require("lazy").setup({
             score_offset = 3,
             name = "LSP",
             module = "blink.cmp.sources.lsp",
-            -- score_offset = 2000,
-            fallbacks = { "snippets" },
+            fallbacks = { },
           },
           path = {
             min_keyword_length = 0,
