@@ -439,18 +439,16 @@ require("lazy").setup({
         menu = {
           border = 'rounded',
           draw = {
-            padding = 1,
-            gap = 4,
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+            -- padding = 1,
+            -- gap = 4,
+            columns = { {"kind_icon", "label", "label_description", gap = 1 }, {  "kind", gap = 1 } },
             components = {
-              kind_icon = {
+              kind = {
                 text = function(ctx)
-                  return require("lspkind").symbolic(ctx.kind, {
-                    mode = "symbol",
-                    preset = "codicons",
-                  })
-                end,
-              },
+                  local space = string.rep(" ", 10 - string.len(ctx.kind))
+                  return ctx.kind .. space .. '[' .. ctx.source_name .. ']'
+                end
+              }
             },
           }
         },
