@@ -468,9 +468,9 @@ require("lazy").setup({
               return nil
             end
 
-            local a = require('blink.cmp.completion.list').get_selected_item()
+            local selected_item = require('blink.cmp.completion.list').get_selected_item()
             if cmp.is_visible then
-              if a ~= nil then
+              if selected_item ~= nil then
                 return cmp.accept()
               else
                 return cmp.accept({ index = 1 })
