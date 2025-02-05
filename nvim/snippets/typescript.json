@@ -1,0 +1,96 @@
+{
+  "useMemo": {
+    "prefix": "um",
+    "body": [
+      "const ${1:memoizedValue} = useMemo(() => {",
+      "\t ${2}",
+      "}, [${3}])"
+    ],
+    "description": "React useMemo() hook"
+  },
+  "useCallback": {
+    "prefix": "ub",
+    "body": [
+      "const ${1} = useCallback(() => {",
+      "\t${2}",
+      "}, [${3}])"
+    ],
+    "description": "React useCallback() hook"
+  },
+  "useRequest": {
+    "prefix": "ur",
+    "body": "const [${1}, ${2}] = useRequest(${3})",
+    "description": "use query"
+  },
+  "useQuery": {
+    "prefix": "uq",
+    "body": "const [${1}, ${2}] = useQuery(${3})",
+    "description": "use query"
+  },
+  "useBoolean": {
+    "prefix": "ubl",
+    "body": "const {state:${1}, toggle:toggle${1}} = useBoolean(${2})",
+    "description": "use query"
+  },
+  "reactFunctionComponent": {
+    "prefix": "rfc",
+    "body": "import React from 'react'\n\nexport const ${TM_FILENAME_BASE}: React.FC<{}> = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}",
+    "description": "Creates a React functional component without PropTypes"
+  },
+  "imoprt": {
+    "prefix": "im",
+    "body": "import ${2} from ${1}"
+  },
+  "cp": {
+    "prefix": "cp",
+    "body": "const { ${0} } = props"
+  },
+  "cn": {
+    "prefix": "cn",
+    "body": "const { ${2} } = ${1}"
+  },
+  ":bug: fix:": {
+    "prefix": "bf",
+    "body": ":bug: fix:${0}"
+  },
+  "function Component": {
+    "prefix": "ff",
+    "body": [
+      "const ${1} = () => {",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1}"
+    ]
+  },
+  "typescript function Component": {
+    "prefix": "ft",
+    "body": [
+      "interface IProps {",
+      "",
+      "}",
+      "",
+      "const ${1}: React.FC<IProps> = () => {",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1}"
+    ]
+  },
+  "react FC": {
+    "prefix": "rf",
+    "body": [
+      "interface IProps{}",
+      "export default function ${1}(",
+      "  return (",
+      "    <div>${2}</div>",
+      "  )",
+      ")"
+    ],
+    "description": "react FC"
+  }
+}

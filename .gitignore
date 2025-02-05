@@ -1,0 +1,14 @@
+plugged
+clash
+iterm2
+karabiner/assets
+karabiner/automatic_backups
+yarn
+configstore
+.DS_Store
+raycast
+rio
+
+fish/fish_variables
+
+nvim/plugin/packer_compiled.lua
