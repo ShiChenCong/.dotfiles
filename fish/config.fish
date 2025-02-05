@@ -7,8 +7,8 @@ alias l 'lazygit'
 alias cl 'clear'
 alias j 'z'
 alias p 'pnpm'
-alias ll " exa --icons -l --no-user "
-alias ls " exa --icons -l --no-user "
+alias ll " eza --icons -l --no-user "
+alias ls " eza --icons -l --no-user "
 alias ssr "http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087"
 alias ff "fzf | xargs nvim"
 
