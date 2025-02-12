@@ -112,11 +112,17 @@ end
 local chore = s("c", fmt([[
   chore({}): {}
 ]], {i(1),i(0)}))
+local style = s("c", fmt([[
+  style({}): {}
+]], {i(1),i(0)}))
+local feat = s("c", fmt([[
+  feat({}): {}
+]], {i(1),i(0)}))
 
 ls.add_snippets('gitcommit', {
   chore,
-  -- style,
-  -- feat,
+  style,
+  feat,
 })
 
 -- vim.api.nvim_create_autocmd("User", {
