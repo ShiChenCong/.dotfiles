@@ -109,6 +109,16 @@ for _, value in ipairs(frontend_file) do
   })
 end
 
+local chore = s("c", fmt([[
+  chore({}): {}
+]], {i(1),i(0)}))
+
+ls.add_snippets('gitcommit', {
+  chore,
+  -- style,
+  -- feat,
+})
+
 -- vim.api.nvim_create_autocmd("User", {
 --   pattern = "LuasnipPreExpand",
 --   callback = function()

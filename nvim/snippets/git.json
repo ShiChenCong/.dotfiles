@@ -1,14 +1,10 @@
 {
-  "进行中": {
-    "prefix": "c",
-    "body": "chore: $0"
-  },
   "样式修改": {
     "prefix": "s",
-    "body": "style: $0"
+    "body": "style($0): $1"
   },
   "修复bug": {
     "prefix":"f",
-    "body":"fix: $0"
+    "body":"fix($0): $1"
   }
 }

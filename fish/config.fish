@@ -16,11 +16,14 @@ alias ps "python3 -m http.server"
 # alias nv '/Applications/neovide.app/Contents/MacOS/neovide'
 alias nv 'neovide --frame=none'
 
-alias gs 'git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph'
+alias gl 'git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" --graph'
+alias gs 'git status'
+alias gb 'git branch'
 alias ssr "http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890"
 alias set_proxy "export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias unset_proxy 'set -e https_proxy; set -e http_proxy; set -e all_proxy'
 alias vc 'vi /Users/shichencong/.config/clash/YIY.ONE.yaml'
+alias cx "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
 
 # set -e TERMINFO
 
