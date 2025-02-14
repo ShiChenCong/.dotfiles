@@ -1,7 +1,8 @@
 alias vi "nvim"
 alias v "nvim"
 
-alias t "tmux"
+alias t "tmux new -s (basename (pwd))"
+alias tl "tmux ls"
 alias ta "tmux attach"
 alias l 'lazygit'
 alias cl 'clear'
@@ -85,6 +86,8 @@ alias ff 't-filter'
 # export PATH="$HOME/.rubies/ruby-3.3.6/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 set -U fish_greeting ""
+
+set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
 # set npm_root (npm root -g)
 # set npm_bin (dirname (dirname $npm_root))/bin
