@@ -125,7 +125,7 @@ local function telescope_find_word()
   local len = #word
   if len ~= 0 then
     -- 查询包括gitignore里的文件，但是排除node_modules
-    require('telescope.builtin').grep_string({ search = word, additional_args = { "--no-ignore", "--glob", "!**/node_modules/*" } })
+    require('telescope.builtin').grep_string({ search = word, additional_args = { "--no-ignore", "-g", "!**/node_modules/*" } })
     -- require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({ search = word }))
   end
 end
