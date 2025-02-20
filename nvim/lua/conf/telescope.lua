@@ -26,7 +26,7 @@ local opts           = {
     --   filename_first = {}
     -- },
     -- prompt_prefix = "",
-    file_ignore_patterns = { "node_modules" },
+    -- file_ignore_patterns = { "node_modules" },
     sorting_strategy = "ascending",
     layout_config = {
       prompt_position = "top",
@@ -83,7 +83,9 @@ local opts           = {
     -- find_files = { theme = "dropdown" }
     find_files = { previewer = false },
     git_files = { previewer = false },
-    oldfiles = { previewer = false }
+    oldfiles = { previewer = false },
+    grep_string = {
+    }
   },
   extensions = {
     ["ui-select"] = {
@@ -122,7 +124,8 @@ local function telescope_find_word()
   local word = vim.fn.input("Search > ")
   local len = #word
   if len ~= 0 then
-    require('telescope.builtin').grep_string({ search = word })
+    -- 查询包括gitignore里的文件，但是排除node_modules
+    require('telescope.builtin').grep_string({ search = word, additional_args = { "--no-ignore", "--glob", "!**/node_modules/*" } })
     -- require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({ search = word }))
   end
 end
