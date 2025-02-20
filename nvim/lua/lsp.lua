@@ -10,6 +10,7 @@ local map = require('util.map')
 
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
+require 'lsp-conf.tsserver'.init(capabilities)
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls', 'eslint' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -140,7 +141,6 @@ local config = {
 
 vim.diagnostic.config(config)
 
-require 'lsp-conf.tsserver'.init(capabilities)
 -- require 'lsp-conf.eslint'.init()
 
 -- LspInfo的边框

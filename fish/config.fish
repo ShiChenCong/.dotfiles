@@ -87,7 +87,10 @@ alias ff 't-filter'
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 set -U fish_greeting ""
 
+# react-native Android相关的配置
 set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools
 
 # set npm_root (npm root -g)
 # set npm_bin (dirname (dirname $npm_root))/bin
