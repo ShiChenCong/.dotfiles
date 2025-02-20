@@ -1,14 +1,5 @@
 local nvim_lsp = require('lspconfig')
 local map = require('util.map')
--- -- 配合nvim-cmp
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- 配合 nvim-ufo
--- capabilities.textDocument.foldingRange = {
---   dynamicRegistration = false,
---   lineFoldingOnly = true
--- }
-
-
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 require 'lsp-conf.tsserver'.init(capabilities)
 local servers = { 'html', 'cssls', 'tailwindcss', 'jsonls', 'rust_analyzer', 'lua_ls', 'eslint' }
@@ -49,7 +40,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'gd', vim.lsp.buf.definition, bufopts)
     map('n', 'K', vim.lsp.buf.hover, bufopts)
     map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    -- map('n', '<space>rn', ":Lspsaga rename<CR>", bufopts)
     map('n', '<space>.', vim.lsp.buf.code_action, bufopts)
     map('n', '<space>gi', '<cmd>Trouble lsp_implementations<cr>', bufopts)
     map('n', 'gr', '<cmd>Trouble lsp_references<cr>', bufopts)
